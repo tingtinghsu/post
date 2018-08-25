@@ -11,7 +11,7 @@ categories: jekyll update
 
 於是好奇的我決定照著關鍵字來搜尋一下，如法炮製做一個出來。
 
-##A.在你自己的Github帳號建立新資料夾 github.io
+## A.在你自己的Github帳號建立新資料夾 github.io
 *名稱必須是你的`username.github.io`*
 ![https://ithelp.ithome.com.tw/upload/images/20180824/20111177JLQCXuETDs.png](https://ithelp.ithome.com.tw/upload/images/20180824/20111177JLQCXuETDs.png)
 建好後下載這個資料夾。
@@ -21,7 +21,7 @@ categories: jekyll update
 如果想架動態網站，可以去[Heroku](https://www.heroku.com/)
 
 
-##B. 在github.io資料夾內新增首頁
+## B. 在github.io資料夾內新增首頁
 剛剛下載的資料夾，預設會儲存至本機端電腦的這個路徑（以我的Mac為例）：
 ```
 /Users/tingtinghsu/Documents/GitHub/tingtinghsu.github.io
@@ -60,7 +60,7 @@ categories: jekyll update
 
 成功！
 
-##C.在本機上裝Jekyll
+## C.在本機上裝Jekyll
 [Jekyll](http://jekyllcn.com/docs/posts/)
 
 Jekyll是base on ruby開發的部落格網站生成器，需要的版本要ruby2.0以上。
