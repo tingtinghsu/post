@@ -1,0 +1,136 @@
+---
+layout: post
+title:  "在Github用Jekyll創建自己的blog"
+date:   2018-08-25 11:13:12 +1000
+categories: jekyll update
+---
+最近IT邦有一篇熱門文章「哪個blog寫技術文章最好用？」
+~~有邦友開玩笑的說IT邦算嗎？~~
+
+昨天貓貓工程師在我們的[Slack](http://slack.com/)群組分享他的[blog](https://blog.bater.gq/)，他提到是使用[Jekyll](http://jekyllcn.com/docs/posts/)（一個簡單靜態blog網站生成器）架在[github](https://github.com/)上的。
+
+於是好奇的我決定照著關鍵字來搜尋一下，如法炮製做一個出來。
+
+##A.在你自己的Github帳號建立新資料夾 github.io
+*名稱必須是你的`username.github.io`*
+![https://ithelp.ithome.com.tw/upload/images/20180824/20111177JLQCXuETDs.png](https://ithelp.ithome.com.tw/upload/images/20180824/20111177JLQCXuETDs.png)
+建好後下載這個資料夾。
+
+補充：Github是個放程式的地方，最多只能呈現特定的`靜態頁面`（適合放blog/履歷表之類的內容。）
+無法放搭配`伺服器`與`資料庫`共同運作（例如會員登入、購物車等功能）的`動態網站`，！
+如果想架動態網站，可以去[Heroku](https://www.heroku.com/)
+
+
+##B. 在github.io資料夾內新增首頁
+剛剛下載的資料夾，預設會儲存至本機端電腦的這個路徑（以我的Mac為例）：
+```
+/Users/tingtinghsu/Documents/GitHub/tingtinghsu.github.io
+```
+在本機裡的yourusername.github.io新增空白頁面`index.html`，使用html語法編輯。
+
+![https://ithelp.ithome.com.tw/upload/images/20180824/201111770XolTRJGtw.png](https://ithelp.ithome.com.tw/upload/images/20180824/201111770XolTRJGtw.png)
+
+
+來改一下簡單的Hello World Style程式碼：
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Hello Ting Ting!</h1>
+    <p>This is my GitHub Pages.</p>
+  </body>
+</html>
+```
+
+這時候貓貓工程師在我耳朵旁邊OS打廣告:[VS code](https://code.visualstudio.com/) 好用！
+
+改好後，重點來了！先 `Commit to Master`（儲存修改到本機），再`Push`（上傳將你要發佈的網頁到Github的資料夾上）
+
+給Git新新手的連結：
+常用Git指令，網路上資源非常豐富，我參考[這裡]( https://blog.gogojimmy.net/2012/02/29/git-scenario/)部落格，
+
+如果新手想先跳過git指令本機端的圖形介面編輯器，可以下載[Github桌面版](https://desktop.github.com/) 。
+
+好囉！來網址列試試看自己的blog*陽春*首頁會不會出現?
+> http://tingtinghsu.github.io/
+
+![https://ithelp.ithome.com.tw/upload/images/20180824/20111177CSwxXlpA2v.png](https://ithelp.ithome.com.tw/upload/images/20180824/20111177CSwxXlpA2v.png)
+
+成功！
+
+##C.在本機上裝Jekyll
+[Jekyll](http://jekyllcn.com/docs/posts/)
+
+Jekyll是base on ruby開發的部落格網站生成器，需要的版本要ruby2.0以上。
+在termimal輸入ruby -v確定一下版本：
+![https://ithelp.ithome.com.tw/upload/images/20180825/20111177OspMdSGx4z.png](https://ithelp.ithome.com.tw/upload/images/20180825/20111177OspMdSGx4z.png)
+
+Ruby版本沒問題，就可以輸入指令在本地安裝Jekyll
+```
+gem install jekyll
+```
+
+建一個新資料夾寫Blog的指令:
+```
+jekyll new myblog
+cd myblog
+```
+
+開啟Jekyll伺服器：
+```
+jekyll serve
+```
+
+在網址列輸入http://localhost:4000/
+應該會出現這樣的畫面：
+![https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png](https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png)
+
+接下我們就可以在本地端進行完修改網頁，再用git上傳。
+
+
+
+[後記：]
+安裝Git這部分我卡住了一段時間，因為以前沒有相關的觀念。
+
+感謝貓貓工程師教學：
+
+每次上傳前的好習慣是要輸入 `git status` ：先用git看看哪些資料夾還沒有merged 
+
+如果出現了`Unmerged paths`，代表本地曾經新建過的新檔案，Github上還沒備份: 
+
+```
+  (use "git add <file>..." to mark resolution)
+
+        added by them:   _posts/2018-08-24-my_first_jekyll_page.markdown
+        both modified:   _site/feed.xml
+        both modified:   _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
+```
+
+`git add .`:把所有更改過的所有網頁加入暫存變更
+如果只要加入某個特定網頁，就在`git add`後加上網頁路徑
+```
+git add _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
+```
+
+`git status`: 確定一下剛剛是否已經存入暫存變更
+
+`git log`: commit 的東西才會進log 
+
+
+```
+git commit -m "add new page"
+```
+
+`Changes not staged for commit:` [已追蹤但還沒被修正]
+
+```
+(use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   _site/404.html
+        modified:   _site/about/index.html
+        modified:   _site/index.html
+```
+
