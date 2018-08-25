@@ -7,7 +7,7 @@ categories: jekyll update
 最近IT邦有一篇熱門文章「哪個blog寫技術文章最好用？」
 ~~有邦友開玩笑的說IT邦算嗎？~~
 
-昨天貓貓工程師在我們的[Slack](http://slack.com/)群組分享他的[blog](https://blog.bater.gq/)，他提到是使用[Jekyll](http://jekyllcn.com/docs/posts/)（一個簡單靜態blog網站生成器）架在[github](https://github.com/)上的。
+昨天貓貓工程師在我們共同的[Slack](http://slack.com/)群組分享他的[blog](https://blog.bater.gq/)，他提到是使用[Jekyll](http://jekyllcn.com/docs/posts/)（一個簡單靜態blog網站生成器）架在[github](https://github.com/)上的。
 
 於是好奇的我決定照著關鍵字來搜尋一下，如法炮製做一個出來。
 
@@ -46,7 +46,7 @@ categories: jekyll update
 
 這時候貓貓工程師在我耳朵旁邊OS打廣告:[VS code](https://code.visualstudio.com/) 好用！
 
-改好後，重點來了！先 `Commit to Master`（儲存修改到本機），再`Push`（上傳將你要發佈的網頁到Github的資料夾上）
+改好後，重點來了！先 `git commit` to Master（儲存修改到本機），再`git push`（上傳將你要發佈的網頁到Github的資料夾上）
 
 給Git新新手的連結：
 常用Git指令，網路上資源非常豐富，我參考[這裡]( https://blog.gogojimmy.net/2012/02/29/git-scenario/)部落格，
@@ -88,7 +88,10 @@ jekyll serve
 ![https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png](https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png)
 
 接下我們就可以在本地端進行完修改網頁，再用git上傳。
+到你的網誌連結：http://tingtinghsu.github.io/
+![https://ithelp.ithome.com.tw/upload/images/20180825/20111177CyDdUoadop.png](https://ithelp.ithome.com.tw/upload/images/20180825/20111177CyDdUoadop.png)
 
+就可以看到改好的頁面了～～
 
 
 [後記：]
@@ -115,22 +118,16 @@ git add _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
 ```
 
 `git status`: 確定一下剛剛是否已經存入暫存變更
+綠色的字就是已經存入：
+![https://ithelp.ithome.com.tw/upload/images/20180825/2011117784pHVbSogs.png](https://ithelp.ithome.com.tw/upload/images/20180825/2011117784pHVbSogs.png)
 
-`git log`: commit 的東西才會進log 
+
+`git log`：commit過的動作會進log做紀錄，`-m ""`加上自己的註解：commit過什麼事情
+![https://ithelp.ithome.com.tw/upload/images/20180825/20111177KatlWjvZCF.png](https://ithelp.ithome.com.tw/upload/images/20180825/20111177KatlWjvZCF.png)
 
 
-```
-git commit -m "add new page"
-```
+`git push`：記得要先commit後再push。看到又新增的blog文章頁面，很有成就感呢！：）
+![https://ithelp.ithome.com.tw/upload/images/20180825/20111177xHVSTLH6hm.png](https://ithelp.ithome.com.tw/upload/images/20180825/20111177xHVSTLH6hm.png)
 
-`Changes not staged for commit:` [已追蹤但還沒被修正]
-
-```
-(use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-        modified:   _site/404.html
-        modified:   _site/about/index.html
-        modified:   _site/index.html
-```
+`git pull` ：如果和其他人協同作一個部落格/專案，有可能GitHub上的變更會比較新，此時要先Pull下來，再push上去，才會確保是最新版本喔！
 

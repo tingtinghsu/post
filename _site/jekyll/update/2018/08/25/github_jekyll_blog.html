@@ -48,7 +48,7 @@
     <p>最近IT邦有一篇熱門文章「哪個blog寫技術文章最好用？」
 <del>有邦友開玩笑的說IT邦算嗎？</del></p>
 
-<p>昨天貓貓工程師在我們的<a href="http://slack.com/">Slack</a>群組分享他的<a href="https://blog.bater.gq/">blog</a>，他提到是使用<a href="http://jekyllcn.com/docs/posts/">Jekyll</a>（一個簡單靜態blog網站生成器）架在<a href="https://github.com/">github</a>上的。</p>
+<p>昨天貓貓工程師在我們共同的<a href="http://slack.com/">Slack</a>群組分享他的<a href="https://blog.bater.gq/">blog</a>，他提到是使用<a href="http://jekyllcn.com/docs/posts/">Jekyll</a>（一個簡單靜態blog網站生成器）架在<a href="https://github.com/">github</a>上的。</p>
 
 <p>於是好奇的我決定照著關鍵字來搜尋一下，如法炮製做一個出來。</p>
 
@@ -83,7 +83,7 @@
 
 <p>這時候貓貓工程師在我耳朵旁邊OS打廣告:<a href="https://code.visualstudio.com/">VS code</a> 好用！</p>
 
-<p>改好後，重點來了！先 <code class="highlighter-rouge">Commit to Master</code>（儲存修改到本機），再<code class="highlighter-rouge">Push</code>（上傳將你要發佈的網頁到Github的資料夾上）</p>
+<p>改好後，重點來了！先 <code class="highlighter-rouge">git commit</code> to Master（儲存修改到本機），再<code class="highlighter-rouge">git push</code>（上傳將你要發佈的網頁到Github的資料夾上）</p>
 
 <p>給Git新新手的連結：
 常用Git指令，網路上資源非常豐富，我參考<a href="https://blog.gogojimmy.net/2012/02/29/git-scenario/">這裡</a>部落格，</p>
@@ -123,7 +123,11 @@ cd myblog
 應該會出現這樣的畫面：
 <img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png" /></p>
 
-<p>接下我們就可以在本地端進行完修改網頁，再用git上傳。</p>
+<p>接下我們就可以在本地端進行完修改網頁，再用git上傳。
+到你的網誌連結：http://tingtinghsu.github.io/
+<img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177CyDdUoadop.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177CyDdUoadop.png" /></p>
+
+<p>就可以看到改好的頁面了～～</p>
 
 <p>[後記：]
 安裝Git這部分我卡住了一段時間，因為以前沒有相關的觀念。</p>
@@ -146,22 +150,17 @@ cd myblog
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">git status</code>: 確定一下剛剛是否已經存入暫存變更</p>
+<p><code class="highlighter-rouge">git status</code>: 確定一下剛剛是否已經存入暫存變更
+綠色的字就是已經存入：
+<img src="https://ithelp.ithome.com.tw/upload/images/20180825/2011117784pHVbSogs.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/2011117784pHVbSogs.png" /></p>
 
-<p><code class="highlighter-rouge">git log</code>: commit 的東西才會進log</p>
+<p><code class="highlighter-rouge">git log</code>：commit過的動作會進log做紀錄，<code class="highlighter-rouge">-m ""</code>加上自己的註解：commit過什麼事情
+<img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177KatlWjvZCF.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177KatlWjvZCF.png" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit -m "add new page"
-</code></pre></div></div>
+<p><code class="highlighter-rouge">git push</code>：記得要先commit後再push。看到又新增的blog文章頁面，很有成就感呢！：）
+<img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177xHVSTLH6hm.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177xHVSTLH6hm.png" /></p>
 
-<p><code class="highlighter-rouge">Changes not staged for commit:</code> [已追蹤但還沒被修正]</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(use "git add &lt;file&gt;..." to update what will be committed)
-  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
-
-        modified:   _site/404.html
-        modified:   _site/about/index.html
-        modified:   _site/index.html
-</code></pre></div></div>
+<p><code class="highlighter-rouge">git pull</code> ：如果和其他人協同作一個部落格/專案，有可能GitHub上的變更會比較新，此時要先Pull下來，再push上去，才會確保是最新版本喔！</p>
 
 
   </div><a class="u-url" href="/jekyll/update/2018/08/25/github_jekyll_blog.html" hidden></a>
