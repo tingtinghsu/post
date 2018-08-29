@@ -8,7 +8,7 @@ categories: git github
 也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。
 
 最近學Udemy平台Ruby學習線上課程，我在本機練習做了一個Ruby on Rails專案
-（名稱定為：yelpdemo），<p> </p>
+（名稱定為：yelpdemo），<p>123 </p>
 
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png)
 
