@@ -8,7 +8,7 @@ categories: git github
 也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。
 
 最近學Udemy平台Ruby學習線上課程，我在本機練習做了一個Ruby on Rails專案
-（名稱定為：yelpdemo） <br /> 
+（名稱定為：yelpdemo） 
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png)
 
@@ -33,9 +33,11 @@ categories: git github
 `git commit -m "first commit"`，備註-m裡寫上"執行第一個提交指令commit"，將staged檔案儲存到儲存庫：
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177m0erHLYic9.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177m0erHLYic9.png)
+  
 然後再輸入一次`git status`：
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177y4gEfjUE01.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177y4gEfjUE01.png)
+  
 好了，到這邊都挺順的～
 
 ### Step4.設定好要加入的路徑 `git remote add origin`
@@ -58,9 +60,9 @@ categories: git github
 > [解決]提示告訴我可以先用`git pull`，
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177Z2gTdZDmzg.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177Z2gTdZDmzg.png)
-
+  
 > 然後再`git push`一次：
-
+  
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177KVWSk3rmg5.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177KVWSk3rmg5.png)
 
 *重點在於最後一行：git push預設會推送「本地分支」到相同檔名的「遠端分支」*
