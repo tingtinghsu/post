@@ -7,8 +7,8 @@ categories: git github
 最近每次遇到bug或錯誤都挺興奮 ~~開心(?)~~ 的，*因為又可以寫筆記了*
 也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。
 
-最近學Udemy平台Ruby學習線上課程，我在本機練習做了一個Ruby on Rails專案
-（名稱定為：yelpdemo） 
+我在本機練習做了一個Ruby on Rails專案（名稱定為：yelpdemo）
+
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png)
 
@@ -57,7 +57,7 @@ categories: git github
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177ElauUZHXsa.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177ElauUZHXsa.png)
 
-> [解決]提示告訴我可以先用`git pull`，
+[解決]提示告訴我可以先用`git pull`，
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177Z2gTdZDmzg.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177Z2gTdZDmzg.png)
   
@@ -75,7 +75,7 @@ When push.default is set to 'matching', git will push local branchesto the remot
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/201111776Dl8yTegA2.png](https://ithelp.ithome.com.tw/upload/images/20180829/201111776Dl8yTegA2.png)
 
-> [解決]按照提示，依樣畫葫蘆地`git push --set-upstream origin master`
+[解決]按照提示，依樣畫葫蘆地`git push --set-upstream origin master`
   
 ![https://ithelp.ithome.com.tw/upload/images/20180829/20111177fhtIcNgZql.png](https://ithelp.ithome.com.tw/upload/images/20180829/20111177fhtIcNgZql.png)
 
