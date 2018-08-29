@@ -117,4 +117,4 @@ Google關鍵字在[stackoverflow](https://stackoverflow.com/questions/10298291/c
 
 ref: 
 [git](https://blog.exfast.me/2016/05/git-instructions-instructions/)
-[龍哥的git部落格] (https://gitbook.tw/chapters/using-git/add-to-git.html)
+[龍哥的git部落格](https://gitbook.tw/chapters/using-git/add-to-git.html)
