@@ -91,17 +91,20 @@ end
 ### E. 修改Views
 
 1. 資料庫的上傳功能已經準備好了，接下來到Views跟表單溝通，請讓表單能夠接受上傳的圖片。
-到`app/views/restaurants/_form.html.erb`，修改成可以上傳照片的form type(表單型態)。
+首先到`app/views/restaurants/_form.html.erb`，修改成可以上傳照片的form type(表單型態)。
+
 ```
 <%= form_with(model: restaurant, local: true, :html => { multipart: true }) do |form| %>
 ```
 我們來增加：「上傳圖片」欄位，讓使用者能在視覺上看得見新欄位，並修改上傳圖片的檔案(file)類型為`form.file_field`，不同於其他純文字(text)欄位如地址、電話的`form.text_field`。
+
 ```
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, id: :restaurant_name, class: "form-control" %>
   </div>
-  ...
+```
+```
   <div class="form-group">
     <%= form.label :image %>
     <%= form.file_field :image, id: :restaurant_image, class: "form-control" %>
@@ -109,11 +112,14 @@ end
 ```
 
 2. 告訴rails何時取得image。我們來到`app/views/restaurants/show.html.erb`，在餐廳資料前面加上程式碼：
+
 ```
 <p id="notice"><%= notice %></p>
 <%= image_tag @restaurant.image_url if @restaurant.image_url.present? %>
 <p>
-...
+```
+
+```
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -127,6 +133,7 @@ end
 ### F. 修改Controllers
 
 最後，我們在Controllers: `app/controllers/restaurants.controller.rb`加上允許上傳至欄位的參數，告訴rails，新的image欄位是安全的。
+
 ```
     def restaurant_params
       params.require(:restaurant).permit(:name, :address, :phone, :website, :image)
