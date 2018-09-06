@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "活用套件: carrierwave gem在Rails實現圖片上傳功能(1)"
+title:  "活用套件carrierwave gem: (1)在Rails實現圖片上傳功能"
 date:   2018-09-04 16:05:00 +1000
 categories: ruby rails gem carrierwave
 ---
