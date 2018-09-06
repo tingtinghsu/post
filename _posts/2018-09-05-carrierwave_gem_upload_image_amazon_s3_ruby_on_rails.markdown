@@ -93,8 +93,9 @@ Amazon S3的bucket（儲存桶）是類似雲端資料夾（~~~霧端資料夾?~
 ![https://ithelp.ithome.com.tw/upload/images/20180906/20111177eHHnii3B6D.png](https://ithelp.ithome.com.tw/upload/images/20180906/20111177eHHnii3B6D.png)
 
 點開檔案，可以看到每個檔案都會有屬於自己的獨特網址。
-  
+    
 ![https://ithelp.ithome.com.tw/upload/images/20180906/20111177lvkAxBeeP8.png](https://ithelp.ithome.com.tw/upload/images/20180906/20111177lvkAxBeeP8.png)
+  
 `s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/Eiffel.jpg`
 從這行網址，就可以確認主機`s3-ap-southeast-2.amazonaws.com`，區域是`ap-southeast-2`，這兩者是我們修改`carrierwave.rb`所需要的參數。 
 ```
@@ -193,10 +194,13 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 我的Rails專案系列文章整理：
 [[Ting's筆記Day6] 活用套件carrierwave gem: (1)在Rails實現圖片上傳功能](https://ithelp.ithome.com.tw/articles/10199035) 
+  
 [[Ting's筆記Day5] 在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL](https://ithelp.ithome.com.tw/articles/10199016)
+  
 [[Ting's筆記Day4] 將Ruby on Rails專案部署到Heroku](https://ithelp.ithome.com.tw/articles/10199014)
 
 
 Ref:
 [AWS活用術｜善用容量無上限的S3儲存服務](https://www.ithome.com.tw/tech/88760)
+  
 [Amazon S3 簡易儲存服務介紹與教學(1/3)](http://streamer-forest.com/amazon-s3-tutorial-p1.html)
