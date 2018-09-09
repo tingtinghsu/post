@@ -29,24 +29,8 @@ storage :fog
   end  
 ```
 
-### 2. 把新更動過的的餐廳圖片資料庫欄位加入Heroku
-我們當初改完上傳功能時，已經在本地端使用`rake db:migrate`讓資料庫順利運行，[詳見[Ting's筆記Day6] 活用套件carrierwave gem: (1)在Rails實現圖片上傳功能 ](https://ithelp.ithome.com.tw/articles/10199035)
-但遠端的Heroku部分還沒呢！
-因此記得：`heroku run rake db:migrate` 更新Production版本的資料庫。
-  
-![https://ithelp.ithome.com.tw/upload/images/20180907/20111177VdzU63RJQw.png](https://ithelp.ithome.com.tw/upload/images/20180907/20111177VdzU63RJQw.png)  
-
-這裡Heroku出現錯誤訊息`Etimeout: connect etimeout 50.19.103.36:5000`
-[參考這裡的解法](https://github.com/heroku/heroku-repo/issues/51)，才發現我的wifi所在地的防火牆鎖port 5000，使用`heroku run:detached rake db:migrate`：
-
-```
-tingdeMacBook-Air:yelpdemo tingtinghsu$ heroku run:detached rake db:migrate
-Running rake db:migrate on ⬢ tingsrailsdemo... done, run.2219 (Free)
-Run heroku logs --app tingsrailsdemo --dyno run.2219 to view the output.
-```
-
-### 3. 把Figaro gem加入Heroku
-在[上篇文章](https://ithelp.ithome.com.tw/articles/10199103/edit)提到了Figaro幫我們隱藏`application`檔，做好保護金鑰的功能，由於這個功能動到了config檔，~~這件事情的嚴重性(?)~~我們必須要讓Heroku知道！
+### 2. 把Figaro gem加入Heroku
+在[上篇文章](https://ithelp.ithome.com.tw/articles/10199103/edit)提到了Figaro幫我們隱藏`application.yml`檔，做好保護金鑰的功能，由於這個功能動到了config，~~這件事情的嚴重性(?)~~我們必須要讓Heroku知道！
 
 跟隨著[Figaro的關於Deployment的說明檔](https://github.com/laserlemon/figaro#deployment)指示，在ternimal輸入`figaro heroku:set -e production`，程式就會把金鑰資訊傳給我在heroku的正式環境。
 
@@ -59,7 +43,7 @@ fog_directory:         #Amazon S3 bucket
 ```
 
 ### 3. 把所有改動的程式碼加入github版控，並push上Heroku：
-在[這篇文章](https://ithelp.ithome.com.tw/articles/10198964)裡我已經對於使用的熟練熟練了：
+在[這篇文章](https://ithelp.ithome.com.tw/articles/10198964)裡我已經對於git使用的熟練熟練了：
     1.`git status`
     2.`git add .`
     3.`git commit -m "增加照片上傳功能"`
@@ -82,12 +66,31 @@ To https://git.heroku.com/tingsrailsdemo.git
    cb86240..05af5ff  master -> master
 ```
 
-
-= 大功告成 =
-
 到Heroku後台查看，新功能已經部署成功~
   
 ![https://ithelp.ithome.com.tw/upload/images/20180908/20111177wWtUHRU8Sz.png](https://ithelp.ithome.com.tw/upload/images/20180908/20111177wWtUHRU8Sz.png)
+
+### 4. 把新更動過的的餐廳圖片資料庫欄位加入Heroku
+我們當初改完上傳功能時，已經在本地端使用`rake db:migrate`讓資料庫順利運行，[詳見[Ting's筆記Day6] 活用套件carrierwave gem: (1)在Rails實現圖片上傳功能 ](https://ithelp.ithome.com.tw/articles/10199035)
+但遠端的Heroku部分還沒呢！
+因此記得：`heroku run rake db:migrate` 更新Production版本的資料庫。
+  
+![https://ithelp.ithome.com.tw/upload/images/20180907/20111177VdzU63RJQw.png](https://ithelp.ithome.com.tw/upload/images/20180907/20111177VdzU63RJQw.png)  
+
+這裡Heroku出現錯誤訊息`Etimeout: connect etimeout 50.19.103.36:5000`
+[參考這裡的解法](https://github.com/heroku/heroku-repo/issues/51)，才發現我的wifi所在地的防火牆鎖port 5000。
+
+我使用`run:detached`這個指令來解決此問題：`heroku run:detached rake db:migrate`
+
+```
+tingdeMacBook-Air:yelpdemo tingtinghsu$ heroku run:detached rake db:migrate
+Running rake db:migrate on ⬢ tingsrailsdemo... done, run.2219 (Free)
+Run heroku logs --app tingsrailsdemo --dyno run.2219 to view the output.
+```
+
+
+= 大功告成 =
+
 
 試試網站上的上傳功能，圖片順利存進Amazon S3 :)
   
