@@ -99,5 +99,5 @@ Run heroku logs --app tingsrailsdemo --dyno run.2219 to view the output.
 系列文章
 [將Ruby on Rails專案部署到Heroku](https://ithelp.ithome.com.tw/articles/10199014) |
 [活用套件carrierwave gem: (1)在Rails實現圖片上傳功能](https://ithelp.ithome.com.tw/articles/10199035) |
-[活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器](https://ithelp.ithome.com.tw/articles/10199103/edit)
+[活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器](https://ithelp.ithome.com.tw/articles/10199103)
 
