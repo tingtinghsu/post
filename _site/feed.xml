@@ -1,4 +1,1115 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-25T12:08:03+10:00</updated><id>http://localhost:4000/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">在Github用Jekyll創建自己的blog</title><link href="http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog.html" rel="alternate" type="text/html" title="在Github用Jekyll創建自己的blog" /><published>2018-08-25T12:06:12+10:00</published><updated>2018-08-25T12:06:12+10:00</updated><id>http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog.html">&lt;p&gt;最近IT邦有一篇熱門文章「哪個blog寫技術文章最好用？」
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-10T15:59:43+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">[鐵人賽Day01] 30天修煉Ruby面試精選100題 - 參賽緣起</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions.html" rel="alternate" type="text/html" title="[鐵人賽Day01] 30天修煉Ruby面試精選100題 - 參賽緣起" /><published>2018-09-10T09:40:00+10:00</published><updated>2018-09-10T09:40:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions.html">&lt;p&gt;參賽緣起：&lt;/p&gt;
+
+&lt;p&gt;這是我第一次決定參加IT邦鐵人賽！可喜可賀！能夠在鐵人賽第10屆的大日子參賽，就彷彿跟在雪梨馬拉松40週年時拿到42KM馬拉松獎牌一樣榮幸啊啊啊。&lt;/p&gt;
+
+&lt;p&gt;其實在去年底時就，因為我的饅頭(Ｍentor)、B工程師的關係聽過IT邦鐵人賽，雖然他像Ruby傳教士一樣大力鼓吹我開始動筆寫技術文章，但那時舉辦的時間接近12月，考慮到年底工作太忙而作罷…。希望今年是個好開始，下定決心後的自我挑戰能順利完成，再為自己的人生添一面挑戰成功的獎牌！為2018年劃下完美的句點，也為2019年開啟美好的篇章。：）&lt;/p&gt;
+
+&lt;p&gt;我在學的背景是資訊管理，自從某年開始決定搬去海外闖蕩之後，離開IT相關領域有好一段時間了（&lt;del&gt;顯示為各種指令忘光光&lt;/del&gt;）。後來主要接觸的工作項目都是與客戶服務打交道關，例如零售業、飯店、餐廳、旅館等…。時光飛逝，不知不覺地就過了好幾年。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;這段時間不但結交了國際上五湖四海的好友，為在海外生活增添許多自信，也學會了許多溝通、說服、激勵、銷售、領導的技巧，搜集不同的skill set，這是我的人生當中成長最快的一段日子，我也透過不同環境的磨練，學會更加認識自己、更了解到：其實不論你與我，每一個人的身上，都有蘊藏有無窮的潛力。只是看遇到什麼樣的情境，可以讓你主動激發自己的行動力和成長潛能！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;（然後…英文很重要！英文很重要！英文很重要所以說三次！）&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;最近考慮也許會在明年搬回亞洲發展（台灣或日本），考慮之下IT仍然是值得優先的發展選項。
+然而我面臨的問題，如同世界上各個角落的人們一樣，科技變化如此迅速，如何深度工作，聚焦專注，快速掌握一門知識？&lt;/p&gt;
+
+&lt;p&gt;我決定從學習&lt;strong&gt;Ruby on Rails&lt;/strong&gt;開始著手！而且用參與IT邦鐵人賽的機制，&lt;del&gt;逼迫&lt;/del&gt;鼓勵自己在短期間內專心學習與產出知識。&lt;/p&gt;
+
+&lt;h2 id=&quot;a-首先找尋方向決定主題&quot;&gt;A. 首先：找尋方向，決定主題：&lt;/h2&gt;
+
+&lt;p&gt;我想很多人的狀況都跟我一樣：想學新的東西、甚至是想轉進入新的行業，但又不知道該如何入門。&lt;/p&gt;
+
+&lt;p&gt;我以自身的情境為例，假設我從什麼都不懂的情況下出發，如何在一年後，成為能夠面試成功的Ruby Junior Developer?&lt;/p&gt;
+
+&lt;p&gt;後來我受到這篇&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt;啟發，我決定從「最常被問到的面試題目」著手，我把學習新知識，和自己的旅行經驗做連結，如同在地球上探索未知的地方一樣，把題目當作地圖上的地標一般的擴展知識。&lt;/p&gt;
+
+&lt;p&gt;如果我能成功做到的話，相信能鼓勵更多台灣朋友勇於挑戰自己，勇於嘗試，接觸更多有趣好玩的資訊領域！&lt;/p&gt;
+
+&lt;h2 id=&quot;b-其次分配技術寫作的時間&quot;&gt;B. 其次：分配技術寫作的時間：&lt;/h2&gt;
+
+&lt;p&gt;身為馬拉松跑者，我相信鐵人賽就好像跑馬拉松一樣，比賽的身體、心理調適，是從幾個月前就開始，做好充足的準備，才能大幅降低斷賽的機率。&lt;/p&gt;
+
+&lt;h3 id=&quot;1-把寫文章的生活規律化&quot;&gt;1. 把寫文章的生活規律化:&lt;/h3&gt;
+
+&lt;p&gt;這是我從第一個Coach（生涯教練）身上學到的，要把時間Block下來，專心做好手頭上的事。我每天早上九點到下午三點到一個會令自己專心的地方技術文章寫作。（還要記得規律運動、還有適時地讓眼睛離開電腦休息一下喔！）&lt;/p&gt;
+
+&lt;h3 id=&quot;2-熟悉it邦的技術文章發布流程&quot;&gt;2. 熟悉IT邦的技術文章發布流程:&lt;/h3&gt;
+
+&lt;p&gt;我在8月到9月這段時間，先練習文章發布，包含使用Markdown語法、草稿與Tag、截圖功能上傳的功能熟悉。&lt;/p&gt;
+
+&lt;p&gt;如同去健身房鍛鍊肌肉一樣，一開始感到不習慣與不舒適（第一個不適應的是：我發的文章會出現輪播在網站首頁，也太害羞了吧！&lt;del&gt;如果文章亂寫或寫錯的話會很羞恥的&lt;/del&gt;）之類的心理調適。&lt;/p&gt;
+
+&lt;p&gt;我也開始看Ruby on Rails專案的線上教學課程，並練習修改一些專案功能，練習適應有bug時的焦慮不耐煩（現在已經接受這是工程師的日常了～撥頭髮~~）以及練習自己找解答、找不出來也要練習提問與求助。&lt;/p&gt;
+
+&lt;h2 id=&quot;c-做好計劃然後按照計劃堅持下去&quot;&gt;C. 做好計劃，然後按照計劃堅持下去！&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-架好環境github帳號-自己blog和可以接受動態功能的網站&quot;&gt;1. 架好環境：Github帳號, 自己blog和可以接受動態功能的網站：&lt;/h3&gt;
+
+&lt;p&gt;工欲善其事，必先利其器。任何有自己的電腦的地方就是辦公桌，而在自己的網站的地方就是實驗場。所以有可以實作測試程式碼的地方是很重要的，才能了解自己到底懂不懂學到的新觀念與工具！&lt;/p&gt;
+
+&lt;h3 id=&quot;2-立馬開始堅持到底&quot;&gt;2. 立馬開始，堅持到底。&lt;/h3&gt;
+
+&lt;p&gt;然後，用行動證明一切：）&lt;/p&gt;
+
+&lt;p&gt;===================================&lt;/p&gt;
+
+&lt;h3 id=&quot;ruby的經典面試題目-001&quot;&gt;Ruby的經典面試題目 #001&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby001 - 什麼是類別？What is a Class? &lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;類別(Class)能夠接收資料(data)，利用方法(method)和資料data互動，並且可以建立物件實體(Object instance)。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上概念對於程式新手來說，應該會很模糊。我們要了解類別(Class)，就必須知道Ruby是一款物件導向程式語言（Object-Oriented Programming, OOP）。&lt;/p&gt;
+
+&lt;p&gt;而Ruby的世界裡，幾乎所有東西都是物件(Object)。包含數值(Numeric，整數與浮點數)，布林值(True or False)，字串(String)，符號(Symbol，代表固定值)，陣列(Array)，雜湊(Hash)，範圍(Range)到模組(Module)與類別(class)。&lt;/p&gt;
+
+&lt;p&gt;每個物件(Object)就像一台小型的機器一樣，可以「接收資料」、「處理資料」，並「傳遞資料」給其他的物件。&lt;/p&gt;
+
+&lt;p&gt;物件導向程式語言利用「可重複性」的概念來使軟體功能更易於維護。例如，類別(class)具有繼承(inheritance)的能力，讓子類別直接繼承父類別的特性。&lt;/p&gt;
+
+&lt;p&gt;舉個class的例子試試看，並用&lt;code class=&quot;highlighter-rouge&quot;&gt;.superclass&lt;/code&gt;查詢父類別，了解繼承關係：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class World #建立類別名稱「世界」
+end
+
+class Country &amp;lt; World #建立「國家」繼承了世界類別
+end
+
+tw = Country.new #建立一個新國家:灣灣
+
+p tw.class 						 	# 印出tw的類別
+p tw.class.superclass 		   		# 印出tw的的類別(Country)的父類別
+p tw.class.superclass.superclass    # 印出tw的的類別(Country)的父類別(World)的父類別
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;在當我們把以上的程式碼在&lt;code class=&quot;highlighter-rouge&quot;&gt;irb&lt;/code&gt;跑出來，會出現：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Country #tw的類別：顯示為Country  
+World   #Country的父類別：顯示為World
+Object  #World的父類別：顯示為Object
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;雖然上面的程式碼好像繞口令，但如果以蓋大樓為例就會很直觀了：&lt;/p&gt;
+
+&lt;p&gt;tw是一樓，Country是二樓，Ｗorld是三樓，Object是頂樓。
+層層上推之後，到了頂樓&lt;code class=&quot;highlighter-rouge&quot;&gt;tw.class.superclass.superclass&lt;/code&gt;，輸出了&lt;code class=&quot;highlighter-rouge&quot;&gt;Object&lt;/code&gt;，
+證明從tw，到Country到World都是物件呢！&lt;/p&gt;
+
+&lt;p&gt;這就是Ruby的世界觀：）&lt;/p&gt;
+
+&lt;p&gt;就算到了頂樓層Object，我們還可以繼續下樓梯，用&lt;code class=&quot;highlighter-rouge&quot;&gt;.class&lt;/code&gt;往回推實驗下去，了解Contry的類別：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p tw.class.superclass.class 	#印出World的類別: Class 
+p tw.class.superclass.class.superclass #印出World的類別(Class)的父類別: Module
+p &quot;-----break-----&quot;
+p tw.class.superclass.class.superclass.class #印出Module的類別: Class
+p tw.class.superclass.class.superclass.superclass #印出Module的父類別: Object 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;程式碼顯示出來的結果如下:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Class
+Module
+&quot;-----break-----&quot;
+Class
+Object
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;這時我們可以知道，類別(class)與模組(Module)有深厚的關係。
+近一步參考：&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;龍哥的文章&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;回到「什麼是類別？」&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;類別(Class)能夠接收資料(data)，建立物件實體(Object instance)，利用方法(method)和資料data互動。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;那我們就來用類別、物件、實體變數，和方法，寫一個開賽宣言吧！&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class TingIsIronman
+  def initialize
+    @message = &quot;I'm going to write 30 IT articles in 30 days.&quot; #定義實體變數（instance variable）@message
+  end
+
+  def method
+    puts @message.gsub(&quot;write&quot;, &quot;create&quot;) #gsub方法，可以取代字串
+  end
+end
+
+object = TingIsIronman.new
+object.method
+ #=&amp;gt; I'm going to create 30 IT articles in 30 days.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;第一天的練習就到這裡：）希望能繼續解題下去！&lt;/p&gt;
+
+&lt;p&gt;Ref：
+&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module)&lt;/a&gt; |
+&lt;a href=&quot;https://railsbook.tw/chapters/06-ruby-basic-2.html&quot;&gt;數字、字串、陣列、範圍、雜湊、符號&lt;/a&gt; |&lt;/p&gt;</content><author><name></name></author><summary type="html">參賽緣起：</summary></entry><entry><title type="html">活用套件Carrierwave gem: (4) 使用Imagemagick修改圖片大小</title><link href="http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick.html" rel="alternate" type="text/html" title="活用套件Carrierwave gem: (4) 使用Imagemagick修改圖片大小" /><published>2018-09-09T13:34:00+10:00</published><updated>2018-09-09T13:34:00+10:00</updated><id>http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick</id><content type="html" xml:base="http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick.html">&lt;p&gt;前情提要：
+這幾天我都在實驗&lt;a href=&quot;https://github.com/carrierwaveuploader&quot;&gt;Carrierwave&lt;/a&gt;這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）&lt;/p&gt;
+
+&lt;p&gt;接下來我遇到了新的問題：要如何在上傳的時候，讓Carrierwave gem大型size圖片縮成固定大小，讓整體頁面看起來比較美觀呢？&lt;/p&gt;
+
+&lt;p&gt;解法很簡單！看了&lt;a href=&quot;(https://github.com/carrierwaveuploader/carrierwave#adding-versions)&quot;&gt;Carrierwave&lt;/a&gt;關於&lt;code class=&quot;highlighter-rouge&quot;&gt;image resizing&lt;/code&gt;的說明，只要安裝&lt;a href=&quot;http://cactuslab.com/imagemagick/&quot;&gt;imagemagick&lt;/a&gt;和
+&lt;a href=&quot;https://github.com/minimagick/minimagick&quot;&gt;minimagick&lt;/a&gt;就行了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[注意]文中提到 You must have Imagemagick and MiniMagick installed to do image resizing. MiniMagick is a Ruby interface for Imagemagick which is a C program. This is why MiniMagick fails on ‘bundle install’ without Imagemagick installed.所以我們的順序是：先裝imagemagick，再裝MiniMagick。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;a-imagemagick&quot;&gt;A. imagemagick&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;首先去&lt;a href=&quot;http://cactuslab.com/imagemagick/&quot;&gt;imagemagick&lt;/a&gt;官網下載適合你作業系統的imagemagick版本。
+在terminal輸入指令 &lt;code class=&quot;highlighter-rouge&quot;&gt;convert&lt;/code&gt;可以幫我們確定是否有安裝成功，以及目前安裝版本。我的是&lt;code class=&quot;highlighter-rouge&quot;&gt;ImageMagick 6.9.1-0&lt;/code&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ convert
+Version: ImageMagick 6.9.1-0 Q16 x86_64 2015-03-22 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2015 ImageMagick Studio LLC
+License: http://www.imagemagick.org/script/license.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;安裝好之後，還要跑&lt;code class=&quot;highlighter-rouge&quot;&gt;brew install imagemagick&lt;/code&gt;。
+（不然就會像我一樣，測試上傳功能功能時出現錯誤訊息！）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180909/20111177vNOiNwaitw.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180909/20111177vNOiNwaitw.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/31193495/error-original-error-imagemagick-graphicsmagick-is-not-installed&quot;&gt;參考這篇stackoverflow解法&lt;/a&gt;&lt;del&gt;果然身為新手的好處是我遇到的bug都還有人提問過&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;裡面說明，安裝&lt;code class=&quot;highlighter-rouge&quot;&gt;libmagickwand-dev&lt;/code&gt;後才能跑&lt;code class=&quot;highlighter-rouge&quot;&gt;rmagick gem&lt;/code&gt;的功能。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注意，在Mac環境，下brew指令前需要安裝Homebrew，更多說明可以參考&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;之前的文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;b-minimagick-gem&quot;&gt;B. minimagick gem&lt;/h2&gt;
+&lt;p&gt;接下來到&lt;a href=&quot;https://github.com/minimagick/minimagick&quot;&gt;minimagick&lt;/a&gt;的Github頁面，&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;還記得我們的Gem三步驟：修改Gemfile加入新的gem；跑&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;；重啟伺服器&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;。
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &quot;mini_magick&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;指令&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle info&lt;/code&gt;可幫我們確定版本。目前我的是mini_magick (4.8.0)
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle info mini_magick
+  * mini_magick (4.8.0)
+ Summary: Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
+ Homepage: https://github.com/minimagick/minimagick
+ Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/mini_magick-4.8.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;c-修改image_uploaderrb&quot;&gt;C. 修改&lt;code class=&quot;highlighter-rouge&quot;&gt;image_uploader.rb&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;接下來就是讓Carrierwave下的MiniMagick開始工作了！
+到&lt;code class=&quot;highlighter-rouge&quot;&gt;專案名/app/uploaders/image_uploader.rb&lt;/code&gt;開始修改程式碼：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class ImageUploader &amp;lt; CarrierWave::Uploader::Base
+ include CarrierWave::MiniMagick #將註解消掉
+ 
+ process resize_to_fit: [200, 300] #在這裡的`resize_to_fit`是Carrierwave的其中一個方法
+end   
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.rubydoc.info/github/jnicklas/carrierwave/CarrierWave%2FMiniMagick:resize_to_fit&quot;&gt;更多關於CarrieWave的Method列表&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在本機試一下功能是否成功：
+&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180909/20111177yC3uCRNnFa.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180909/20111177yC3uCRNnFa.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;圖片總算如我所願縮小了！最後一步就是：&lt;code class=&quot;highlighter-rouge&quot;&gt;git push heroku master&lt;/code&gt;把新功能deploy至正式環境。&lt;/p&gt;
+
+&lt;p&gt;跟carrierwave套件相處了兩週～就先到這裡啦！接下來會繼續研究更多實用的套件。：）
+-全系列完-&lt;/p&gt;
+
+&lt;p&gt;系列文章：
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;將Ruby on Rails專案部署到Heroku&lt;/a&gt; |
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (1)在Rails實現圖片上傳功能&lt;/a&gt; |
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199103&quot;&gt;活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器&lt;/a&gt; |
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (3)Deploy圖片上傳功能到Heroku網站&lt;/a&gt; |
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199131&quot;&gt;活用套件carrierwave gem: (4)使用Imagemagick修改圖片大小&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 這幾天我都在實驗Carrierwave這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）</summary></entry><entry><title type="html">活用套件carrierwave gem: (3) Deploy 圖片上傳功能到 Heroku網站</title><link href="http://localhost:4000/heroku/ruby/rails/git/gem/carrierwave/figaro/amazon/s3/2018/09/08/deploy_upload_image_function_to_heroku.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (3) Deploy 圖片上傳功能到 Heroku網站" /><published>2018-09-08T13:34:00+10:00</published><updated>2018-09-08T13:34:00+10:00</updated><id>http://localhost:4000/heroku/ruby/rails/git/gem/carrierwave/figaro/amazon/s3/2018/09/08/deploy_upload_image_function_to_heroku</id><content type="html" xml:base="http://localhost:4000/heroku/ruby/rails/git/gem/carrierwave/figaro/amazon/s3/2018/09/08/deploy_upload_image_function_to_heroku.html">&lt;p&gt;前情提要：&lt;/p&gt;
+
+&lt;p&gt;身為Ruby新手村民，創造穩定且持續的學習步調很重要，我用的方法就是一週在IT邦寫三篇筆記，希望藉由把筆記和遇到的bug記錄下來的過程，能幫助到未來想用Ruby on Rails架站的新手。：）&lt;/p&gt;
+
+&lt;p&gt;話說我在這一天&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;[Ting’s筆記Day4] 將Ruby on Rails專案部署到Heroku&lt;/a&gt;架好了站，並在此篇&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199103/edit&quot;&gt;[Ting’s筆記Day7] 活用套件carrierwave gem: (2) 利用Amazon S3架設圖片伺服器&lt;/a&gt;完成我的餐廳資料庫網站的圖片上傳功能。接著就要把功能發佈到Heroku啦！&lt;/p&gt;
+
+&lt;h3 id=&quot;1-修改appuploadersimage_uploaderrb&quot;&gt;1. 修改&lt;code class=&quot;highlighter-rouge&quot;&gt;app/uploaders/image_uploader.rb&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;為了節省Amazon S3用量，（畢竟是免費功能，儲存空間一定的限制，能省則省！）
+我想在本機專案上傳圖片時，照片存在本機端就好；
+在Heroku（遠端production版本）上傳圖片的時候，再上傳至Amazon S3。&lt;/p&gt;
+
+&lt;p&gt;我可以去&lt;code class=&quot;highlighter-rouge&quot;&gt;app/uploaders/image_uploader.rb&lt;/code&gt;修改一下程式碼從：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;storage :fog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;改成&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; if Rails.env.production?
+    storage :fog #Heroku, Use Amazon S3
+  else
+    storage :file
+  end  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-把figaro-gem加入heroku&quot;&gt;2. 把Figaro gem加入Heroku&lt;/h3&gt;
+&lt;p&gt;在&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199103/edit&quot;&gt;上篇文章&lt;/a&gt;提到了Figaro幫我們隱藏&lt;code class=&quot;highlighter-rouge&quot;&gt;application.yml&lt;/code&gt;檔，做好保護金鑰的功能，由於這個功能動到了config，&lt;del&gt;這件事情的嚴重性(?)&lt;/del&gt;我們必須要讓Heroku知道！&lt;/p&gt;
+
+&lt;p&gt;跟隨著&lt;a href=&quot;https://github.com/laserlemon/figaro#deployment&quot;&gt;Figaro的關於Deployment的說明檔&lt;/a&gt;指示，在ternimal輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;figaro heroku:set -e production&lt;/code&gt;，程式就會把金鑰資訊傳給我在heroku的正式環境。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ figaro heroku:set -e production
+Setting aws_access_key_id, aws_secret_access_key, fog_directory and restarting ⬢ tingsrailsdemo... done, v7
+aws_access_key_id:     #秘密
+aws_secret_access_key: #不告訴你
+fog_directory:         #Amazon S3 bucket
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-把所有改動的程式碼加入github版控並push上heroku&quot;&gt;3. 把所有改動的程式碼加入github版控，並push上Heroku：&lt;/h3&gt;
+&lt;p&gt;在&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10198964&quot;&gt;這篇文章&lt;/a&gt;裡我已經對於git使用的熟練熟練了：
+    1.&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;
+    2.&lt;code class=&quot;highlighter-rouge&quot;&gt;git add .&lt;/code&gt;
+    3.&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;增加照片上傳功能&quot;&lt;/code&gt;
+    4.&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;
+所以我們先把寫好的的功能推上github，最後用&lt;code class=&quot;highlighter-rouge&quot;&gt;git push heroku master&lt;/code&gt;完成最後一哩路！&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+tingdeMacBook-Air:yelpdemo tingtinghsu$ git push heroku master
+Counting objects: 59, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (52/52), done.
+Writing objects: 100% (59/59), 331.27 KiB | 0 bytes/s, done.
+Total 59 (delta 33), reused 0 (delta 0)
+
+remote:        https://tingsrailsdemo.herokuapp.com/ deployed to Heroku
+remote: 
+remote: Verifying deploy... done.
+To https://git.heroku.com/tingsrailsdemo.git
+   cb86240..05af5ff  master -&amp;gt; master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;到Heroku後台查看，新功能已經部署成功~&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180908/20111177wWtUHRU8Sz.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180908/20111177wWtUHRU8Sz.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-把新更動過的的餐廳圖片資料庫欄位加入heroku&quot;&gt;4. 把新更動過的的餐廳圖片資料庫欄位加入Heroku&lt;/h3&gt;
+&lt;p&gt;我們當初改完上傳功能時，已經在本地端使用&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;讓資料庫順利運行，&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;詳見[Ting’s筆記Day6] 活用套件carrierwave gem: (1)在Rails實現圖片上傳功能 &lt;/a&gt;
+但遠端的Heroku部分還沒呢！
+因此記得：&lt;code class=&quot;highlighter-rouge&quot;&gt;heroku run rake db:migrate&lt;/code&gt; 更新Production版本的資料庫。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180907/20111177VdzU63RJQw.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180907/20111177VdzU63RJQw.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;這裡Heroku出現錯誤訊息&lt;code class=&quot;highlighter-rouge&quot;&gt;Etimeout: connect etimeout 50.19.103.36:5000&lt;/code&gt;
+&lt;a href=&quot;https://github.com/heroku/heroku-repo/issues/51&quot;&gt;參考這裡的解法&lt;/a&gt;，才發現我的wifi所在地的防火牆鎖port 5000。&lt;/p&gt;
+
+&lt;p&gt;我使用&lt;code class=&quot;highlighter-rouge&quot;&gt;run:detached&lt;/code&gt;這個指令來解決此問題：&lt;code class=&quot;highlighter-rouge&quot;&gt;heroku run:detached rake db:migrate&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ heroku run:detached rake db:migrate
+Running rake db:migrate on ⬢ tingsrailsdemo... done, run.2219 (Free)
+Run heroku logs --app tingsrailsdemo --dyno run.2219 to view the output.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;= 大功告成 =&lt;/p&gt;
+
+&lt;p&gt;試試網站上的上傳功能，圖片順利存進Amazon S3 :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180908/20111177zR1v7NGgyF.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180908/20111177zR1v7NGgyF.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;系列文章
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;將Ruby on Rails專案部署到Heroku&lt;/a&gt; |
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (1)在Rails實現圖片上傳功能&lt;/a&gt; |
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199103&quot;&gt;活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要：</summary></entry><entry><title type="html">活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器</title><link href="http://localhost:4000/ruby/rails/gem/carrierwave/figaro/amazon/s3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器" /><published>2018-09-05T14:22:00+10:00</published><updated>2018-09-05T14:22:00+10:00</updated><id>http://localhost:4000/ruby/rails/gem/carrierwave/figaro/amazon/s3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails</id><content type="html" xml:base="http://localhost:4000/ruby/rails/gem/carrierwave/figaro/amazon/s3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails.html">&lt;p&gt;來到第7篇了！培養寫作習慣真是不容易：）&lt;/p&gt;
+
+&lt;p&gt;在我的上一篇文章&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (1)在Rails實現圖片上傳功能&lt;/a&gt; ，上傳圖片功能已經完成啦！但是目前圖片僅能上傳在自己的本地資料夾內孤芳自賞。&lt;img src=&quot;/images/emoticon/emoticon25.gif&quot; alt=&quot;/images/emoticon/emoticon25.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果我們要把網站完整的功能部署到正式環境，讓其他網路使用者也可以一起上傳圖片，勢必需要一個圖片伺服器。目前最主流的Image Host之一算是AWS(Amazon Web Service)裡的S3（Simple Storage Service）了。
+&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177pIw3qpeKPn.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177pIw3qpeKPn.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在這邊我們略過申請帳號的過程（需要綁信用卡號，但只要在一年內不超過特定用量就可免費。）
+&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177Bo9jdxXMMd.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177Bo9jdxXMMd.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;a-安裝fog-aws-gem與figaro-gem&quot;&gt;A. 安裝Fog-AWS Gem與Figaro Gem&lt;/h2&gt;
+&lt;p&gt;為了串接carrierwave上傳到Amazon S3的功能，我們回到carrierwave gem在Github的頁面&lt;a href=&quot;https://github.com/carrierwaveuploader/carrierwave#using-amazon-s3&quot;&gt;Using Amazon S3這個段落&lt;/a&gt;好好研究。它要我們在Gemfile裡新增&lt;code class=&quot;highlighter-rouge&quot;&gt;gem “fog-aws”&lt;/code&gt;，然後在&lt;code class=&quot;highlighter-rouge&quot;&gt;carriewave/intializers&lt;/code&gt;下，新增一個檔名稱叫做&lt;code class=&quot;highlighter-rouge&quot;&gt;carrierwave.rb&lt;/code&gt;，。
+以它提供的範例程式上寫的上來看：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CarrierWave.configure do |config|
+  config.fog_provider = 'fog/aws' #required
+  config.fog_credentials = {
+    provider:              'AWS', #required
+    aws_access_key_id:     'xxx', 
+    #required unless using use_iam_profile
+    aws_secret_access_key: 'yyy', 
+    #required unless using use_iam_profile
+    use_iam_profile:       true,  #optional, defaults to false
+    region: 'eu-west-1', #optional, defaults to 'us-east-1'
+    host: 's3.example.com', #optional, defaults to nil
+    endpoint: 'https://s3.example.com:8080' #optional, defaults to nil
+  }
+  config.fog_directory  = 'name_of_bucket'  #required
+  config.fog_public     = false  #optional, defaults to true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;從研讀程式碼的過程中，我們很容易發現到了裡面出現一個使用任何雲端上傳服務都會有的金鑰及安全性的問題！如何避免之後程式碼備份到Github上，Access Key被全世界的人看光光?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;[解決方案]
+這時候我們除了fog-aws，還要裝一個gem叫做&lt;a href=&quot;https://github.com/laserlemon/figaro&quot;&gt;Figaro&lt;/a&gt;以解決上述問題。Figaro會幫我們修改Rail的configuration檔，用環境變數&lt;code class=&quot;highlighter-rouge&quot;&gt;ENV&lt;/code&gt;代替金鑰，並產生一個簡單的YAML檔。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;YAML是一種寫法優雅，適合表達、編輯資料結構與各種設定檔的格式（注意：大小寫和TAB鍵敏感！）。YAML近一步了解: &lt;a href=&quot;https://zh.wikipedia.org/wiki/YAML&quot;&gt;Wiki&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.jianshu.com/p/97222440cd08&quot;&gt;簡書&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;現在我們馬上來安裝gem:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'figaro'
+gem &quot;fog-aws&quot; #用雙引號，因為裡面有特殊字元&quot;-&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然後在terminal跑&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;，
+再重啟伺服器&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;(安裝gem的三大步驟要牢記！)&lt;/p&gt;
+
+&lt;p&gt;這樣我們一次就裝好了&lt;code class=&quot;highlighter-rouge&quot;&gt;figaro&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;fog-aws&lt;/code&gt;兩支gem。&lt;/p&gt;
+
+&lt;p&gt;接著，按照Figaro主頁README.md檔的指示，到terminal輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec figaro install&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle exec figaro install
+      create  config/application.yml
+      append  .gitignore
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;這時候專案就會在config資料夾下產生了新的yml檔：&lt;code class=&quot;highlighter-rouge&quot;&gt;config/application.yml&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;之後&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;專案到git版控伺服器如github，figaro這支gem會用&lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;隱藏好&lt;code class=&quot;highlighter-rouge&quot;&gt;application.yml&lt;/code&gt;，幫助我們的私密資料無法被它人觀看。&lt;/p&gt;
+
+&lt;p&gt;新手如我在修改程式碼的時候，常常看到一些新名詞，例如剛剛的&lt;code class=&quot;highlighter-rouge&quot;&gt;fog-aws&lt;/code&gt;，這時候去google一下定義，對於程式架構的理解是很有幫助的。我很好奇為何要用&lt;code class=&quot;highlighter-rouge&quot;&gt;fog&lt;/code&gt;(霧?️？)這個名詞。&lt;a href=&quot;https://www.ithome.com.tw/news/114625&quot;&gt;ITHome的這篇文章有提到:&lt;/a&gt;原來fog（霧運算）是相對於cloud（雲端運算）。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;邊緣運算是就近運算的概念，將運算更靠近資料源所在的本地區網（Local Network）內運算，盡可能不用將資料回傳雲端，以減少資料往返雲端的等待時間及降低網路頻寬成本。邊緣運算通常是在本地端和雲端兩邊交界的附近做運算處理，也就是資料進出區網附近的位置，這麼做的目的，在於既可以將運算環境放在本地，同時又可以靠近雲端邊界附近，藉此跟雲銜接。畢竟並不是全部的資料都能放在本地端運算，還是會有些需要更進一步分析及判斷的資料，&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;b-在amazon-s3建立新的bucket&quot;&gt;B. 在Amazon S3建立新的bucket&lt;/h2&gt;
+&lt;p&gt;Amazon S3的bucket（儲存桶）是類似雲端資料夾（~&lt;del&gt;霧端資料夾?&lt;/del&gt;）的概念。新手推薦
+初期接觸Amazon S3服務的板友們，我很建議去&lt;a href=&quot;https://amazon.qwiklabs.com/focuses/278?locale=en&amp;amp;parent=catalog&quot;&gt;這個lab&lt;/a&gt;按照教學操作，內容設計互動上還挺有趣的～&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177Ku8YFYXtxw.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177Ku8YFYXtxw.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;1-進入amazon-s3-console按下的create-bucket建立bucket&quot;&gt;1. 進入Amazon S3 console，按下的&lt;code class=&quot;highlighter-rouge&quot;&gt;create bucket&lt;/code&gt;建立bucket。&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177E8adzs1Dt1.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177E8adzs1Dt1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;輸入Bucket Name和Region(區域)。注意（bucket是個物件，你的bucket name必須是個unique name和世界上其他人的bucket name都不一樣）然指定一個區域(region)，不同區域的bucket對於使用者的上傳下載速率有顯著影響。（原來如此！難怪後文出現了卡bug。）我選了我目前所在的城市Sydney。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177w18xFMYIQx.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177w18xFMYIQx.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在設定bucket的Permission頁面時，一開始對於新手來說，將bucket設定為public是較爲容易的學習做法。（如果我們的資料是極為隱密的，就千萬不能這樣做！）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177Kx01k6pnVV.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177Kx01k6pnVV.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-在bucket內按upload上傳一張圖片或任何檔案記下所在的host和region&quot;&gt;2. 在bucket內按upload上傳一張圖片（或任何檔案），記下所在的host和region。&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177eHHnii3B6D.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177eHHnii3B6D.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;點開檔案，可以看到每個檔案都會有屬於自己的獨特網址。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177lvkAxBeeP8.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177lvkAxBeeP8.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/Eiffel.jpg&lt;/code&gt;
+從這行網址，就可以確認主機&lt;code class=&quot;highlighter-rouge&quot;&gt;s3-ap-southeast-2.amazonaws.com&lt;/code&gt;，區域是&lt;code class=&quot;highlighter-rouge&quot;&gt;ap-southeast-2&lt;/code&gt;，這兩者是我們修改&lt;code class=&quot;highlighter-rouge&quot;&gt;carrierwave.rb&lt;/code&gt;所需要的參數。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    host:&quot;s3-ap-southeast-2.amazonaws.com&quot;, 
+    region: &quot;ap-southeast-2&quot; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-在sercurity-credentials新增access-key&quot;&gt;3. 在Sercurity Credentials新增Access Key&lt;/h3&gt;
+
+&lt;p&gt;在右上方點擊我們的帳戶，選單上會出現&lt;code class=&quot;highlighter-rouge&quot;&gt;Sercurity Credential&lt;/code&gt;（安全憑證）。按下之後，視窗會提醒你接下來的步驟要小心謹慎，按下&lt;code class=&quot;highlighter-rouge&quot;&gt;Continue to Sercurity Credential&lt;/code&gt;後出現以下畫面：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177ie0RveFbcU.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177ie0RveFbcU.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;點選 &lt;code class=&quot;highlighter-rouge&quot;&gt;Create New Access Key&lt;/code&gt;，然後&lt;code class=&quot;highlighter-rouge&quot;&gt;Download Key File&lt;/code&gt;可以下載新建好的Access Key。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177cl6vWaB6ow.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177cl6vWaB6ow.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;c到專案修改applicationyml&quot;&gt;C.到專案修改application.yml&lt;/h3&gt;
+
+&lt;p&gt;我們用記事本打開熱騰騰剛打好的鑰匙Access Key！在剛剛figaro幫我們製作的&lt;code class=&quot;highlighter-rouge&quot;&gt;application.yml&lt;/code&gt;，放入金鑰id和access key。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pusher_app_id: '放我的id'
+pusher_key: '放我的鑰匙'
+pusher_secret: '放我的秘密路徑'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;我們使用的是Amazon S3，所以前面三個pusher修改為：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;aws_access_key_id: '放我的剛剛建好的id'
+aws_secret_access_key: '放我剛剛建好的key'
+fog_directory: '我的Amazon S3 bucket名稱'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以此類推，如果你使用Google Cloud，就要換成Google Cloud的變數和相對應的key。YAML對於任何多的空格space或tab都是敏感的，所以輸入資料時要特別小心。&lt;/p&gt;
+
+&lt;h3 id=&quot;dconfiginitializers新增新檔carrierwaverb代換參數重啟server&quot;&gt;D.&lt;code class=&quot;highlighter-rouge&quot;&gt;Config/initializers&lt;/code&gt;新增新檔&lt;code class=&quot;highlighter-rouge&quot;&gt;carrierwave.rb&lt;/code&gt;，代換參數，重啟server。&lt;/h3&gt;
+
+&lt;p&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;config/initializers/&lt;/code&gt;路徑下，新增&lt;code class=&quot;highlighter-rouge&quot;&gt;carrierwave.rb&lt;/code&gt;，將carrierwave提供給我們程式碼貼過去修改，代換剛才提到figaro幫我們做好的&lt;code class=&quot;highlighter-rouge&quot;&gt;ENV[]&lt;/code&gt;環境變數：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CarrierWave.configure do |config|
+  config.fog_provider = 'fog/aws'                        # required
+  config.fog_credentials = {
+    provider:              'AWS',                        # required
+    aws_access_key_id:     ENV[&quot;aws_access_key_id&quot;],                        
+    aws_secret_access_key: ENV[&quot;aws_secret_access_key&quot;],                        
+    host: 				   &quot;s3-ap-southeast-2.amazonaws.com&quot;, 
+    region:                &quot;ap-southeast-2&quot; 
+  }
+  config.fog_directory  = ENV[&quot;fog_directory&quot;]           # required
+# optional, defaults to {}
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;這邊我們更動到了&lt;code class=&quot;highlighter-rouge&quot;&gt;config&lt;/code&gt;檔案，記得要重啟伺服器&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;[Bug注意！]&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    host: 				   &quot;s3-ap-southeast-2.amazonaws.com&quot;, 
+    region:                &quot;ap-southeast-2&quot; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;這兩行要代換成你所選擇的Amazon aws伺服器主機區域，不然會產生問題！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177RzHA23ADLx.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177RzHA23ADLx.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;後來我用關鍵字&lt;code class=&quot;highlighter-rouge&quot;&gt;Excon::Errors::SocketError Broken pipe (Errno::EPIPE)&lt;/code&gt;參考了&lt;a href=&quot;http://www.whatibroke.com/2013/04/27/exconerrorssocketerror-broken-pipe-errnoepipe-ruby-on-rails/&quot;&gt;這篇網誌&lt;/a&gt;終於搞定！&lt;/p&gt;
+
+&lt;p&gt;（跟Amazon S3相關功能的熟悉和隨之而來的bug讓我卡了兩天&lt;img src=&quot;/images/emoticon/emoticon14.gif&quot; alt=&quot;/images/emoticon/emoticon14.gif&quot; /&gt;）這篇文章的得來不易啊…。&lt;/p&gt;
+
+&lt;h2 id=&quot;c-修改carriewave的uploaderrb&quot;&gt;C. 修改carriewave的&lt;code class=&quot;highlighter-rouge&quot;&gt;uploader.rb&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;去&lt;code class=&quot;highlighter-rouge&quot;&gt;app/uploaders/image_uploader.rb&lt;/code&gt;，把&lt;code class=&quot;highlighter-rouge&quot;&gt;storage :file&lt;/code&gt;加上註解，消去&lt;code class=&quot;highlighter-rouge&quot;&gt;storage :fog&lt;/code&gt;的註解，讓carriewave知道，現在我們要把圖片要上傳到Amazon S3去。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class ImageUploader &amp;lt; CarrierWave::Uploader::Base
+  # Choose what kind of storage to use for this uploader:
+  # storage :file
+  storage :fog #Use Amazon S3
+  end  
+    def store_dir
+    &quot;uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}&quot;
+  end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;=大功告成！=
+試著用本機功能的上傳按鈕傳圖片，再點開圖片網址確認。
+這張照片已經放入Amazon S3的bucket囉！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177J82YqrpNra.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177J82YqrpNra.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我很開心地修改3家餐廳的資料，去Amazon S3的bucket確認，圖片已經安安穩穩地躺在路徑&lt;code class=&quot;highlighter-rouge&quot;&gt;/upload/restaurant/image/餐廳id&lt;/code&gt;裡了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177pj9sTL6bkv.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180906/20111177pj9sTL6bkv.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下一篇要講把上傳Amazon S3的新功能Deploy部署到Heroku上！&lt;/p&gt;
+
+&lt;p&gt;我的Rails專案系列文章整理：
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;[Ting’s筆記Day6] 活用套件carrierwave gem: (1)在Rails實現圖片上傳功能&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199016&quot;&gt;[Ting’s筆記Day5] 在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;[Ting’s筆記Day4] 將Ruby on Rails專案部署到Heroku&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ref:
+&lt;a href=&quot;https://www.ithome.com.tw/tech/88760&quot;&gt;AWS活用術｜善用容量無上限的S3儲存服務&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://streamer-forest.com/amazon-s3-tutorial-p1.html&quot;&gt;Amazon S3 簡易儲存服務介紹與教學(1/3)&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">來到第7篇了！培養寫作習慣真是不容易：）</summary></entry><entry><title type="html">活用套件carrierwave gem: (1)在Rails實現圖片上傳功能</title><link href="http://localhost:4000/ruby/rails/gem/carrierwave/2018/09/04/carrierwave_gem_upload_image_localhost_ruby_on_rails.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (1)在Rails實現圖片上傳功能" /><published>2018-09-04T16:05:00+10:00</published><updated>2018-09-04T16:05:00+10:00</updated><id>http://localhost:4000/ruby/rails/gem/carrierwave/2018/09/04/carrierwave_gem_upload_image_localhost_ruby_on_rails</id><content type="html" xml:base="http://localhost:4000/ruby/rails/gem/carrierwave/2018/09/04/carrierwave_gem_upload_image_localhost_ruby_on_rails.html">&lt;p&gt;&lt;a href=&quot;https://github.com/carrierwaveuploader/carrierwave&quot;&gt;carrierwave&lt;/a&gt;是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。
+（預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host，
+並再下集遠端(production)實作上傳，敬請期待！）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177jA3W9YiK5l.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177jA3W9YiK5l.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在閱讀任何Github上的README.md，有一點很重要的是知道因為環境設定的不同，必須漸漸了解哪些步驟可以跳過、哪些變數需要修改成符合自己專案性質的名稱，這點身為新手的我，將會靠練習活用各式各樣的gem來進步。：）&lt;/p&gt;
+
+&lt;p&gt;這次我們會更動的檔案/資料夾如下：
+Rails的架構 | 說明
+—|—–
+Gemfile | 設定Rails應用程式使用了哪些Gems套件
+app |放Controllers、Models和Views檔案&lt;/p&gt;
+
+&lt;p&gt;接下來就按造步驟來實作吧！&lt;/p&gt;
+
+&lt;h3 id=&quot;a-在gemfile加入套件重啟rails-server&quot;&gt;A. 在&lt;code class=&quot;highlighter-rouge&quot;&gt;gemfile&lt;/code&gt;加入套件，重啟rails server：&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;首先我們按照&lt;a href=&quot;https://github.com/carrierwaveuploader/carrierwave&quot;&gt;carrierwave&lt;/a&gt;在githhub上說明檔的指示，前往&lt;code class=&quot;highlighter-rouge&quot;&gt;/專案名稱/gemfile&lt;/code&gt;，新增程式碼：
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'carrierwave', '~&amp;gt; 1.0'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;README.md告訴我們CarrierWave的版本需求：Rails 4.0 or higher and Ruby 2.0，我的ruby 2.4.2 Rails 5.1.6，所以沒有問題～&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;每次新增任何新的Gem到Gemfile，就要在Terminal輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;處理相依性，然後&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;重啟伺服器。
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle install
+tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle info carrierwave
+  * carrierwave (1.2.3)
+ Summary: Ruby file upload library
+ Homepage: https://github.com/carrierwaveuploader/carrierwave
+ Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/carrierwave-1.2.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;b-用rails-g指令新增image-uploader功能&quot;&gt;B. 用&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g&lt;/code&gt;指令，新增Image uploader功能&lt;/h3&gt;
+&lt;p&gt;接下來就可以看到carrierwave的厲害之處了，在此我需要將自己的餐廳(restaurants)資料庫建立新的圖片(image)欄位，所以把carrier的指令客製化成自己的專案。
+指令&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g uploader Image&lt;/code&gt;幫助我們在此路徑：&lt;code class=&quot;highlighter-rouge&quot;&gt;app/uploaders/image_uploader.rb&lt;/code&gt;新增了檔案。
+打開&lt;code class=&quot;highlighter-rouge&quot;&gt;image_uploader.rb&lt;/code&gt;看看裡面的類別寫法：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class ImageUploader &amp;lt; CarrierWave::Uploader::Base
+  storage :file
+  #storage :fog
+  # Override the directory where uploaded files will be stored.
+  # def store_dir
+    &quot;uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}&quot;
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;這個部分指的是：
+如果我把儲存檔案的地方放在本地端(localhost)，就要把storage :file前的#註解拿掉
+相對的，想要把儲存檔案的地方放在遠端(Heroku)，把storage :fog前的#註解拿掉&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在本篇裡，CarrierWave會把我上傳的圖片將會放在&lt;code class=&quot;highlighter-rouge&quot;&gt;/public/uploads/restaurant/image&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;c-建立資料庫上傳image所需欄位&quot;&gt;C. 建立資料庫上傳Image所需欄位&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;建立遷移檔(migration，修改資料庫結構)
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g migration add_image_to_restaurants image:string&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;並在資料庫增加上傳圖片的欄位:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;然後重啟伺服器：&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;順利的在&lt;code class=&quot;highlighter-rouge&quot;&gt;db/migrate&lt;/code&gt;跑出了&lt;code class=&quot;highlighter-rouge&quot;&gt;add_image_to_restaurants.rb&lt;/code&gt;檔案。打開來瞧瞧：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class AddImageToRestaurants &amp;lt; ActiveRecord::Migration[5.1]
+  def change
+    add_column :restaurants, :image, :string
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;d-修改models讓資料庫準備好存取圖片的功能&quot;&gt;D. 修改Models，讓資料庫準備好存取圖片的功能&lt;/h3&gt;
+
+&lt;p&gt;接下來我們修改跟ActiveRecord有關的Models。mount Model裡面，這個名為uploader上傳功能小幫手，未來它會幫我們翻譯資料庫語言(SQL)跟資料庫要資料（餐廳圖片）。:&lt;/p&gt;
+
+&lt;p&gt;Models: &lt;code class=&quot;highlighter-rouge&quot;&gt;app/models/restaurant.rb&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class User &amp;lt; ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在&lt;a href=&quot;https://rails.ruby.tw/active_record_basics.html&quot;&gt;rails官網&lt;/a&gt;提到：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Active Record 是MVC的M（Model）表現商業邏輯與資料的層級，負責新增與操作需要持久存在資料庫裡的資料。Active Record本身是ORM（Object Relational Mapping，物件關聯映射）系統的描述。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;e-修改views&quot;&gt;E. 修改Views&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;資料庫的上傳功能已經準備好了，接下來到Views跟表單溝通，請讓表單能夠接受上傳的圖片。
+首先到&lt;code class=&quot;highlighter-rouge&quot;&gt;app/views/restaurants/_form.html.erb&lt;/code&gt;，修改成可以上傳照片的form type(表單型態)。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;%= form_with(model: restaurant, local: true, :html =&amp;gt; { multipart: true }) do |form| %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;我們來增加：「上傳圖片」欄位，讓使用者能在視覺上看得見新欄位，並修改上傳圖片的檔案(file)類型為&lt;code class=&quot;highlighter-rouge&quot;&gt;form.file_field&lt;/code&gt;，不同於其他純文字(text)欄位如地址、電話的&lt;code class=&quot;highlighter-rouge&quot;&gt;form.text_field&lt;/code&gt;。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;div class=&quot;form-group&quot;&amp;gt;
+    &amp;lt;%= form.label :name %&amp;gt;
+    &amp;lt;%= form.text_field :name, id: :restaurant_name, class: &quot;form-control&quot; %&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;div class=&quot;form-group&quot;&amp;gt;
+    &amp;lt;%= form.label :image %&amp;gt;
+    &amp;lt;%= form.file_field :image, id: :restaurant_image, class: &quot;form-control&quot; %&amp;gt;
+  &amp;lt;/div&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;告訴rails何時取得image。我們來到&lt;code class=&quot;highlighter-rouge&quot;&gt;app/views/restaurants/show.html.erb&lt;/code&gt;，在餐廳資料前面加上程式碼：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p id=&quot;notice&quot;&amp;gt;&amp;lt;%= notice %&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;%= image_tag @restaurant.image_url if @restaurant.image_url.present? %&amp;gt;
+&amp;lt;p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt;
+  &amp;lt;strong&amp;gt;Name:&amp;lt;/strong&amp;gt;
+  &amp;lt;%= @restaurant.name %&amp;gt;
+&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;image_tag&lt;/code&gt;：Rails內建的Helper靜態輔助方法，可以讓我們建構HTML更為容易。&lt;a href=&quot;https://ihower.tw/rails/actionview-helpers.html&quot;&gt;參考這裡&lt;/a&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;@restaurant.image_url&lt;/code&gt;：顯示目前這筆餐廳資料的圖片位置。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[新手常見Bug！]檢查圖片為nil寫法：&lt;code class=&quot;highlighter-rouge&quot;&gt;if @restaurant.image_url.present?&lt;/code&gt;。可以防止當某位使用者新增一筆餐廳資料、但沒有附上圖片的時候，show.html.erb這頁網頁直接當掉給你看…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;f-修改controllers&quot;&gt;F. 修改Controllers&lt;/h3&gt;
+
+&lt;p&gt;最後，我們在Controllers: &lt;code class=&quot;highlighter-rouge&quot;&gt;app/controllers/restaurants.controller.rb&lt;/code&gt;加上允許上傳至欄位的參數，告訴rails，新的image欄位是安全的。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    def restaurant_params
+      params.require(:restaurant).permit(:name, :address, :phone, :website, :image)
+    end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;**大功告成 **&lt;/p&gt;
+
+&lt;p&gt;觀看結果：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">carrierwave是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。 （預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host， 並再下集遠端(production)實作上傳，敬請期待！）</summary></entry><entry><title type="html">在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL</title><link href="http://localhost:4000/rails/postgresql/sqlite/heroku/gem/2018/08/31/change_db_from_sqlite_to_postgresql_when_deploy_to_heroku.html" rel="alternate" type="text/html" title="在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL " /><published>2018-08-31T10:31:00+10:00</published><updated>2018-08-31T10:31:00+10:00</updated><id>http://localhost:4000/rails/postgresql/sqlite/heroku/gem/2018/08/31/change_db_from_sqlite_to_postgresql_when_deploy_to_heroku</id><content type="html" xml:base="http://localhost:4000/rails/postgresql/sqlite/heroku/gem/2018/08/31/change_db_from_sqlite_to_postgresql_when_deploy_to_heroku.html">&lt;p&gt;前情提要：
+Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;上一篇文章：將Ruby on Rails專案部署到Heroku&lt;/a&gt;遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！&lt;del&gt;找到點子寫文章果然是遇到bug的最佳副產品&lt;/del&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Heroku的資料庫是使用&lt;a href=&quot;https://devcenter.heroku.com/articles/heroku-postgresql#local-setup&quot;&gt;PostgreSQL&lt;/a&gt;，而這篇文章有說明&lt;a href=&quot;https://devcenter.heroku.com/articles/sqlite3&quot;&gt;為什麼不用SQLite在Heroku&lt;/a&gt;。
+但Rails框架在我們的電腦本機&lt;code class=&quot;highlighter-rouge&quot;&gt;rails new app&lt;/code&gt;設定時，為了初學者快速理解學習，預設是SQLite。
+所以如果沒有變更資料庫，直接把Rails push到Heroku上去，就會出現問題。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;看完&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems&quot;&gt;這篇&lt;/a&gt;資料庫的文章比較，以一句話來大概解釋比較sqlite與PostgreSQL，sqlite缺乏額外優化性能的靈活性，且同一時間只允許一個寫入操作；可擴展的PostgreSQL提供了可靠性和數據完整性，因此是更好的選擇。&lt;/p&gt;
+
+&lt;p&gt;[問題]
+我在本機的Ruby on Rails專案所用的資料庫是SQLite，當時還未想到之後會部署到Heroku。&lt;/p&gt;
+
+&lt;p&gt;因此，在&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;上篇文章&lt;/a&gt;做到&lt;code class=&quot;highlighter-rouge&quot;&gt;Step3 &amp;gt;&amp;gt; 步驟 B. 建立Heroku gem&lt;/code&gt;：修改我的本地資料夾裡的gem file，當我新增一個gem叫做’pg’這個步驟時…&lt;/p&gt;
+
+&lt;p&gt;問題出現了！本機遇到的錯誤訊息： No connection pool for ActiveRecord::Base
+https://stackoverflow.com/questions/38176304/no-connection-pool-for-activerecordbase&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/201111779bYfI1JbY4.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/201111779bYfI1JbY4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;[解法]&lt;/p&gt;
+&lt;h3 id=&quot;step1-修改rails專案的configgemfile&quot;&gt;Step1. 修改rails專案的&lt;code class=&quot;highlighter-rouge&quot;&gt;/config/Gemfile&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Pg&lt;/code&gt;套件，讓我們在Ruby上使用關聯式資料庫PostgreSQL的介面的好幫手。
+（Pg套件詳細資料： https://bitbucket.org/ged/ruby-pg/wiki/Home ）&lt;/p&gt;
+
+&lt;p&gt;我們可以&lt;code class=&quot;highlighter-rouge&quot;&gt;/config/Gemfile&lt;/code&gt;加上這幾行程式碼，
+讓在Heroku上線時候跑的是PostgreSQL，而在本機的時候還是跑SQLite。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Rails 應用程式預設提供了三種不同的執行模式：&lt;/strong&gt;
+    development environment:開發模式，用在你的開發的時候
+    test environment: 測試模式，用在執行測試程式時
+    production environment: 正式上線模式，用在實際的上線運作環境&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;group :production do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'sqlite3'  
+end  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;或是寫成：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'sqlite3',             group: :development 
+gem 'pg',                  group: :production
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[注意]&lt;code class=&quot;highlighter-rouge&quot;&gt;gem 'pg'&lt;/code&gt;後面要加逗號&lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt;啊！不然就會向我一樣出現Syntax error…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177KkGqGHfOwo.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177KkGqGHfOwo.png&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;欣慰的是，用錯誤訊息搜尋關鍵字，發現在stackoverflow上也有人跟我犯過同樣的錯誤 XD
+https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-tidentifier-expecting-end-of-input&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;step2-跑bundle-install再重啟rails-server&quot;&gt;Step2. 跑&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;，再重啟rails server。&lt;/h3&gt;
+&lt;p&gt;記得，每次在Gemfile修改套件資料，都要跑&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;處理套件相依性問題。
+（如果你在本機，想避免安裝任何在production環境下跑的gem，可輸入：&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install --without production&lt;/code&gt; ）&lt;/p&gt;
+
+&lt;p&gt;而每次跑完bundle都要先用&lt;code class=&quot;highlighter-rouge&quot;&gt;control+ c&lt;/code&gt;關掉Terminal頁面的伺服器，
+再重啟伺服器&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;之後，如下圖：localhost資料庫的問題已解決了：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177a6CAZPI3la.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177a6CAZPI3la.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;但你還是看不到首頁的資料：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177s3GYTJzv4H.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177s3GYTJzv4H.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step3-部署到herokugit-push-heroku-master&quot;&gt;Step3. 部署到Heroku：&lt;code class=&quot;highlighter-rouge&quot;&gt;git push heroku master&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;最後兩步：push!&lt;code class=&quot;highlighter-rouge&quot;&gt;git push heroku master&lt;/code&gt;，
+還要跑完&lt;code class=&quot;highlighter-rouge&quot;&gt;heroku rake db:migrate&lt;/code&gt;指令才會生效喔！&lt;/p&gt;
+
+&lt;p&gt;（如果轉換資料庫之前有些bug，run指令的時候會提示哪些欄位可能出了問題。）
+&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177DpBPmcKhGu.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177DpBPmcKhGu.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;首頁成功顯示資料庫！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177wzI70OZUTI.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177wzI70OZUTI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;＝＝
+後記：
+遇到這個bug讓我提早了解跟ruby on rails相關的資料庫概念，是一個很有價值的坑(?)！&lt;/p&gt;
+
+&lt;p&gt;如果你想在本機建立rails app的當下，直接設定成PostgreSQL而非SQLite（節省之後deploy的麻煩～），可以參考這篇文章：
+&lt;a href=&quot;https://medium.com/@yengttt/rails-%E4%BD%BF%E7%94%A8-postgresql-bc3123216d2a&quot;&gt;Rails 使用 PostgreSQL&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ref:
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10196781&quot;&gt;第二十三天：認識資料庫&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的上一篇文章：將Ruby on Rails專案部署到Heroku遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！找到點子寫文章果然是遇到bug的最佳副產品</summary></entry><entry><title type="html">將Ruby on Rails專案部署到Heroku</title><link href="http://localhost:4000/git/ruby/heroku/gem/bundle/homebrew/2018/08/30/git_deploy_ruby_on_rails_app_to_heroku.html" rel="alternate" type="text/html" title="將Ruby on Rails專案部署到Heroku " /><published>2018-08-30T15:16:00+10:00</published><updated>2018-08-30T15:16:00+10:00</updated><id>http://localhost:4000/git/ruby/heroku/gem/bundle/homebrew/2018/08/30/git_deploy_ruby_on_rails_app_to_heroku</id><content type="html" xml:base="http://localhost:4000/git/ruby/heroku/gem/bundle/homebrew/2018/08/30/git_deploy_ruby_on_rails_app_to_heroku.html">&lt;p&gt;今天想筆記的是把自己寫的Ruby on Rails專案部署(Deploy)到&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-ruby&quot;&gt;Heroku&lt;/a&gt;！&lt;/p&gt;
+
+&lt;p&gt;Heroku是Salesforce公司旗下的雲端服務商，支援多種程式語言像是Ruby, PHP, Python等等。
+提早讓應用程式能快速建置、部署的主要好處就是提早一步發現問題囉，
+如果將所有功能都寫好再一起丟上去，可能會不容易發現不同的錯誤是分別出在哪裡！
+而且能在網路上讓全世界看到自己努力實作的成果，還是比只有在本機localhost觀賞更有成就感的。&lt;/p&gt;
+
+&lt;p&gt;以下以我在前篇文章寫的Ruby on Rails專案為例：&lt;/p&gt;
+
+&lt;h2 id=&quot;step1-getting-started-on-heroku-with-ruby&quot;&gt;Step.1 Getting started on Heroku with Ruby&lt;/h2&gt;
+
+&lt;p&gt;二話不說，我們先到&lt;a href=&quot;https://signup.heroku.com/&quot;&gt;Heroku&lt;/a&gt;的申請頁面用好自己的帳號，然後進入後台選擇Ruby程式語言，按下create new app：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/201111778IiseQj7LJ.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/201111778IiseQj7LJ.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;頁面會跳轉至如何&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-ruby&quot;&gt;設定Ruby的教學文件&lt;/a&gt;，開始一步步研究它：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/201111778UZsgHQjRc.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/201111778UZsgHQjRc.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;a在terminal確定ruby版本ruby--v&quot;&gt;A.在Terminal確定Ruby版本：&lt;code class=&quot;highlighter-rouge&quot;&gt;ruby -v&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:~ tingtinghsu$ ruby -v
+ruby 2.4.2p198 (2017-09-14 revision 59899) [x86_64-darwin17]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;b安裝bundler輸入-gem-install-bundler&quot;&gt;B.安裝bundler：輸入 &lt;code class=&quot;highlighter-rouge&quot;&gt;gem install bundler&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;在Ruby世界裡，&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Gem代表套件，是各種打包好的程式碼，讓開發效率更加速，節省工程師的寶貴時間。*&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;而&lt;a href=&quot;http://gembundler.com/&quot;&gt;Bundler&lt;/a&gt; 是管理Gem相依性(dependencies)的工具，解決不同套件之間的依存關係，避免因為版本問題而產生衝突。*&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:~ tingtinghsu$ gem install bundler
+Fetching: bundler-1.16.4.gem (100%)
+Successfully installed bundler-1.16.4
+Parsing documentation for bundler-1.16.4
+Installing ri documentation for bundler-1.16.4
+Done installing documentation for bundler after 8 seconds
+1 gem installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;可以看到指令已經自動幫我裝好了&lt;code class=&quot;highlighter-rouge&quot;&gt;bundler-1.16.4.gem&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;c-安裝git&quot;&gt;C. 安裝Git&lt;/h3&gt;
+&lt;p&gt;如果你的還沒有裝Git版本控制系統的話，Heroku教學文件也附上&lt;a href=&quot;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&quot;&gt;Git官網安裝連結&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;以上的步驟對接下來故事的發展很重要喔！&lt;/p&gt;
+
+&lt;h2 id=&quot;step2-在你的os設定heroku-cl介面&quot;&gt;Step2. 在你的OS設定Heroku CL介面&lt;/h2&gt;
+
+&lt;p&gt;接下來進入&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up&quot;&gt;Set Up&lt;/a&gt;頁面照著步驟進行：&lt;/p&gt;
+
+&lt;h3 id=&quot;a-用homebrew安裝command-line介面&quot;&gt;A. 用Homebrew安裝Command Line介面&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177Hf2UtpKlcw.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177Hf2UtpKlcw.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由於我使用的是MacOS，除了直接下載圖形化安裝介面，文件提到我可以：
+使用Homebrew的指令&lt;code class=&quot;highlighter-rouge&quot;&gt;brew install heroku/brew/heroku&lt;/code&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;什麼是Homebrew呢？&lt;a href=&quot;https://www.ptt.cc/bbs/MAC/M.1451965224.A.4C4.html&quot;&gt;這裡PTT的大大&lt;/a&gt;提到Mac專用的套件管理系統(就是像ubuntu的apt-get)。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;來看看自己以前是否有裝過（&lt;del&gt;因為很有實驗精神的我很愛亂碰一些東西&lt;/del&gt;）：&lt;code class=&quot;highlighter-rouge&quot;&gt;brew -v&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:~ tingtinghsu$ brew -v
+Homebrew 1.4.0
+Homebrew/homebrew-core (git revision fc09; last commit 2017-12-12)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;記錄顯示一年前有玩弄過～
+果然今年開始養成寫筆記的好習慣是正確的，不然做過什麼有趣的事都忘記了，就很可惜呢。：）&lt;/p&gt;
+
+&lt;p&gt;現在我可以放心的輸入指令&lt;code class=&quot;highlighter-rouge&quot;&gt;brew install heroku/brew/heroku&lt;/code&gt;：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177hHcGgZAiC5.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177hHcGgZAiC5.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果還沒安裝的人，可移駕至&lt;a href=&quot;https://brew.sh/&quot;&gt;Homebrew官網&lt;/a&gt;瞧瞧～&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;從以下程式碼&lt;code class=&quot;highlighter-rouge&quot;&gt;brew update&lt;/code&gt;可看到安裝heroku的同時，系統也幫我把2017年的&lt;code class=&quot;highlighter-rouge&quot;&gt;Homebrew 1.4.0&lt;/code&gt;更新到&lt;code class=&quot;highlighter-rouge&quot;&gt;Homebrew 1.7.2&lt;/code&gt;：&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:~ tingtinghsu$ brew update
+Updated 1 tap (heroku/brew).
+==&amp;gt; Updated Formulae
+heroku/brew/heroku ✔
+tingdeMacBook-Air:~ tingtinghsu$ brew -v
+Homebrew 1.7.2
+Homebrew/homebrew-core (git revision 14e75; last commit 2018-08-30)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;b-正式進入heroku-command-line&quot;&gt;B. 正式進入Heroku Command Line&lt;/h3&gt;
+
+&lt;p&gt;關於部署Deploy，參考&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-ruby#deploy-the-app&quot;&gt;教學文件&lt;/a&gt;，首先移動到你專案的路徑位置：（我的以yelpdemo資料夾為例）。&lt;/p&gt;
+
+&lt;p&gt;輸入指令&lt;code class=&quot;highlighter-rouge&quot;&gt;heroku login&lt;/code&gt;，然後輸入你的heroku帳號密碼：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku login
+Enter your Heroku credentials.
+Email: user@example.com
+
+Password:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;下一步是輸入指令&lt;code class=&quot;highlighter-rouge&quot;&gt;heroku create&lt;/code&gt;：代表我們已經在Heroku上建立app(應用程式)了。
+&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177Zb0XfVJgEz.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177Zb0XfVJgEz.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以上顯示我已經在Heroku上開一台伺服器，Heroku隨機分配的名稱叫做&lt;code class=&quot;highlighter-rouge&quot;&gt;dry-sea-32555&lt;/code&gt;，
+用&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt;指令確認一下git在heroku遠端的節點：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ git remote -v
+heroku	https://git.heroku.com/dry-sea-32555.git (fetch)
+heroku	https://git.heroku.com/dry-sea-32555.git (push)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你想把網址改成好記一點的，可以輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;heroku rename&lt;/code&gt;+你喜歡的名稱：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ heroku rename tingsrailsdemo
+Renaming dry-sea-32555 to tingsrailsdemo... done
+https://tingsrailsdemo.herokuapp.com/ | https://git.heroku.com/tingsrailsdemo.git
+Git remote heroku updated
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;接著去改完名的這個網址瞧瞧：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177e6h39ERIxI.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177e6h39ERIxI.png&quot; /&gt;
+太好了，伺服器完工！&lt;/p&gt;
+
+&lt;h2 id=&quot;step3-getting-started-on-heroku-with-rails&quot;&gt;Step3. Getting started on Heroku with Rails&lt;/h2&gt;
+
+&lt;p&gt;重頭戲「利用指令部署專案至Heroku」開始上場！
+以下紀錄在把Ruby on Rail專案往Heroku上面推之前，記得到程式架構裡修改的步驟。&lt;/p&gt;
+
+&lt;h3 id=&quot;a-首先確定rails版本rails--v&quot;&gt;A. 首先，確定Rails版本&lt;code class=&quot;highlighter-rouge&quot;&gt;rails -v&lt;/code&gt;：&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ rails -v
+Rails 5.1.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;這時候一定要用力參考這篇如何設定Rails的&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-rails5&quot;&gt;教學文件&lt;/a&gt;Getting Started on Heroku with Rails 5.x，讓我們的程式碼可以順利在網際網路上運行。記得參考的Heroku文件必須搭配相應的rails版本，如果你的rails版本是4或更舊的版本，文件裡也有連結。&lt;/p&gt;
+
+&lt;h3 id=&quot;b-建立heroku-gem&quot;&gt;B. 建立Heroku gem：&lt;/h3&gt;
+&lt;p&gt;還記得剛剛文章開頭我們聊過打包好的程式碼gem（套件），這時馬上是個練習的好機會。
+Horoku高度推薦我們開發專案所使用的資料庫是Postgresql：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;If you’re using an existing app that was created without specifying –database=postgresql, you need to add the pg gem to your Rails project. 
+Edit your Gemfile and change this line:&lt;code class=&quot;highlighter-rouge&quot;&gt;gem 'sqlite3'&lt;/code&gt;To this:&lt;code class=&quot;highlighter-rouge&quot;&gt;gem 'pg'&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;所以現在來到我的本地資料夾裡的gem file，新增一個gem叫做’pg’&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source 'https://rubygems.org'
+
+git_source(:github) do |repo_name|
+  repo_name = &quot;#{repo_name}/#{repo_name}&quot; unless repo_name.include?(&quot;/&quot;)
+  &quot;https://github.com/#{repo_name}.git&quot;
+end
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~&amp;gt; 5.1.6'
+#gem 'sqlite3'             #database for Active Record
+gem 'pg'                   #在這個地方新增Postgresql gem
+gem 'puma', '~&amp;gt; 3.7'       #app server
+gem 'sass-rails', '~&amp;gt; 5.0' #stylesheets
+gem 'uglifier', '&amp;gt;= 1.3.0' #compressor for JavaScript assets
+gem 'coffee-rails', '~&amp;gt; 4.2' #.coffee assets and views
+gem 'turbolinks', '~&amp;gt; 5' #navigate your web application faster
+gem 'jbuilder', '~&amp;gt; 2.5' #Build JSON APIs
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;c-利用bundle確認套件版本之間的相依性沒有衝突&quot;&gt;C. 利用&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle&lt;/code&gt;確認套件版本之間的相依性沒有衝突。&lt;/h3&gt;
+&lt;p&gt;如同本文開頭所提到的，這個步驟很重要。
+記得，只要改過任何gemfile，就要再跑過&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;指令，確認相依性：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Fetching gem metadata from https://rubygems.org/.........
+Fetching gem metadata from https://rubygems.org/.
+Resolving dependencies...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;bundler很乖地幫我們查找到了一個，這就是剛剛修改的Pg套件：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Fetching pg 1.1.2
+Installing pg 1.1.2 with native extensions
+...
+Bundle complete! 16 Gemfile dependencies, 70 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;每次頭一回安裝一個新套件，還跟它不熟時，
+你可以輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle info +套件名稱&lt;/code&gt;深入了解詳細資料，增強自己的印象，以及對技術的近一步認識（以免裝過什麼gem玩意都很容易失憶啊）：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle info pg
+  * pg (1.1.2)
+	Summary: Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/]
+	Homepage: https://bitbucket.org/ged/ruby-pg
+	Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/pg-1.1.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;d-利用git指令部署專案至herokugit-push-heroku-master&quot;&gt;D. 利用git指令，部署專案至Heroku：&lt;code class=&quot;highlighter-rouge&quot;&gt;git push heroku master&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ git push heroku master
+Counting objects: 129, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (112/112), done.
+Writing objects: 100% (129/129), 28.60 KiB | 0 bytes/s, done.
+Total 129 (delta 9), reused 105 (delta 3)
+...
+To https://git.heroku.com/tingsrailsdemo.git
+ * [new branch]      master -&amp;gt; master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;好了！既然推上去了，就跑去Heroku網站看一眼長什麼樣子：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177D1hIlRGnin.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177D1hIlRGnin.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;疑？我精美的網站呢？&lt;/p&gt;
+
+&lt;h3 id=&quot;e-最後的最後記得要輸入指令heroku-run-rake-dbmigrate-更新資料庫&quot;&gt;E. 最後的最後…記得要輸入指令&lt;code class=&quot;highlighter-rouge&quot;&gt;heroku run rake db:migrate&lt;/code&gt; 更新資料庫&lt;/h3&gt;
+
+&lt;p&gt;為了解決剛剛的問題，在這裡解釋：
+Rails的環境分成三種&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;development&lt;/code&gt;開發模式，&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;測試模式，和&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;production&lt;/code&gt;產品正式上線模式。&lt;strong&gt;在這裡的Heroku就是我們的產品模式。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;這個指令的意思，每次更改資料庫時，記得最後要在Heroku（產品正式上線模式）跑migration。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ heroku run rake db:migrate
+Running rake db:migrate on ⬢ tingsrailsdemo... up, run.3211 (Free)
+================================
+-- create_table(:restaurants)
+   -&amp;gt; 0.0102s
+== 20180823054504 CreateRestaurants: migrated (0.0107s) =======================
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177BDlMFwsD86.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177BDlMFwsD86.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;跑完&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;後，頁面終於順利出現。：）&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;後記，在最後的處理資料庫部分的時候，我卡了快2小時…因為我之前預設的rails專案是使用sqlite3而不是PostgreSQL！不過為了解決bug，之後近一步參考&lt;a href=&quot;https://devcenter.heroku.com/articles/sqlite3&quot;&gt;why you cannot use Sqlite3 on Heroku&lt;/a&gt;，再搜尋錯誤訊息的關鍵字，增加了更多知識，順便連下一篇文章主題都想好了：如何把你的Rails app資料庫從sqlite移轉成postgre。開心！XD&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ref:
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10189021&quot;&gt;龍哥的部落格&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">今天想筆記的是把自己寫的Ruby on Rails專案部署(Deploy)到Heroku！</summary></entry><entry><title type="html">解決Git常見錯誤 non-fast-forward問題</title><link href="http://localhost:4000/git/github/2018/08/29/git_push_non_fast_forward.html" rel="alternate" type="text/html" title="解決Git常見錯誤 non-fast-forward問題" /><published>2018-08-29T11:52:00+10:00</published><updated>2018-08-29T11:52:00+10:00</updated><id>http://localhost:4000/git/github/2018/08/29/git_push_non_fast_forward</id><content type="html" xml:base="http://localhost:4000/git/github/2018/08/29/git_push_non_fast_forward.html">&lt;p&gt;最近每次遇到bug或錯誤都挺興奮 &lt;del&gt;開心(?)&lt;/del&gt; 的，&lt;em&gt;因為又可以寫筆記了&lt;/em&gt;
+也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。&lt;/p&gt;
+
+&lt;p&gt;我在本機練習做了一個Ruby on Rails專案（名稱定為：yelpdemo）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我先用&lt;code class=&quot;highlighter-rouge&quot;&gt;subl .&lt;/code&gt;叫出Sublime編寫專案內的網頁，做一點修改後，
+再用Terminal按照我自己&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10198964&quot;&gt;Day2筆記&lt;/a&gt;所說的Git步驟試著同步此專案到Github的同名repository儲存庫。&lt;/p&gt;
+
+&lt;h3 id=&quot;前情提要我再github的repo是上週設定好的所以自己有點忘記當初發生什麼事導致接下來的問題&quot;&gt;前情提要：我再Github的repo是上週設定好的，所以自己有點忘記當初發生什麼事～導致接下來的問題&lt;/h3&gt;
+
+&lt;h3 id=&quot;step1-首先git-status&quot;&gt;Step1. 首先&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;看看目前working directory中所有檔案的情形，紅色代表這些檔案需要被追蹤：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177faIYTaL67l.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177faIYTaL67l.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step2-git-add-&quot;&gt;Step2. &lt;code class=&quot;highlighter-rouge&quot;&gt;git add .&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;把以上所有檔案交給Git，再輸入一次&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;，綠色代表已更改為被追蹤：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177TwdEmf4DYw.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177TwdEmf4DYw.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step3-git-commit&quot;&gt;Step3 &lt;code class=&quot;highlighter-rouge&quot;&gt;git commit&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;first commit&quot;&lt;/code&gt;，備註-m裡寫上”執行第一個提交指令commit”，將staged檔案儲存到儲存庫：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177m0erHLYic9.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177m0erHLYic9.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然後再輸入一次&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177y4gEfjUE01.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177y4gEfjUE01.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;好了，到這邊都挺順的～&lt;/p&gt;
+
+&lt;h3 id=&quot;step4設定好要加入的路徑-git-remote-add-origin&quot;&gt;Step4.設定好要加入的路徑 &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin https://github.com/(你的帳號)/(你的專案名稱)&lt;/code&gt;：
+設定遠端origin的repository路徑，然後再推送：
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt; 
+-u是update的意思，用了參數-u之後，未來就能直接使用不帶參數的&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;從以前push過的分支來pull。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果你沒有先&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin&lt;/code&gt;就直接&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;
+就會像我一開始一樣，出現了’找不到儲存庫’的問題喔！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177y7KBrSMI3T.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177y7KBrSMI3T.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step5-git-push--u-origin-master&quot;&gt;Step5. &lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[燈等！]更新被拒絕了，因為上週我在Remote建的的repo裡面，有些更動過的檔案版本，本地端並沒有：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177ElauUZHXsa.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177ElauUZHXsa.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;[解決]提示告訴我可以先用&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;，&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177Z2gTdZDmzg.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177Z2gTdZDmzg.png&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;然後再&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;一次：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177KVWSk3rmg5.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177KVWSk3rmg5.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;重點在於最後一行：git push預設會推送「本地分支」到相同檔名的「遠端分支」&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;When push.default is set to 'matching', git will push local branchesto the remote branches that already exist with the same name.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[燈等！]問題再度出現：The current branch master has no upstream branch，表示當前分支主機沒有上游分支:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111776Dl8yTegA2.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111776Dl8yTegA2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;[解決]按照提示，依樣畫葫蘆地&lt;code class=&quot;highlighter-rouge&quot;&gt;git push --set-upstream origin master&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177fhtIcNgZql.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177fhtIcNgZql.png&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[燈等！] 新的問題產生，提示說我的master是non-fast forward&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111776GMlki3aTG.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111776GMlki3aTG.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;這個non-fast forward 的意思是本機commit和遠端的不相同，本地和遠端的Repository發生文件衝突問題（線圖有分岔）。&lt;/p&gt;
+
+&lt;p&gt;由於上週在遠端創建的資料夾內容文件發生改變，因此不允許我把本地的文件覆蓋上去。&lt;/p&gt;
+
+&lt;p&gt;關於合併local端和remote端，近一步了解可以看&lt;a href=&quot;https://git-scm.com/book/zh-tw/v1/Git-%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF&quot;&gt;git官網&lt;/a&gt;，或是&lt;a href=&quot;https://backlog.com/git-tutorial/tw/stepup/stepup1_4.html&quot;&gt;連猴子都能懂的Git入門指南&lt;/a&gt;解釋&lt;/p&gt;
+
+&lt;p&gt;在push之前，我需要
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge&lt;/code&gt;
+將遠端的改變用merge合併到本地上。&lt;/p&gt;
+
+&lt;p&gt;或是我可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -f&lt;/code&gt;  強制覆蓋本地文件替代git儲存庫的內容。&lt;/p&gt;
+
+&lt;p&gt;Google關鍵字在&lt;a href=&quot;https://stackoverflow.com/questions/10298291/cannot-push-to-github-keeps-saying-need-merge&quot;&gt;stackoverflow&lt;/a&gt;找到的解法是
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -f origin &amp;lt;branch&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;-f代表force：強制推送。如果不想把遠端分支的更動合併（merge）到本地分支，則可以使用這個指令。&lt;strong&gt;但要小心使用。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[解決]&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177vYKA8TDUfV.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177vYKA8TDUfV.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;回到github站上檢查，終於同步完成：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111779euCL1MqMF.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111779euCL1MqMF.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;===
+後記：
+這是寫給自己提升記憶的筆記。相信之後如果在本機再建立其他新專案、遠端建立儲存庫並使用gite功能，可能還是會遇到以上類似的問題，身為自學git新新手，我沒有直接發問求救，而是靠google增加觀念、進而找到解答，因此還蠻開心的！&lt;/p&gt;
+
+&lt;p&gt;看了資料，有些工程師的建議是少用&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;，以&lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge&lt;/code&gt;代替。也許以後實作之後有類似的經驗和心得，再寫點相關的文章。&lt;/p&gt;
+
+&lt;p&gt;ref: 
+&lt;a href=&quot;https://blog.exfast.me/2016/05/git-instructions-instructions/&quot;&gt;git&lt;/a&gt;
+&lt;a href=&quot;https://gitbook.tw/chapters/using-git/add-to-git.html&quot;&gt;龍哥的git部落格&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">最近每次遇到bug或錯誤都挺興奮 開心(?) 的，因為又可以寫筆記了 也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。</summary></entry><entry><title type="html">在Github用Jekyll創建自己的blog</title><link href="http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog.html" rel="alternate" type="text/html" title="在Github用Jekyll創建自己的blog" /><published>2018-08-25T12:06:12+10:00</published><updated>2018-08-25T12:06:12+10:00</updated><id>http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog.html">&lt;p&gt;最近IT邦有一篇熱門文章「哪個blog寫技術文章最好用？」
 &lt;del&gt;有邦友開玩笑的說IT邦算嗎？&lt;/del&gt;&lt;/p&gt;
 
 &lt;p&gt;昨天貓貓工程師在我們共同的&lt;a href=&quot;http://slack.com/&quot;&gt;Slack&lt;/a&gt;群組分享他的&lt;a href=&quot;https://blog.bater.gq/&quot;&gt;blog&lt;/a&gt;，他提到是使用&lt;a href=&quot;http://jekyllcn.com/docs/posts/&quot;&gt;Jekyll&lt;/a&gt;（一個簡單靜態blog網站生成器）架在&lt;a href=&quot;https://github.com/&quot;&gt;github&lt;/a&gt;上的。&lt;/p&gt;
