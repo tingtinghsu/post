@@ -1,4 +1,227 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-10T16:02:51+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">[鐵人賽Day01] 30天修煉Ruby面試精選100題 - 參賽緣起</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions.html" rel="alternate" type="text/html" title="[鐵人賽Day01] 30天修煉Ruby面試精選100題 - 參賽緣起" /><published>2018-09-10T09:40:00+10:00</published><updated>2018-09-10T09:40:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions.html">&lt;p&gt;參賽緣起：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-11T15:25:45+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">[鐵人賽Day02] 30天修煉Ruby面試精選30題 - Module 模組</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day02_ruby_interview_100_questions_module.html" rel="alternate" type="text/html" title="[鐵人賽Day02] 30天修煉Ruby面試精選30題 - Module 模組" /><published>2018-09-10T09:40:00+10:00</published><updated>2018-09-10T09:40:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day02_ruby_interview_100_questions_module</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day02_ruby_interview_100_questions_module.html">&lt;p&gt;前情提要：
+在第一天裡，小妹我很激昂地用Ruby的&lt;code class=&quot;highlighter-rouge&quot;&gt;類別&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;物件&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;方法&lt;/code&gt;，寫了開賽宣言！&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class TingIsIronman
+  def initialize
+    @message = &quot;I'm going to write 30 IT articles in 30 days!&quot;
+  end
+  def method
+    puts @message.gsub(&quot;write&quot;, &quot;create&quot;)
+  end
+end
+
+object = TingIsIronman.new
+object.method
+ #=&amp;gt; I'm going to create 30 IT articles in 30 days!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;然後我從探索類別的栗子🌰：查詢&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;的父類別時，發現一個鐵錚錚的事實：&lt;code class=&quot;highlighter-rouge&quot;&gt;tw.class.superclass.class.superclass&lt;/code&gt;印出來的結果是&lt;code class=&quot;highlighter-rouge&quot;&gt;moudle&lt;/code&gt;。&lt;code class=&quot;highlighter-rouge&quot;&gt;tw.class.superclass.class.superclass.superclass&lt;/code&gt; 印出來的結果是&lt;code class=&quot;highlighter-rouge&quot;&gt;Object&lt;/code&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;（白話翻譯吐司：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;「番薯島」的類別是「國家」，「國家的」父類別是「世界」；
+「世界」的類別，依舊是個「類別」；「類別」的「父類別」，是個「模組」喔喔喔喔！！！）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;所以在第二天的文章裡，我們就來聊一聊模組(Module)吧！:)&lt;/p&gt;
+
+&lt;p&gt;===&lt;/p&gt;
+&lt;h3 id=&quot;ruby經典面試題目-02&quot;&gt;Ruby經典面試題目 #02&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby02 - 類別與模組有什麼不同? The Difference Between a Class and a Module? &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;從以上「番薯島」的例子裡，我們從&lt;code class=&quot;highlighter-rouge&quot;&gt;「類別」的「父類別」，是個「模組」&lt;/code&gt; 這句話找到靈感，已經可以做出比較表格的第一列：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;超級比一比&lt;/th&gt;
+      &lt;th&gt;類別 Class&lt;/th&gt;
+      &lt;th&gt;模組 Module&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;父類別 superclass&lt;/td&gt;
+      &lt;td&gt;模組 Module&lt;/td&gt;
+      &lt;td&gt;物件 Object&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;從&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;龍哥的Ruby教學裡關於海賊王魯夫的例子&lt;/a&gt;，我得到一個重要的觀念：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;類別可以繼承，而模組不行。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我們在第一篇文章裡已經透過番薯島的例子利用類別過繼承，
+現在來讓我們繼續練習繼承的概念，new更多「國家」物件，用Ruby語言，領略世界各國之美：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class World 
+    def beautiful(scenery)
+      p &quot;#{scenery} is so beautiful!!&quot;
+    end
+end
+
+class Country &amp;lt; World 
+end
+
+tw = Country.new 
+au = Country.new
+jp = Country.new
+
+tw.beautiful &quot;Taroko Gorge&quot;
+au.beautiful &quot;Ayers Rock&quot;
+jp.beautiful &quot;Fujisan&quot;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;程式如我們所料，願我們都能透過繼承，看見世界上的每個國家，各自的美好：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Taroko Gorge is so beautiful!!
+Ayers Rock is so beautiful!!
+Fujisan is so beautiful!!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;說完類別了，來聊模組吧！&lt;/p&gt;
+
+&lt;p&gt;模組就是像是圖書館(library)。
+你到了圖書館借了某本程式書籍，把書本裡的「知識」(在程式語言裡，我們叫它做方法method)，吸收、消化，然後，放入(include)到腦袋。&lt;/p&gt;
+
+&lt;p&gt;在父母生下我的年代裡，Ruby還沒有被創造出來（&lt;del&gt;告訴我有哪一個小baby一生下來就會Coding的嘛？沒有嘛！&lt;/del&gt;），&lt;/p&gt;
+
+&lt;p&gt;因此，無論是學習Ruby、或是任何程式語言的知識，需要我們後天透過「網際網路」這個世界上最大的圖書館去學習。
+所以，我們可以把模組(module)理解為後天的知識，無法被繼承(inheritance)，而是後天習得的。：）&lt;/p&gt;
+
+&lt;p&gt;來動手寫一個模組，描述上述的情境：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module Library 
+#網路就像是個大型圖書館模組（要以常數，大字英文字母開頭，跟書名一樣）
+
+  def IThelp #定義IT邦方法
+    p &quot;I'm learning from others' IT articles on IThelp Website!&quot;
+  end
+end
+
+class EveryoneLearnsRuby
+  def initialize(name)
+    @name = name
+  end
+  include Library 
+  #讓每個人學Ruby時都可以使用Library模組
+end
+
+Ting = EveryoneLearnsRuby.new(&quot;Ting&quot;) 
+
+# new一個新人物Ting (OS: 大家好我是Ruby新手村民，請多指教！XD)
+
+Ting.IThelp  
+
+# I'm learning from others' IT articles on IThelp Website!
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;如果螢幕前面的你也想要學Ruby的話，當然也可以像我一樣，使用圖書館模組裡的IT邦方法喔！：）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You = EveryoneLearnsRuby.new(&quot;You&quot;)
+You. IThlep
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;「超級比一比」表格再擴充：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;超級比一比&lt;/th&gt;
+      &lt;th&gt;類別 Class&lt;/th&gt;
+      &lt;th&gt;模組 Module&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;父類別 superclass&lt;/td&gt;
+      &lt;td&gt;模組 Module&lt;/td&gt;
+      &lt;td&gt;物件 Object&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;繼承 inheritance&lt;/td&gt;
+      &lt;td&gt;可繼承&lt;/td&gt;
+      &lt;td&gt;不可繼承&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;包含 inclusion&lt;/td&gt;
+      &lt;td&gt;不可被包含&lt;/td&gt;
+      &lt;td&gt;可被包含&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;接下來我們要繼續更多探索不同之處。拿 &lt;code class=&quot;highlighter-rouge&quot;&gt;The Difference Between a Class and a Module?&lt;/code&gt;去請教Google大神，
+你會發現出現的第一段文字回答是：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Difference Between a Class and a Module. Basically, a class can be instantiated but a module cannot. A module will never be anything other than a library of methods. A class can be so much more – it can hold its state (by keeping track of instance variables) and be duplicated as many times as you want. &lt;a href=&quot;https://www.vikingcodeschool.com/professional-development-with-ruby/classes-vs-modules&quot;&gt;出處&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;這裡說明一個很重要的概念&lt;code class=&quot;highlighter-rouge&quot;&gt;instantiation&lt;/code&gt;。實體變數（Instance Variables）是使用時才會被建立，就好像我們在例子中所舉的：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class EveryoneLearnsRuby
+  def initialize(name)
+    @name = name
+  end
+  include Library 
+  #讓每個人學Ruby時都可以使用Library模組
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;其中的&lt;code class=&quot;highlighter-rouge&quot;&gt;@name&lt;/code&gt;就是實體變數。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;超級比一比&lt;/th&gt;
+      &lt;th&gt;類別 Class&lt;/th&gt;
+      &lt;th&gt;模組 Module&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;父類別 superclass&lt;/td&gt;
+      &lt;td&gt;模組 Module&lt;/td&gt;
+      &lt;td&gt;物件 Object&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;繼承 inheritance&lt;/td&gt;
+      &lt;td&gt;可繼承&lt;/td&gt;
+      &lt;td&gt;不可繼承&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;包含 inclusion&lt;/td&gt;
+      &lt;td&gt;不可被包含&lt;/td&gt;
+      &lt;td&gt;可被包含&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;延伸 extension&lt;/td&gt;
+      &lt;td&gt;不可延伸&lt;/td&gt;
+      &lt;td&gt;可被延伸&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;實例化 instantiation&lt;/td&gt;
+      &lt;td&gt;可被實例化(instantiated)&lt;/td&gt;
+      &lt;td&gt;不可被實例化&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;今天先寫到這裡，&lt;del&gt;因為網路要斷線了&lt;/del&gt;！預計明天文章會提到extension。
+做這個表格時，我發現：跟別人比較，比得好累好辛苦～&lt;/p&gt;
+
+&lt;p&gt;還是跟昨天的自己比就好。
+只要每天都有進步，都好！:)&lt;/p&gt;
+
+&lt;p&gt;Ref：
+&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module)&lt;/a&gt; |
+&lt;a href=&quot;https://guides.ruby.tw/ruby/objinitialization.html&quot;&gt;物件初始化 Object initialization&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 在第一天裡，小妹我很激昂地用Ruby的類別、物件、方法，寫了開賽宣言！ ``` class TingIsIronman def initialize @message = “I’m going to write 30 IT articles in 30 days!” end def method puts @message.gsub(“write”, “create”) end end</summary></entry><entry><title type="html">[鐵人賽Day01] 30天修煉Ruby面試精選30題 - 參賽緣起 + 用Class 寫個參賽宣言吧！</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions_class.html" rel="alternate" type="text/html" title="[鐵人賽Day01] 30天修煉Ruby面試精選30題 - 參賽緣起 + 用Class 寫個參賽宣言吧！" /><published>2018-09-10T09:40:00+10:00</published><updated>2018-09-10T09:40:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions_class</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions_class.html">&lt;p&gt;30天修煉Ruby面試精選30題 - 參賽緣起：&lt;/p&gt;
 
 &lt;p&gt;這是我第一次決定參加IT邦鐵人賽！可喜可賀！能夠在鐵人賽第10屆的大日子參賽，就彷彿跟在雪梨馬拉松40週年時拿到42KM馬拉松獎牌一樣榮幸啊啊啊。&lt;/p&gt;
 
@@ -55,9 +278,9 @@
 
 &lt;p&gt;===================================&lt;/p&gt;
 
-&lt;h3 id=&quot;ruby的經典面試題目-001&quot;&gt;Ruby的經典面試題目 #001&lt;/h3&gt;
+&lt;h3 id=&quot;ruby經典面試題目-01&quot;&gt;Ruby經典面試題目 #01&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby001 - 什麼是類別？What is a Class? &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby01 - 什麼是類別？What is a Class? &lt;/code&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;類別(Class)能夠接收資料(data)，利用方法(method)和資料data互動，並且可以建立物件實體(Object instance)。&lt;/p&gt;
@@ -144,7 +367,7 @@ object.method
 &lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
 &lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
 &lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module)&lt;/a&gt; |
-&lt;a href=&quot;https://railsbook.tw/chapters/06-ruby-basic-2.html&quot;&gt;數字、字串、陣列、範圍、雜湊、符號&lt;/a&gt; |&lt;/p&gt;</content><author><name></name></author><summary type="html">參賽緣起：</summary></entry><entry><title type="html">活用套件Carrierwave gem: (4) 使用Imagemagick修改圖片大小</title><link href="http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick.html" rel="alternate" type="text/html" title="活用套件Carrierwave gem: (4) 使用Imagemagick修改圖片大小" /><published>2018-09-09T13:34:00+10:00</published><updated>2018-09-09T13:34:00+10:00</updated><id>http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick</id><content type="html" xml:base="http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick.html">&lt;p&gt;前情提要：
+&lt;a href=&quot;https://railsbook.tw/chapters/06-ruby-basic-2.html&quot;&gt;數字、字串、陣列、範圍、雜湊、符號&lt;/a&gt; |&lt;/p&gt;</content><author><name></name></author><summary type="html">30天修煉Ruby面試精選30題 - 參賽緣起：</summary></entry><entry><title type="html">活用套件Carrierwave gem: (4) 使用Imagemagick修改圖片大小</title><link href="http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick.html" rel="alternate" type="text/html" title="活用套件Carrierwave gem: (4) 使用Imagemagick修改圖片大小" /><published>2018-09-09T13:34:00+10:00</published><updated>2018-09-09T13:34:00+10:00</updated><id>http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick</id><content type="html" xml:base="http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick.html">&lt;p&gt;前情提要：
 這幾天我都在實驗&lt;a href=&quot;https://github.com/carrierwaveuploader&quot;&gt;Carrierwave&lt;/a&gt;這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）&lt;/p&gt;
 
 &lt;p&gt;接下來我遇到了新的問題：要如何在上傳的時候，讓Carrierwave gem大型size圖片縮成固定大小，讓整體頁面看起來比較美觀呢？&lt;/p&gt;

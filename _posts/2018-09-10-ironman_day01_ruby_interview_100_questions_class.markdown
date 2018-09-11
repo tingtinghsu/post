@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "[鐵人賽Day01] 30天修煉Ruby面試精選100題 - 參賽緣起"
+title:  "[鐵人賽Day01] 30天修煉Ruby面試精選30題 - 參賽緣起 + 用Class 寫個參賽宣言吧！"
 date:   2018-09-10 09:40:00 +1000
 categories: ruby rails interview junior
 ---
-參賽緣起：
+30天修煉Ruby面試精選30題 - 參賽緣起：
 
 這是我第一次決定參加IT邦鐵人賽！可喜可賀！能夠在鐵人賽第10屆的大日子參賽，就彷彿跟在雪梨馬拉松40週年時拿到42KM馬拉松獎牌一樣榮幸啊啊啊。
 
@@ -59,9 +59,9 @@ categories: ruby rails interview junior
 
 ===================================
 
-### Ruby的經典面試題目 #001
+### Ruby經典面試題目 #01
 
-` Ruby001 - 什麼是類別？What is a Class? `
+` Ruby01 - 什麼是類別？What is a Class? `
 
 > 類別(Class)能夠接收資料(data)，利用方法(method)和資料data互動，並且可以建立物件實體(Object instance)。
 
