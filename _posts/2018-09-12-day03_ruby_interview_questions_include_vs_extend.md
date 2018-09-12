@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend"
+title:  "30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend"
 date:   2018-09-12 09:00:00 +1000
 categories: ruby rails interview junior
 ---
@@ -12,9 +12,9 @@ categories: ruby rails interview junior
  | 超級比一比 | 類別 Class | 模組 Module 
 ------------- | ------------- | -------------
 父類別 superclass  | 模組 Module  | 物件 Object 
-繼承 inheritance  | **可繼承**  | 不可繼承 
-包含 inclusion  | 不可被包含  | **可被包含** 
-延伸 extension  | 不可延伸  | **可被延伸**
+繼承 inheritance  | *可繼承*  | 不可繼承 
+包含 inclusion  | 不可被包含  | *可被包含** 
+延伸 extension  | 不可延伸  | *可被延伸**
 實例化 instantiation  | 可被實例化(instantiated)  | 不可被實例化 
 
 所以在第三天的文章裡，進一步研究一下module中的inclusion和extension是必須的！

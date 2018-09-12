@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-12T12:06:33+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend" /><published>2018-09-12T09:00:00+10:00</published><updated>2018-09-12T09:00:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html">&lt;p&gt;前情提要：
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-12T12:19:20+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend" /><published>2018-09-12T09:00:00+10:00</published><updated>2018-09-12T09:00:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html">&lt;p&gt;前情提要：
 在第一天裡，我們很激昂地用Ruby的&lt;code class=&quot;highlighter-rouge&quot;&gt;類別&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;物件&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;方法&lt;/code&gt;，寫了開賽宣言！
 在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)&lt;/p&gt;
 
@@ -18,18 +18,18 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;繼承 inheritance&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;可繼承&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;可繼承&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;不可繼承&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;包含 inclusion&lt;/td&gt;
       &lt;td&gt;不可被包含&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;可被包含&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;*可被包含**&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;延伸 extension&lt;/td&gt;
       &lt;td&gt;不可延伸&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;可被延伸&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;*可被延伸**&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;實例化 instantiation&lt;/td&gt;
@@ -537,7 +537,7 @@ object.method
 &lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
 &lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
 &lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module)&lt;/a&gt; |
-&lt;a href=&quot;https://railsbook.tw/chapters/06-ruby-basic-2.html&quot;&gt;數字、字串、陣列、範圍、雜湊、符號&lt;/a&gt; |&lt;/p&gt;</content><author><name></name></author><summary type="html">30天修煉Ruby面試精選30題 - 參賽緣起：</summary></entry><entry><title type="html">活用套件Carrierwave gem: (4)使用Imagemagick修改圖片大小</title><link href="http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_imagemagick_and_minimagick.html" rel="alternate" type="text/html" title="活用套件Carrierwave gem: (4)使用Imagemagick修改圖片大小" /><published>2018-09-09T13:34:00+10:00</published><updated>2018-09-09T13:34:00+10:00</updated><id>http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_imagemagick_and_minimagick</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_imagemagick_and_minimagick.html">&lt;p&gt;前情提要：
+&lt;a href=&quot;https://railsbook.tw/chapters/06-ruby-basic-2.html&quot;&gt;數字、字串、陣列、範圍、雜湊、符號&lt;/a&gt; |&lt;/p&gt;</content><author><name></name></author><summary type="html">30天修煉Ruby面試精選30題 - 參賽緣起：</summary></entry><entry><title type="html">活用套件Carrierwave gem: (4)使用Imagemagick修改圖片大小</title><link href="http://localhost:4000/deploy/heroku/ruby/rails/gem/2018/09/09/resize_image_imagemagick_and_minimagick.html" rel="alternate" type="text/html" title="活用套件Carrierwave gem: (4)使用Imagemagick修改圖片大小" /><published>2018-09-09T13:34:00+10:00</published><updated>2018-09-09T13:34:00+10:00</updated><id>http://localhost:4000/deploy/heroku/ruby/rails/gem/2018/09/09/resize_image_imagemagick_and_minimagick</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/ruby/rails/gem/2018/09/09/resize_image_imagemagick_and_minimagick.html">&lt;p&gt;前情提要：
 這幾天我都在實驗&lt;a href=&quot;https://github.com/carrierwaveuploader&quot;&gt;Carrierwave&lt;/a&gt;這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）&lt;/p&gt;
 
 &lt;p&gt;接下來我遇到了新的問題：要如何在上傳的時候，讓Carrierwave gem大型size圖片縮成固定大小，讓整體頁面看起來比較美觀呢？&lt;/p&gt;
@@ -618,7 +618,7 @@ end
 &lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (1)在Rails實現圖片上傳功能&lt;/a&gt; |
 &lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199103&quot;&gt;活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器&lt;/a&gt; |
 &lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (3)Deploy圖片上傳功能到Heroku網站&lt;/a&gt; |
-&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199131&quot;&gt;活用套件carrierwave gem: (4)使用Imagemagick修改圖片大小&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 這幾天我都在實驗Carrierwave這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）</summary></entry><entry><title type="html">活用套件carrierwave gem: (3)Deploy 圖片上傳功能到 Heroku網站</title><link href="http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/2018/09/08/upload_image_function_deploy_heroku.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (3)Deploy 圖片上傳功能到 Heroku網站" /><published>2018-09-08T13:34:00+10:00</published><updated>2018-09-08T13:34:00+10:00</updated><id>http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/2018/09/08/upload_image_function_deploy_heroku</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/2018/09/08/upload_image_function_deploy_heroku.html">&lt;p&gt;前情提要：&lt;/p&gt;
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199131&quot;&gt;活用套件carrierwave gem: (4)使用Imagemagick修改圖片大小&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 這幾天我都在實驗Carrierwave這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）</summary></entry><entry><title type="html">活用套件carrierwave gem: (3)Deploy 圖片上傳功能到 Heroku網站</title><link href="http://localhost:4000/deploy/heroku/ruby/rails/gem/2018/09/08/upload_image_function_deploy_heroku.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (3)Deploy 圖片上傳功能到 Heroku網站" /><published>2018-09-08T13:34:00+10:00</published><updated>2018-09-08T13:34:00+10:00</updated><id>http://localhost:4000/deploy/heroku/ruby/rails/gem/2018/09/08/upload_image_function_deploy_heroku</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/ruby/rails/gem/2018/09/08/upload_image_function_deploy_heroku.html">&lt;p&gt;前情提要：&lt;/p&gt;
 
 &lt;p&gt;身為Ruby新手村民，創造穩定且持續的學習步調很重要，我用的方法就是一週在IT邦寫三篇筆記，希望藉由把筆記和遇到的bug記錄下來的過程，能幫助到未來想用Ruby on Rails架站的新手。：）&lt;/p&gt;
 
@@ -706,7 +706,7 @@ Run heroku logs --app tingsrailsdemo --dyno run.2219 to view the output.
 &lt;p&gt;系列文章
 &lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;將Ruby on Rails專案部署到Heroku&lt;/a&gt; |
 &lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (1)在Rails實現圖片上傳功能&lt;/a&gt; |
-&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199103&quot;&gt;活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要：</summary></entry><entry><title type="html">活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器</title><link href="http://localhost:4000/ruby/rails/gem/carrierwave/figaro/amazon/s3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器" /><published>2018-09-05T14:22:00+10:00</published><updated>2018-09-05T14:22:00+10:00</updated><id>http://localhost:4000/ruby/rails/gem/carrierwave/figaro/amazon/s3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails</id><content type="html" xml:base="http://localhost:4000/ruby/rails/gem/carrierwave/figaro/amazon/s3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails.html">&lt;p&gt;來到第7篇了！培養寫作習慣真是不容易：）&lt;/p&gt;
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199103&quot;&gt;活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要：</summary></entry><entry><title type="html">活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器</title><link href="http://localhost:4000/ruby/rails/gem/amazons3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器" /><published>2018-09-05T14:22:00+10:00</published><updated>2018-09-05T14:22:00+10:00</updated><id>http://localhost:4000/ruby/rails/gem/amazons3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails</id><content type="html" xml:base="http://localhost:4000/ruby/rails/gem/amazons3/2018/09/05/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails.html">&lt;p&gt;來到第7篇了！培養寫作習慣真是不容易：）&lt;/p&gt;
 
 &lt;p&gt;在我的上一篇文章&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (1)在Rails實現圖片上傳功能&lt;/a&gt; ，上傳圖片功能已經完成啦！但是目前圖片僅能上傳在自己的本地資料夾內孤芳自賞。&lt;img src=&quot;/images/emoticon/emoticon25.gif&quot; alt=&quot;/images/emoticon/emoticon25.gif&quot; /&gt;&lt;/p&gt;
 

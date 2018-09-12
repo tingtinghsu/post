@@ -3,9 +3,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend | Ting’s Square.</title>
+<title>30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend | Ting’s Square.</title>
 <meta name="generator" content="Jekyll v3.8.3" />
-<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend" />
+<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="前情提要： 在第一天裡，我們很激昂地用Ruby的類別、物件、方法，寫了開賽宣言！ 在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)" />
 <meta property="og:description" content="前情提要： 在第一天裡，我們很激昂地用Ruby的類別、物件、方法，寫了開賽宣言！ 在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)" />
@@ -15,7 +15,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-09-12T09:00:00+10:00" />
 <script type="application/ld+json">
-{"description":"前情提要： 在第一天裡，我們很激昂地用\bRuby的類別、物件、方法，寫了開賽宣言！ 在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(in\bclusion)與延伸(extension)","@type":"BlogPosting","url":"http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html","headline":"30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend","dateModified":"2018-09-12T09:00:00+10:00","datePublished":"2018-09-12T09:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html"},"@context":"http://schema.org"}</script>
+{"description":"前情提要： 在第一天裡，我們很激昂地用\bRuby的類別、物件、方法，寫了開賽宣言！ 在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(in\bclusion)與延伸(extension)","@type":"BlogPosting","url":"http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html","headline":"30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend","dateModified":"2018-09-12T09:00:00+10:00","datePublished":"2018-09-12T09:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
 <body><header class="site-header" role="banner">
@@ -38,7 +38,7 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend</h1>
+    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2018-09-12T09:00:00+10:00" itemprop="datePublished">Sep 12, 2018
       </time></p>
@@ -65,18 +65,18 @@
     </tr>
     <tr>
       <td>繼承 inheritance</td>
-      <td><strong>可繼承</strong></td>
+      <td><em>可繼承</em></td>
       <td>不可繼承</td>
     </tr>
     <tr>
       <td>包含 inclusion</td>
       <td>不可被包含</td>
-      <td><strong>可被包含</strong></td>
+      <td>*可被包含**</td>
     </tr>
     <tr>
       <td>延伸 extension</td>
       <td>不可延伸</td>
-      <td><strong>可被延伸</strong></td>
+      <td>*可被延伸**</td>
     </tr>
     <tr>
       <td>實例化 instantiation</td>
