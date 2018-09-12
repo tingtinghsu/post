@@ -57,11 +57,11 @@ categories: ruby rails interview junior
 
 然後，用行動證明一切：）
 
-===================================
+===
 
-### Ruby經典面試題目 #01
-
-` Ruby01 - 什麼是類別？What is a Class? `
+Ruby經典面試題目 #01
+===
+`什麼是類別？What is a Class? `
 
 > 類別(Class)能夠接收資料(data)，利用方法(method)和資料data互動，並且可以建立物件實體(Object instance)。
 
