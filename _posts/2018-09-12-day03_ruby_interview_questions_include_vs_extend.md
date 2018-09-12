@@ -146,6 +146,9 @@ ExtendRuby.new.IThelp 
 身為新手工程師，螢幕是我們的畫布～鍵盤上的各個中英文字、數值、符號就是我們的顏料，
 享受寫程式 + 寫文章的過程，願我們都可以在人生畫布上，揮灑、創造自己的新世界！
 
+![https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/IThelps.png](https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/IThelps.png)
+
+
 Ref：
 [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
 [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |
