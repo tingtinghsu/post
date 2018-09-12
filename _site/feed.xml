@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-12T12:19:20+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend" /><published>2018-09-12T09:00:00+10:00</published><updated>2018-09-12T09:00:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html">&lt;p&gt;前情提要：
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-12T12:26:37+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend" /><published>2018-09-12T09:00:00+10:00</published><updated>2018-09-12T09:00:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html">&lt;p&gt;前情提要：
 在第一天裡，我們很激昂地用Ruby的&lt;code class=&quot;highlighter-rouge&quot;&gt;類別&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;物件&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;方法&lt;/code&gt;，寫了開賽宣言！
 在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)&lt;/p&gt;
 
@@ -39,7 +39,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;所以在第三天的文章裡，進一步研究一下module中的inclusion和extension是必須的！&lt;/p&gt;
+&lt;p&gt;所以在第三天的文章裡，進一步研究module中的inclusion和extension是必須的！&lt;/p&gt;
 
 &lt;p&gt;===&lt;/p&gt;
 &lt;h3 id=&quot;ruby經典面試題目-03&quot;&gt;Ruby經典面試題目 #03&lt;/h3&gt;
@@ -155,11 +155,11 @@ ExtendRuby.new.IThelp 
   &lt;p&gt;Now that we know the difference between an instance method and a class method, let’s cover the difference between include and extend in regards to modules. Include is for adding methods to an instance of a class and extend is for adding class methods. &lt;a href=&quot;http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/&quot;&gt;出處&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;為了抽絲剝繭這段話的含義，這裡的&lt;code class=&quot;highlighter-rouge&quot;&gt;實體方法instance method&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;類別方法class method&lt;/code&gt;將會我們下一篇文章的重點囉！&lt;/p&gt;
+&lt;p&gt;為了抽絲剝繭這段話的含義，這裡的&lt;code class=&quot;highlighter-rouge&quot;&gt;實體方法instance method&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;類別方法class method&lt;/code&gt;將會成為我們下一篇文章的重點囉！&lt;/p&gt;
 
 &lt;p&gt;[第三天感想]&lt;/p&gt;
 
-&lt;p&gt;寫文章真的很有趣！當我寫出&lt;code class=&quot;highlighter-rouge&quot;&gt;NewbieLearnsRuby&lt;/code&gt;這種名稱的class，就彷彿自己開始像寫一本武俠小說，創造新人物，準備開始練功一樣。&lt;/p&gt;
+&lt;p&gt;寫文章真的很有趣！當我寫出&lt;code class=&quot;highlighter-rouge&quot;&gt;NewbieLearnsRuby&lt;/code&gt;這種名稱的class，就彷彿自己像寫一本武俠小說一樣，盡情地創造準備開始練功的新人物、新主角，。&lt;/p&gt;
 
 &lt;p&gt;身為新手工程師，螢幕是我們的畫布～鍵盤上的各個中英文字、數值、符號就是我們的顏料，
 享受寫程式 + 寫文章的過程，願我們都可以在人生畫布上，揮灑、創造自己的新世界！&lt;/p&gt;

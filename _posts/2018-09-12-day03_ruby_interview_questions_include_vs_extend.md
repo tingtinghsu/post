@@ -17,7 +17,7 @@ categories: ruby rails interview junior
 延伸 extension  | 不可延伸  | *可被延伸**
 實例化 instantiation  | 可被實例化(instantiated)  | 不可被實例化 
 
-所以在第三天的文章裡，進一步研究一下module中的inclusion和extension是必須的！
+所以在第三天的文章裡，進一步研究module中的inclusion和extension是必須的！
 
 ===
 ### Ruby經典面試題目 #03
@@ -136,12 +136,12 @@ ExtendRuby.new.IThelp 
 
 > Now that we know the difference between an instance method and a class method, let's cover the difference between include and extend in regards to modules. Include is for adding methods to an instance of a class and extend is for adding class methods. [出處](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/)
 
-為了抽絲剝繭這段話的含義，這裡的`實體方法instance method`和`類別方法class method`將會我們下一篇文章的重點囉！
+為了抽絲剝繭這段話的含義，這裡的`實體方法instance method`和`類別方法class method`將會成為我們下一篇文章的重點囉！
 
 
 [第三天感想]
 
-寫文章真的很有趣！當我寫出`NewbieLearnsRuby`這種名稱的class，就彷彿自己開始像寫一本武俠小說，創造新人物，準備開始練功一樣。
+寫文章真的很有趣！當我寫出`NewbieLearnsRuby`這種名稱的class，就彷彿自己像寫一本武俠小說一樣，盡情地創造準備開始練功的新人物、新主角，。
 
 身為新手工程師，螢幕是我們的畫布～鍵盤上的各個中英文字、數值、符號就是我們的顏料，
 享受寫程式 + 寫文章的過程，願我們都可以在人生畫布上，揮灑、創造自己的新世界！
