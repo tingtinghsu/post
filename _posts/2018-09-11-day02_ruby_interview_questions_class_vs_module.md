@@ -30,10 +30,10 @@ object.method
 
 所以在第二天的文章裡，我們就來聊一聊模組(Module)吧！:)
 
-===
-### Ruby經典面試題目 #02
 
-` Ruby02 - 類別與模組有什麼不同? What's the Difference Between a Class and a Module? `
+Ruby經典面試題目 #02
+===
+`類別與模組有什麼不同? What's the Difference Between a Class and a Module? `
 
 從以上「番薯島」的例子裡，我們從`「類別」的「父類別」，是個「模組」` 這句話找到靈感，已經可以做出比較表格的第一列：
 

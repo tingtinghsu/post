@@ -1,4 +1,180 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-12T12:41:59+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend" /><published>2018-09-12T09:00:00+10:00</published><updated>2018-09-12T09:00:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html">&lt;p&gt;前情提要：
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-12T15:46:47+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day04 玩弄Ruby的方法: instance method與class method</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day04_ruby_interview_questions_instance_class_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day04 玩弄Ruby的方法: instance method與class method" /><published>2018-09-12T09:00:00+10:00</published><updated>2018-09-12T09:00:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day04_ruby_interview_questions_instance_class_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day04_ruby_interview_questions_instance_class_method.html">&lt;p&gt;前情提要：
+在第三天裡，我們解說了如何在class裡用include與extend使用module的method。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Include is for adding methods to an instance of a class.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Extend is for adding class methods. &lt;a href=&quot;http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/&quot;&gt;出處&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;…Also, it is sometimes ok to use “include” to add both instance and class methods. # 這句話比較進階，之後再研究：）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;並透過圖書館模組的程式碼明白這段話的含義：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt;是把&lt;code class=&quot;highlighter-rouge&quot;&gt;類別&lt;/code&gt;中的&lt;code class=&quot;highlighter-rouge&quot;&gt;物件實體&lt;/code&gt;加上&lt;code class=&quot;highlighter-rouge&quot;&gt;方法&lt;/code&gt;；&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;extend&lt;/code&gt;是用於&lt;code class=&quot;highlighter-rouge&quot;&gt;類別方法&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module Library 
+  def IThelp 
+    p &quot;IThelp helps me!&quot;
+  end
+end
+
+class NewbieLearnsRuby
+  include Library 
+end
+
+class ExtendRuby
+  extend Library
+end
+
+NewbieLearnsRuby.new.IThelp 
+# IThelp helps me!
+
+ExtendRuby.IThelp
+# IThelp helps me!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;話不多說，進入今天的章節：&lt;/p&gt;
+
+&lt;h1 id=&quot;ruby經典面試題目-04&quot;&gt;Ruby經典面試題目 #04&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;解釋實體方法與類別方法 Explain instance method and class method.&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;類別方法class-method&quot;&gt;類別方法class method?&lt;/h3&gt;
+
+&lt;p&gt;為了瞭解類別方法，我們今天要建立新的類別class:&lt;code class=&quot;highlighter-rouge&quot;&gt;鐵人賽名單IronmanList&lt;/code&gt;，讓這個class利用&lt;code class=&quot;highlighter-rouge&quot;&gt;find方法&lt;/code&gt;，以傳入的id值順利找到某位鐵人賽的參賽者：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class IronmanList
+  class &amp;lt;&amp;lt; self
+    def find(id)
+    p &quot;finding Ironman ID: #{id}&quot; 
+    end
+  end
+end 
+
+IronmanList.find(1)
+# finding Ironman ID: 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;當傳入&lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;給&lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt;，會使&lt;code class=&quot;highlighter-rouge&quot;&gt;IronmanList&lt;/code&gt;這個類別，印出&lt;code class=&quot;highlighter-rouge&quot;&gt;finding Ironman ID: 1&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;以上的程式代表，當接收者不是&lt;code class=&quot;highlighter-rouge&quot;&gt;物件object&lt;/code&gt;，而是&lt;code class=&quot;highlighter-rouge&quot;&gt;類別class&lt;/code&gt;本身，就是一個&lt;code class=&quot;highlighter-rouge&quot;&gt;類別方法class method&lt;/code&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;這邊的&lt;code class=&quot;highlighter-rouge&quot;&gt; &amp;lt;&amp;lt; &lt;/code&gt;指的是&lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt;方法，用在&lt;code class=&quot;highlighter-rouge&quot;&gt;class method&lt;/code&gt;，意思是將&lt;code class=&quot;highlighter-rouge&quot;&gt;self method&lt;/code&gt; push到 &lt;code class=&quot;highlighter-rouge&quot;&gt;類別class&lt;/code&gt;裡。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;鐵人賽名單class也可寫為：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class IronmanList
+  #class &amp;lt;&amp;lt; self
+    def self.find(id) #在這裡的self is a class Method
+    p &quot;finding Ironman ID: #{id}&quot; 
+    end
+  #end
+end 
+
+IronmanList.find(1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;我們把 &lt;code class=&quot;highlighter-rouge&quot;&gt;class &amp;lt;&amp;lt; self ... end&lt;/code&gt; 這部分都用註解消掉，直接使用self這個class method，讓 &lt;code class=&quot;highlighter-rouge&quot;&gt;self.find(id)&lt;/code&gt;與之前呈現出一樣的結果！&lt;/p&gt;
+
+&lt;h3 id=&quot;什麼時候使用class-method&quot;&gt;什麼時候使用class method?&lt;/h3&gt;
+&lt;p&gt;當我們要寫class method時，如果此方法並不會和某個特定的實例變數綁在一起，就該使用類別方法！&lt;/p&gt;
+
+&lt;p&gt;===&lt;/p&gt;
+
+&lt;h3 id=&quot;實例方法instance-method&quot;&gt;實例方法（instance method）&lt;/h3&gt;
+
+&lt;p&gt;把鐵人賽名單類別擴充一下，除了&lt;code class=&quot;highlighter-rouge&quot;&gt;find方法&lt;/code&gt;，還有&lt;code class=&quot;highlighter-rouge&quot;&gt;ironmanwinner方法&lt;/code&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class IronmanList  
+
+  def self.find(id)  
+    p &quot;finding Ironman ID: #{id}&quot;  
+  end
+
+  def ironmanwinner
+    p &quot;I've got a trophy!&quot;
+  end
+
+end 
+
+IronmanList.find(1) #這是類別方法
+IronmanList.new.ironmanwinner #這是實例方法
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;結果會印出：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;finding Ironman ID: 1
+I've got a trophy!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;什麼時候使用instance-method&quot;&gt;什麼時候使用instance method?&lt;/h3&gt;
+
+&lt;p&gt;如果你需要將實例方法，運用在某個特定的實體。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This is often when the functionality concerns the identity of the instance such as calling properties on the object, or invoking behaviour.&lt;a href=&quot;https://www.culttt.com/2015/06/10/understanding-class-methods-verses-instance-methods-in-ruby/&quot;&gt;出處&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;如同鐵人賽的贏家不會只有一個名額，只要能自我挑戰成功，都能練成鐵人：）。
+因此我們可以再new更多的物件，盡情使用這個&lt;code class=&quot;highlighter-rouge&quot;&gt;ironmanwinner&lt;/code&gt;實例方法：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class IronmanList  
+
+  def self.find(id)  
+  p &quot;finding Ironman ID: #{id}&quot;  
+  end
+
+ 
+  def ironmanwinner
+    p &quot;I've got a trophy!&quot;
+  end
+
+end 
+# IronmanList.find(1)
+
+Ting = IronmanList.new
+Ting.ironmanwinner
+
+Bater = IronmanList.new
+Bater.ironmanwinner
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;結果印出：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I've got a trophy!
+I've got a trophy!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;===&lt;/p&gt;
+
+&lt;p&gt;同樣的，例子🌰不會只有一種，解釋方法更不會只有一種。我們除了用自己寫的程式碼理解概念，近一步拿關鍵字 &lt;code class=&quot;highlighter-rouge&quot;&gt;instance method class method ruby&lt;/code&gt;去請教Google大神透過網路這座大圖書館，其他工程師們的部落格文章、透過各種文字說明與舉例加深我們的印象。看到排名第一的解釋寫著：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Class can use methods from three areas:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1) Instances of class can call methods that are defined as instance methods in their class.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2) Instances of Class have access to the instance methods defined in Module&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;3) Or instances can call a singleton method of a class object. &lt;a href=&quot;https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49&quot;&gt;出處&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;這裡又發現一個新名詞了：&lt;code class=&quot;highlighter-rouge&quot;&gt;singleton method&lt;/code&gt;，這可以成為我們下一篇的素材呢！&lt;/p&gt;
+
+&lt;p&gt;=欲知詳情，下回分解！=&lt;/p&gt;
+
+&lt;p&gt;Ref：
+&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49&quot;&gt;Ruby: Class vs Instance Methods&lt;/a&gt; |
+&lt;a href=&quot;https://www.culttt.com/2015/06/10/understanding-class-methods-verses-instance-methods-in-ruby/&quot;&gt;Understanding Class Methods verses Instance Methods in Ruby&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 在第三天裡，我們解說了如何在class裡用include與extend使用module的method。</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend" /><published>2018-09-12T09:00:00+10:00</published><updated>2018-09-12T09:00:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html">&lt;p&gt;前情提要：
 在第一天裡，我們很激昂地用Ruby的&lt;code class=&quot;highlighter-rouge&quot;&gt;類別&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;物件&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;方法&lt;/code&gt;，寫了開賽宣言！
 在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)&lt;/p&gt;
 
@@ -41,10 +217,8 @@
 
 &lt;p&gt;所以在第三天的文章裡，進一步研究module中的inclusion和extension是必須的！&lt;/p&gt;
 
-&lt;p&gt;===&lt;/p&gt;
-&lt;h3 id=&quot;ruby經典面試題目-03&quot;&gt;Ruby經典面試題目 #03&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby03 - 包含與延伸有什麼不同? What's the Difference Between Include and Extend? &lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;ruby經典面試題目-03&quot;&gt;Ruby經典面試題目 #03&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;包含與延伸有什麼不同? What's the Difference Between Include and Extend? &lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;還記得我們昨天舉的例子：網路圖書館（模組）有很多知識（方法）讓我們取用（include），
 讓你與我都能夠突破先天(繼承)的限制，變成更加聰明靈活的IT人。&lt;/p&gt;
@@ -198,10 +372,8 @@ object.method
 
 &lt;p&gt;所以在第二天的文章裡，我們就來聊一聊模組(Module)吧！:)&lt;/p&gt;
 
-&lt;p&gt;===&lt;/p&gt;
-&lt;h3 id=&quot;ruby經典面試題目-02&quot;&gt;Ruby經典面試題目 #02&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby02 - 類別與模組有什麼不同? What's the Difference Between a Class and a Module? &lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;ruby經典面試題目-02&quot;&gt;Ruby經典面試題目 #02&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;類別與模組有什麼不同? What's the Difference Between a Class and a Module? &lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;從以上「番薯島」的例子裡，我們從&lt;code class=&quot;highlighter-rouge&quot;&gt;「類別」的「父類別」，是個「模組」&lt;/code&gt; 這句話找到靈感，已經可以做出比較表格的第一列：&lt;/p&gt;
 
@@ -448,11 +620,10 @@ end
 
 &lt;p&gt;然後，用行動證明一切：）&lt;/p&gt;
 
-&lt;p&gt;===================================&lt;/p&gt;
+&lt;p&gt;===&lt;/p&gt;
 
-&lt;h3 id=&quot;ruby經典面試題目-01&quot;&gt;Ruby經典面試題目 #01&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby01 - 什麼是類別？What is a Class? &lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;ruby經典面試題目-01&quot;&gt;Ruby經典面試題目 #01&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;什麼是類別？What is a Class? &lt;/code&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;類別(Class)能夠接收資料(data)，利用方法(method)和資料data互動，並且可以建立物件實體(Object instance)。&lt;/p&gt;
@@ -1384,122 +1555,4 @@ Running rake db:migrate on ⬢ tingsrailsdemo... up, run.3211 (Free)
 &lt;/blockquote&gt;
 
 &lt;p&gt;Ref:
-&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10189021&quot;&gt;龍哥的部落格&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">今天想筆記的是把自己寫的Ruby on Rails專案部署(Deploy)到Heroku！</summary></entry><entry><title type="html">解決Git常見錯誤 non-fast-forward問題</title><link href="http://localhost:4000/git/github/2018/08/29/git_push_non_fast_forward.html" rel="alternate" type="text/html" title="解決Git常見錯誤 non-fast-forward問題" /><published>2018-08-29T11:52:00+10:00</published><updated>2018-08-29T11:52:00+10:00</updated><id>http://localhost:4000/git/github/2018/08/29/git_push_non_fast_forward</id><content type="html" xml:base="http://localhost:4000/git/github/2018/08/29/git_push_non_fast_forward.html">&lt;p&gt;最近每次遇到bug或錯誤都挺興奮 &lt;del&gt;開心(?)&lt;/del&gt; 的，&lt;em&gt;因為又可以寫筆記了&lt;/em&gt;
-也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。&lt;/p&gt;
-
-&lt;p&gt;我在本機練習做了一個Ruby on Rails專案（名稱定為：yelpdemo）&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177kyLYw9hISV.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我先用&lt;code class=&quot;highlighter-rouge&quot;&gt;subl .&lt;/code&gt;叫出Sublime編寫專案內的網頁，做一點修改後，
-再用Terminal按照我自己&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10198964&quot;&gt;Day2筆記&lt;/a&gt;所說的Git步驟試著同步此專案到Github的同名repository儲存庫。&lt;/p&gt;
-
-&lt;h3 id=&quot;前情提要我再github的repo是上週設定好的所以自己有點忘記當初發生什麼事導致接下來的問題&quot;&gt;前情提要：我再Github的repo是上週設定好的，所以自己有點忘記當初發生什麼事～導致接下來的問題&lt;/h3&gt;
-
-&lt;h3 id=&quot;step1-首先git-status&quot;&gt;Step1. 首先&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;看看目前working directory中所有檔案的情形，紅色代表這些檔案需要被追蹤：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177faIYTaL67l.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177faIYTaL67l.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;step2-git-add-&quot;&gt;Step2. &lt;code class=&quot;highlighter-rouge&quot;&gt;git add .&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;把以上所有檔案交給Git，再輸入一次&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;，綠色代表已更改為被追蹤：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177TwdEmf4DYw.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177TwdEmf4DYw.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;step3-git-commit&quot;&gt;Step3 &lt;code class=&quot;highlighter-rouge&quot;&gt;git commit&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;first commit&quot;&lt;/code&gt;，備註-m裡寫上”執行第一個提交指令commit”，將staged檔案儲存到儲存庫：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177m0erHLYic9.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177m0erHLYic9.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;然後再輸入一次&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177y4gEfjUE01.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177y4gEfjUE01.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;好了，到這邊都挺順的～&lt;/p&gt;
-
-&lt;h3 id=&quot;step4設定好要加入的路徑-git-remote-add-origin&quot;&gt;Step4.設定好要加入的路徑 &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin https://github.com/(你的帳號)/(你的專案名稱)&lt;/code&gt;：
-設定遠端origin的repository路徑，然後再推送：
-&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt; 
--u是update的意思，用了參數-u之後，未來就能直接使用不帶參數的&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;從以前push過的分支來pull。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;如果你沒有先&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin&lt;/code&gt;就直接&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;
-就會像我一開始一樣，出現了’找不到儲存庫’的問題喔！&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177y7KBrSMI3T.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177y7KBrSMI3T.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;step5-git-push--u-origin-master&quot;&gt;Step5. &lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt;&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;[燈等！]更新被拒絕了，因為上週我在Remote建的的repo裡面，有些更動過的檔案版本，本地端並沒有：&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177ElauUZHXsa.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177ElauUZHXsa.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;[解決]提示告訴我可以先用&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;，&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177Z2gTdZDmzg.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177Z2gTdZDmzg.png&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;然後再&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;一次：&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177KVWSk3rmg5.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177KVWSk3rmg5.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;重點在於最後一行：git push預設會推送「本地分支」到相同檔名的「遠端分支」&lt;/em&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;When push.default is set to 'matching', git will push local branchesto the remote branches that already exist with the same name.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;[燈等！]問題再度出現：The current branch master has no upstream branch，表示當前分支主機沒有上游分支:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111776Dl8yTegA2.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111776Dl8yTegA2.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;[解決]按照提示，依樣畫葫蘆地&lt;code class=&quot;highlighter-rouge&quot;&gt;git push --set-upstream origin master&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177fhtIcNgZql.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177fhtIcNgZql.png&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;[燈等！] 新的問題產生，提示說我的master是non-fast forward&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111776GMlki3aTG.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111776GMlki3aTG.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;這個non-fast forward 的意思是本機commit和遠端的不相同，本地和遠端的Repository發生文件衝突問題（線圖有分岔）。&lt;/p&gt;
-
-&lt;p&gt;由於上週在遠端創建的資料夾內容文件發生改變，因此不允許我把本地的文件覆蓋上去。&lt;/p&gt;
-
-&lt;p&gt;關於合併local端和remote端，近一步了解可以看&lt;a href=&quot;https://git-scm.com/book/zh-tw/v1/Git-%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF&quot;&gt;git官網&lt;/a&gt;，或是&lt;a href=&quot;https://backlog.com/git-tutorial/tw/stepup/stepup1_4.html&quot;&gt;連猴子都能懂的Git入門指南&lt;/a&gt;解釋&lt;/p&gt;
-
-&lt;p&gt;在push之前，我需要
-&lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge&lt;/code&gt;
-將遠端的改變用merge合併到本地上。&lt;/p&gt;
-
-&lt;p&gt;或是我可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -f&lt;/code&gt;  強制覆蓋本地文件替代git儲存庫的內容。&lt;/p&gt;
-
-&lt;p&gt;Google關鍵字在&lt;a href=&quot;https://stackoverflow.com/questions/10298291/cannot-push-to-github-keeps-saying-need-merge&quot;&gt;stackoverflow&lt;/a&gt;找到的解法是
-&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -f origin &amp;lt;branch&amp;gt;&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;-f代表force：強制推送。如果不想把遠端分支的更動合併（merge）到本地分支，則可以使用這個指令。&lt;strong&gt;但要小心使用。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;[解決]&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177vYKA8TDUfV.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/20111177vYKA8TDUfV.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;回到github站上檢查，終於同步完成：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111779euCL1MqMF.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180829/201111779euCL1MqMF.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;===
-後記：
-這是寫給自己提升記憶的筆記。相信之後如果在本機再建立其他新專案、遠端建立儲存庫並使用gite功能，可能還是會遇到以上類似的問題，身為自學git新新手，我沒有直接發問求救，而是靠google增加觀念、進而找到解答，因此還蠻開心的！&lt;/p&gt;
-
-&lt;p&gt;看了資料，有些工程師的建議是少用&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;，以&lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge&lt;/code&gt;代替。也許以後實作之後有類似的經驗和心得，再寫點相關的文章。&lt;/p&gt;
-
-&lt;p&gt;ref: 
-&lt;a href=&quot;https://blog.exfast.me/2016/05/git-instructions-instructions/&quot;&gt;git&lt;/a&gt;
-&lt;a href=&quot;https://gitbook.tw/chapters/using-git/add-to-git.html&quot;&gt;龍哥的git部落格&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">最近每次遇到bug或錯誤都挺興奮 開心(?) 的，因為又可以寫筆記了 也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。</summary></entry></feed>
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10189021&quot;&gt;龍哥的部落格&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">今天想筆記的是把自己寫的Ruby on Rails專案部署(Deploy)到Heroku！</summary></entry></feed>
