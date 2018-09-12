@@ -1,4 +1,174 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-11T15:25:45+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">[鐵人賽Day02] 30天修煉Ruby面試精選30題 - Module 模組</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day02_ruby_interview_100_questions_module.html" rel="alternate" type="text/html" title="[鐵人賽Day02] 30天修煉Ruby面試精選30題 - Module 模組" /><published>2018-09-10T09:40:00+10:00</published><updated>2018-09-10T09:40:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day02_ruby_interview_100_questions_module</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day02_ruby_interview_100_questions_module.html">&lt;p&gt;前情提要：
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-12T12:06:33+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day03 Module模組的include與extend" /><published>2018-09-12T09:00:00+10:00</published><updated>2018-09-12T09:00:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html">&lt;p&gt;前情提要：
+在第一天裡，我們很激昂地用Ruby的&lt;code class=&quot;highlighter-rouge&quot;&gt;類別&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;物件&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;方法&lt;/code&gt;，寫了開賽宣言！
+在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;超級比一比&lt;/th&gt;
+      &lt;th&gt;類別 Class&lt;/th&gt;
+      &lt;th&gt;模組 Module&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;父類別 superclass&lt;/td&gt;
+      &lt;td&gt;模組 Module&lt;/td&gt;
+      &lt;td&gt;物件 Object&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;繼承 inheritance&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;可繼承&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;不可繼承&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;包含 inclusion&lt;/td&gt;
+      &lt;td&gt;不可被包含&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;可被包含&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;延伸 extension&lt;/td&gt;
+      &lt;td&gt;不可延伸&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;可被延伸&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;實例化 instantiation&lt;/td&gt;
+      &lt;td&gt;可被實例化(instantiated)&lt;/td&gt;
+      &lt;td&gt;不可被實例化&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;所以在第三天的文章裡，進一步研究一下module中的inclusion和extension是必須的！&lt;/p&gt;
+
+&lt;p&gt;===&lt;/p&gt;
+&lt;h3 id=&quot;ruby經典面試題目-03&quot;&gt;Ruby經典面試題目 #03&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby03 - 包含與延伸有什麼不同? What's the Difference Between Include and Extend? &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;還記得我們昨天舉的例子：網路圖書館（模組）有很多知識（方法）讓我們取用（include），
+讓你與我都能夠突破先天(繼承)的限制，變成更加聰明靈活的IT人。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module Library 
+  def IThelp 
+    p &quot;I'm learning from others' IT articles on IThelp Website!&quot;
+  end
+end
+
+class EveryoneLearnsRuby
+  def initialize(name)
+    @name = name
+  end
+  include Library 
+end
+
+Ting = EveryoneLearnsRuby.new(&quot;Ting&quot;) 
+Ting.IThelp  
+You = EveryoneLearnsRuby.new(&quot;You&quot;)
+You. IThlep
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;當然，使用類別(class)繼承也有它的好處，&lt;/p&gt;
+
+&lt;p&gt;例如：在已有的功能基礎上，再追加擴展本身已有功能。
+（龍生龍、鳳生鳳；老鼠生的兒子會打洞！）&lt;/p&gt;
+
+&lt;p&gt;或是以相同名稱的方法，重新定義，產生不同的效果。
+（王老先生有塊地，&lt;del&gt;那王小弟長大後可以把王老先生的那塊地拿去蓋民宿&lt;/del&gt;。）&lt;/p&gt;
+
+&lt;p&gt;但模組(module)的include就像開外掛一樣，讓我們可以在這個星球上學會更多技能。&lt;/p&gt;
+
+&lt;p&gt;為了比較include與extend，我們把圖書館模組來稍加改寫：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module Library 
+  def IThelp 
+    p &quot;IThelp helps me!&quot;
+  end
+end
+
+class NewbieLearnsRuby
+  include Library 
+end
+
+NewbieLearnsRuby.new.IThelp 
+#IThelp helps me!
+
+NewbieLearnsRuby.IThelp
+#NoMethodError
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;如果我們把&lt;code class=&quot;highlighter-rouge&quot;&gt;NewbieLearnsRuby.new.IThelp&lt;/code&gt;誤寫成&lt;code class=&quot;highlighter-rouge&quot;&gt;NewbieLearnsRuby.IThelp&lt;/code&gt;，就會出現錯誤。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;undefined method `IThelp’ for NewbieLearnsRuby:Class (NoMethodError)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;奇怪，為什麼會這樣呢？&lt;/p&gt;
+
+&lt;p&gt;我們回到改寫前的圖書館例子：我先宣告(new)一個新物件You，
+讓「You」這個變數名字指向&lt;code class=&quot;highlighter-rouge&quot;&gt;EveryoneLearnsRuby.new(&quot;You&quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You = EveryoneLearnsRuby.new(&quot;You&quot;)
+You.IThlep
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;所以剛剛的&lt;code class=&quot;highlighter-rouge&quot;&gt;NewbieLearnsRuby.new.IThelp&lt;/code&gt;其實是以下的簡化：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You = NewbieLearnsRuby.new
+You.IThelp
+# [NewbieLearnsRuby.new].IThelp [中括號內的變數就是You!]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;這就是我們為什麼不能漏掉&lt;code class=&quot;highlighter-rouge&quot;&gt;.new&lt;/code&gt;的原因。&lt;/p&gt;
+
+&lt;p&gt;那，如果改寫成extend的程式碼，會是怎樣的光景呢？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module Library 
+  def IThelp 
+    p &quot;IThelp helps me!&quot;
+  end
+end
+
+class NewbieLearnsRuby
+  include Library 
+end
+
+class ExtendRuby
+  extend Library
+end
+
+NewbieLearnsRuby.new.IThelp 
+# IThelp helps me!
+
+ExtendRuby.IThelp
+# IThelp helps me!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;由以上可知，&lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt;代表Newbie類別學Ruby時需要new一個新的物件實體，然後才能使用方法。
+但&lt;code class=&quot;highlighter-rouge&quot;&gt;extend&lt;/code&gt;不用，在類別中使用它可以讓我們直接把方法拿過來用。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ExtendRuby.IThelp
+# IThelp helps me!
+
+ExtendRuby.new.IThelp 
+# NoMethodError
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;同樣的，想進一步了解為什麼輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;ExtendRuby.new.IThelp &lt;/code&gt;也是&lt;code class=&quot;highlighter-rouge&quot;&gt;NoMethodError&lt;/code&gt;。接下來我們要拿關鍵字 &lt;code class=&quot;highlighter-rouge&quot;&gt;the difference between include and extend in ruby&lt;/code&gt;去請教Google大神：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Now that we know the difference between an instance method and a class method, let’s cover the difference between include and extend in regards to modules. Include is for adding methods to an instance of a class and extend is for adding class methods. &lt;a href=&quot;http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/&quot;&gt;出處&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;為了抽絲剝繭這段話的含義，這裡的&lt;code class=&quot;highlighter-rouge&quot;&gt;實體方法instance method&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;類別方法class method&lt;/code&gt;將會我們下一篇文章的重點囉！&lt;/p&gt;
+
+&lt;p&gt;[第三天感想]&lt;/p&gt;
+
+&lt;p&gt;寫文章真的很有趣！當我寫出&lt;code class=&quot;highlighter-rouge&quot;&gt;NewbieLearnsRuby&lt;/code&gt;這種名稱的class，就彷彿自己開始像寫一本武俠小說，創造新人物，準備開始練功一樣。&lt;/p&gt;
+
+&lt;p&gt;身為新手工程師，螢幕是我們的畫布～鍵盤上的各個中英文字、數值、符號就是我們的顏料，
+享受寫程式 + 寫文章的過程，願我們都可以在人生畫布上，揮灑、創造自己的新世界！&lt;/p&gt;
+
+&lt;p&gt;Ref：
+&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/&quot;&gt;Include vs Extend in Ruby&lt;/a&gt; |
+&lt;a href=&quot;https://stackoverflow.com/questions/156362/what-is-the-difference-between-include-and-extend-in-ruby&quot;&gt;What is the difference between include and extend in Ruby?&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 在第一天裡，我們很激昂地用Ruby的類別、物件、方法，寫了開賽宣言！ 在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day02 Module模組與Class類別比一比</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/11/day02_ruby_interview_questions_class_vs_module.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day02 Module模組與Class類別比一比" /><published>2018-09-11T09:40:00+10:00</published><updated>2018-09-11T09:40:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/11/day02_ruby_interview_questions_class_vs_module</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/11/day02_ruby_interview_questions_class_vs_module.html">&lt;p&gt;前情提要：
 在第一天裡，小妹我很激昂地用Ruby的&lt;code class=&quot;highlighter-rouge&quot;&gt;類別&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;物件&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;方法&lt;/code&gt;，寫了開賽宣言！&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class TingIsIronman
   def initialize
@@ -29,7 +199,7 @@ object.method
 &lt;p&gt;===&lt;/p&gt;
 &lt;h3 id=&quot;ruby經典面試題目-02&quot;&gt;Ruby經典面試題目 #02&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby02 - 類別與模組有什麼不同? The Difference Between a Class and a Module? &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Ruby02 - 類別與模組有什麼不同? What's the Difference Between a Class and a Module? &lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;從以上「番薯島」的例子裡，我們從&lt;code class=&quot;highlighter-rouge&quot;&gt;「類別」的「父類別」，是個「模組」&lt;/code&gt; 這句話找到靈感，已經可以做出比較表格的第一列：&lt;/p&gt;
 
@@ -123,7 +293,7 @@ Ting.IThelp
 &lt;p&gt;如果螢幕前面的你也想要學Ruby的話，當然也可以像我一樣，使用圖書館模組裡的IT邦方法喔！：）&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You = EveryoneLearnsRuby.new(&quot;You&quot;)
-You. IThlep
+You.IThlep
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;「超級比一比」表格再擴充：&lt;/p&gt;
@@ -162,7 +332,7 @@ You. IThlep
   &lt;p&gt;The Difference Between a Class and a Module. Basically, a class can be instantiated but a module cannot. A module will never be anything other than a library of methods. A class can be so much more – it can hold its state (by keeping track of instance variables) and be duplicated as many times as you want. &lt;a href=&quot;https://www.vikingcodeschool.com/professional-development-with-ruby/classes-vs-modules&quot;&gt;出處&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;這裡說明一個很重要的概念&lt;code class=&quot;highlighter-rouge&quot;&gt;instantiation&lt;/code&gt;。實體變數（Instance Variables）是使用時才會被建立，就好像我們在例子中所舉的：&lt;/p&gt;
+&lt;p&gt;這裡說明一個很重要的概念&lt;code class=&quot;highlighter-rouge&quot;&gt;instantiation&lt;/code&gt;。實體變數（Instance Variables）是在類別class使用時才會被建立，如同我們剛在例子中所舉的：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class EveryoneLearnsRuby
   def initialize(name)
@@ -221,7 +391,7 @@ end
 &lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
 &lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
 &lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module)&lt;/a&gt; |
-&lt;a href=&quot;https://guides.ruby.tw/ruby/objinitialization.html&quot;&gt;物件初始化 Object initialization&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 在第一天裡，小妹我很激昂地用Ruby的類別、物件、方法，寫了開賽宣言！ ``` class TingIsIronman def initialize @message = “I’m going to write 30 IT articles in 30 days!” end def method puts @message.gsub(“write”, “create”) end end</summary></entry><entry><title type="html">[鐵人賽Day01] 30天修煉Ruby面試精選30題 - 參賽緣起 + 用Class 寫個參賽宣言吧！</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions_class.html" rel="alternate" type="text/html" title="[鐵人賽Day01] 30天修煉Ruby面試精選30題 - 參賽緣起 + 用Class 寫個參賽宣言吧！" /><published>2018-09-10T09:40:00+10:00</published><updated>2018-09-10T09:40:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions_class</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/ironman_day01_ruby_interview_100_questions_class.html">&lt;p&gt;30天修煉Ruby面試精選30題 - 參賽緣起：&lt;/p&gt;
+&lt;a href=&quot;https://guides.ruby.tw/ruby/objinitialization.html&quot;&gt;物件初始化 Object initialization&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 在第一天裡，小妹我很激昂地用Ruby的類別、物件、方法，寫了開賽宣言！ ``` class TingIsIronman def initialize @message = “I’m going to write 30 IT articles in 30 days!” end def method puts @message.gsub(“write”, “create”) end end</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day01 用Class類別寫個參賽宣言吧！</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/day01_ruby_interview_questions_class.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day01 用Class類別寫個參賽宣言吧！" /><published>2018-09-10T09:40:00+10:00</published><updated>2018-09-10T09:40:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/10/day01_ruby_interview_questions_class</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/10/day01_ruby_interview_questions_class.html">&lt;p&gt;30天修煉Ruby面試精選30題 - 參賽緣起：&lt;/p&gt;
 
 &lt;p&gt;這是我第一次決定參加IT邦鐵人賽！可喜可賀！能夠在鐵人賽第10屆的大日子參賽，就彷彿跟在雪梨馬拉松40週年時拿到42KM馬拉松獎牌一樣榮幸啊啊啊。&lt;/p&gt;
 
@@ -367,7 +537,7 @@ object.method
 &lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
 &lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
 &lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module)&lt;/a&gt; |
-&lt;a href=&quot;https://railsbook.tw/chapters/06-ruby-basic-2.html&quot;&gt;數字、字串、陣列、範圍、雜湊、符號&lt;/a&gt; |&lt;/p&gt;</content><author><name></name></author><summary type="html">30天修煉Ruby面試精選30題 - 參賽緣起：</summary></entry><entry><title type="html">活用套件Carrierwave gem: (4) 使用Imagemagick修改圖片大小</title><link href="http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick.html" rel="alternate" type="text/html" title="活用套件Carrierwave gem: (4) 使用Imagemagick修改圖片大小" /><published>2018-09-09T13:34:00+10:00</published><updated>2018-09-09T13:34:00+10:00</updated><id>http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick</id><content type="html" xml:base="http://localhost:4000/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_by_using_imagemagick_and_minimagick.html">&lt;p&gt;前情提要：
+&lt;a href=&quot;https://railsbook.tw/chapters/06-ruby-basic-2.html&quot;&gt;數字、字串、陣列、範圍、雜湊、符號&lt;/a&gt; |&lt;/p&gt;</content><author><name></name></author><summary type="html">30天修煉Ruby面試精選30題 - 參賽緣起：</summary></entry><entry><title type="html">活用套件Carrierwave gem: (4)使用Imagemagick修改圖片大小</title><link href="http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_imagemagick_and_minimagick.html" rel="alternate" type="text/html" title="活用套件Carrierwave gem: (4)使用Imagemagick修改圖片大小" /><published>2018-09-09T13:34:00+10:00</published><updated>2018-09-09T13:34:00+10:00</updated><id>http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_imagemagick_and_minimagick</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/imagemagick/minimagick/2018/09/09/resize_image_imagemagick_and_minimagick.html">&lt;p&gt;前情提要：
 這幾天我都在實驗&lt;a href=&quot;https://github.com/carrierwaveuploader&quot;&gt;Carrierwave&lt;/a&gt;這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）&lt;/p&gt;
 
 &lt;p&gt;接下來我遇到了新的問題：要如何在上傳的時候，讓Carrierwave gem大型size圖片縮成固定大小，讓整體頁面看起來比較美觀呢？&lt;/p&gt;
@@ -448,7 +618,7 @@ end
 &lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (1)在Rails實現圖片上傳功能&lt;/a&gt; |
 &lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199103&quot;&gt;活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器&lt;/a&gt; |
 &lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199035&quot;&gt;活用套件carrierwave gem: (3)Deploy圖片上傳功能到Heroku網站&lt;/a&gt; |
-&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199131&quot;&gt;活用套件carrierwave gem: (4)使用Imagemagick修改圖片大小&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 這幾天我都在實驗Carrierwave這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）</summary></entry><entry><title type="html">活用套件carrierwave gem: (3) Deploy 圖片上傳功能到 Heroku網站</title><link href="http://localhost:4000/heroku/ruby/rails/git/gem/carrierwave/figaro/amazon/s3/2018/09/08/deploy_upload_image_function_to_heroku.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (3) Deploy 圖片上傳功能到 Heroku網站" /><published>2018-09-08T13:34:00+10:00</published><updated>2018-09-08T13:34:00+10:00</updated><id>http://localhost:4000/heroku/ruby/rails/git/gem/carrierwave/figaro/amazon/s3/2018/09/08/deploy_upload_image_function_to_heroku</id><content type="html" xml:base="http://localhost:4000/heroku/ruby/rails/git/gem/carrierwave/figaro/amazon/s3/2018/09/08/deploy_upload_image_function_to_heroku.html">&lt;p&gt;前情提要：&lt;/p&gt;
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199131&quot;&gt;活用套件carrierwave gem: (4)使用Imagemagick修改圖片大小&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 這幾天我都在實驗Carrierwave這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）</summary></entry><entry><title type="html">活用套件carrierwave gem: (3)Deploy 圖片上傳功能到 Heroku網站</title><link href="http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/2018/09/08/upload_image_function_deploy_heroku.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (3)Deploy 圖片上傳功能到 Heroku網站" /><published>2018-09-08T13:34:00+10:00</published><updated>2018-09-08T13:34:00+10:00</updated><id>http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/2018/09/08/upload_image_function_deploy_heroku</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/ruby/rails/gem/carrierwave/2018/09/08/upload_image_function_deploy_heroku.html">&lt;p&gt;前情提要：&lt;/p&gt;
 
 &lt;p&gt;身為Ruby新手村民，創造穩定且持續的學習步調很重要，我用的方法就是一週在IT邦寫三篇筆記，希望藉由把筆記和遇到的bug記錄下來的過程，能幫助到未來想用Ruby on Rails架站的新手。：）&lt;/p&gt;
 
@@ -878,7 +1048,7 @@ end
 
 &lt;p&gt;觀看結果：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">carrierwave是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。 （預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host， 並再下集遠端(production)實作上傳，敬請期待！）</summary></entry><entry><title type="html">在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL</title><link href="http://localhost:4000/rails/postgresql/sqlite/heroku/gem/2018/08/31/change_db_from_sqlite_to_postgresql_when_deploy_to_heroku.html" rel="alternate" type="text/html" title="在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL " /><published>2018-08-31T10:31:00+10:00</published><updated>2018-08-31T10:31:00+10:00</updated><id>http://localhost:4000/rails/postgresql/sqlite/heroku/gem/2018/08/31/change_db_from_sqlite_to_postgresql_when_deploy_to_heroku</id><content type="html" xml:base="http://localhost:4000/rails/postgresql/sqlite/heroku/gem/2018/08/31/change_db_from_sqlite_to_postgresql_when_deploy_to_heroku.html">&lt;p&gt;前情提要：
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">carrierwave是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。 （預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host， 並再下集遠端(production)實作上傳，敬請期待！）</summary></entry><entry><title type="html">在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL</title><link href="http://localhost:4000/deploy/heroku/sqlite/postgresql/2018/08/31/change_db_sqlite_postgresql_deploy_heroku.html" rel="alternate" type="text/html" title="在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL " /><published>2018-08-31T10:31:00+10:00</published><updated>2018-08-31T10:31:00+10:00</updated><id>http://localhost:4000/deploy/heroku/sqlite/postgresql/2018/08/31/change_db_sqlite_postgresql_deploy_heroku</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/sqlite/postgresql/2018/08/31/change_db_sqlite_postgresql_deploy_heroku.html">&lt;p&gt;前情提要：
 Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;上一篇文章：將Ruby on Rails專案部署到Heroku&lt;/a&gt;遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！&lt;del&gt;找到點子寫文章果然是遇到bug的最佳副產品&lt;/del&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -972,7 +1142,7 @@ https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-t
 &lt;a href=&quot;https://medium.com/@yengttt/rails-%E4%BD%BF%E7%94%A8-postgresql-bc3123216d2a&quot;&gt;Rails 使用 PostgreSQL&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Ref:
-&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10196781&quot;&gt;第二十三天：認識資料庫&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的上一篇文章：將Ruby on Rails專案部署到Heroku遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！找到點子寫文章果然是遇到bug的最佳副產品</summary></entry><entry><title type="html">將Ruby on Rails專案部署到Heroku</title><link href="http://localhost:4000/git/ruby/heroku/gem/bundle/homebrew/2018/08/30/git_deploy_ruby_on_rails_app_to_heroku.html" rel="alternate" type="text/html" title="將Ruby on Rails專案部署到Heroku " /><published>2018-08-30T15:16:00+10:00</published><updated>2018-08-30T15:16:00+10:00</updated><id>http://localhost:4000/git/ruby/heroku/gem/bundle/homebrew/2018/08/30/git_deploy_ruby_on_rails_app_to_heroku</id><content type="html" xml:base="http://localhost:4000/git/ruby/heroku/gem/bundle/homebrew/2018/08/30/git_deploy_ruby_on_rails_app_to_heroku.html">&lt;p&gt;今天想筆記的是把自己寫的Ruby on Rails專案部署(Deploy)到&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-ruby&quot;&gt;Heroku&lt;/a&gt;！&lt;/p&gt;
+&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10196781&quot;&gt;第二十三天：認識資料庫&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的上一篇文章：將Ruby on Rails專案部署到Heroku遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！找到點子寫文章果然是遇到bug的最佳副產品</summary></entry><entry><title type="html">將Ruby on Rails專案部署到Heroku</title><link href="http://localhost:4000/deploy/heroku/2018/08/30/git_ruby_on_rails_app_deploy_heroku.html" rel="alternate" type="text/html" title="將Ruby on Rails專案部署到Heroku " /><published>2018-08-30T15:16:00+10:00</published><updated>2018-08-30T15:16:00+10:00</updated><id>http://localhost:4000/deploy/heroku/2018/08/30/git_ruby_on_rails_app_deploy_heroku</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/2018/08/30/git_ruby_on_rails_app_deploy_heroku.html">&lt;p&gt;今天想筆記的是把自己寫的Ruby on Rails專案部署(Deploy)到&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-ruby&quot;&gt;Heroku&lt;/a&gt;！&lt;/p&gt;
 
 &lt;p&gt;Heroku是Salesforce公司旗下的雲端服務商，支援多種程式語言像是Ruby, PHP, Python等等。
 提早讓應用程式能快速建置、部署的主要好處就是提早一步發現問題囉，
@@ -1330,122 +1500,4 @@ Running rake db:migrate on ⬢ tingsrailsdemo... up, run.3211 (Free)
 
 &lt;p&gt;ref: 
 &lt;a href=&quot;https://blog.exfast.me/2016/05/git-instructions-instructions/&quot;&gt;git&lt;/a&gt;
-&lt;a href=&quot;https://gitbook.tw/chapters/using-git/add-to-git.html&quot;&gt;龍哥的git部落格&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">最近每次遇到bug或錯誤都挺興奮 開心(?) 的，因為又可以寫筆記了 也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。</summary></entry><entry><title type="html">在Github用Jekyll創建自己的blog</title><link href="http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog.html" rel="alternate" type="text/html" title="在Github用Jekyll創建自己的blog" /><published>2018-08-25T12:06:12+10:00</published><updated>2018-08-25T12:06:12+10:00</updated><id>http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/08/25/github_jekyll_blog.html">&lt;p&gt;最近IT邦有一篇熱門文章「哪個blog寫技術文章最好用？」
-&lt;del&gt;有邦友開玩笑的說IT邦算嗎？&lt;/del&gt;&lt;/p&gt;
-
-&lt;p&gt;昨天貓貓工程師在我們共同的&lt;a href=&quot;http://slack.com/&quot;&gt;Slack&lt;/a&gt;群組分享他的&lt;a href=&quot;https://blog.bater.gq/&quot;&gt;blog&lt;/a&gt;，他提到是使用&lt;a href=&quot;http://jekyllcn.com/docs/posts/&quot;&gt;Jekyll&lt;/a&gt;（一個簡單靜態blog網站生成器）架在&lt;a href=&quot;https://github.com/&quot;&gt;github&lt;/a&gt;上的。&lt;/p&gt;
-
-&lt;p&gt;於是好奇的我決定照著關鍵字來搜尋一下，如法炮製做一個出來。&lt;/p&gt;
-
-&lt;p&gt;這樣寫在IT邦的文章，也可以放一份到自己的Blog!
-https://tingtinghsu.github.io/jekyll/update/2018/08/25/github_jekyll_blog.html&lt;/p&gt;
-
-&lt;h2 id=&quot;a在你自己的github帳號建立新資料夾-githubio&quot;&gt;A.在你自己的Github帳號建立新資料夾 github.io&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;名稱必須是你的&lt;code class=&quot;highlighter-rouge&quot;&gt;username.github.io&lt;/code&gt;&lt;/em&gt;
-&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180824/20111177JLQCXuETDs.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180824/20111177JLQCXuETDs.png&quot; /&gt;
-建好後下載這個資料夾。&lt;/p&gt;
-
-&lt;p&gt;補充：Github是個放程式的地方，最多只能呈現特定的&lt;code class=&quot;highlighter-rouge&quot;&gt;靜態頁面&lt;/code&gt;（適合放blog/履歷表之類的內容。）
-無法放搭配&lt;code class=&quot;highlighter-rouge&quot;&gt;伺服器&lt;/code&gt;與&lt;code class=&quot;highlighter-rouge&quot;&gt;資料庫&lt;/code&gt;共同運作（例如會員登入、購物車等功能）的&lt;code class=&quot;highlighter-rouge&quot;&gt;動態網站&lt;/code&gt;，！
-如果想架動態網站，可以去&lt;a href=&quot;https://www.heroku.com/&quot;&gt;Heroku&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;b-在githubio資料夾內新增首頁&quot;&gt;B. 在github.io資料夾內新增首頁&lt;/h2&gt;
-&lt;p&gt;剛剛下載的資料夾，預設會儲存至本機端電腦的這個路徑（以我的Mac為例）：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Users/tingtinghsu/Documents/GitHub/tingtinghsu.github.io
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;在本機裡的yourusername.github.io新增空白頁面&lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;，使用html語法編輯。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180824/201111770XolTRJGtw.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180824/201111770XolTRJGtw.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;來改一下簡單的Hello World Style程式碼：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello Ting Ting!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;This is my GitHub Pages.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;這時候貓貓工程師在我耳朵旁邊OS打廣告:&lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;VS code&lt;/a&gt; 好用！&lt;/p&gt;
-
-&lt;p&gt;改好後，重點來了！先 &lt;code class=&quot;highlighter-rouge&quot;&gt;git commit&lt;/code&gt; to Master（儲存修改到本機），再&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;（上傳將你要發佈的網頁到Github的資料夾上）&lt;/p&gt;
-
-&lt;p&gt;給Git新新手的連結：
-常用Git指令，網路上資源非常豐富，我參考&lt;a href=&quot;https://blog.gogojimmy.net/2012/02/29/git-scenario/&quot;&gt;這裡&lt;/a&gt;部落格，&lt;/p&gt;
-
-&lt;p&gt;如果新手想先跳過git指令本機端的圖形介面編輯器，可以下載&lt;a href=&quot;https://desktop.github.com/&quot;&gt;Github桌面版&lt;/a&gt; 。&lt;/p&gt;
-
-&lt;p&gt;好囉！來網址列試試看自己的blog&lt;em&gt;陽春&lt;/em&gt;首頁會不會出現?&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;http://tingtinghsu.github.io/&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180824/20111177CSwxXlpA2v.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180824/20111177CSwxXlpA2v.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;成功！&lt;/p&gt;
-
-&lt;h2 id=&quot;c在本機上裝jekyll&quot;&gt;C.在本機上裝Jekyll&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://jekyllcn.com/docs/posts/&quot;&gt;Jekyll&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Jekyll是base on ruby開發的部落格網站生成器，需要的版本要ruby2.0以上。
-在termimal輸入ruby -v確定一下版本：
-&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177OspMdSGx4z.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177OspMdSGx4z.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ruby版本沒問題，就可以輸入指令在本地安裝Jekyll&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;建一個新資料夾寫Blog的指令:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new myblog
-cd myblog
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;開啟Jekyll伺服器：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;在網址列輸入http://localhost:4000/
-應該會出現這樣的畫面：
-&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;接下我們就可以在本地端進行完修改網頁，再用git上傳。
-到你的網誌連結：http://tingtinghsu.github.io/
-&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177CyDdUoadop.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177CyDdUoadop.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;就可以看到改好的頁面了～～&lt;/p&gt;
-
-&lt;p&gt;[後記：]
-安裝Git這部分我卡住了一段時間，因為以前沒有相關的觀念。&lt;/p&gt;
-
-&lt;p&gt;感謝貓貓工程師教學：&lt;/p&gt;
-
-&lt;p&gt;每次上傳前的好習慣是要輸入 &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; ：先用git看看哪些資料夾還沒有merged&lt;/p&gt;
-
-&lt;p&gt;如果出現了&lt;code class=&quot;highlighter-rouge&quot;&gt;Unmerged paths&lt;/code&gt;，代表本地曾經新建過的新檔案，Github上還沒備份:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to mark resolution)
-
-        added by them:   _posts/2018-08-24-my_first_jekyll_page.markdown
-        both modified:   _site/feed.xml
-        both modified:   _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add .&lt;/code&gt;:把所有更改過的所有網頁加入暫存變更
-如果只要加入某個特定網頁，就在&lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt;後加上網頁路徑&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;: 確定一下剛剛是否已經存入暫存變更
-綠色的字就是已經存入：
-&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/2011117784pHVbSogs.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/2011117784pHVbSogs.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git log&lt;/code&gt;：commit過的動作會進log做紀錄，&lt;code class=&quot;highlighter-rouge&quot;&gt;-m &quot;&quot;&lt;/code&gt;加上自己的註解：commit過什麼事情
-&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177KatlWjvZCF.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177KatlWjvZCF.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;：記得要先commit後再push。看到又新增的blog文章頁面，很有成就感呢！：）
-&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177xHVSTLH6hm.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180825/20111177xHVSTLH6hm.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt; ：如果和其他人協同作一個部落格/專案，有可能GitHub上的變更會比較新，此時要先Pull下來，再push上去，才會確保是最新版本喔！&lt;/p&gt;</content><author><name></name></author><summary type="html">最近IT邦有一篇熱門文章「哪個blog寫技術文章最好用？」 有邦友開玩笑的說IT邦算嗎？</summary></entry></feed>
+&lt;a href=&quot;https://gitbook.tw/chapters/using-git/add-to-git.html&quot;&gt;龍哥的git部落格&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">最近每次遇到bug或錯誤都挺興奮 開心(?) 的，因為又可以寫筆記了 也可以記錄新手學習之路上遇到的常見問題，提供其他新手參考。</summary></entry></feed>
