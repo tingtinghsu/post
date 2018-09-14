@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-14T12:56:32+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method" /><published>2018-09-13T15:50:00+10:00</published><updated>2018-09-13T15:50:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_%08%08singleton_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html">&lt;p&gt;前情提要：
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-14T13:00:36+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method" /><published>2018-09-13T15:50:00+10:00</published><updated>2018-09-13T15:50:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_%08%08singleton_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html">&lt;p&gt;前情提要：
 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。
 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（&lt;del&gt;跟斯斯有三種一樣&lt;/del&gt;）&lt;/p&gt;
 
@@ -114,24 +114,24 @@ class的superclass是object，但其實每一個class上面都還有一層隱�
 
 &lt;p&gt;當我們講到 &lt;code class=&quot;highlighter-rouge&quot;&gt;Singleton Method&lt;/code&gt;，就必須提到&lt;code class=&quot;highlighter-rouge&quot;&gt;Singleton Pattern&lt;/code&gt;單例模式，這個在物件導向語言(如：Java)共同的觀念。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-如果我們能保證某一個類別只產生一個物件實體，而且提供存取該物件的統一方法。這種設計模式就稱為單例模式。我們可以直接存取，而不需要實體化此類別的物件。```&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;如果我們能保證某一個類別只產生一個物件實體，而且提供存取該物件的統一方法。這種設計模式就稱為單例模式。我們可以直接存取，而不需要實體化此類別的物件。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-### 什麼時候使用`Singleton Method`?
+&lt;h3 id=&quot;什麼時候使用singleton-method&quot;&gt;什麼時候使用&lt;code class=&quot;highlighter-rouge&quot;&gt;Singleton Method&lt;/code&gt;?&lt;/h3&gt;
 
-當我們想控制實體數目，節省系統資源的時候。
+&lt;p&gt;當我們想控制實體數目，節省系統資源的時候。&lt;/p&gt;
 
-再度把例子🌰搬出來：一間教室裡只有一台印表機，所有電腦都可以連線印表機，但印表機一次只能印出一台電腦上的文件。
+&lt;p&gt;再度把例子🌰搬出來：一間教室裡只有一台印表機，所有電腦都可以連線印表機，但印表機一次只能印出一台電腦上的文件。&lt;/p&gt;
 
-還記得我們在第四天舉的例子是查找鐵人參賽者名單嗎？在這個例子中，一次只能查找一名參賽資料。
+&lt;p&gt;還記得我們在第四天舉的例子是查找鐵人參賽者名單嗎？在這個例子中，一次只能查找一名參賽資料。&lt;/p&gt;
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;class IronmanList
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class IronmanList
     def self.find(id)
-    p “finding Ironman ID: #{id}” 
+    p &quot;finding Ironman ID: #{id}&quot; 
     end
 end 
 IronmanList.find(1)
-```&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;使用規則：&lt;/p&gt;
 &lt;ol&gt;
