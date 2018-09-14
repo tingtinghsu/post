@@ -1,4 +1,144 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-14T14:47:18+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method" /><published>2018-09-14T13:08:00+10:00</published><updated>2018-09-14T13:08:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_%08%08singleton_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html">&lt;p&gt;前情提要：
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-14T14:51:40+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html"></title><link href="http://localhost:4000/2018/09/14/2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html" rel="alternate" type="text/html" title="" /><published>2018-09-14T14:51:40+10:00</published><updated>2018-09-14T14:51:40+10:00</updated><id>http://localhost:4000/2018/09/14/2018-09-15-day06_ruby_interview_questions_public_protected_private_method</id><content type="html" xml:base="http://localhost:4000/2018/09/14/2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html">&lt;p&gt;前情提要：
+在第五天的最後，我們提到了一句話”相同的class的實體也無法使用別人的singleton method”。在今天，我們繼續把焦點放在Ruby的method, 繼續鋪陳存取限制:)&lt;/p&gt;
+
+&lt;h1 id=&quot;ruby經典面試題目-06&quot;&gt;Ruby經典面試題目 #06&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;說明Ruby的三種存取限制 3 levels of access control for Ruby methods?&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;讓我們用程式碼分別描述三種存取：&lt;code class=&quot;highlighter-rouge&quot;&gt;Public&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Protected&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Private&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class TingsIronmanProcess
+    def publish
+      p &quot;Hi guys, this is my IT article for today!&quot;
+    end
+
+    protected
+    def mydraft
+      p &quot;Hi Mentor! Please read my draft.&quot;
+    end
+
+    private
+    def myspace
+      p &quot;I'm writing secretly here!&quot;
+    end
+  end
+
+ day6 = TingsIronmanProcess.new
+ day6.publish # =&amp;gt; Hi guys, this is my IT article for today!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以我自己生產第六天IT邦鐵人賽文章為例，我通常在本機上編寫每天的主體，在這段時間要搜集素材、測試程式碼，這個過程可能會有很多生產上的秘密、需要刪除的錯誤等等之類的，過程艱辛不足為外人道矣，所以放在&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;myspace&lt;/code&gt;孤芳自賞就好。&lt;/p&gt;
+
+&lt;p&gt;等到文章接近完成度高、可讀性佳的地步，就放在&lt;code class=&quot;highlighter-rouge&quot;&gt;protected&lt;/code&gt;，開放一些權限給它人，請對Ruby前輩’饅頭貓’先行閱讀，提供修改建議。&lt;/p&gt;
+
+&lt;p&gt;所以如果在classs外想要取得&lt;code class=&quot;highlighter-rouge&quot;&gt;protected&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;方法，都會出現&lt;code class=&quot;highlighter-rouge&quot;&gt;NoMethodError&lt;/code&gt;錯誤：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;day6.protected #=&amp;gt; undefined method `protected' (NoMethodError)
+day6.private #=&amp;gt; undefined method `private' (NoMethodError)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;當一切修改完畢，就可以放到&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;區，給大眾分享我的作品、品嚐甜美果實啦！&lt;/p&gt;
+
+&lt;p&gt;以上的類別寫法可以改成：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class TingsIronmanProcess
+    def publish
+      p &quot;Hi guys, this is my IT article for today!&quot;
+    end
+
+    def mydraft
+      p &quot;Hi Mentor! Please read my draft.&quot;
+    end
+
+    def myspace
+      p &quot;I'm writing secretly here!&quot;
+    end
+
+  protected :mydraft
+  private :myspace  
+  end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;這種寫法，我覺得蠻類似於在開發Ruby on Rails專案上時常看到，
+哪些套件只能在開發環境&lt;code class=&quot;highlighter-rouge&quot;&gt;development&lt;/code&gt;使用，哪些在測試環境&lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;、哪些在&lt;code class=&quot;highlighter-rouge&quot;&gt;production&lt;/code&gt;環境使用的分組。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'sqlite3',             group: :development 
+gem 'pg',                  group: :production
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果我想把第六天的草稿send給menter看，可以把&lt;code class=&quot;highlighter-rouge&quot;&gt;mydraft&lt;/code&gt;當作參數，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;send()&lt;/code&gt;方法，結果如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; day6.send(:mydraft) #=&amp;gt; &quot;Hi Mentor! Please read my draft.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;甚至把文章連結先send給某個人看，也行：(要小心別把不能公開的東西亂放啊！)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; day6.send(:myspace) #=&amp;gt; &quot;Hi guys, this is my IT article for today!&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果饅頭貓也想使用我的架構來撰寫自己的鐵人賽文章，可以繼承我的類別：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class TingsIronmanProcess
+    protected
+    def mydraft
+      p &quot;Hi Mentor!&quot;
+    end
+
+    private
+    def myspace
+      p &quot;I'm writing secretly here!&quot;
+    end  
+  end
+
+  class BaterProcess &amp;lt; TingsIronmanProcess
+    def bater_draft
+      mydraft
+    end
+    def bater_self_draft
+      self.mydraft
+    end     
+  end
+
+BaterProcess.new.bater_draft # Hi Mentor!
+BaterProcess.new.bater_self_draft #Hi Mentor!
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;在這裡，我們引入昨天&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;物件可以代替自身的類別的觀念，無論是&lt;code class=&quot;highlighter-rouge&quot;&gt;self.mydraft&lt;/code&gt;或是&lt;code class=&quot;highlighter-rouge&quot;&gt;mydraft&lt;/code&gt;，輸出結果都不會有問題。&lt;/p&gt;
+
+&lt;p&gt;但如果呼叫的是Private方法 &lt;code class=&quot;highlighter-rouge&quot;&gt;myspace&lt;/code&gt;呢？&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class BaterProcess &amp;lt; TingsIronmanProcess
+
+    def bater_space
+      myspace
+    end
+    def bater_self_space
+      self.myspace
+    end      
+  end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;這裡使用&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;，就會出錯：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BaterProcess.new.bater_space # I'm writing secretly here!
+BaterProcess.new.bater_self_space  #private method `myspace' (NoMethodError)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;龍哥&lt;/a&gt;的文章說到，呼叫private 方法的時候，不能有明確的接收者。愛注意呀！&lt;/p&gt;
+
+&lt;p&gt;總結：
+
+在寫鐵人賽的文章時，我都盡量把前幾篇的概念拿到後面來使用，增加自己觀念上的熟悉度。盡量做到具有教育意義地環環相扣（八點檔連續劇製作人?）&lt;/p&gt;
+
+&lt;p&gt;在今天Day6這篇文章裡，我們把繼承和&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;的概念拿來測試&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;protect&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;存取方法，也發現了：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;protected :mydraft
+private :myspace  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:mydraft&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;:myspace&lt;/code&gt; 這些冒號在前面的參數。&lt;/p&gt;
+
+&lt;p&gt;這到底是什麼呢？&lt;/p&gt;
+
+&lt;p&gt;明天我們就來討論符號(Symbol)吧！&lt;/p&gt;
+
+&lt;p&gt;=
+Ref：
+&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
+&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module）&lt;/a&gt;  |
+&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method" /><published>2018-09-14T13:08:00+10:00</published><updated>2018-09-14T13:08:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_%08%08singleton_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html">&lt;p&gt;前情提要：
 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。
 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（&lt;del&gt;跟斯斯有三種一樣&lt;/del&gt;）&lt;/p&gt;
 
@@ -1406,98 +1546,4 @@ end
 
 &lt;p&gt;觀看結果：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">carrierwave是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。 （預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host， 並再下集遠端(production)實作上傳，敬請期待！）</summary></entry><entry><title type="html">在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL</title><link href="http://localhost:4000/deploy/heroku/sqlite/postgresql/2018/08/31/change_db_sqlite_postgresql_deploy_heroku.html" rel="alternate" type="text/html" title="在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL " /><published>2018-08-31T10:31:00+10:00</published><updated>2018-08-31T10:31:00+10:00</updated><id>http://localhost:4000/deploy/heroku/sqlite/postgresql/2018/08/31/change_db_sqlite_postgresql_deploy_heroku</id><content type="html" xml:base="http://localhost:4000/deploy/heroku/sqlite/postgresql/2018/08/31/change_db_sqlite_postgresql_deploy_heroku.html">&lt;p&gt;前情提要：
-Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;上一篇文章：將Ruby on Rails專案部署到Heroku&lt;/a&gt;遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！&lt;del&gt;找到點子寫文章果然是遇到bug的最佳副產品&lt;/del&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Heroku的資料庫是使用&lt;a href=&quot;https://devcenter.heroku.com/articles/heroku-postgresql#local-setup&quot;&gt;PostgreSQL&lt;/a&gt;，而這篇文章有說明&lt;a href=&quot;https://devcenter.heroku.com/articles/sqlite3&quot;&gt;為什麼不用SQLite在Heroku&lt;/a&gt;。
-但Rails框架在我們的電腦本機&lt;code class=&quot;highlighter-rouge&quot;&gt;rails new app&lt;/code&gt;設定時，為了初學者快速理解學習，預設是SQLite。
-所以如果沒有變更資料庫，直接把Rails push到Heroku上去，就會出現問題。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;看完&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems&quot;&gt;這篇&lt;/a&gt;資料庫的文章比較，以一句話來大概解釋比較sqlite與PostgreSQL，sqlite缺乏額外優化性能的靈活性，且同一時間只允許一個寫入操作；可擴展的PostgreSQL提供了可靠性和數據完整性，因此是更好的選擇。&lt;/p&gt;
-
-&lt;p&gt;[問題]
-我在本機的Ruby on Rails專案所用的資料庫是SQLite，當時還未想到之後會部署到Heroku。&lt;/p&gt;
-
-&lt;p&gt;因此，在&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10199014&quot;&gt;上篇文章&lt;/a&gt;做到&lt;code class=&quot;highlighter-rouge&quot;&gt;Step3 &amp;gt;&amp;gt; 步驟 B. 建立Heroku gem&lt;/code&gt;：修改我的本地資料夾裡的gem file，當我新增一個gem叫做’pg’這個步驟時…&lt;/p&gt;
-
-&lt;p&gt;問題出現了！本機遇到的錯誤訊息： No connection pool for ActiveRecord::Base
-https://stackoverflow.com/questions/38176304/no-connection-pool-for-activerecordbase&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/201111779bYfI1JbY4.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/201111779bYfI1JbY4.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;[解法]&lt;/p&gt;
-&lt;h3 id=&quot;step1-修改rails專案的configgemfile&quot;&gt;Step1. 修改rails專案的&lt;code class=&quot;highlighter-rouge&quot;&gt;/config/Gemfile&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Pg&lt;/code&gt;套件，讓我們在Ruby上使用關聯式資料庫PostgreSQL的介面的好幫手。
-（Pg套件詳細資料： https://bitbucket.org/ged/ruby-pg/wiki/Home ）&lt;/p&gt;
-
-&lt;p&gt;我們可以&lt;code class=&quot;highlighter-rouge&quot;&gt;/config/Gemfile&lt;/code&gt;加上這幾行程式碼，
-讓在Heroku上線時候跑的是PostgreSQL，而在本機的時候還是跑SQLite。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Rails 應用程式預設提供了三種不同的執行模式：&lt;/strong&gt;
-    development environment:開發模式，用在你的開發的時候
-    test environment: 測試模式，用在執行測試程式時
-    production environment: 正式上線模式，用在實際的上線運作環境&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;group :production do
-  gem 'pg'
-end
-
-group :development, :test do
-  gem 'sqlite3'  
-end  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;或是寫成：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'sqlite3',             group: :development 
-gem 'pg',                  group: :production
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;[注意]&lt;code class=&quot;highlighter-rouge&quot;&gt;gem 'pg'&lt;/code&gt;後面要加逗號&lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt;啊！不然就會向我一樣出現Syntax error…&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177KkGqGHfOwo.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177KkGqGHfOwo.png&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;欣慰的是，用錯誤訊息搜尋關鍵字，發現在stackoverflow上也有人跟我犯過同樣的錯誤 XD
-https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-tidentifier-expecting-end-of-input&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;step2-跑bundle-install再重啟rails-server&quot;&gt;Step2. 跑&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;，再重啟rails server。&lt;/h3&gt;
-&lt;p&gt;記得，每次在Gemfile修改套件資料，都要跑&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;處理套件相依性問題。
-（如果你在本機，想避免安裝任何在production環境下跑的gem，可輸入：&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install --without production&lt;/code&gt; ）&lt;/p&gt;
-
-&lt;p&gt;而每次跑完bundle都要先用&lt;code class=&quot;highlighter-rouge&quot;&gt;control+ c&lt;/code&gt;關掉Terminal頁面的伺服器，
-再重啟伺服器&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;之後，如下圖：localhost資料庫的問題已解決了：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177a6CAZPI3la.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177a6CAZPI3la.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;但你還是看不到首頁的資料：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177s3GYTJzv4H.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177s3GYTJzv4H.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;step3-部署到herokugit-push-heroku-master&quot;&gt;Step3. 部署到Heroku：&lt;code class=&quot;highlighter-rouge&quot;&gt;git push heroku master&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;最後兩步：push!&lt;code class=&quot;highlighter-rouge&quot;&gt;git push heroku master&lt;/code&gt;，
-還要跑完&lt;code class=&quot;highlighter-rouge&quot;&gt;heroku rake db:migrate&lt;/code&gt;指令才會生效喔！&lt;/p&gt;
-
-&lt;p&gt;（如果轉換資料庫之前有些bug，run指令的時候會提示哪些欄位可能出了問題。）
-&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177DpBPmcKhGu.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177DpBPmcKhGu.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;首頁成功顯示資料庫！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177wzI70OZUTI.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180830/20111177wzI70OZUTI.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;＝＝
-後記：
-遇到這個bug讓我提早了解跟ruby on rails相關的資料庫概念，是一個很有價值的坑(?)！&lt;/p&gt;
-
-&lt;p&gt;如果你想在本機建立rails app的當下，直接設定成PostgreSQL而非SQLite（節省之後deploy的麻煩～），可以參考這篇文章：
-&lt;a href=&quot;https://medium.com/@yengttt/rails-%E4%BD%BF%E7%94%A8-postgresql-bc3123216d2a&quot;&gt;Rails 使用 PostgreSQL&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Ref:
-&lt;a href=&quot;https://ithelp.ithome.com.tw/articles/10196781&quot;&gt;第二十三天：認識資料庫&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的上一篇文章：將Ruby on Rails專案部署到Heroku遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！找到點子寫文章果然是遇到bug的最佳副產品</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">carrierwave是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。 （預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host， 並再下集遠端(production)實作上傳，敬請期待！）</summary></entry></feed>
