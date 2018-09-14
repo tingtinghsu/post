@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method | Ting’s Square.</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="前情提要： 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）" />
+<meta property="og:description" content="前情提要： 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）" />
+<link rel="canonical" href="http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html" />
+<meta property="og:site_name" content="Ting’s Square." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-09-13T15:50:00+10:00" />
+<script type="application/ld+json">
+{"description":"前情提要： 在第四天裡，我們用鐵人賽參賽者\b的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）","@type":"BlogPosting","url":"http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html","headline":"30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method","dateModified":"2018-09-13T15:50:00+10:00","datePublished":"2018-09-13T15:50:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ting&#39;s Square.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-09-13T15:50:00+10:00" itemprop="datePublished">Sep 13, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>前情提要：
+在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。
+類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（<del>跟斯斯有三種一樣</del>）</p>
+
+<ol>
+  <li>
+    <p>該類別所定義的實體方法。（如果你想將實例方法，運用在某個特定的實體。）</p>
+  </li>
+  <li>
+    <p>模組中可取得的實體方法。（關於模組，記得第三天的include與extend比較嗎？）</p>
+  </li>
+  <li>
+    <p>類別方法中：類別物件的<code class="highlighter-rouge">singleton method</code>。</p>
+  </li>
+</ol>
+
+<blockquote>
+  <p>Class can use methods from three areas:</p>
+</blockquote>
+
+<blockquote>
+  <p>1) Instances of class can call methods that are defined as instance methods in their class.</p>
+</blockquote>
+
+<blockquote>
+  <p>2) Instances of Class have access to the instance methods defined in Module</p>
+</blockquote>
+
+<blockquote>
+  <p>3) Or instances can call a singleton method of a class object. <a href="https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49">出處</a></p>
+</blockquote>
+
+<p>所以我們在今天要解說一下<code class="highlighter-rouge">Self</code>與<code class="highlighter-rouge">singleton method</code>囉！</p>
+
+<h1 id="ruby經典面試題目-05">Ruby經典面試題目 #05</h1>
+<p><code class="highlighter-rouge">self是什麼意思？ What does self mean? </code></p>
+
+<h3 id="self">self</h3>
+
+<p><code class="highlighter-rouge">self</code>有豐富層次的含義！ <del>就跟我們的內心一樣</del> (🎵 🎵 來點播一首陳綺貞的<a href="https://www.youtube.com/watch?v=H1-kEjeO6SI">Self</a>🎵🎵  )</p>
+
+<p>它雖然代表自己本身的<code class="highlighter-rouge">物件Object</code>，但還記得，我們在第一天說到，Ruby的世界幾乎都是物件嗎?因此，<code class="highlighter-rouge">self</code>有兩種意思：</p>
+
+<p><em>1. Self在類別class裡，代表目前的類別</em></p>
+
+<p><em>2. Self在實體instance裡，代表目前的實體</em></p>
+
+<p>簡單解釋：實體就是物體在記憶體的位置，就好像每個寶寶（實體）生下來，都是從某個媽媽的子宮（記憶體）裡出來的。我們必須經歷過實體化的過程才能成為一個活生生的人呢！</p>
+
+<p>幸好，產生一個實體不用等”懷胎十月”這麼久，只要像我們在第一天一樣，使用<code class="highlighter-rouge">@</code>宣告記憶體位置就可以產生實體變數了：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class LoveSong
+  def initialize
+    @message = "I was born to love you!" #定義實體變數（instance variable）@message
+  end
+    def sing_a_song
+    puts @message
+  end
+end
+
+Ting = LoveSong.new
+Ting.sing_a_song
+ #=&gt; I was born to love you!
+</code></pre></div></div>
+<p>用LoveSong類別另寫一段程式碼實作<code class="highlighter-rouge">self</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class LoveSong
+  def 
+    self.one() 
+      "We are the champion!"
+  end
+
+  class &lt;&lt; self 
+    def two() 
+      "We will rock you!"
+    end
+  end
+
+  p self             # =&gt; LoveSong
+  p self.class       # =&gt; Class  
+  p self.singleton_methods # [:one, :two]
+
+  p self.one() # =&gt; "We are the champion!"
+  p self.two() #=&gt; "We will rock you"
+end
+
+</code></pre></div></div>
+<p>在這裡的<code class="highlighter-rouge">self</code>代表目前的類別名稱<code class="highlighter-rouge">LoveSong</code>，
+我們查詢<code class="highlighter-rouge">self.class</code>還是類別class，
+而這裡的<code class="highlighter-rouge">self.singleton_methods</code>，出現了<code class="highlighter-rouge">:one</code>與<code class="highlighter-rouge">:two</code>這兩個能夠分別印出兩首歌的方法。</p>
+
+<p>還記得我們在第一天文章曾經提到利用<code class="highlighter-rouge">superclass</code>查找父類別的方法嗎？
+class的superclass是object，但其實每一個class上面都還有一層隱形的class(<del>隱形的翅膀</del>)，我們可以稱作metaclass，在Ruby叫eigenclass。[<a href="https://blog.chh.tw/posts/ruby-metaclass-eigenclass/">出處</a>]，</p>
+
+<p>近一步說明，</p>
+
+<p>類別class的eigenclass method稱為class method（類別方法）。
+類別class的singleton method，是定義在singleton class裡面的實體方法。</p>
+
+<p>如同在以上的例子，輸入<code class="highlighter-rouge">self.singleton_methods</code>時，查詢LoveSong Class的singleton_methods，出現了<code class="highlighter-rouge">:one</code>與<code class="highlighter-rouge">:two</code>。</p>
+
+<h3 id="singleton-method">Singleton Method</h3>
+
+<p>實體instance的eigenclass method，直接稱為singleton method（單例方法）：
+指的是某物件實體的「單例類別」的實體方法，而不是某個物件的實體方法。</p>
+
+<blockquote>
+  <p>singleton methods of an object are not instance methods of the class of the object;</p>
+</blockquote>
+
+<blockquote>
+  <p>they are instance methods of the <code class="highlighter-rouge">singleton class</code> of the object.</p>
+</blockquote>
+
+<p>當我們講到 <code class="highlighter-rouge">Singleton Method</code>，就必須提到<code class="highlighter-rouge">Singleton Pattern</code>單例模式，這個在物件導向語言(如：Java)共同的觀念。</p>
+
+<pre><code class="language-如果我們能保證某一個類別只產生一個物件實體，而且提供存取該物件的統一方法。這種設計模式就稱為單例模式。我們可以直接存取，而不需要實體化此類別的物件。```">
+
+### 什麼時候使用`Singleton Method`?
+
+當我們想控制實體數目，節省系統資源的時候。
+
+再度把例子🌰搬出來：一間教室裡只有一台印表機，所有電腦都可以連線印表機，但印表機一次只能印出一台電腦上的文件。
+
+還記得我們在第四天舉的例子是查找鐵人參賽者名單嗎？在這個例子中，一次只能查找一名參賽資料。
+
+</code></pre>
+<p>class IronmanList
+    def self.find(id)
+    p “finding Ironman ID: #{id}” 
+    end
+end 
+IronmanList.find(1)
+```</p>
+
+<p>使用規則：</p>
+<ol>
+  <li>此類別只能有一個物件實體。(IronmanList 類別中，只有一個self)</li>
+  <li>此類別必須自己建立自己的唯一實體：def self.find(id)</li>
+  <li>此類別必須給其他物件提供這個實體。</li>
+</ol>
+
+<p>使用場景：</p>
+<ol>
+  <li>此物件是類別中唯一的物件。如同IronmanList鐵人賽的序列號唯一。（跟身份證號碼一樣）</li>
+  <li>當創建此物件需要消耗較的資源過多時，可節省系統資源。（例如：連結資料庫、連結印表機）</li>
+</ol>
+
+<p>當我們為實體定義了自已的singleton method，代表了這個方法只屬於該實體，儘管是相同的class的實體也無法使用別人的singleton method。</p>
+
+<p>實體方法是類別在的方法（已在類別裡定義好了）；
+類別方法是一種單例方法，定義在類別裡的物件實體，並沒有在類別裡定義。</p>
+
+<p>學程式的好處就是會查找許多原文資料（間接提升英文閱讀功力！）
+進一步發現許多原則上的定義用英文表達會更為清楚。</p>
+
+<p>所以，我們的第四天(實體方法與類別方法)與第五天的總結（單例方法的進一步說明），
+從這段英文就能看得更加清楚之間的關係了：)</p>
+
+<blockquote>
+  <p>Instance methods are methods of a class
+(defined in the class’s definition)</p>
+</blockquote>
+
+<blockquote>
+  <p>Class methods are singleton methods on the Class instance of a class (not defined in the class’s definition)</p>
+</blockquote>
+
+<blockquote>
+  <p>they are defined on the singleton class of the object.</p>
+</blockquote>
+
+<p>Ref：
+<a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a> |
+<a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a> |
+<a href="https://www.devalot.com/articles/2008/09/ruby-singleton">Understanding Ruby Singleton Classes</a> |
+<a href="https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby">What exactly is the singleton class in ruby?</a> |
+<a href="https://ruby-china.org/topics/13276">Ruby 如何理解 singleton class</a> |
+<a href="http://www.runoob.com/design-pattern/singleton-pattern.html">單例模式 Singleton</a>|
+<a href="https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f">Ruby的Class與Eigenclass</a>
+</p>
+
+  </div><a class="u-url" href="/ruby/rails/interview/junior/2018/09/13/day05_ruby_interview_questions_self_-singleton_method.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ting&#39;s Square.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ting&#39;s Square.</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tingtinghsu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tingtinghsu</span></a></li><li><a href="https://www.twitter.com/tingtingtour"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tingtingtour</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Copyright Ting Ting Hsu</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

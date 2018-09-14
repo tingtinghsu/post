@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day04 玩弄Ruby的方法: instance method與class method"
-date:   2018-09-12 09:00:00 +1000
+date:   2018-09-13 15:50:00 +1000
 categories: ruby rails interview junior
 ---
 
@@ -48,7 +48,7 @@ Ruby經典面試題目 #04
 ===
 `解釋實體方法與類別方法 Explain instance method and class method.`
 
-### 類別方法class method? 
+### 類別方法class method 
 
 為了瞭解類別方法，我們今天要建立新的類別class:`鐵人賽名單IronmanList`，讓這個class利用`find方法`，以傳入的id值順利找到某位鐵人賽的參賽者：
 
@@ -92,7 +92,7 @@ IronmanList.find(1)
 
 ===
 
-### 實例方法（instance method）
+### 實體方法（instance method）
 
 把鐵人賽名單類別擴充一下，除了`find方法`，還有`ironmanwinner方法`：
 
@@ -110,7 +110,7 @@ class IronmanList
 end 
 
 IronmanList.find(1) #這是類別方法
-IronmanList.new.ironmanwinner #這是實例方法
+IronmanList.new.ironmanwinner #這是實體方法
 ```
 結果會印出：
 ```
@@ -119,7 +119,7 @@ I've got a trophy!
 ```
 ### 什麼時候使用instance method? 
 
-如果你需要將實例方法，運用在某個特定的實體。
+如果你需要將實體方法，運用在某個特定的實體。
 
 >This is often when the functionality concerns the identity of the instance such as calling properties on the object, or invoking behaviour.[出處](https://www.culttt.com/2015/06/10/understanding-class-methods-verses-instance-methods-in-ruby/)
 
