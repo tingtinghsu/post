@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method"
-date:   2018-09-13 15:50:00 +1000
+date:   2018-09-14 13:08:00 +1000
 categories: ruby rails interview junior
 ---
 
@@ -9,7 +9,7 @@ categories: ruby rails interview junior
 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。
 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（~~跟斯斯有三種一樣~~）
 
-1. 該類別所定義的實體方法。（如果你想將實例方法，運用在某個特定的實體。）
+1. 該類別所定義的實體方法。
 
 2. 模組中可取得的實體方法。（關於模組，記得第三天的include與extend比較嗎？）
 
