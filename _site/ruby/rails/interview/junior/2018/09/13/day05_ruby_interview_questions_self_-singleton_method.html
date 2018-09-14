@@ -161,24 +161,29 @@ class的superclass是object，但其實每一個class上面都還有一層隱�
 
 <p>當我們講到 <code class="highlighter-rouge">Singleton Method</code>，就必須提到<code class="highlighter-rouge">Singleton Pattern</code>單例模式，這個在物件導向語言(如：Java)共同的觀念。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果我們能保證某一個類別只產生一個物件實體，而且提供存取該物件的統一方法。這種設計模式就稱為單例模式。我們可以直接存取，而不需要實體化此類別的物件。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果我們能保證某一個類別只產生一個物件實體，而且提供存取該物件的統一方法。這種設計模式就稱為單例模式。
 </code></pre></div></div>
+<p>```
+我們可以直接存取，而不需要實體化此類別的物件。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-<h3 id="什麼時候使用singleton-method">什麼時候使用<code class="highlighter-rouge">Singleton Method</code>?</h3>
+### 什麼時候使用`Singleton Method`?
 
-<p>當我們想控制實體數目，節省系統資源的時候。</p>
+當我們想控制實體數目，節省系統資源的時候。
 
-<p>再度把例子🌰搬出來：一間教室裡只有一台印表機，所有電腦都可以連線印表機，但印表機一次只能印出一台電腦上的文件。</p>
+再度把例子🌰搬出來：一間教室裡只有一台印表機，所有電腦都可以連線印表機，但印表機一次只能印出一台電腦上的文件。
 
-<p>還記得我們在第四天舉的例子是查找鐵人參賽者名單嗎？在這個例子中，一次只能查找一名參賽資料。</p>
+還記得我們在第四天舉的例子是查找鐵人參賽者名單嗎？在這個例子中，一次只能查找一名參賽資料。
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class IronmanList
+
+</code></pre></div></div>
+<p>class IronmanList
     def self.find(id)
-    p "finding Ironman ID: #{id}" 
+    p “finding Ironman ID: #{id}” 
     end
 end 
 IronmanList.find(1)
-</code></pre></div></div>
+```</p>
 
 <p>使用規則：</p>
 <ol>
