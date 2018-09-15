@@ -13,7 +13,7 @@ categories: ruby rails interview junior
 
 2. 模組中可取得的實體方法。（關於模組，記得第三天的include與extend比較嗎？）
 
-3. 類別方法中：類別物件的`singleton method`。
+3. 類別方法:類別物件的`singleton method`
 
 > Class can use methods from three areas: 
 
@@ -23,13 +23,13 @@ categories: ruby rails interview junior
 
 > 3) Or instances can call a singleton method of a class object. [出處](https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49)
 
-所以我們在今天要解說一下`Self`與`singleton method`囉！
+所以我們在今天要解說一下`Self`與`singleton method`囉！
 
 Ruby經典面試題目 #05
 ===
 `self是什麼意思？ What does self mean? `
 
-### self  
+### self  
 
 `self`有豐富層次的含義！ ~~就跟我們的內心一樣~~ (🎵 🎵 來點播一首陳綺貞的[Self](https://www.youtube.com/watch?v=H1-kEjeO6SI)🎵🎵  )
 
@@ -41,12 +41,12 @@ Ruby經典面試題目 #05
 
 簡單解釋：實體就是物體在記憶體的位置，就好像每個寶寶（實體）生下來，都是從某個媽媽的子宮（記憶體）裡出來的。我們必須經歷過實體化的過程才能成為一個活生生的人呢！
 
-幸好，產生一個實體不用等"懷胎十月"這麼久，只要像我們在第一天一樣，使用`@`宣告記憶體位置就可以產生實體變數了：
+幸好，產生一個實體不用等"懷胎十月"這麼久，只要像我們在第一天一樣使用`@`宣告記憶體位置就可以產生實體變數了：
 
 ```
 class LoveSong
   def initialize
-    @message = "I was born to love you!" #定義實體變數（instance variable）@message
+     @message = "I was born to love you!" #定義實體變數（instance variable）@message
   end
     def sing_a_song
     puts @message
@@ -76,7 +76,7 @@ class LoveSong
   p self.class       # => Class  
   p self.singleton_methods # [:one, :two]
 
-  p self.one() # => "We are the champion!"
+  p self.one() #=> "We are the champion!"
   p self.two() #=> "We will rock you"
 end
 
@@ -86,20 +86,19 @@ end
 而這裡的`self.singleton_methods`，出現了`:one`與`:two`這兩個能夠分別印出兩首歌的方法。
 
 
-還記得我們在第一天文章曾經提到利用`superclass`查找父類別的方法嗎？
-class的superclass是object，但其實每一個class上面都還有一層隱形的class(~~隱形的翅膀~~)，我們可以稱作metaclass，在Ruby叫eigenclass。[[出處](https://blog.chh.tw/posts/ruby-metaclass-eigenclass/)]，
+在這裡的self代表目前的類別名稱LoveSong， 我們查詢`self.class`還是類別class， 而這裡的`self.singleton_methods`，出現了:one與:two這兩個能夠分別印出兩首歌的方法。
 
-近一步說明，
+還記得我們在第一天文章曾經提到利用superclass查找父類別的方法嗎？ class的superclass是object，但其實每一個class上面都還有一層隱形的class(~~隱形的翅膀~~)，我們可以稱作metaclass，在Ruby叫eigenclass。[出處](https://blog.chh.tw/posts/ruby-metaclass-eigenclass/)]。更一步說明：
 
 類別class的eigenclass method稱為class method（類別方法）。
 類別class的singleton method，是定義在singleton class裡面的實體方法。
 
-如同在以上的例子，輸入`self.singleton_methods`時，查詢LoveSong Class的singleton_methods，出現了`:one`與`:two`。
+如同在以上的例子，輸入`self.singleton_methods`時，查詢LoveSong Class的singleton_methods，出現了`:one`與`:two`。
 
 
-### Singleton Method
+### Singleton Method
 
-實體instance的eigenclass method，直接稱為singleton method（單例方法）：
+實體instance的eigenclass method，直接稱為singleton method（單例方法）：
 指的是某物件實體的「單例類別」的實體方法，而不是某個物件的實體方法。
 
 > singleton methods of an object are not instance methods of the class of the object; 
@@ -107,7 +106,7 @@ class的superclass是object，但其實每一個class上面都還有一層隱�
 > they are instance methods of the `singleton class` of the object.
 
 
-當我們講到 `Singleton Method`，就必須提到`Singleton Pattern`單例模式，這個在物件導向語言(如：Java)共同的觀念。
+當我們講到 `Singleton Method`，就必須提到`Singleton Pattern`單例模式，這個在物件導向語言(如：Java)共同的觀念。
 
 
 > 如果我們能保證某一個類別只產生一個物件實體，而且提供存取該物件的統一方法。這種設計模式就稱為單例模式。
@@ -116,7 +115,7 @@ class的superclass是object，但其實每一個class上面都還有一層隱�
 
 
 
-### 什麼時候使用`Singleton Method`?
+### 什麼時候使用`Singleton Method`?
 
 當我們想控制實體數目，節省系統資源的時候。
 
@@ -140,7 +139,7 @@ IronmanList.find(1)
 3. 此類別必須給其他物件提供這個實體。
 
 使用場景：
-1. 此物件是類別中唯一的物件。如同IronmanList鐵人賽的序列號唯一。（跟身份證號碼一樣）
+1. 此物件是類別中唯一的物件。如同IronmanList鐵人賽的序列號唯一。（跟身份證號碼一樣）
 2. 當創建此物件需要消耗較的資源過多時，可節省系統資源。（例如：連結資料庫、連結印表機）
 
 當我們為實體定義了自已的singleton method，代表了這個方法只屬於該實體，儘管是相同的class的實體也無法使用別人的singleton method。
@@ -151,8 +150,7 @@ IronmanList.find(1)
 學程式的好處就是會查找許多原文資料（間接提升英文閱讀功力！）
 進一步發現許多原則上的定義用英文表達會更為清楚。
 
-所以，我們的第四天(實體方法與類別方法)與第五天的總結（單例方法的進一步說明），
-從這段英文就能看得更加清楚之間的關係了：)
+所以，我們的第四天(實體方法與類別方法)與第五天的總結（單例方法的進一步說明）， 從這段英文就能看得更加清楚之間的關係了：)
 
 > Instance methods are methods of a class
 (defined in the class's definition)
@@ -163,9 +161,7 @@ IronmanList.find(1)
 
 Ref：
 [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |
-[Understanding Ruby Singleton Classes](https://www.devalot.com/articles/2008/09/ruby-singleton) |
-[What exactly is the singleton class in ruby?](https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby) |
+[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) | [Understanding Ruby Singleton Classes](https://www.devalot.com/articles/2008/09/ruby-singleton) | [What exactly is the singleton class in ruby?](https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby) |
 [Ruby 如何理解 singleton class](https://ruby-china.org/topics/13276) |
 [單例模式 Singleton](http://www.runoob.com/design-pattern/singleton-pattern.html)|
 [Ruby的Class與Eigenclass](https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f)
