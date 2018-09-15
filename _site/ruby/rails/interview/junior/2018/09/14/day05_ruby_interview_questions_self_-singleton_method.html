@@ -136,7 +136,7 @@ end
 我們查詢<code class="highlighter-rouge">self.class</code>還是類別class，
 而這裡的<code class="highlighter-rouge">self.singleton_methods</code>，出現了<code class="highlighter-rouge">:one</code>與<code class="highlighter-rouge">:two</code>這兩個能夠分別印出兩首歌的方法。</p>
 
-<p>在這裡的self代表目前的類別名稱LoveSong， 我們查詢<code class="highlighter-rouge">self.class</code>還是類別class，而這裡的<code class="highlighter-rouge">self.singleton_methods</code>，出現了:one與:two這兩個能夠分別印出兩首歌的方法。</p>
+<p>在這裡的self代表目前的類別名稱LoveSong， 我們查詢<code class="highlighter-rouge">self.class</code>還是類別class 。而這裡的<code class="highlighter-rouge">self.singleton_methods</code>，出現了<code class="highlighter-rouge">:one</code>與<code class="highlighter-rouge">:two</code>這兩個能夠分別印出兩首歌的方法。</p>
 
 <p>還記得我們在第一天文章曾經提到利用superclass查找父類別的方法嗎？ class的superclass是object，但其實每一個class上面都還有一層隱形的class(<del>隱形的翅膀</del>)，我們可以稱作metaclass，在Ruby叫eigenclass。<a href="https://blog.chh.tw/posts/ruby-metaclass-eigenclass/">出處</a>]。更一步說明：</p>
 
@@ -222,7 +222,7 @@ IronmanList.find(1)
 
 <p>Ref：
 <a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a> |
-<a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a> |<a href="https://www.devalot.com/articles/2008/09/ruby-singleton">Understanding Ruby Singleton Classes</a> |<a href="https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby">What exactly is the singleton class in ruby?</a> |
+<a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a> |<a href="https://www.devalot.com/articles/2008/09/ruby-singleton">Understanding Ruby Singleton Classes</a> |<a href="https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby">What exactly is the singleton class in ruby?</a> |
 <a href="https://ruby-china.org/topics/13276">Ruby 如何理解 singleton class</a> |
 <a href="http://www.runoob.com/design-pattern/singleton-pattern.html">單例模式 Singleton</a>|
 <a href="https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f">Ruby的Class與Eigenclass</a>

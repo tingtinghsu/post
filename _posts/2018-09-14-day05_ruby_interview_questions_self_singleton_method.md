@@ -86,7 +86,7 @@ end
 而這裡的`self.singleton_methods`，出現了`:one`與`:two`這兩個能夠分別印出兩首歌的方法。
 
 
-在這裡的self代表目前的類別名稱LoveSong， 我們查詢`self.class`還是類別class，而這裡的`self.singleton_methods`，出現了:one與:two這兩個能夠分別印出兩首歌的方法。
+在這裡的self代表目前的類別名稱LoveSong， 我們查詢`self.class`還是類別class 。而這裡的`self.singleton_methods`，出現了`:one`與`:two`這兩個能夠分別印出兩首歌的方法。
 
 還記得我們在第一天文章曾經提到利用superclass查找父類別的方法嗎？ class的superclass是object，但其實每一個class上面都還有一層隱形的class(~~隱形的翅膀~~)，我們可以稱作metaclass，在Ruby叫eigenclass。[出處](https://blog.chh.tw/posts/ruby-metaclass-eigenclass/)]。更一步說明：
 
@@ -161,7 +161,7 @@ IronmanList.find(1)
 
 Ref：
 [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |[Understanding Ruby Singleton Classes](https://www.devalot.com/articles/2008/09/ruby-singleton) |[What exactly is the singleton class in ruby?](https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby) |
+[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |[Understanding Ruby Singleton Classes](https://www.devalot.com/articles/2008/09/ruby-singleton) |[What exactly is the singleton class in ruby?](https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby) |
 [Ruby 如何理解 singleton class](https://ruby-china.org/topics/13276) |
 [單例模式 Singleton](http://www.runoob.com/design-pattern/singleton-pattern.html)|
 [Ruby的Class與Eigenclass](https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f)
