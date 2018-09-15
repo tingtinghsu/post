@@ -1,144 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-15T15:10:02+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html"></title><link href="http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html" rel="alternate" type="text/html" title="" /><published>2018-09-15T15:10:02+10:00</published><updated>2018-09-15T15:10:02+10:00</updated><id>http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method</id><content type="html" xml:base="http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html">&lt;p&gt;前情提要：
-在第五天的最後，我們提到了一句話”相同的class的實體也無法使用別人的singleton method”。在今天，我們繼續把焦點放在Ruby的method, 繼續鋪陳存取限制:)&lt;/p&gt;
-
-&lt;h1 id=&quot;ruby經典面試題目-06&quot;&gt;Ruby經典面試題目 #06&lt;/h1&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;說明Ruby的三種存取限制 3 levels of access control for Ruby methods?&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;讓我們用程式碼分別描述三種存取：&lt;code class=&quot;highlighter-rouge&quot;&gt;Public&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Protected&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Private&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class TingsIronmanProcess
-    def publish
-      p &quot;Hi guys, this is my IT article for today!&quot;
-    end
-
-    protected
-    def mydraft
-      p &quot;Hi Mentor! Please read my draft.&quot;
-    end
-
-    private
-    def myspace
-      p &quot;I'm writing secretly here!&quot;
-    end
-  end
-
- day6 = TingsIronmanProcess.new
- day6.publish # =&amp;gt; Hi guys, this is my IT article for today!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;以我自己生產第六天IT邦鐵人賽文章為例，我通常在本機上編寫每天的主體，在這段時間要搜集素材、測試程式碼，這個過程可能會有很多生產上的秘密、需要刪除的錯誤等等之類的，過程艱辛不足為外人道矣，所以放在&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;myspace&lt;/code&gt;孤芳自賞就好。&lt;/p&gt;
-
-&lt;p&gt;等到文章接近完成度高、可讀性佳的地步，就放在&lt;code class=&quot;highlighter-rouge&quot;&gt;protected&lt;/code&gt;，開放一些權限給它人，請對Ruby前輩’饅頭貓’先行閱讀，提供修改建議。&lt;/p&gt;
-
-&lt;p&gt;所以如果在classs外想要取得&lt;code class=&quot;highlighter-rouge&quot;&gt;protected&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;方法，都會出現&lt;code class=&quot;highlighter-rouge&quot;&gt;NoMethodError&lt;/code&gt;錯誤：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;day6.protected #=&amp;gt; undefined method `protected' (NoMethodError)
-day6.private #=&amp;gt; undefined method `private' (NoMethodError)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;當一切修改完畢，就可以放到&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;區，給大眾分享我的作品、品嚐甜美果實啦！&lt;/p&gt;
-
-&lt;p&gt;以上的類別寫法可以改成：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class TingsIronmanProcess
-    def publish
-      p &quot;Hi guys, this is my IT article for today!&quot;
-    end
-
-    def mydraft
-      p &quot;Hi Mentor! Please read my draft.&quot;
-    end
-
-    def myspace
-      p &quot;I'm writing secretly here!&quot;
-    end
-
-  protected :mydraft
-  private :myspace  
-  end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;這種寫法，我覺得蠻類似於在開發Ruby on Rails專案上時常看到，
-哪些套件只能在開發環境&lt;code class=&quot;highlighter-rouge&quot;&gt;development&lt;/code&gt;使用，哪些在測試環境&lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;、哪些在&lt;code class=&quot;highlighter-rouge&quot;&gt;production&lt;/code&gt;環境使用的分組。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'sqlite3',             group: :development 
-gem 'pg',                  group: :production
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如果我想把第六天的草稿send給menter看，可以把&lt;code class=&quot;highlighter-rouge&quot;&gt;mydraft&lt;/code&gt;當作參數，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;send()&lt;/code&gt;方法，結果如下：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; day6.send(:mydraft) #=&amp;gt; &quot;Hi Mentor! Please read my draft.&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;甚至把文章連結先send給某個人看，也行：(要小心別把不能公開的東西亂放啊！)&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; day6.send(:myspace) #=&amp;gt; &quot;Hi guys, this is my IT article for today!&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如果饅頭貓也想使用我的架構來撰寫自己的鐵人賽文章，可以繼承我的類別：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class TingsIronmanProcess
-    protected
-    def mydraft
-      p &quot;Hi Mentor!&quot;
-    end
-
-    private
-    def myspace
-      p &quot;I'm writing secretly here!&quot;
-    end  
-  end
-
-  class BaterProcess &amp;lt; TingsIronmanProcess
-    def bater_draft
-      mydraft
-    end
-    def bater_self_draft
-      self.mydraft
-    end     
-  end
-
-BaterProcess.new.bater_draft # Hi Mentor!
-BaterProcess.new.bater_self_draft #Hi Mentor!
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;在這裡，我們引入昨天&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;物件可以代替自身的類別的觀念，無論是&lt;code class=&quot;highlighter-rouge&quot;&gt;self.mydraft&lt;/code&gt;或是&lt;code class=&quot;highlighter-rouge&quot;&gt;mydraft&lt;/code&gt;，輸出結果都不會有問題。&lt;/p&gt;
-
-&lt;p&gt;但如果呼叫的是Private方法 &lt;code class=&quot;highlighter-rouge&quot;&gt;myspace&lt;/code&gt;呢？&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class BaterProcess &amp;lt; TingsIronmanProcess
-
-    def bater_space
-      myspace
-    end
-    def bater_self_space
-      self.myspace
-    end      
-  end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;這裡使用&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;，就會出錯：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BaterProcess.new.bater_space # I'm writing secretly here!
-BaterProcess.new.bater_self_space  #private method `myspace' (NoMethodError)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;龍哥&lt;/a&gt;的文章說到，呼叫private 方法的時候，不能有明確的接收者。愛注意呀！&lt;/p&gt;
-
-&lt;p&gt;總結：
-
-在寫鐵人賽的文章時，我都盡量把前幾篇的概念拿到後面來使用，增加自己觀念上的熟悉度。盡量做到具有教育意義地環環相扣（八點檔連續劇製作人?）&lt;/p&gt;
-
-&lt;p&gt;在今天Day6這篇文章裡，我們把繼承和&lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt;的概念拿來測試&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;protect&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;存取方法，也發現了：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;protected :mydraft
-private :myspace  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:mydraft&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;:myspace&lt;/code&gt; 這些冒號在前面的參數。&lt;/p&gt;
-
-&lt;p&gt;這到底是什麼呢？&lt;/p&gt;
-
-&lt;p&gt;明天我們就來討論符號(Symbol)吧！&lt;/p&gt;
-
-&lt;p&gt;=
-Ref：
-&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
-&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
-&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module）&lt;/a&gt;  |
-&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protect, Private</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/15/day07_ruby_interview_questions_public_protected_private_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protect, Private" /><published>2018-09-15T14:50:00+10:00</published><updated>2018-09-15T14:50:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/15/day07_ruby_interview_questions_public_protected_private_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/15/day07_ruby_interview_questions_public_protected_private_method.html">&lt;p&gt;前情提要： 在第五天的最後，我們提到了一句話”相同的class的實體也無法使用別人的singleton method”。在今天，我們繼續把焦點放在Ruby的method, 繼續鋪陳存取限制:)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-15T15:13:16+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protect, Private</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/15/day06_ruby_interview_questions_public_protected_private_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protect, Private" /><published>2018-09-15T14:50:00+10:00</published><updated>2018-09-15T14:50:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/15/day06_ruby_interview_questions_public_protected_private_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/15/day06_ruby_interview_questions_public_protected_private_method.html">&lt;p&gt;前情提要： 在第五天的最後，我們提到了一句話”相同的class的實體也無法使用別人的singleton method”。在今天，我們繼續把焦點放在Ruby的method, 繼續鋪陳存取限制:)&lt;/p&gt;
 
 &lt;h1 id=&quot;ruby經典面試題目-06&quot;&gt;Ruby經典面試題目 #06&lt;/h1&gt;
 &lt;p&gt;說明Ruby的三種存取限制。&lt;/p&gt;
@@ -209,7 +69,7 @@ gem 'pg',                  group: :production
 
 &lt;p&gt;甚至把文章連結先send給某個人看，也行：(要小心別把不能公開的東西亂放啊！)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; day6.send(:myspace) #=&amp;gt; &quot;Hi guys, this is my IT article for today!
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;day6.send(:myspace) #=&amp;gt; &quot;Hi guys, this is my IT article for today!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;如果饅頭貓也想使用我的架構來撰寫自己的鐵人賽文章，可以繼承我的類別：&lt;/p&gt;
 
@@ -1541,4 +1401,148 @@ end
 &lt;p&gt;Ref:
 &lt;a href=&quot;https://www.ithome.com.tw/tech/88760&quot;&gt;AWS活用術｜善用容量無上限的S3儲存服務&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://streamer-forest.com/amazon-s3-tutorial-p1.html&quot;&gt;Amazon S3 簡易儲存服務介紹與教學(1/3)&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">來到第7篇了！培養寫作習慣真是不容易：）</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;http://streamer-forest.com/amazon-s3-tutorial-p1.html&quot;&gt;Amazon S3 簡易儲存服務介紹與教學(1/3)&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">來到第7篇了！培養寫作習慣真是不容易：）</summary></entry><entry><title type="html">活用套件carrierwave gem: (1)在Rails實現圖片上傳功能</title><link href="http://localhost:4000/ruby/rails/gem/carrierwave/2018/09/04/carrierwave_gem_upload_image_localhost_ruby_on_rails.html" rel="alternate" type="text/html" title="活用套件carrierwave gem: (1)在Rails實現圖片上傳功能" /><published>2018-09-04T16:05:00+10:00</published><updated>2018-09-04T16:05:00+10:00</updated><id>http://localhost:4000/ruby/rails/gem/carrierwave/2018/09/04/carrierwave_gem_upload_image_localhost_ruby_on_rails</id><content type="html" xml:base="http://localhost:4000/ruby/rails/gem/carrierwave/2018/09/04/carrierwave_gem_upload_image_localhost_ruby_on_rails.html">&lt;p&gt;&lt;a href=&quot;https://github.com/carrierwaveuploader/carrierwave&quot;&gt;carrierwave&lt;/a&gt;是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。
+（預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host，
+並再下集遠端(production)實作上傳，敬請期待！）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177jA3W9YiK5l.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177jA3W9YiK5l.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在閱讀任何Github上的README.md，有一點很重要的是知道因為環境設定的不同，必須漸漸了解哪些步驟可以跳過、哪些變數需要修改成符合自己專案性質的名稱，這點身為新手的我，將會靠練習活用各式各樣的gem來進步。：）&lt;/p&gt;
+
+&lt;p&gt;這次我們會更動的檔案/資料夾如下：
+Rails的架構 | 說明
+—|—–
+Gemfile | 設定Rails應用程式使用了哪些Gems套件
+app |放Controllers、Models和Views檔案&lt;/p&gt;
+
+&lt;p&gt;接下來就按造步驟來實作吧！&lt;/p&gt;
+
+&lt;h3 id=&quot;a-在gemfile加入套件重啟rails-server&quot;&gt;A. 在&lt;code class=&quot;highlighter-rouge&quot;&gt;gemfile&lt;/code&gt;加入套件，重啟rails server：&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;首先我們按照&lt;a href=&quot;https://github.com/carrierwaveuploader/carrierwave&quot;&gt;carrierwave&lt;/a&gt;在githhub上說明檔的指示，前往&lt;code class=&quot;highlighter-rouge&quot;&gt;/專案名稱/gemfile&lt;/code&gt;，新增程式碼：
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'carrierwave', '~&amp;gt; 1.0'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;README.md告訴我們CarrierWave的版本需求：Rails 4.0 or higher and Ruby 2.0，我的ruby 2.4.2 Rails 5.1.6，所以沒有問題～&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;每次新增任何新的Gem到Gemfile，就要在Terminal輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;處理相依性，然後&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;重啟伺服器。
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle install
+tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle info carrierwave
+  * carrierwave (1.2.3)
+ Summary: Ruby file upload library
+ Homepage: https://github.com/carrierwaveuploader/carrierwave
+ Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/carrierwave-1.2.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;b-用rails-g指令新增image-uploader功能&quot;&gt;B. 用&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g&lt;/code&gt;指令，新增Image uploader功能&lt;/h3&gt;
+&lt;p&gt;接下來就可以看到carrierwave的厲害之處了，在此我需要將自己的餐廳(restaurants)資料庫建立新的圖片(image)欄位，所以把carrier的指令客製化成自己的專案。
+指令&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g uploader Image&lt;/code&gt;幫助我們在此路徑：&lt;code class=&quot;highlighter-rouge&quot;&gt;app/uploaders/image_uploader.rb&lt;/code&gt;新增了檔案。
+打開&lt;code class=&quot;highlighter-rouge&quot;&gt;image_uploader.rb&lt;/code&gt;看看裡面的類別寫法：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class ImageUploader &amp;lt; CarrierWave::Uploader::Base
+  storage :file
+  #storage :fog
+  # Override the directory where uploaded files will be stored.
+  # def store_dir
+    &quot;uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}&quot;
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;這個部分指的是：
+如果我把儲存檔案的地方放在本地端(localhost)，就要把storage :file前的#註解拿掉
+相對的，想要把儲存檔案的地方放在遠端(Heroku)，把storage :fog前的#註解拿掉&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在本篇裡，CarrierWave會把我上傳的圖片將會放在&lt;code class=&quot;highlighter-rouge&quot;&gt;/public/uploads/restaurant/image&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;c-建立資料庫上傳image所需欄位&quot;&gt;C. 建立資料庫上傳Image所需欄位&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;建立遷移檔(migration，修改資料庫結構)
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g migration add_image_to_restaurants image:string&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;並在資料庫增加上傳圖片的欄位:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;然後重啟伺服器：&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;順利的在&lt;code class=&quot;highlighter-rouge&quot;&gt;db/migrate&lt;/code&gt;跑出了&lt;code class=&quot;highlighter-rouge&quot;&gt;add_image_to_restaurants.rb&lt;/code&gt;檔案。打開來瞧瞧：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class AddImageToRestaurants &amp;lt; ActiveRecord::Migration[5.1]
+  def change
+    add_column :restaurants, :image, :string
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;d-修改models讓資料庫準備好存取圖片的功能&quot;&gt;D. 修改Models，讓資料庫準備好存取圖片的功能&lt;/h3&gt;
+
+&lt;p&gt;接下來我們修改跟ActiveRecord有關的Models。mount Model裡面，這個名為uploader上傳功能小幫手，未來它會幫我們翻譯資料庫語言(SQL)跟資料庫要資料（餐廳圖片）。:&lt;/p&gt;
+
+&lt;p&gt;Models: &lt;code class=&quot;highlighter-rouge&quot;&gt;app/models/restaurant.rb&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class User &amp;lt; ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在&lt;a href=&quot;https://rails.ruby.tw/active_record_basics.html&quot;&gt;rails官網&lt;/a&gt;提到：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Active Record 是MVC的M（Model）表現商業邏輯與資料的層級，負責新增與操作需要持久存在資料庫裡的資料。Active Record本身是ORM（Object Relational Mapping，物件關聯映射）系統的描述。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;e-修改views&quot;&gt;E. 修改Views&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;資料庫的上傳功能已經準備好了，接下來到Views跟表單溝通，請讓表單能夠接受上傳的圖片。
+首先到&lt;code class=&quot;highlighter-rouge&quot;&gt;app/views/restaurants/_form.html.erb&lt;/code&gt;，修改成可以上傳照片的form type(表單型態)。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;%= form_with(model: restaurant, local: true, :html =&amp;gt; { multipart: true }) do |form| %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;我們來增加：「上傳圖片」欄位，讓使用者能在視覺上看得見新欄位，並修改上傳圖片的檔案(file)類型為&lt;code class=&quot;highlighter-rouge&quot;&gt;form.file_field&lt;/code&gt;，不同於其他純文字(text)欄位如地址、電話的&lt;code class=&quot;highlighter-rouge&quot;&gt;form.text_field&lt;/code&gt;。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;div class=&quot;form-group&quot;&amp;gt;
+    &amp;lt;%= form.label :name %&amp;gt;
+    &amp;lt;%= form.text_field :name, id: :restaurant_name, class: &quot;form-control&quot; %&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;div class=&quot;form-group&quot;&amp;gt;
+    &amp;lt;%= form.label :image %&amp;gt;
+    &amp;lt;%= form.file_field :image, id: :restaurant_image, class: &quot;form-control&quot; %&amp;gt;
+  &amp;lt;/div&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;告訴rails何時取得image。我們來到&lt;code class=&quot;highlighter-rouge&quot;&gt;app/views/restaurants/show.html.erb&lt;/code&gt;，在餐廳資料前面加上程式碼：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p id=&quot;notice&quot;&amp;gt;&amp;lt;%= notice %&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;%= image_tag @restaurant.image_url if @restaurant.image_url.present? %&amp;gt;
+&amp;lt;p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt;
+  &amp;lt;strong&amp;gt;Name:&amp;lt;/strong&amp;gt;
+  &amp;lt;%= @restaurant.name %&amp;gt;
+&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;image_tag&lt;/code&gt;：Rails內建的Helper靜態輔助方法，可以讓我們建構HTML更為容易。&lt;a href=&quot;https://ihower.tw/rails/actionview-helpers.html&quot;&gt;參考這裡&lt;/a&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;@restaurant.image_url&lt;/code&gt;：顯示目前這筆餐廳資料的圖片位置。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[新手常見Bug！]檢查圖片為nil寫法：&lt;code class=&quot;highlighter-rouge&quot;&gt;if @restaurant.image_url.present?&lt;/code&gt;。可以防止當某位使用者新增一筆餐廳資料、但沒有附上圖片的時候，show.html.erb這頁網頁直接當掉給你看…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;f-修改controllers&quot;&gt;F. 修改Controllers&lt;/h3&gt;
+
+&lt;p&gt;最後，我們在Controllers: &lt;code class=&quot;highlighter-rouge&quot;&gt;app/controllers/restaurants.controller.rb&lt;/code&gt;加上允許上傳至欄位的參數，告訴rails，新的image欄位是安全的。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    def restaurant_params
+      params.require(:restaurant).permit(:name, :address, :phone, :website, :image)
+    end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;**大功告成 **&lt;/p&gt;
+
+&lt;p&gt;觀看結果：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; alt=&quot;https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">carrierwave是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。 （預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host， 並再下集遠端(production)實作上傳，敬請期待！）</summary></entry></feed>
