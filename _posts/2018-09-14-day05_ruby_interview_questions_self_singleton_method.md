@@ -85,34 +85,31 @@ end
 我們查詢`self.class`還是類別class，
 而這裡的`self.singleton_methods`，出現了`:one`與`:two`這兩個能夠分別印出兩首歌的方法。
 
+在這裡的`self`代表目前的類別名稱`LoveSong`， 我們查詢`self.class`還是類別`class`， 而這裡的`self.singleton_methods`，出現了`:one`與`:two`這兩個能夠分別印出兩首歌的類別方法(class method)。
 
-在這裡的self代表目前的類別名稱LoveSong， 我們查詢`self.class`還是類別class 。而這裡的`self.singleton_methods`，出現了`:one`與`:two`這兩個能夠分別印出兩首歌的方法。
+還記得我們在第一天文章曾經提到利用superclass查找父類別的方法嗎？
 
-還記得我們在第一天文章曾經提到利用superclass查找父類別的方法嗎？ class的superclass是object，但其實每一個class上面都還有一層隱形的class(~~隱形的翅膀~~)，我們可以稱作metaclass，在Ruby叫eigenclass。[出處](https://blog.chh.tw/posts/ruby-metaclass-eigenclass/)]。更一步說明：
+類別的父類別，是物件。 `class.superclass`是`object`。
 
-類別class的eigenclass method稱為class method（類別方法）。
-類別class的singleton method，是定義在singleton class裡面的實體方法。
-
-如同在以上的例子，輸入`self.singleton_methods`時，查詢LoveSong Class的singleton_methods，出現了`:one`與`:two`。
+但其實：每一個類別class上面都還有一層隱形的類別class(~~隱形的翅膀~~)，我們可以稱作metaclass，在Ruby叫eigenclass。[出處](https://blog.chh.tw/posts/ruby-metaclass-eigenclass/)]。
 
 
 ### Singleton Method
 
-實體instance的eigenclass method，直接稱為singleton method（單例方法）：
-指的是某物件實體的「單例類別」的實體方法，而不是某個物件的實體方法。
+單例方法＝單例類別的實體方法。
+
+（指的是某物件實體「的單例類別」的實體方法，而不是某個物件的實體方法。，中間多夾了一層「單例類別」）
 
 > singleton methods of an object are not instance methods of the class of the object; 
 
 > they are instance methods of the `singleton class` of the object.
 
-
-當我們講到 `Singleton Method`，就必須提到`Singleton Pattern`單例模式，這個在物件導向語言(如：Java)共同的觀念。
+當我們講到 `Singleton Method`，就會提到`Singleton Pattern`單例模式，這個在物件導向語言(如：Java)共同的觀念。
 
 
 > 如果我們能保證某一個類別只產生一個物件實體，而且提供存取該物件的統一方法。這種設計模式就稱為單例模式。
 
 > 我們可以直接存取，而不需要實體化此類別的物件。
-
 
 
 ### 什麼時候使用`Singleton Method`?
@@ -142,10 +139,27 @@ IronmanList.find(1)
 1. 此物件是類別中唯一的物件。如同IronmanList鐵人賽的序列號唯一。（跟身份證號碼一樣）
 2. 當創建此物件需要消耗較的資源過多時，可節省系統資源。（例如：連結資料庫、連結印表機）
 
-當我們為實體定義了自已的singleton method，代表了這個方法只屬於該實體，儘管是相同的class的實體也無法使用別人的singleton method。
+當我們為實體定義了自已的singleton method，代表了這個方法只屬於該實體，儘管是相同的class的實體也無法使用別人的singleton method。（每個實體的單例類別是不同的。）
 
-實體方法是類別在的方法（已在類別裡定義好了）；
-類別方法是一種單例方法，定義在類別裡的物件實體，並沒有在類別裡定義。
+近一步說明類別方法、實體方法，與單例方法的關係。
+中文翻譯的話，我們可以這樣記：
+
+
+> 類別的eigenclass(特徵類別)方法 = 類別方法。
+
+> 實體的eigenclass(特徵類別)方法 = 單例方法 = 單例類別的實體方法。
+
+*實體方法：*
+
+已在類別裡定義好了。（如果你需要將實體方法，運用在某個特定的實體。）
+
+(舉例："每個人(物件實體)都能贏得鐵人賽"的方法)
+
+*類別方法：*
+
+並不在類別裡定義，而是在類別裡的物件實體的一種單例方法。（如果此方法並不會和某個特定的實體變數綁在一起，就使用類別方法！）
+
+(舉例："查找鐵人賽名單"的方法)
 
 學程式的好處就是會查找許多原文資料（間接提升英文閱讀功力！）
 進一步發現許多原則上的定義用英文表達會更為清楚。
@@ -165,4 +179,3 @@ Ref：
 [Ruby 如何理解 singleton class](https://ruby-china.org/topics/13276) |
 [單例模式 Singleton](http://www.runoob.com/design-pattern/singleton-pattern.html)|
 [Ruby的Class與Eigenclass](https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f)
-
