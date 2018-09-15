@@ -84,7 +84,7 @@ end
 在這裡的`self`代表目前的類別名稱`LoveSong`，
 我們查詢`self.class`還是類別class,而這裡的`self.singleton_method`,出現了`:one`與`:two`這兩個能夠分別印出兩首歌的方法。
 
-在這裡的`self`代表目前的類別名稱`LoveSong`， 我們查詢`self.class`還是類別`class`， 而這裡的`self.singleton_methods`，出現了`:one`與`:two`這兩個能夠分別印出兩首歌的類別方法(class method)。
+在這裡的`self`代表目前的類別名稱`LoveSong`， 我們查詢`self.class`還是類別`class`， 而這裡的`self.singleton_method`出現了`:one`與`:two`這兩個能夠分別印出兩首歌的類別方法(class method)。
 
 還記得我們在第一天文章曾經提到利用superclass查找父類別的方法嗎？
 
