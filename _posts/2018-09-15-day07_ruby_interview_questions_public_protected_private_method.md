@@ -68,7 +68,7 @@ day6.private #=> undefined method `private' (NoMethodError)
   end
 
 ```
-這種寫法，我覺得蠻類似於在開發Ruby on Rails專案上時常看到， 哪些套件只能在開發環境d�evelopment使用，哪些在測試環境test、哪些在production環境使用的分組。
+這種寫法，我覺得蠻類似於在開發Ruby on Rails專案上時常看到， 哪些套件只能在開發環境development使用，哪些在測試環境test、哪些在production環境使用的分組。
 
 ```
 gem 'sqlite3',             group: :development 
@@ -117,6 +117,7 @@ BaterProcess.new.bater_self_draft #Hi Mentor!
 
 但如果呼叫的是Private方法 myspace呢？
 
+```
   class BaterProcess < TingsIronmanProcess
 
     def bater_space
@@ -126,16 +127,18 @@ BaterProcess.new.bater_self_draft #Hi Mentor!
       self.myspace
     end      
   end
-這裡使用self，就會出錯：
+```
+
+如果我們在這裡使用`.self`，就會出錯：
 
 ```
 BaterProcess.new.bater_space # => I'm writing secretly here!
 
 BaterProcess.new.bater_self_space  # => private method `myspace' (NoMethodError)
 ```
-龍哥的文章說到，呼叫private 方法的時候，不能有明確的接收者。愛注意呀！
+[龍哥](https://railsbook.tw/chapters/08-ruby-basic-4.html)的文章說到，呼叫private 方法的時候，不能有明確的接收者。愛注意呀！
 
-總結： 在寫鐵人賽的文章�時，我都盡量把前幾篇的概念拿到後面來使用，增加自己觀念上的熟悉度。盡量做到具有教育意義地環環相扣（八點檔連續劇製作人?）
+總結： 在寫鐵人賽的文章時，我都盡可能地把前幾篇的概念拿到後面來使用，增加自己觀念上的熟悉度，盡量做到具有教育意義地環環相扣。（~~顯示為八點檔連續劇製作人?~~）
 
 在今天Day6這篇文章裡，我們把繼承和self的概念拿來測試`public`、`protect`和`private`存取方法，也發現了：
 
@@ -148,7 +151,7 @@ private :myspace
 明天我們就來討論符號(Symbol)吧！
 
 ===
+
 Ref：
 [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |
-[類別（Class）與模組（Module)](https://railsbook.tw/chapters/08-ruby-basic-4.html)|
+[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)| [類別（Class）與模組（Module)](https://railsbook.tw/chapters/08-ruby-basic-4.html)|

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-15T15:02:43+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html"></title><link href="http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html" rel="alternate" type="text/html" title="" /><published>2018-09-15T15:02:43+10:00</published><updated>2018-09-15T15:02:43+10:00</updated><id>http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method</id><content type="html" xml:base="http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html">&lt;p&gt;前情提要：
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-15T15:10:02+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html"></title><link href="http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html" rel="alternate" type="text/html" title="" /><published>2018-09-15T15:10:02+10:00</published><updated>2018-09-15T15:10:02+10:00</updated><id>http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method</id><content type="html" xml:base="http://localhost:4000/2018/09/15/2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html">&lt;p&gt;前情提要：
 在第五天的最後，我們提到了一句話”相同的class的實體也無法使用別人的singleton method”。在今天，我們繼續把焦點放在Ruby的method, 繼續鋪陳存取限制:)&lt;/p&gt;
 
 &lt;h1 id=&quot;ruby經典面試題目-06&quot;&gt;Ruby經典面試題目 #06&lt;/h1&gt;
@@ -197,7 +197,7 @@ day6.private #=&amp;gt; undefined method `private' (NoMethodError)
   end
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;這種寫法，我覺得蠻類似於在開發Ruby on Rails專案上時常看到， 哪些套件只能在開發環境d�evelopment使用，哪些在測試環境test、哪些在production環境使用的分組。&lt;/p&gt;
+&lt;p&gt;這種寫法，我覺得蠻類似於在開發Ruby on Rails專案上時常看到， 哪些套件只能在開發環境development使用，哪些在測試環境test、哪些在production環境使用的分組。&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'sqlite3',             group: :development 
 gem 'pg',                  group: :production
@@ -242,23 +242,26 @@ BaterProcess.new.bater_self_draft #Hi Mentor!
 
 &lt;p&gt;但如果呼叫的是Private方法 myspace呢？&lt;/p&gt;
 
-&lt;p&gt;class BaterProcess &amp;lt; TingsIronmanProcess&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  class BaterProcess &amp;lt; TingsIronmanProcess
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def bater_space
-  myspace
-end
-def bater_self_space
-  self.myspace
-end         end 這裡使用self，就會出錯：
+    def bater_space
+      myspace
+    end
+    def bater_self_space
+      self.myspace
+    end      
+  end
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果我們在這裡使用&lt;code class=&quot;highlighter-rouge&quot;&gt;.self&lt;/code&gt;，就會出錯：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BaterProcess.new.bater_space # =&amp;gt; I'm writing secretly here!
 
 BaterProcess.new.bater_self_space  # =&amp;gt; private method `myspace' (NoMethodError)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;龍哥的文章說到，呼叫private 方法的時候，不能有明確的接收者。愛注意呀！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;龍哥&lt;/a&gt;的文章說到，呼叫private 方法的時候，不能有明確的接收者。愛注意呀！&lt;/p&gt;
 
-&lt;p&gt;總結： 在寫鐵人賽的文章�時，我都盡量把前幾篇的概念拿到後面來使用，增加自己觀念上的熟悉度。盡量做到具有教育意義地環環相扣（八點檔連續劇製作人?）&lt;/p&gt;
+&lt;p&gt;總結： 在寫鐵人賽的文章時，我都盡可能地把前幾篇的概念拿到後面來使用，增加自己觀念上的熟悉度，盡量做到具有教育意義地環環相扣。（&lt;del&gt;顯示為八點檔連續劇製作人?&lt;/del&gt;）&lt;/p&gt;
 
 &lt;p&gt;在今天Day6這篇文章裡，我們把繼承和self的概念拿來測試&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;protect&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;存取方法，也發現了：&lt;/p&gt;
 
@@ -270,11 +273,11 @@ private :myspace&lt;br /&gt;
 
 &lt;p&gt;明天我們就來討論符號(Symbol)吧！&lt;/p&gt;
 
-&lt;p&gt;===
-Ref：
+&lt;p&gt;===&lt;/p&gt;
+
+&lt;p&gt;Ref：
 &lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt; |
-&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt; |
-&lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module)&lt;/a&gt;|&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 在第五天的最後，我們提到了一句話”相同的class的實體也無法使用別人的singleton method”。在今天，我們繼續把焦點放在Ruby的method, 繼續鋪陳存取限制:)</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method" /><published>2018-09-14T13:08:00+10:00</published><updated>2018-09-14T13:08:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_%08%08singleton_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html">&lt;p&gt;前情提要：
+&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt;| &lt;a href=&quot;https://railsbook.tw/chapters/08-ruby-basic-4.html&quot;&gt;類別（Class）與模組（Module)&lt;/a&gt;|&lt;/p&gt;</content><author><name></name></author><summary type="html">前情提要： 在第五天的最後，我們提到了一句話”相同的class的實體也無法使用別人的singleton method”。在今天，我們繼續把焦點放在Ruby的method, 繼續鋪陳存取限制:)</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method" /><published>2018-09-14T13:08:00+10:00</published><updated>2018-09-14T13:08:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_%08%08singleton_method</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html">&lt;p&gt;前情提要：
 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。
 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（&lt;del&gt;跟斯斯有三種一樣&lt;/del&gt;）&lt;/p&gt;
 

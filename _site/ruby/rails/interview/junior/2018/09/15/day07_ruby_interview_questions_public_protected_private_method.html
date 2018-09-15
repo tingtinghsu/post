@@ -104,7 +104,7 @@ day6.private #=&gt; undefined method `private' (NoMethodError)
   end
 
 </code></pre></div></div>
-<p>這種寫法，我覺得蠻類似於在開發Ruby on Rails專案上時常看到， 哪些套件只能在開發環境d�evelopment使用，哪些在測試環境test、哪些在production環境使用的分組。</p>
+<p>這種寫法，我覺得蠻類似於在開發Ruby on Rails專案上時常看到， 哪些套件只能在開發環境development使用，哪些在測試環境test、哪些在production環境使用的分組。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'sqlite3',             group: :development 
 gem 'pg',                  group: :production
@@ -149,23 +149,26 @@ BaterProcess.new.bater_self_draft #Hi Mentor!
 
 <p>但如果呼叫的是Private方法 myspace呢？</p>
 
-<p>class BaterProcess &lt; TingsIronmanProcess</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  class BaterProcess &lt; TingsIronmanProcess
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def bater_space
-  myspace
-end
-def bater_self_space
-  self.myspace
-end         end 這裡使用self，就會出錯：
+    def bater_space
+      myspace
+    end
+    def bater_self_space
+      self.myspace
+    end      
+  end
 </code></pre></div></div>
+
+<p>如果我們在這裡使用<code class="highlighter-rouge">.self</code>，就會出錯：</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BaterProcess.new.bater_space # =&gt; I'm writing secretly here!
 
 BaterProcess.new.bater_self_space  # =&gt; private method `myspace' (NoMethodError)
 </code></pre></div></div>
-<p>龍哥的文章說到，呼叫private 方法的時候，不能有明確的接收者。愛注意呀！</p>
+<p><a href="https://railsbook.tw/chapters/08-ruby-basic-4.html">龍哥</a>的文章說到，呼叫private 方法的時候，不能有明確的接收者。愛注意呀！</p>
 
-<p>總結： 在寫鐵人賽的文章�時，我都盡量把前幾篇的概念拿到後面來使用，增加自己觀念上的熟悉度。盡量做到具有教育意義地環環相扣（八點檔連續劇製作人?）</p>
+<p>總結： 在寫鐵人賽的文章時，我都盡可能地把前幾篇的概念拿到後面來使用，增加自己觀念上的熟悉度，盡量做到具有教育意義地環環相扣。（<del>顯示為八點檔連續劇製作人?</del>）</p>
 
 <p>在今天Day6這篇文章裡，我們把繼承和self的概念拿來測試<code class="highlighter-rouge">public</code>、<code class="highlighter-rouge">protect</code>和<code class="highlighter-rouge">private</code>存取方法，也發現了：</p>
 
@@ -177,11 +180,11 @@ private :myspace<br />
 
 <p>明天我們就來討論符號(Symbol)吧！</p>
 
-<p>===
-Ref：
+<p>===</p>
+
+<p>Ref：
 <a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a> |
-<a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a> |
-<a href="https://railsbook.tw/chapters/08-ruby-basic-4.html">類別（Class）與模組（Module)</a>|</p>
+<a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a>| <a href="https://railsbook.tw/chapters/08-ruby-basic-4.html">類別（Class）與模組（Module)</a>|</p>
 
   </div><a class="u-url" href="/ruby/rails/interview/junior/2018/09/15/day07_ruby_interview_questions_public_protected_private_method.html" hidden></a>
 </article>
