@@ -97,7 +97,7 @@ end
 
 單例方法＝單例類別的實體方法。
 
-（指的是某物件實體「的單例類別」的實體方法，而不是某個物件的實體方法。，中間多夾了一層「單例類別」）
+（指的是某物件實體「的單例類別」的實體方法，而不是某個物件的實體方法。，中間多夾了一層「單例類別」）
 
 > singleton methods of an object are not instance methods of the class of the object; 
 
@@ -143,7 +143,7 @@ IronmanList.find(1)
 近一步說明類別方法、實體方法，與單例方法的關係。 中文翻譯的話，我們可以這樣記：
 
 
-> 類別的eigenclass(特徵類別)方法 = 類別方法。
+> 類別的eigenclass(特徵類別)方法 = 類別方法。
 
 > 實體的eigenclass(特徵類別)方法 = 單例方法 = 單例類別的實體方法。
 
