@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protect, Private
+title:  "30天修煉Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protect, Private“
 date:   2018-09-15 14:50:00 +1000
 categories: ruby rails interview junior
 ---
