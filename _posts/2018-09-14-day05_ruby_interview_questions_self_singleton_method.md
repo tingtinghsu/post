@@ -82,7 +82,7 @@ end
 
 ```
 在這裡的`self`代表目前的類別名稱`LoveSong`，
-我們查詢`self.class`還是類別class,而這裡的`self.singleton_methods`,出現了`:one`與`:two`這兩個能夠分別印出兩首歌的方法。
+我們查詢`self.class`還是類別class,而這裡的`self.singleton_method`,出現了`:one`與`:two`這兩個能夠分別印出兩首歌的方法。
 
 在這裡的`self`代表目前的類別名稱`LoveSong`， 我們查詢`self.class`還是類別`class`， 而這裡的`self.singleton_methods`，出現了`:one`與`:two`這兩個能夠分別印出兩首歌的類別方法(class method)。
 
@@ -143,7 +143,7 @@ IronmanList.find(1)
 近一步說明類別方法、實體方法，與單例方法的關係。 中文翻譯的話，我們可以這樣記：
 
 
-> 類別的eigenclass(特徵類別)方法 = 類別方法。
+> 類別的eigenclass(特徵類別)方法 = 類別方法。
 
 > 實體的eigenclass(特徵類別)方法 = 單例方法 = 單例類別的實體方法。
 
