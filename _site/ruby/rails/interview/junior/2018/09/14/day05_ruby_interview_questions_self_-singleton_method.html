@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.8.3" />
 <meta property="og:title" content="30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="前情提要： 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）" />
-<meta property="og:description" content="前情提要： 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）" />
+<meta name="description" content="前情提要： 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）" />
+<meta property="og:description" content="前情提要： 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）" />
 <link rel="canonical" href="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html" />
 <meta property="og:url" content="http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html" />
 <meta property="og:site_name" content="Ting’s Square." />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-09-14T13:08:00+10:00" />
 <script type="application/ld+json">
-{"description":"前情提要： 在第四天裡，我們用鐵人賽參賽者\b的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）","@type":"BlogPosting","url":"http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html","headline":"30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method","dateModified":"2018-09-14T13:08:00+10:00","datePublished":"2018-09-14T13:08:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html"},"@context":"http://schema.org"}</script>
+{"description":"前情提要： 在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（跟斯斯有三種一樣）","@type":"BlogPosting","url":"http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html","headline":"30天修煉Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method","dateModified":"2018-09-14T13:08:00+10:00","datePublished":"2018-09-14T13:08:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
 <body><header class="site-header" role="banner">
@@ -46,7 +46,7 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     <p>前情提要：
-在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。
+在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。
 類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（<del>跟斯斯有三種一樣</del>）</p>
 
 <ol>
@@ -57,7 +57,7 @@
     <p>模組中可取得的實體方法。（關於模組，記得第三天的include與extend比較嗎？）</p>
   </li>
   <li>
-    <p>類別方法:類別物件的<code class="highlighter-rouge">singleton method</code></p>
+    <p>類別方法:類別物件的<code class="highlighter-rouge">singleton method</code></p>
   </li>
 </ol>
 
@@ -80,7 +80,7 @@
 <p>所以我們在今天要解說一下<code class="highlighter-rouge">Self</code>與<code class="highlighter-rouge">singleton method</code>囉！</p>
 
 <h1 id="ruby經典面試題目-05">Ruby經典面試題目 #05</h1>
-<p><code class="highlighter-rouge">self是什麼意思？ What does self mean? </code></p>
+<p><code class="highlighter-rouge">self是什麼意思？ What does self mean? </code></p>
 
 <h3 id="self">self</h3>
 
@@ -127,7 +127,7 @@ Ting.sing_a_song
   p self.class       # =&gt; Class  
   p self.singleton_methods # [:one, :two]
 
-  p self.one() #=&gt; "We are the champion!"
+  p self.one() #=&gt; "We are the champion!"
   p self.two() #=&gt; "We will rock you"
 end
 
@@ -136,7 +136,7 @@ end
 我們查詢<code class="highlighter-rouge">self.class</code>還是類別class，
 而這裡的<code class="highlighter-rouge">self.singleton_methods</code>，出現了<code class="highlighter-rouge">:one</code>與<code class="highlighter-rouge">:two</code>這兩個能夠分別印出兩首歌的方法。</p>
 
-<p>在這裡的self代表目前的類別名稱LoveSong， 我們查詢<code class="highlighter-rouge">self.class</code>還是類別class， 而這裡的<code class="highlighter-rouge">self.singleton_methods</code>，出現了:one與:two這兩個能夠分別印出兩首歌的方法。</p>
+<p>在這裡的self代表目前的類別名稱LoveSong， 我們查詢<code class="highlighter-rouge">self.class</code>還是類別class，而這裡的<code class="highlighter-rouge">self.singleton_methods</code>，出現了:one與:two這兩個能夠分別印出兩首歌的方法。</p>
 
 <p>還記得我們在第一天文章曾經提到利用superclass查找父類別的方法嗎？ class的superclass是object，但其實每一個class上面都還有一層隱形的class(<del>隱形的翅膀</del>)，我們可以稱作metaclass，在Ruby叫eigenclass。<a href="https://blog.chh.tw/posts/ruby-metaclass-eigenclass/">出處</a>]。更一步說明：</p>
 
@@ -168,7 +168,7 @@ end
   <p>我們可以直接存取，而不需要實體化此類別的物件。</p>
 </blockquote>
 
-<h3 id="什麼時候使用singleton-method">什麼時候使用<code class="highlighter-rouge">Singleton Method</code>?</h3>
+<h3 id="什麼時候使用singleton-method">什麼時候使用<code class="highlighter-rouge">Singleton Method</code>?</h3>
 
 <p>當我們想控制實體數目，節省系統資源的時候。</p>
 
@@ -222,7 +222,7 @@ IronmanList.find(1)
 
 <p>Ref：
 <a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a> |
-<a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a> | <a href="https://www.devalot.com/articles/2008/09/ruby-singleton">Understanding Ruby Singleton Classes</a> | <a href="https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby">What exactly is the singleton class in ruby?</a> |
+<a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a> |<a href="https://www.devalot.com/articles/2008/09/ruby-singleton">Understanding Ruby Singleton Classes</a> |<a href="https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby">What exactly is the singleton class in ruby?</a> |
 <a href="https://ruby-china.org/topics/13276">Ruby 如何理解 singleton class</a> |
 <a href="http://www.runoob.com/design-pattern/singleton-pattern.html">單例模式 Singleton</a>|
 <a href="https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f">Ruby的Class與Eigenclass</a>
