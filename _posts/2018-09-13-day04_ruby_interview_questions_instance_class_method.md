@@ -8,9 +8,8 @@ categories: ruby rails interview junior
 前情提要：
 在第三天裡，我們解說了如何在class裡用include與extend使用module的method。
 
-
 > Include is for adding methods to an instance of a class.
-> Extend is for adding class methods. [出處](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/)
+> Extend is for adding class methods. [(出處)](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/)
 > ...Also, it is sometimes ok to use "include" to add both instance and class methods. # 這句話比較進階，之後再研究：）
 
 並透過圖書館模組的程式碼明白這段話的含義：
@@ -68,7 +67,7 @@ IronmanList.find(1)
 以上的程式代表，當接收者不是`物件object`，而是`類別class`本身，就是一個`類別方法class method`。
 
 
->這邊的` << `指的是`push`方法，用在`class method`，意思是將`self method` push到 `類別class`裡。
+> 這邊的` << `指的是`push`方法，用在`class method`，意思是將`self method` push到 `類別class`裡。
 
 鐵人賽名單class也可寫為：
 ```
@@ -88,7 +87,7 @@ IronmanList.find(1)
 ### 什麼時候使用class method?
 當我們要寫class method時，如果此方法並不會和某個特定的實例變數綁在一起，就該使用類別方法！
 
-===
+---
 
 ### 實體方法（instance method）
 
@@ -151,7 +150,7 @@ I've got a trophy!
 I've got a trophy!
 ```
 
-===
+---
 
 同樣的，例子🌰不會只有一種，解釋方法更不會只有一種。我們除了用自己寫的程式碼理解概念，近一步拿關鍵字 `instance method class method ruby`去請教Google大神透過網路這座大圖書館，其他工程師們的部落格文章、透過各種文字說明與舉例加深我們的印象。看到排名第一的解釋寫著：
 
