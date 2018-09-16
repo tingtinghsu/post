@@ -9,7 +9,7 @@ categories: ruby rails interview junior
 在第三天裡，我們解說了如何在class裡用include與extend使用module的method。
 
 
-> Include is for adding methods to an instance of a class. 
+> Include is for adding methods to an instance of a class.
 
 > Extend is for adding class methods. [出處](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/)
 
@@ -21,14 +21,14 @@ categories: ruby rails interview junior
 
 `extend`是用於`類別方法`。
 ```
-module Library 
-  def IThelp 
+module Library
+  def IThelp
     p "IThelp helps me!"
   end
 end
 
 class NewbieLearnsRuby
-  include Library 
+  include Library
 end
 
 class ExtendRuby
@@ -48,7 +48,7 @@ Ruby經典面試題目 #04
 ===
 `解釋實體方法與類別方法 Explain instance method and class method.`
 
-### 類別方法class method 
+### 類別方法class method
 
 為了瞭解類別方法，我們今天要建立新的類別class:`鐵人賽名單IronmanList`，讓這個class利用`find方法`，以傳入的id值順利找到某位鐵人賽的參賽者：
 
@@ -56,10 +56,10 @@ Ruby經典面試題目 #04
 class IronmanList
   class << self
     def find(id)
-    p "finding Ironman ID: #{id}" 
+    p "finding Ironman ID: #{id}"
     end
   end
-end 
+end
 
 IronmanList.find(1)
 # finding Ironman ID: 1
@@ -77,17 +77,17 @@ IronmanList.find(1)
 class IronmanList
   #class << self
     def self.find(id) #在這裡的self is a class Method
-    p "finding Ironman ID: #{id}" 
+    p "finding Ironman ID: #{id}"
     end
   #end
-end 
+end
 
 IronmanList.find(1)
 ```
 
-我們把 `class << self ... end` 這部分都用註解消掉，直接使用self這個class method，讓 `self.find(id)`與之前呈現出一樣的結果！ 
+我們把 `class << self ... end` 這部分都用註解消掉，直接使用self這個class method，讓 `self.find(id)`與之前呈現出一樣的結果！
 
-### 什麼時候使用class method? 
+### 什麼時候使用class method?
 當我們要寫class method時，如果此方法並不會和某個特定的實例變數綁在一起，就該使用類別方法！
 
 ===
@@ -97,17 +97,17 @@ IronmanList.find(1)
 把鐵人賽名單類別擴充一下，除了`find方法`，還有`ironmanwinner方法`：
 
 ```
-class IronmanList  
+class IronmanList
 
-  def self.find(id)  
-    p "finding Ironman ID: #{id}"  
+  def self.find(id)
+    p "finding Ironman ID: #{id}"
   end
 
   def ironmanwinner
     p "I've got a trophy!"
   end
 
-end 
+end
 
 IronmanList.find(1) #這是類別方法
 IronmanList.new.ironmanwinner #這是實體方法
@@ -117,7 +117,7 @@ IronmanList.new.ironmanwinner #這是實體方法
 finding Ironman ID: 1
 I've got a trophy!
 ```
-### 什麼時候使用instance method? 
+### 什麼時候使用instance method?
 
 如果你需要將實體方法，運用在某個特定的實體。
 
@@ -127,18 +127,18 @@ I've got a trophy!
 因此我們可以再new更多的物件，盡情使用這個`ironmanwinner`實例方法：
 
 ```
-class IronmanList  
+class IronmanList
 
-  def self.find(id)  
-  p "finding Ironman ID: #{id}"  
+  def self.find(id)
+  p "finding Ironman ID: #{id}"
   end
 
- 
+
   def ironmanwinner
     p "I've got a trophy!"
   end
 
-end 
+end
 # IronmanList.find(1)
 
 Ting = IronmanList.new
@@ -157,9 +157,9 @@ I've got a trophy!
 
 同樣的，例子🌰不會只有一種，解釋方法更不會只有一種。我們除了用自己寫的程式碼理解概念，近一步拿關鍵字 `instance method class method ruby`去請教Google大神透過網路這座大圖書館，其他工程師們的部落格文章、透過各種文字說明與舉例加深我們的印象。看到排名第一的解釋寫著：
 
-> Class can use methods from three areas: 
+> Class can use methods from three areas:
 
-> 1) Instances of class can call methods that are defined as instance methods in their class. 
+> 1) Instances of class can call methods that are defined as instance methods in their class.
 
 > 2) Instances of Class have access to the instance methods defined in Module
 
