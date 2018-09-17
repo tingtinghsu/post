@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day08 String裡的concat與+=比較"
+title:  "30天修煉Ruby面試精選30題 - Day08 String裡的concat串接比較"
 date:   2018-09-17 12:30:00 +1000
 categories: ruby rails interview junior
 ---
