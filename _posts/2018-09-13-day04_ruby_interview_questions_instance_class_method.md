@@ -5,7 +5,8 @@ date:   2018-09-13 15:50:00 +1000
 categories: ruby rails interview junior
 ---
 
-前情提要：
+# 前情提要
+
 在第三天裡，我們解說了如何在class裡用include與extend使用module的method。
 
 > Include is for adding methods to an instance of a class.
@@ -17,7 +18,8 @@ categories: ruby rails interview junior
 `include`是把`類別`中的`物件實體`加上`方法`；
 
 `extend`是用於`類別方法`。
-```
+
+```ruby
 module Library
   def IThelp
     p "IThelp helps me!"
@@ -41,15 +43,17 @@ ExtendRuby.IThelp
 
 話不多說，進入今天的章節：
 
-Ruby經典面試題目 #04
-===
+---
+
+# Ruby經典面試題目 #04
+
 `解釋實體方法與類別方法 Explain instance method and class method.`
 
-### 類別方法class method
+# 類別方法class method
 
 為了瞭解類別方法，我們今天要建立新的類別class:`鐵人賽名單IronmanList`，讓這個class利用`find方法`，以傳入的id值順利找到某位鐵人賽的參賽者：
 
-```
+```ruby
 class IronmanList
   class << self
     def find(id)
@@ -66,11 +70,11 @@ IronmanList.find(1)
 
 以上的程式代表，當接收者不是`物件object`，而是`類別class`本身，就是一個`類別方法class method`。
 
-
-> 這邊的` << `指的是`push`方法，用在`class method`，意思是將`self method` push到 `類別class`裡。
+> 這邊的`<<`指的是`push`方法，用在`class method`，意思是將`self method` push到 `類別class`裡。
 
 鐵人賽名單class也可寫為：
-```
+
+```ruby
 class IronmanList
   #class << self
     def self.find(id) #在這裡的self is a class Method
@@ -84,16 +88,15 @@ IronmanList.find(1)
 
 我們把 `class << self ... end` 這部分都用註解消掉，直接使用self這個class method，讓 `self.find(id)`與之前呈現出一樣的結果！
 
-### 什麼時候使用class method?
+## 使用class method的情況
+
 當我們要寫class method時，如果此方法並不會和某個特定的實例變數綁在一起，就該使用類別方法！
 
----
-
-### 實體方法（instance method）
+# 實體方法（instance method)
 
 把鐵人賽名單類別擴充一下，除了`find方法`，還有`ironmanwinner方法`：
 
-```
+```ruby
 class IronmanList
 
   def self.find(id)
@@ -109,12 +112,15 @@ end
 IronmanList.find(1) #這是類別方法
 IronmanList.new.ironmanwinner #這是實體方法
 ```
+
 結果會印出：
-```
+
+```ruby
 finding Ironman ID: 1
 I've got a trophy!
 ```
-### 什麼時候使用instance method?
+
+## 使用instance method的情況
 
 如果你需要將實體方法，運用在某個特定的實體。
 
@@ -123,7 +129,7 @@ I've got a trophy!
 如同鐵人賽的贏家不會只有一個名額，只要能自我挑戰成功，都能練成鐵人：）。
 因此我們可以再new更多的物件，盡情使用這個`ironmanwinner`實例方法：
 
-```
+```ruby
 class IronmanList
 
   def self.find(id)
@@ -144,10 +150,12 @@ Ting.ironmanwinner
 Bater = IronmanList.new
 Bater.ironmanwinner
 ```
+
 結果印出：
-```
-I've got a trophy!
-I've got a trophy!
+
+```ruby
+"I've got a trophy!"
+"I've got a trophy!"
 ```
 
 ---

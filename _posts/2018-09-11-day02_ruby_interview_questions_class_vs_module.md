@@ -5,9 +5,11 @@ date:   2018-09-11 09:40:00 +1000
 categories: ruby rails interview junior
 ---
 
-### 前情提要：
+# 前情提要
+
 在第一天裡，小妹我很激昂地用Ruby的`類別`、`物件`、`方法`，寫了開賽宣言！
-```
+
+```ruby
 class TingIsIronman
   def initialize
     @message = "I'm going to write 30 IT articles in 30 days!"
@@ -21,6 +23,7 @@ object = TingIsIronman.new
 object.method
 #=> I'm going to create 30 IT articles in 30 days!
 ```
+
 然後我從探索類別的栗子🌰：查詢`class`的父類別時，發現一個鐵錚錚的事實：`tw.class.superclass.class.superclass`印出來的結果是`moudle`。`tw.class.superclass.class.superclass.superclass` 印出來的結果是`Object`。
 
 >（白話翻譯吐司：
@@ -29,10 +32,11 @@ object.method
 
 所以在第二天的文章裡，我們就來聊一聊模組(Module)吧！:)
 
+---
 
-Ruby經典面試題目 #02
-===
-`類別與模組有什麼不同? What's the Difference Between a Class and a Module? `
+# Ruby經典面試題目 #02
+
+`類別與模組有什麼不同? What's the Difference Between a Class and a Module?`
 
 從以上「番薯島」的例子裡，我們從`「類別」的「父類別」，是個「模組」` 這句話找到靈感，已經可以做出比較表格的第一列：
 
@@ -46,7 +50,8 @@ Ruby經典面試題目 #02
 
 我們在第一篇文章裡已經透過番薯島的例子利用類別過繼承，
 現在來讓我們繼續練習繼承的概念，new更多「國家」物件，用Ruby語言，領略世界各國之美：
-```
+
+```ruby
 class World
   def beautiful(scenery)
     p "#{scenery} is so beautiful!!"
@@ -67,7 +72,8 @@ jp.beautiful "Fujisan"
 ```
 
 程式如我們所料，願我們都能透過繼承，看見世界上的每個國家，各自的美好：
-```
+
+```ruby
 Taroko Gorge is so beautiful!!
 Ayers Rock is so beautiful!!
 Fujisan is so beautiful!!
@@ -85,7 +91,7 @@ Fujisan is so beautiful!!
 
 來動手寫一個模組，描述上述的情境：
 
-```
+```ruby
 module Library
 #網路就像是個大型圖書館模組（要以常數，大字英文字母開頭，跟書名一樣）
 
@@ -111,9 +117,10 @@ Ting.IThelp
 # I'm learning from others' IT articles on IThelp Website!
 
 ```
+
 如果螢幕前面的你也想要學Ruby的話，當然也可以像我一樣，使用圖書館模組裡的IT邦方法喔！：）
 
-```
+```ruby
 You = EveryoneLearnsRuby.new("You")
 You.IThlep
 ```
@@ -126,7 +133,6 @@ You.IThlep
 繼承 inheritance  | 可繼承  | 不可繼承
 包含 inclusion  | 不可被包含  | 可被包含
 
-
 接下來我們要繼續更多探索不同之處。拿 `The Difference Between a Class and a Module?`去請教Google大神，
 你會發現出現的第一段文字回答是：
 
@@ -134,7 +140,7 @@ You.IThlep
 
 這裡說明一個很重要的概念`instantiation`。實體變數（Instance Variables）是在類別class使用時才會被建立，如同我們剛在例子中所舉的：
 
-```
+```ruby
 class EveryoneLearnsRuby
   def initialize(name)
     @name = name
@@ -143,8 +149,8 @@ class EveryoneLearnsRuby
   #讓每個人學Ruby時都可以使用Library模組
 end
 ```
-其中的`@name`就是實體變數。
 
+其中的`@name`就是實體變數。
 
 超級比一比 | 類別 Class | 模組 Module
 ------------- | ------------- | -------------

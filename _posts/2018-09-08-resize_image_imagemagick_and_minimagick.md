@@ -14,18 +14,21 @@ categories: deploy heroku ruby rails gem
 
 > [注意]文中提到 You must have Imagemagick and MiniMagick installed to do image resizing. MiniMagick is a Ruby interface for Imagemagick which is a C program. This is why MiniMagick fails on 'bundle install' without Imagemagick installed.所以我們的順序是：先裝imagemagick，再裝MiniMagick。
 
+# A. imagemagick
 
-## A. imagemagick
 1. 首先去[imagemagick](http://cactuslab.com/imagemagick/)官網下載適合你作業系統的imagemagick版本。
+
 在terminal輸入指令 `convert`可以幫我們確定是否有安裝成功，以及目前安裝版本。我的是`ImageMagick 6.9.1-0`
-```
+
+```bash
 tingdeMacBook-Air:yelpdemo tingtinghsu$ convert
 Version: ImageMagick 6.9.1-0 Q16 x86_64 2015-03-22 http://www.imagemagick.org
 Copyright: Copyright (C) 1999-2015 ImageMagick Studio LLC
 License: http://www.imagemagick.org/script/license.php
 ```
 
-2. 安裝好之後，還要跑`brew install imagemagick`。
+1. 安裝好之後，還要跑`brew install imagemagick`。
+
 （不然就會像我一樣，測試上傳功能功能時出現錯誤訊息！）
   
 ![https://ithelp.ithome.com.tw/upload/images/20180909/20111177vNOiNwaitw.png](https://ithelp.ithome.com.tw/upload/images/20180909/20111177vNOiNwaitw.png)
@@ -36,42 +39,52 @@ License: http://www.imagemagick.org/script/license.php
 
 > 注意，在Mac環境，下brew指令前需要安裝Homebrew，更多說明可以參考[之前的文章](https://ithelp.ithome.com.tw/articles/10199014)
 
+# B. minimagick gem
 
-## B. minimagick gem
 接下來到[minimagick](https://github.com/minimagick/minimagick)的Github頁面，
 
-1. 還記得我們的Gem三步驟：修改Gemfile加入新的gem；跑`bundle install`；重啟伺服器`rails s`。
-```
+1.還記得我們的Gem三步驟：
+
+Step1. 修改Gemfile加入新的gem；
+
+```ruby
 gem "mini_magick"
 ```
-```
+
+Step2. 跑`bundle install`；
+
+```bash
 tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle install
 ```
-2. 指令`bundle info`可幫我們確定版本。目前我的是mini_magick (4.8.0)
-```
+
+Step3. 重啟伺服器`rails s`。
+
+2.指令`bundle info`可幫我們確定版本。目前我的是mini_magick (4.8.0)
+
+```bash
 tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle info mini_magick
   * mini_magick (4.8.0)
-	Summary: Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
-	Homepage: https://github.com/minimagick/minimagick
-	Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/mini_magick-4.8.0
+    Summary: Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
+    Homepage: https://github.com/minimagick/minimagick
+    Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/mini_magick-4.8.0
 ```
 
-
-## C. 修改`image_uploader.rb`
+# C. 修改`image_uploader.rb`
 
 接下來就是讓Carrierwave下的MiniMagick開始工作了！
 到`專案名/app/uploaders/image_uploader.rb`開始修改程式碼：
-```
+
+```ruby
 class ImageUploader < CarrierWave::Uploader::Base
  include CarrierWave::MiniMagick #將註解消掉
- 
  process resize_to_fit: [200, 300] #在這裡的`resize_to_fit`是Carrierwave的其中一個方法
-end   
+end
 ```
+
 [更多關於CarrieWave的Method列表](https://www.rubydoc.info/github/jnicklas/carrierwave/CarrierWave%2FMiniMagick:resize_to_fit)
 
 在本機試一下功能是否成功：
-![https://ithelp.ithome.com.tw/upload/images/20180909/20111177yC3uCRNnFa.png](https://ithelp.ithome.com.tw/upload/images/20180909/20111177yC3uCRNnFa.png) 
+![https://ithelp.ithome.com.tw/upload/images/20180909/20111177yC3uCRNnFa.png](https://ithelp.ithome.com.tw/upload/images/20180909/20111177yC3uCRNnFa.png)
 
 圖片總算如我所願縮小了！最後一步就是：`git push heroku master`把新功能deploy至正式環境。
 

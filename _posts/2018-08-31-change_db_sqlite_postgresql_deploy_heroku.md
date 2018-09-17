@@ -19,25 +19,26 @@ Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到�
 因此，在[上篇文章](https://ithelp.ithome.com.tw/articles/10199014)做到`Step3 >> 步驟 B. 建立Heroku gem`：修改我的本地資料夾裡的gem file，當我新增一個gem叫做'pg'這個步驟時...
 
 問題出現了！本機遇到的錯誤訊息： No connection pool for ActiveRecord::Base
-https://stackoverflow.com/questions/38176304/no-connection-pool-for-activerecordbase
+<https://stackoverflow.com/questions/38176304/no-connection-pool-for-activerecordbase>
   
 ![https://ithelp.ithome.com.tw/upload/images/20180830/201111779bYfI1JbY4.png](https://ithelp.ithome.com.tw/upload/images/20180830/201111779bYfI1JbY4.png)
 
 [解法]
-### Step1. 修改rails專案的`/config/Gemfile` 
+
+# Step1. 修改`/config/Gemfile`
 
 `Pg`套件，讓我們在Ruby上使用關聯式資料庫PostgreSQL的介面的好幫手。
-（Pg套件詳細資料： https://bitbucket.org/ged/ruby-pg/wiki/Home ）
+（Pg套件詳細資料： <https://bitbucket.org/ged/ruby-pg/wiki/Home> ）
 
-我們可以`/config/Gemfile`加上這幾行程式碼，
+我們可以修改rails專案的`/config/Gemfile`，加上這幾行程式碼，
 讓在Heroku上線時候跑的是PostgreSQL，而在本機的時候還是跑SQLite。
 
 > **Rails 應用程式預設提供了三種不同的執行模式：**
-    development environment:開發模式，用在你的開發的時候
-    test environment: 測試模式，用在執行測試程式時
-    production environment: 正式上線模式，用在實際的上線運作環境
+development environment:開發模式，用在你的開發的時候
+test environment: 測試模式，用在執行測試程式時
+production environment: 正式上線模式，用在實際的上線運作環境
 
-```
+```ruby
 group :production do
   gem 'pg'
 end
@@ -46,9 +47,11 @@ group :development, :test do
   gem 'sqlite3'  
 end  
 ```
+
 或是寫成：
-```
-gem 'sqlite3',             group: :development 
+
+```ruby
+gem 'sqlite3',             group: :development
 gem 'pg',                  group: :production
 ```
 
@@ -57,9 +60,10 @@ gem 'pg',                  group: :production
 ![https://ithelp.ithome.com.tw/upload/images/20180830/20111177KkGqGHfOwo.png](https://ithelp.ithome.com.tw/upload/images/20180830/20111177KkGqGHfOwo.png)
 
 > 欣慰的是，用錯誤訊息搜尋關鍵字，發現在stackoverflow上也有人跟我犯過同樣的錯誤 XD
-https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-tidentifier-expecting-end-of-input
+<https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-tidentifier-expecting-end-of-input>
 
-### Step2. 跑`bundle install`，再重啟rails server。
+# Step2. `bundle install`，再重啟rails server。
+
 記得，每次在Gemfile修改套件資料，都要跑`bundle install`處理套件相依性問題。
 （如果你在本機，想避免安裝任何在production環境下跑的gem，可輸入：`bundle install --without production` ）
 
@@ -72,11 +76,7 @@ https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-t
   
   ![https://ithelp.ithome.com.tw/upload/images/20180830/20111177s3GYTJzv4H.png](https://ithelp.ithome.com.tw/upload/images/20180830/20111177s3GYTJzv4H.png)
 
-
-
-
-
-### Step3. 部署到Heroku：`git push heroku master`
+# Step3. 部署到Heroku：`git push heroku master`
 
 最後兩步：push!`git push heroku master`，
 還要跑完`heroku rake db:migrate`指令才會生效喔！
@@ -94,8 +94,6 @@ https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-t
 
 如果你想在本機建立rails app的當下，直接設定成PostgreSQL而非SQLite（節省之後deploy的麻煩～），可以參考這篇文章：
 [Rails 使用 PostgreSQL](https://medium.com/@yengttt/rails-%E4%BD%BF%E7%94%A8-postgresql-bc3123216d2a)
-
-
 
 Ref:
 [第二十三天：認識資料庫](https://ithelp.ithome.com.tw/articles/10196781)
