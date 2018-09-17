@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day08 Sting的concat串接"
-date:   2018-09-17 09:18:00 +1000
+title:  "30天修煉Ruby面試精選30題 - Day09 Sting的concat串接"
+date:   2018-09-18 09:18:00 +1000
 categories: ruby rails interview junior
 ---
 前情提要:
@@ -91,3 +91,4 @@ Ref：
 [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)|
 [+ or .concat, what is faster for appending string in Ruby?](https://coderwall.com/p/ac5j9g/or-concat-what-is-faster-for-appending-string-in-ruby)|
 [String concatenation vs. interpolation in Ruby](https://stackoverflow.com/questions/10076579/string-concatenation-vs-interpolation-in-ruby)|
+
