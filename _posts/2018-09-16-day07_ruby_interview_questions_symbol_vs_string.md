@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day06 Symbol與字串比較"
+title:  "30天修煉Ruby面試精選30題 - Day06 Symbol符號與String字串比較"
 date:   2018-09-16 09:18:00 +1000
 categories: ruby rails interview junior
 ---
