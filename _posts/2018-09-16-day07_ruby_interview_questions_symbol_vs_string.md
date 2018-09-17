@@ -6,7 +6,7 @@ categories: ruby rails interview junior
 ---
 前情提要:
 
-在第六天我們透過程式碼練習`public`，`protected`和`private`method時，發現冒號在前面的參數，`:mydraft`，`:myspace`，這些就是符號`Symbol`。在今天，我們就來解釋`Symbol`吧！
+在第六天我們透過程式碼練習`public`，`protected`和`private`method時，發現冒號在前面的參數，`:mydraft`，`:myspace`，這些就是符號`Symbol`。在今天，我們就來解釋`Symbol`吧！
 
 ---
 
@@ -17,7 +17,7 @@ categories: ruby rails interview junior
 還記得我在之前IT邦文章在Ruby on Rails專案例子中研究ruby的gem套件時，我發現這兩者寫法的功能是一樣的:
 
 ```ruby
-:image_directory => 'tingsimage'  
+:image_directory => 'tingsimage'  
 ```
 
 功能跟下者一樣:
@@ -26,29 +26,29 @@ categories: ruby rails interview junior
 image_directory: 'tingsimage'
 ```
 
-`:冒號在前面`，意思是符號
+`:冒號在前面`，意思是符號
 
 `冒號在後面:`，意思是給值
 
-當時的發現，也是造就本篇文章想進一步探討~~跑來跑去的小淘氣~~冒號的原因。
+當時的發現，也是造就本篇文章想進一步探討~~跑來跑去的小淘氣~~冒號的原因。
 
-我們來用程式碼實驗看看：
+我們來用程式碼實驗看看：
 
 ```ruby
 tingsmessage = "This is my 7th article!"
 ```
 
-`tingsmessage` 這個`變數`，指向 "This is my 7th article!" 這個`字串物件`，變數的用意，就是讓我的字串物件可以隨時做調整。（明天我的message跑馬燈就會換成第八天的招呼囉！）
+`tingsmessage` 這個`變數`，指向 "This is my 7th article!" 這個`字串物件`，變數的用意，就是讓我的字串物件可以隨時做調整。（明天我的message跑馬燈就會換成第八天的招呼囉！）
 
-如果我們把它變成:`:tingsmessage`的符號呢?
+如果我們把它變成:`:tingsmessage`的符號呢?
 
-它就會變成`Symbol類別`下的`物件實體`，名字叫做`tingsmessage`。
+它就會變成`Symbol類別`下的`物件實體`，名字叫做`tingsmessage`。
 
-比一比 | 符號 symbol | 字串 string
+比一比 | 符號 symbol | 字串 string
 ------------- | ------------- | -------------
 意思  | 有名字的`符號物件`  | 指向`字串物件`的變數
 可不可變  | 不可變 immutable  | 可變 mutable
-修改陣列 | 不可使用`[]=`方法 | 可使用`[]=`方法修改字串
+修改陣列 | 不可使用`[]=`方法 | 可使用`[]=`方法修改字串
 陣列方法 | 可使用[] 取得陣列內的字元 | 可使用[] 取得陣列內的字元
 字元方法  | 可使用.length .upcase .downcase  | 可使用.l.length .upcase .downcase
 符號與字串轉換  | 符號轉字串`.to_s` | 字串轉符號`.to_sym`
@@ -60,11 +60,11 @@ tingsmessage = "This is my 7th article!"
 ```ruby
 p :tingsmessage.length #12
 p :tingsmessage.upcase #TINGSMESSAGE
-p :tingsmessage[0] #t
-p :tingsmessage[1] #i
+p :tingsmessage[0] #t
+p :tingsmessage[1] #i
 ```
 
-而`tingsmessage`這個每天都會變來變去的變數，所指向的字串，一共有23個字元:（不信你數數看!）
+而`tingsmessage`這個每天都會變來變去的變數，所指向的字串，一共有23個字元:（不信你數數看!）
 
 ```ruby
 tingsmessage = "This is my 7th article!"
@@ -89,7 +89,7 @@ p tingsmessage #TZis is my 7th article!
 #undefined method `[]=' for :tingsmessage:Symbol (NoMethodError)
 ```
 
-符號會找不到`[]=`方法修改字串。你可以想像，符號就如同我們在護照上的名字，是不能修改的。（因為已經被定義在國際間海關通用的資料庫了。）
+符號會找不到`[]=`方法修改字串。你可以想像，符號就如同我們在護照上的名字，是不能修改的。（因為已經被定義在國際間海關通用的資料庫了。）
 
 符號的好處是專一，它被寫在程式裡固定的記憶體位置，所以提取效能較高。我們可以用`object_id`的方法來實驗：
 
@@ -124,19 +124,19 @@ p tingsmessage #TZis is my 7th article!
 46936214509180
 ```
 
-在前述比較表，符號和字串之間可以互相轉換的。
+在前述比較表，符號和字串之間可以互相轉換的。
 
 ```ruby
 p :tingsmessage # :tingsmessage
 p :tingsmessage.to_s # tingsmessage 前面的冒號已經不見了！
 
-p tingsmessage # TZis is my 7th article!
+p tingsmessage # TZis is my 7th article!
 p tingsmessage.to_sym # :TZis is my 7th article! 前面多一個冒號
 ```
 
-# 何時使用符號Symbol
+# 何時使用符號Symbol
 
-需要效能較高地傳遞參數時，例如在之前我們使用rails建立專案，餐廳名字、電話等...，這些資料庫欄位的名稱是固定不變的：
+需要效能較高地傳遞參數時，例如在之前我們使用rails建立專案，餐廳名字、電話等...，這些資料庫欄位的名稱是固定不變的：
 
 ```ruby
     def restaurant_params
@@ -147,18 +147,18 @@ p tingsmessage.to_sym # :TZis is my 7th article! 前面多一個冒號
 回到文初一開頭，我終於明白，
 
 ```ruby
-{:image_directory => 'tingsimage'}
+{:image_directory => 'tingsimage'}
 ```
 
 其實是符號Symbol用在Hash（外圍被大括弧`{}`包著）裡，是變數給值`=>`的意思。
 
-今天超級比一比，就到這裏結束啦！
+今天超級比一比，就到這裏結束啦！
 
-比一比 | 符號 symbol | 字串 string
+比一比 | 符號 symbol | 字串 string
 ------------- | ------------- | -------------
 意思  | 有名字的`符號物件`  | 指向`字串物件`的變數
 可不可變  | 不可變 immutable  | 可變 mutable
-修改陣列 | 不可使用`[]=`方法 | 可使用`[]=`方法修改字串
+修改陣列 | 不可使用`[]=`方法 | 可使用`[]=`方法修改字串
 陣列方法 | 可使用[] 取得陣列內的字元 | 可使用[] 取得陣列內的字元
 字元方法  | 可使用.length .upcase .downcase  | 可使用.l.length .upcase .downcase
 符號與字串轉換  | 符號轉字串`.to_s` | 字串轉符號`.to_sym`
