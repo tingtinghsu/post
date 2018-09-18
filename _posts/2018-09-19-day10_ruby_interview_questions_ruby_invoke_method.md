@@ -83,11 +83,11 @@ day6.private #=> undefined method `private' (NoMethodError)
 [public method](https://ruby-doc.com/core/Module.html#method-i-public)| With no arguments, sets the default visibility for subsequently defined methods to public. With arguments, sets the named methods to have public visibility.
 [projected method](https://ruby-doc.com/core/Module.html#method-i-protected) | If a method has protected visibility, it is callable only where self of the context is the same as the method.
 [private method](https://ruby-doc.com/core/Module.html#method-i-private) | With no arguments, sets the default visibility for subsequently defined methods to private. With arguments, sets the named methods to have private visibility.
- [symbol](https://ruby-doc.com/core/Symbol.html)| Symbol objects represent names and some strings inside the Ruby interpreter.
- [string](https://ruby-doc.com/core/String.html)| A String object holds and manipulates an arbitrary sequence of bytes
-| [concat](https://ruby-doc.com/core/String.html#method-i-concat) (string method)| Concatenates the given object(s) to str. If an object is an Integer, it is converted to a character before concatenation.
-|  [+](https://ruby-doc.com/core/String.html#method-i-2B) (string method)| Concatenation — Returns a new String containing
-|  [true`|`](https://ruby-doc.com/core/String.html#method-i-2B) (TrueClass method)| Or—Returns true. As obj is an argument to a method call, it is always evaluated
+[symbol](https://ruby-doc.com/core/Symbol.html)| Symbol objects represent names and some strings inside the Ruby interpreter.
+[string](https://ruby-doc.com/core/String.html)| A String object holds and manipulates an arbitrary sequence of bytes
+[concat](https://ruby-doc.com/core/String.html#method-i-concat) (string method)| Concatenates the given object(s) to str. If an object is an Integer, it is converted to a character before concatenation.
+[+](https://ruby-doc.com/core/String.html#method-i-2B) (string method)| Concatenation — Returns a new String containing
+[true`|`](https://ruby-doc.com/core/String.html#method-i-2B) (TrueClass method)| Or—Returns true. As obj is an argument to a method call, it is always evaluated
 
 感想：
 
