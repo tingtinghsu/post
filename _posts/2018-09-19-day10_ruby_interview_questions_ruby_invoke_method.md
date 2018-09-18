@@ -19,7 +19,7 @@ categories: ruby rails interview junior
 鐵人足跡 | 問題 | 總結
 ------------- | ------------- | -------------
 Day 1  | class  | class建立物件實體，以method和資料互動
-Day 2  | class與 module | class可繼承
+Day 2  | class與 module | class可繼承，module不可繼承
 Day 3  | module  | module裡的method可被include和extend
 Day 4  | instance method與class method | include用於instance method, extend用於class method
 Day 5 | self物件與singleton method  | singleton method是singleton class的instence method
