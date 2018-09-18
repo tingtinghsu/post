@@ -16,7 +16,8 @@ categories: ruby rails interview junior
 
 如果a沒有被初始化，或是為空值`nil`或`false`，a等於b；
 其他情況下，a值不變。
-If a is not initialized (or if it is set to `nil` or `false`), set it with the value of b.
+
+If a is not initialized (or if it is set to `nil` or `false`), set it with the value of b.
 
 讓我們來看下列的運算式：
 指定a的值為1，因此非`nil`或`false`。
@@ -113,5 +114,6 @@ a就會被b影響，變成為b。
 Ref：
 [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
 [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)|
-[A short-circuit (||=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)|
 [What does ||= (or-equals) mean in Ruby?](https://stackoverflow.com/questions/995593/what-does-or-equals-mean-in-ruby)|
+[Please explain nuances of ||=](https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c)|
+[A short-circuit (||=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)|
