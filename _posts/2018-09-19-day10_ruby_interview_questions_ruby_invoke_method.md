@@ -16,7 +16,7 @@ categories: ruby rails interview junior
 
 每當不知從何下筆時，我的起手式是開始回顧之前的文章，盤點我已經走了多遠、以及觀念已經紮實地掌握多少：
 
-鐵人足跡 | 問題 | 總結
+鐵人賽足跡 | 面試問題 | 我的總結
 ------------- | ------------- | -------------
 Day 1  | class  | class建立物件實體，以method和資料互動
 Day 2  | class與 module | class可繼承，module不可繼承
