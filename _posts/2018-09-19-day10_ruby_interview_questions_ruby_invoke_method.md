@@ -12,21 +12,21 @@ categories: ruby rails interview junior
 
 # Ruby經典面試題目 #10
 
-`Please explain how Ruby looks up a method to invoke?`
+`Ruby如何引入方法? Please explain how Ruby looks up a method to invoke?`
 
-每當不知從何下筆時，我的起手式是開始回顧之前的文章，盤點我已經走了多遠、以及觀念已經紮實地掌握多少：
+每當不知從何下筆時，我的起手式是開始回顧之前的文章，盤點我已經走了多遠、以及基礎觀念到底掌握了多少：
 
 鐵人賽足跡 | 面試問題 | 我的總結
 ------------- | ------------- | -------------
-Day 1  | class  | class建立物件實體，以method和資料互動
-Day 2  | class與 module | class可繼承，module不可繼承
-Day 3  | module  | module裡的method可被include和extend
-Day 4  | instance method與class method | include用於instance method, extend用於class method
+Day 1 | class  | class建立物件實體，以method和資料互動
+Day 2 | class與 module | class可繼承，module不可繼承
+Day 3 | module  | module裡的method可被include和extend
+Day 4 | instance method與class method | include用於instance method, extend用於class method
 Day 5 | self物件與singleton method  | singleton method是singleton class的instence method
-Day 6  | public, protected, private method| 在classs外無法取得protected或private method
-Day 7  | symbol與string| `:符號` symbol class的物件實體，object_id相同 / `字串:` string變數指向字串物件，object_id不同
-Day 8  | `concat` 與 `+=` method| 以`concat`串接， object_id相同 / `+=` object_id不同
-Day 9  |  `||=` method| (or-equals)條件判斷 `a||=b`是 `a || a = b`縮寫，意思為條件運算式 `a ? a : a = b`
+Day 6 | public, protected, private method| 在classs外無法取得protected或private method
+Day 7 | symbol與string| `:符號` symbol class的物件實體，object_id相同 / `字串:` string變數指向字串物件，object_id不同
+Day 8 | `concat` 與 `+=` method| 以`concat`串接， object_id相同 / `+=` object_id不同
+Day 9 |  `||=` method| (or-equals)條件判斷 `a||=b`是 `a || a = b`縮寫，意思為條件運算式 `a ? a : a = b`
 
 洋洋灑灑地條列出這麼多方法之後，我們好奇的問，Ruby到底是怎麼尋找這些方法的呢？
 
@@ -68,9 +68,9 @@ day6.private #=> undefined method `private' (NoMethodError)
 `extend`(module) →obj  | `String(arg)` → string | `send`(symbol [, args...]) → obj
  `singleton_method`(sym) → method | `Hash(arg)` → hash  |  `new()`*這個是Public Class Methods！*
 
-為了更清楚釐清自己的觀念，我整理出這10天的學習紀錄：
+為了更清楚釐清自己的觀念，我決定用英文整理出這10天的學習紀錄：
 
-觀念 | 解釋 
+觀念 | 解釋
 ------------- | -------------
  [class](https://ruby-doc.org/core-2.5.1/Class.html)  | Classes in Ruby are first-class objects.
  [module](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html) | Modules serve two purposes in Ruby, namespacing and mix-in functionality.
