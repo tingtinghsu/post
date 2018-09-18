@@ -76,9 +76,10 @@ day6.private #=> undefined method `private' (NoMethodError)
  [module](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html) | Modules serve two purposes in Ruby, namespacing and mix-in functionality.
  [class method](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods) | Class methods (methods on a module) may be called directly.
 [instance method](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods) | Instance methods defined in a module are only callable when included.
-[include 與 extend](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods) | include用於instance method, extend用於class method
+[include](https://ruby-doc.org/core-2.5.1/Module.html) |when the module is included, istance methods appear as methods in a class. (module methods do not.)
+[extend](https://ruby-doc.com/core/Object.html#method-i-extend) | Adds to obj the instance methods from each module given as a parameter.
 [self](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-self)  | Self refers to the object that defines the current scope. (it will change when it a different method or a new module) .
-[singleton class](https://ruby-doc.com/core/Object.html#method-i-singleton_method)  | If object is nil, true, or false, it returns NilClass, TrueClass, or FalseClass. *可以直接存取，而不需要實體化此類別的物件。*
+[singleton class](https://ruby-doc.com/core/Object.html#method-i-singleton_method)  | If object is nil, true, or false, it returns NilClass, TrueClass, or FalseClass. (*可以直接存取，而不需要實體化此類別的物件。*)
 [singleton method](https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/singletonmethods.html)  | The behavior of an instance is determined by its class.
 [public method](https://ruby-doc.com/core/Module.html#method-i-public)| With no arguments, sets the default visibility for subsequently defined methods to public. With arguments, sets the named methods to have public visibility.
 [projected method](https://ruby-doc.com/core/Module.html#method-i-protected) | If a method has protected visibility, it is callable only where self of the context is the same as the method.
