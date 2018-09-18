@@ -70,10 +70,10 @@ day6.private #=> undefined method `private' (NoMethodError)
 
 為了更清楚釐清自己的觀念，我整理出這10天的學習紀錄：
 
-觀念 | 解釋 |
+觀念 | 解釋 
 ------------- | -------------
  [class](https://ruby-doc.org/core-2.5.1/Class.html)  | Classes in Ruby are first-class objects.
- | [module](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html) | Modules serve two purposes in Ruby, namespacing and mix-in functionality.
+ [module](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html) | Modules serve two purposes in Ruby, namespacing and mix-in functionality.
  [class method](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods) | Class methods (methods on a module) may be called directly.
 [instance method](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods) | Instance methods defined in a module are only callable when included.
 [include 與 extend](https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods) | include用於instance method, extend用於class method
@@ -91,7 +91,7 @@ day6.private #=> undefined method `private' (NoMethodError)
 
 感想：
 
-為了做Ruby如何invoke method的表格，我竟然把Ruby API的[Object](https://ruby-doc.org/core-2.5.1/Object.html)| [Kernal](https://ruby-doc.org/core-2.5.1/Kernel.html) | [BasicObject](https://ruby-doc.org/core-2.5.1/BasicObject.html) 頁面翻閱了一遍，了解輸入的參數怎麼用、已經輸出的物件會是什麼形式。這是我過去從來沒想過自己可以做得到的事（感覺翻手冊是高手才看得懂的境界啊！）經過這10天成長收穫巨大！
+為了做Ruby如何invoke method的表格，我竟然把Ruby API的[Object](https://ruby-doc.org/core-2.5.1/Object.html) ，[Kernal](https://ruby-doc.org/core-2.5.1/Kernel.html) ，[BasicObject](https://ruby-doc.org/core-2.5.1/BasicObject.html) 頁面翻閱了一遍，了解輸入的參數怎麼用、已經輸出的物件會是什麼形式。這是我過去從來沒想過自己可以做得到的事（感覺翻手冊是高手才看得懂的境界啊！）經過這10天成長收穫巨大！
 
 明天來繼續研究更多method!!!! :)
 
@@ -100,6 +100,6 @@ day6.private #=> undefined method `private' (NoMethodError)
 Ref：
 [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
 [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)|
-[What does ||= (or-equals) mean in Ruby?](https://stackoverflow.com/questions/995593/what-does-or-equals-mean-in-ruby)|
+[Ruby-Core](https://ruby-doc.com/core/index.html)|
 [Please explain nuances of ||=](https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c)|
 [A short-circuit (||=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)|
