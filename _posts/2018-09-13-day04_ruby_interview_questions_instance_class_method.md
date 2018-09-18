@@ -122,7 +122,7 @@ I've got a trophy!
 
 ## 使用instance method的情況
 
-如果你需要將實體方法，運用在某個特定的實體。
+如果你需要將實體方法，運用在某個客製化的實體。
 
 >This is often when the functionality concerns the identity of the instance such as calling properties on the object, or invoking behaviour.[出處](https://www.culttt.com/2015/06/10/understanding-class-methods-verses-instance-methods-in-ruby/)
 

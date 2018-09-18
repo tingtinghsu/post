@@ -92,7 +92,7 @@ end
 
 單例方法＝單例類別的實體方法。
 
-（指的是某物件實體「的單例類別」的實體方法，而不是某個物件的實體方法。，中間多夾了一層「單例類別」）
+（指的是某物件實體「的單例類別」的實體方法，而不是某個物件的實體方法，中間多夾了一層「單例類別」）
 
 * singleton methods of an object are not instance methods of the class of the object;
 
