@@ -325,10 +325,11 @@ p "Proc result: #{proc_argument.call(21,42,63)}"
 
 超級比一比的表格又出現了：
 
-block程式區塊 | [procs](http://ruby-doc.org/core-2.4.0/Proc.html)程式區塊物件 | lambdas 匿名方法
+block程式區塊 | [Proc](http://ruby-doc.org/core-2.4.0/Proc.html)程式區塊物件 | lambda 匿名方法
 ------------- | ------------- | -------------
-不是物件  | 程序物件  | 方法
+不是物件  | 帶名字的區塊物件，可儲存變數  | 和Proc類似，但更加接近method方法
 不是參數  | 可帶參數  | 嚴格檢查參數數目
+N/A  | 在Proc裡`return`其他值，會離開此物件的方法  | 在lamba裡`return`其他值，會回來繼續執行完方法
 
 最後的最後，我們用`lambda`來寫馬拉松喝水的方法吧！
 
@@ -349,6 +350,8 @@ end
 drink water
 -finish line-
 ```
+
+順利迎向終點finish line了！
 
 也祝大家的IT邦鐵人賽，都能順利完賽！！！：）
 
