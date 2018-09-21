@@ -1,10 +1,9 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day12 千變萬化的變數: class variable 與 class instance variable 與 instance variable "
-date:   2018-09-21 08:57:00 +1000
+title:  "30天修煉Ruby面試精選30題 - Day12 千變萬化的變數: class variable, class instance variable 與 instance variable"
+date:   2018-09-21 08:57:00 +1000
 categories: ruby rails interview junior
 ---
-
 前情提要:
 
 第12天，往細節探索去！昨天我們講到broc是有名字的區塊物件，可儲存變數；lambda是一種method方法，嚴格檢查參數數目。今天想要更深地討論變數：）
