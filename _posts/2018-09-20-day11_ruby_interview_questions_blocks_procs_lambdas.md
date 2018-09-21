@@ -279,8 +279,6 @@ lambda_run #=> "Run with lambda!"
 
 > The difference between procs and lambdas is how they react to a return statement. A lambda will return normally, like a regular method. But a proc will try to return from the current context.The reason is that you can’t return from the top-level context.[出處](http://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/)
 
-
-
 現在來用`lambda`的兩種調用寫法`lambda` or `->()`練習寫作程式碼，分別回傳半程馬拉松(hm)和全程馬拉松(fm)的公里數：
 
 ```ruby
