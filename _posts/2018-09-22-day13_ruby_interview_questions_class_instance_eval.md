@@ -196,6 +196,8 @@ p um.instance_eval { @km } #告訴我超馬公里數！
 
 ```
 
+我們可以加入`class_eval`:
+
 ```ruby
 class RunMarathon
   def initialize(km)
@@ -203,7 +205,7 @@ class RunMarathon
   end
 end
 
-RunMarathon.class_eval do #放外面！定義類別方法
+RunMarathon.class_eval do #放RunMarathon類別的外面！定義新的類別方法
   def km
     @km #這個是類別實體變數唷！
   end
