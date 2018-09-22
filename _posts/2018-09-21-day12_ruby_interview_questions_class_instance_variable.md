@@ -58,7 +58,7 @@ p day12
 
 物件的實體變數，就是物件的屬性(attribute)，同一個class的不同物件，其屬性也不同。
 
-假如我在明天第13天`Day13`遇到休假日，所以早上得意一口氣跑21km：
+假如我在明天第13天`Day13`遇到休假日，所以早上一口氣跑了21km：
 
 ```ruby
 day13 = RunDaily.new
@@ -149,7 +149,7 @@ p IronmanDairy.instance_methods(false) #=> [:title=, :title]
 
 ## [持續改良:version2]
 
-有沒有發現上面的程式碼中，大量出現這個`@title`實體變數呢？那我們想要簡化一下，可以用`attr_accessor`方式改寫。假設我們要創一個Day13鐵人賽文章物件，直接把實體的屬性存取器`attr_accessor :title`加在類別的開頭即可：
+有沒有發現上面的程式碼中，大量出現這個`@title`實體變數呢？那我們想要簡化一下，可以用`attr_accessor`方式改寫。假設我們要創一個Day13鐵人賽文章物件，直接把實體的屬性存取器`attr_accessor :title`，指定給symbol`:title`，加在類別的開頭即可：
 
 ```ruby
 class IronmanDairy
@@ -256,7 +256,7 @@ p Rabbit.legs # => 兔子還是4隻腳! 太好了～沒有被吃掉
 p Animal.legs # => 回到類別實體變數預設值1
 ```
 
-以上的舉例實實在在地證明我在這本書[Effective Ruby中文版 - 寫出良好Ruby程式的48個具體做法](https://books.google.com.au/books?id=YcmUCgAAQBAJ)Page 56查到的觀點：寧願用類別實體變數，也不要用類別變數。類別實體變數除了會打破類別及其子類別的共用關係（如同我們舉的例子中，動物的腳數目隨意被改變），也提供更多的封裝，讓類別定義層級、或從類別方法裡，唯一可存取的是類別實體變數。
+以上的舉例實實在在地證明我在這本書[Effective Ruby中文版-寫出良好Ruby程式的48個具體做法](https://books.google.com.au/books?id=YcmUCgAAQBAJ)Page 56查到的觀點：寧願用類別實體變數，也不要用類別變數。類別實體變數除了會打破類別及其子類別的共用關係（如同我們舉的例子中，動物的腳數目隨意被改變），也提供更多的封裝，讓類別定義層級、或從類別方法裡，唯一可存取的是類別實體變數。
 
 最後用比一比的表格來總結：）
 
