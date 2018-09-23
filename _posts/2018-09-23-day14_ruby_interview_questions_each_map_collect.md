@@ -5,21 +5,21 @@ date:   2018-09-23 08:30:00 +1000
 categories: ruby rails interview junior
 ---
 
-今天要講的是迭代器(iterator)，讓我們可以利用迭代方法做重複的事。在Ruby裡的`collection`集合裡有`Array`陣列和`Hash`雜湊。迭代器會一個一個地傳回集合裡的元素。今天要介紹三種迭代器`each`，`map`和`collect`，話說這也是常見的Ruby面試考題呢！
+今天要講的是迭代器(iterator)，迭代器會一個一個地傳回集合裡的元素，讓我們可以利用迭代方法做重複的事。在Ruby裡的`collection`集合裡有`Array`陣列和`Hash`雜湊。今天要介紹三種用在集合的迭代器分別叫，`each`，`map`和`collect`，這也是常見的Ruby面試考題呢！
 
 ---
 
 # Ruby經典面試題目 #14
 
-`Day14 each, map 和 collect 比較? What's the difference between each, map and collect?`
+`Day14 each, map 和 collect 比較? What's the difference between each, map and collect?`
 
-我們來用這三種迭代器，在Array和Hash兩種集合裡面各舉例子：
+我們來用這三種迭代器，在Array和Hash兩種集合裡面各舉例子：
 
 # Array
 
 ## Array#each
 
-最近我在進行旅行存錢計劃。我有三個銀行帳戶，NAB, CAN, 和WESTPAC，開戶金額分別為100,200,300。所以我寫一個陣列集合放入初始金額。
+最近我在進行旅行存錢計劃。我有三個銀行帳戶，NAB, CAN, 和WESTPAC，開戶金額分別為100,200,300。所以我寫一個陣列集合放入初始金額。
 
 假設我打算開始從本週開始在每個帳戶存入50元，本週+50元。我們可以在陣列後加上`.each`方法：（注意：`puts`寫在`block`大括號裡）
 
@@ -45,7 +45,7 @@ categories: ruby rails interview junior
 p [100,200,300].collect {|n| n+50}
 ```
 
-`.collect`會幫我們把結果放入新的陣列。結果印出：
+`.collect`會幫我們把結果放入新的陣列。結果印出：
 
 ```ruby
 [150, 250, 350]
@@ -67,13 +67,13 @@ p [100,200,300].map {|n| n+50}
 
 那`.collect`與`.map`又有什麼不同？以及分別用在什麼情況呢？這時候就要翻查Ruby手冊裡，關於[.collect](http://ruby-doc.org/core-2.5.1/Array.html#method-i-collect)和[.map](http://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-map)的介紹了:
 
->`collect { |item| block } → new_ary` Invokes the given block once for each element of self. Creates a new array containing the values returned by the block.
+>`collect { |item| block } → new_ary` Invokes the given block once for each element of self. Creates a new array containing the values returned by the block.
 
 hmm...好像看不出有什麼差異呢！
 
 > `map { |obj| block } → array` Returns a new array with the results of running block once for every element in enum.
 
-近一步查詢[stackoverflow](https://stackoverflow.com/questions/9429034/what-is-the-difference-between-map-each-and-collect)map是collect的別名 (map is an alias for collect)，實務上，比較常使用`map`喔！
+近一步查詢[stackoverflow](https://stackoverflow.com/questions/9429034/what-is-the-difference-between-map-each-and-collect)map是collect的別名 (map is an alias for collect)，實務上，比較常使用`map`喔！
 
 ## 更多Array#map用法
 
@@ -106,13 +106,13 @@ p account.inspect
 
 # Hash
 
-`Hash`雜湊是一對`key`與`value`的集合。在剛剛的銀行帳戶例子裡，我們可以把`銀行名稱`當作`索引`，`存款數目`當作`值`：
+`Hash`雜湊是一對`key`與`value`的集合。在剛剛的銀行帳戶例子裡，我們可以把`銀行名稱`當作`索引`，`存款數目`當作`值`：
 
 ```ruby
 account = {"NAB" => 100, "CAN" => 200, "WEST" => 300}
 ```
 
-利用雜湊來展現，這樣就可讀性更加清楚了。
+利用雜湊來展現，這樣就可讀性更加清楚了。
 
 ## Hash#each
 
@@ -127,8 +127,8 @@ print "My Money: $ " + mymoney.to_s
 或是
 
 ```ruby
-mymoney = 0 #設定初始值
-account.each{|bank| mymoney += bank[1]} #依序加總bank集合裡第二個元素bank[1]
+mymoney = 0 #設定初始值
+account.each{|bank| mymoney += bank[1]} #依序加總bank集合裡第二個元素bank[1]
 print "My Money: $ " + mymoney.to_s
 ```
 
@@ -140,11 +140,11 @@ My Money: $ 600
 
 ## Hash#map
 
-在Hash裡，把`.each`換成`.map`或是`.collect`：
+在Hash裡，把`.each`換成`.map`或是`.collect`：
 
 ```ruby
-mymoney = 0 #設定初始值
-account.collect{|bank| mymoney += bank[1]} #依序加總bank集合裡第二個元素bank[1]
+mymoney = 0 #設定初始值
+account.collect{|bank| mymoney += bank[1]} #依序加總bank集合裡第二個元素bank[1]
 print "My Money: $ " + mymoney.to_s
 ```
 
@@ -164,7 +164,7 @@ My Money: $ 600
 hash = { "NAB" => ["Cash", "Gold"], "CAN" => ["Bitcoin", "Litecoin", "Ethereum"] }
 ```
 
-利用`hash.map`會產生一個新的陣列：(進一步了解看[這裡](https://stackoverflow.com/questions/16281983/hash-map-method))
+利用`hash.map`會產生一個新的陣列：(進一步了解看[這裡](https://stackoverflow.com/questions/16281983/hash-map-method))
 
 ```ruby
 p hash.map {|n| n}
@@ -178,11 +178,11 @@ p hash.map {|n| n}
 
 我想分別提取出`銀行:帳戶名稱`的這一對資訊，並且用逗號`.join(", ")`隔開。
 
-為了程式可讀性，`hash`的`索引`命名為`bank`(銀行名)，`值`為`account_arry`(放了不同數目的子帳戶陣列)。在走`account_arry.each`展開陣列迭代器時，每在集合裡走完一個元素，就印出`#{bank}: #{sub_account}`
+為了程式可讀性，`hash`的`索引`命名為`bank`(銀行名)，`值`為`account_arry`(放了不同數目的子帳戶陣列)。在走`account_arry.each`展開陣列迭代器時，每在集合裡走完一個元素，就印出`#{bank}: #{sub_account}`
 
 ```ruby
 p hash.map {
-            |bank, account_arry| account_arry.each{
+            |bank, account_arry| account_arry.each{
                 |sub_account| "#{bank}: #{sub_account}"}
         }.join(", ")
 ```
@@ -195,13 +195,13 @@ p hash.map {
 
 奇怪，這不是我要的結果呀！我很希望帳戶前面能顯示出銀行名稱呢！
 
-這是因為剛剛說過，`arry.each`會回傳**陣列本身**，在這個例子🌰裡，分別回傳的是`["Cash", "Gold"]`和`["Bitcoin", "Litecoin", "Ethereum"]`
+這是因為剛剛說過，`arry.each`會回傳**陣列本身**，在這個例子🌰裡，分別回傳的是`["Cash", "Gold"]`和`["Bitcoin", "Litecoin", "Ethereum"]`
 
 改成`.map`試試看：
 
 ```ruby
 p hash.map {
-            |bank, account_arry| account_arry.map{
+            |bank, account_arry| account_arry.map{
                 |sub_account| "#{bank}: #{sub_account}"}
         }.join(", ")
 ```
@@ -212,14 +212,14 @@ p hash.map {
 "NAB: Cash, NAB: Gold, CAN: Bitcoin, CAN: Litecoin, CAN: Ethereum"
 ```
 
-這是因為`account_arry.map`自動幫我們產生新的陣列，放進`bank`與對應的`sub_account`並回傳。
+這是因為`account_arry.map`自動幫我們產生新的陣列，放進`bank`與對應的`sub_account`並回傳。
 
 最後放個小小的比較作為總結，祝福大家collect不同的資產，不管是有形的財富、還是無形的知識，最後都可以達成錢多多的心願喔！
 
 each | map / collect
 ------------- | -------------
 Array方法 | Enumerable(列舉)方法
-回傳Array本身 | 產生新的Array並回傳
+回傳Array本身 | 產生新的Array並回傳
 
 ===
 
