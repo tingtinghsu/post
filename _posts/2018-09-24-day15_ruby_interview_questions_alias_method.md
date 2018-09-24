@@ -20,11 +20,11 @@ categories: ruby rails interview junior
 
 ```ruby
 class Pet
-  def cat_name
+  def first_name
     p "Mac"
   end
 
-  alias name cat_name #Method之間不需要放","逗號
+  alias name first_name #Method之間不需要放","逗號
 end
 
 Pet.new.name #=> Mac
@@ -38,11 +38,11 @@ Pet.new.name #=> Mac
 
 ```ruby
 class Pet
-  def cat_name
+  def first_name
     p "Mac"
   end
 
-  alias_method :name, :cat_name #Symbol之間要加","逗號
+  alias_method :name, :first_name #Symbol之間要加","逗號
 end
 
 Pet.new.name #=> Mac
@@ -50,21 +50,21 @@ Pet.new.name #=> Mac
 
 用`alias_method`的優點是可以作用在繼承的類別，來看看例子🌰：
 
-我家的Mac是一隻調皮的小公貓，有另外一個綽號叫做“麥少爺"。所以我寫了一個類別`Cat`繼承自`Pet`。在`Cat`類別和`Pet類別`下都有同名的方法`cat_name`。
+我家的Mac是一隻調皮的小公貓，有另外一個綽號叫做“麥少爺"。所以我寫了一個類別`Cat`繼承自`Pet`。在`Cat`類別和`Pet類別`下都有同名的方法`first_name`。
 
 ```ruby
 class Pet
-  def cat_name
+  def first_name
     p "Mac"
   end
 
   def self.nickname
-    alias_method :name, :cat_name
+    alias_method :name, :first_name
   end
 end
 
 class Cat < Pet
-  def cat_name
+  def first_name
     p "麥少爺"
   end
   nickname
@@ -73,9 +73,9 @@ end
 Cat.new.name #=> "麥少爺"
 ```
 
-當我們用`Cat.new.name`產生一個新物件，程式會走一遍`Cat`類別，到了`nickname`這個方法，會繼承父類別`Pet`的`self.nickname`方法。
+當我們用`Cat.new.name`產生一個新物件，程式會走一遍`Cat`類別，到了`nickname`這個方法，會跑去繼承父類別`Pet`的`self.nickname`方法。
 
-尋找到`alias_method`之後，呼叫`name`別名的舊名`:cat_name`，再回來`Cat`類別跑完執行`cat_name`方法。
+尋找到`alias_method`之後，呼叫`name`別名的舊名`:cat_name`，再回來`Cat`類別跑完執行`first_name`方法。
 
 此時Mac的花名出現啦！叫做`麥少爺`。
 
@@ -85,17 +85,17 @@ Cat.new.name #=> "麥少爺"
 
 ```ruby
 class Pet
-  def cat_name
+  def second_name
     p "Dell"
   end
 
   def self.nickname
-    alias name cat_name
+    alias name second_name
   end
 end
 
 class Cat < Pet
-  def cat_name
+  def second_name
     p "戴公子"
   end
   nickname
@@ -106,13 +106,17 @@ Cat.new.name #=> Dell
 ```
 
 `Cat.new.name` 呼叫`nickname`方法後，並沒有出現別名`戴公子`，名字仍為`Dell`。
-這是因為`alias`只會尋找其關鍵字存在的scope，在本案例裡是`Pet`類別裡面。
+這是因為`alias`只會尋找其關鍵字存在的scope，在本案例裡是`Pet`類別裡面的`second_name`方法。
+
+`alias_method`在Ruby on Rails專案很常使用，因為它可以幫我們把功能重複的方法、透過重新改寫方法名的過程，整合到一起。（未來熟悉Rails後會補上例子，敬請期待）
+
+透過這兩個為小貓取花名的舉例的比較，希望大家能夠更了解`alias`和`alias_method`的不同喔！
 
 比一比：
 
 [alias](http://ruby-doc.org/stdlib-1.9.1/libdoc/rdoc/rdoc/RDoc/Alias.html) | [alias_method](http://ruby-doc.org/core-2.1.5/Module.html#method-i-alias_method)
 ------------- | -------------
-在libdoc之下的RDoc | 屬於Module模組方法
+在libdoc之下的RDoc裡的關鍵字 | 屬於Module模組方法
 只會作用在關鍵字所屬的scope | 可以重新定義方法，較為彈性
 
 ===
