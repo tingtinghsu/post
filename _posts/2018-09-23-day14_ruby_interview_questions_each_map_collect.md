@@ -227,4 +227,5 @@ Ref：
 [21 Essential Ruby Interview Questions](https://www.toptal.com/ruby/interview-questions) |
 [what's different between each and collect method in Ruby](https://stackoverflow.com/questions/5347949/whats-different-between-each-and-collect-method-in-ruby)|
 [Array#each vs. Array#map](https://stackoverflow.com/questions/5254128/arrayeach-vs-arraymap)|
-[Ruby-doc.org : collect](http://ruby-doc.org/core-2.5.1/Array.html#method-i-collect)|[Ruby-doc.org : map](http://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-map)|[Ruby-doc.org : hash#each](http://ruby-doc.org/core-2.5.1/Hash.html#method-i-each)| [Hash.map method](https://stackoverflow.com/questions/16281983/hash-map-method)
+[Ruby-doc.org : collect](http://ruby-doc.org/core-2.5.1/Array.html#method-i-collect)|
+[Ruby-doc.org : map](http://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-map)|[Ruby-doc.org : hash#each](http://ruby-doc.org/core-2.5.1/Hash.html#method-i-each)| [Hash.map method](https://stackoverflow.com/questions/16281983/hash-map-method)
