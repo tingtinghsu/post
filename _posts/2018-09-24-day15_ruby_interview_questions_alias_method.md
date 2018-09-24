@@ -101,7 +101,7 @@ class Cat < Pet
   nickname
 end
 
-Cat.new.name
+Cat.new.name #=> Dell
 
 ```
 
