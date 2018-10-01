@@ -165,8 +165,11 @@ IronmanList.find(1)
 > they are defined on the singleton class of the object.
 
 Ref：
-[Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |[Understanding Ruby Singleton Classes](https://www.devalot.com/articles/2008/09/ruby-singleton) |[What exactly is the singleton class in ruby?](https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby) |
-[Ruby 如何理解 singleton class](https://ruby-china.org/topics/13276) |
-[單例模式 Singleton](http://www.runoob.com/design-pattern/singleton-pattern.html)|
-[Ruby的Class與Eigenclass](https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f)
+
+* [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
+* [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
+* [Understanding Ruby Singleton Classes](https://www.devalot.com/articles/2008/09/ruby-singleton)
+* [What exactly is the singleton class in ruby?](https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby)
+* [Ruby 如何理解 singleton class](https://ruby-china.org/topics/13276)
+* [單例模式 Singleton](http://www.runoob.com/design-pattern/singleton-pattern.html)
+* [Ruby的Class與Eigenclass](https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f)

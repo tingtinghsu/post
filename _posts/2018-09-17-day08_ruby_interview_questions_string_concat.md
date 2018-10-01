@@ -87,7 +87,8 @@ p "I've written #{tingsironmanday} articles!"
 ===
 
 Ref：
-[Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)|
-[+ or .concat, what is faster for appending string in Ruby?](https://coderwall.com/p/ac5j9g/or-concat-what-is-faster-for-appending-string-in-ruby)|
-[String concatenation vs. interpolation in Ruby](https://stackoverflow.com/questions/10076579/string-concatenation-vs-interpolation-in-ruby)|
+
+* [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
+* [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
+* [+ or .concat, what is faster for appending string in Ruby?](https://coderwall.com/p/ac5j9g/or-concat-what-is-faster-for-appending-string-in-ruby)
+* [String concatenation vs. interpolation in Ruby](https://stackoverflow.com/questions/10076579/string-concatenation-vs-interpolation-in-ruby)

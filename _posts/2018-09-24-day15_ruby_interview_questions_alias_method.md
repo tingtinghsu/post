@@ -122,10 +122,11 @@ Cat.new.name #=> Dell
 ===
 
 Ref：
-[一份Ruby面試題](https://ruby-china.org/topics/13272) |
-[alias vs alias_method](https://blog.bigbinary.com/2012/01/08/alias-vs-alias-method.html)|
-[In Defense of Alias](https://ernie.io/2014/10/23/in-defense-of-alias/)|
-[Should I use alias or alias_method?](https://stackoverflow.com/questions/4763121/should-i-use-alias-or-alias-method)|
-[Method alias in ruby](https://wikimatze.de/method-alias-in-ruby/)|
-[Ruby-doc.org : alias](http://ruby-doc.org/stdlib-1.9.1/libdoc/rdoc/rdoc/RDoc/Alias.html)|
-[Ruby-doc.org : alias method](http://ruby-doc.org/core-2.5.1/Module.html#method-i-alias_method)|
+
+* [一份Ruby面試題](https://ruby-china.org/topics/13272) 
+* [alias vs alias_method](https://blog.bigbinary.com/2012/01/08/alias-vs-alias-method.html)
+* [In Defense of Alias](https://ernie.io/2014/10/23/in-defense-of-alias/)
+* [Should I use alias or alias_method?](https://stackoverflow.com/questions/4763121/should-i-use-alias-or-alias-method)
+* [Method alias in ruby](https://wikimatze.de/method-alias-in-ruby/)
+* [Ruby-doc.org : alias](http://ruby-doc.org/stdlib-1.9.1/libdoc/rdoc/rdoc/RDoc/Alias.html)
+* [Ruby-doc.org : alias method](http://ruby-doc.org/core-2.5.1/Module.html#method-i-alias_method)

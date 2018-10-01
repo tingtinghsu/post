@@ -99,8 +99,9 @@ day6.private #=> undefined method `private' (NoMethodError)
 ===
 
 Ref：
-[Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)|
-[Ruby-Core](https://ruby-doc.com/core/index.html)|
-[Please explain nuances of ||=](https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c)|
-[A short-circuit (||=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)|
+
+* [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
+* [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
+* [Ruby-Core](https://ruby-doc.com/core/index.html)
+* [Please explain nuances of ||=](https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c)
+* [A short-circuit (||=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)

@@ -167,7 +167,8 @@ end
 只要每天都有進步，都好！:)
 
 Ref：
-[Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |
-[類別（Class）與模組（Module)](https://railsbook.tw/chapters/08-ruby-basic-4.html) |
-[物件初始化 Object initialization](https://guides.ruby.tw/ruby/objinitialization.html)
+
+* [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
+* [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
+* [類別（Class）與模組（Module)](https://railsbook.tw/chapters/08-ruby-basic-4.html)
+* [物件初始化 Object initialization](https://guides.ruby.tw/ruby/objinitialization.html)

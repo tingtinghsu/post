@@ -307,8 +307,9 @@ end
 ===
 
 Ref：
-[Ruby on Rails Interview questions](https://coderwall.com/p/yycytw/ruby-on-rails-interview-questions) |
-[instance_eval 與 class_eval 差異](https://blog.hothero.org/2015/08/05/instance-eval-yu--class-eval-chai-yi-/)|
-[Understanding class_eval and instance_eval](http://web.stanford.edu/~ouster/cgi-bin/cs142-winter15/classEval.php)|
-[Ruby-doc.org : class_eval (Module)](http://ruby-doc.org/core-2.5.1/Module.html#method-i-class_eval)|
-[Ruby-doc.org : instance_eval (BasicObject)](http://ruby-doc.org/core-2.5.1/BasicObject.html#method-i-instance_eval)
+
+* [Ruby on Rails Interview questions](https://coderwall.com/p/yycytw/ruby-on-rails-interview-questions)
+* [instance_eval 與 class_eval 差異](https://blog.hothero.org/2015/08/05/instance-eval-yu--class-eval-chai-yi-/)
+* [Understanding class_eval and instance_eval](http://web.stanford.edu/~ouster/cgi-bin/cs142-winter15/classEval.php)
+* [Ruby-doc.org : class_eval (Module)](http://ruby-doc.org/core-2.5.1/Module.html#method-i-class_eval)
+* [Ruby-doc.org : instance_eval (BasicObject)](http://ruby-doc.org/core-2.5.1/BasicObject.html#method-i-instance_eval)

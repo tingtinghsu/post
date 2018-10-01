@@ -172,7 +172,8 @@ Bater.ironmanwinner
 =欲知詳情，下回分解！=
 
 Ref：
-[Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |
-[Ruby: Class vs Instance Methods](https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49) |
-[Understanding Class Methods verses Instance Methods in Ruby](https://www.culttt.com/2015/06/10/understanding-class-methods-verses-instance-methods-in-ruby/)
+
+* [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
+* [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
+* [Ruby: Class vs Instance Methods](https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49)
+* [Understanding Class Methods verses Instance Methods in Ruby](https://www.culttt.com/2015/06/10/understanding-class-methods-verses-instance-methods-in-ruby/)

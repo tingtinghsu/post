@@ -356,12 +356,13 @@ drink water
 ===
 
 Ref：
-[Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)|
-[方法與程式碼區塊（block](https://railsbook.tw/chapters/07-ruby-basic-3.html)|
-[The Ultimate Guide to Blocks, Procs & Lambdas](http://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/)|
-[Ruby中的Proc/lambda](https://my.oschina.net/jsk/blog/540371)|
-[Ruby-Core](https://ruby-doc.com/core/index.html)|
-[ruby-doc.org: Method](http://ruby-doc.org/core-2.5.1/doc/syntax/methods_rdoc.html)|
-[ruby-doc.org: Object Method: do](http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-do) |
-[Procs](http://ruby-doc.org/core-2.4.0/Proc.html) |
+
+* [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
+* [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
+* [方法與程式碼區塊（block](https://railsbook.tw/chapters/07-ruby-basic-3.html)
+* [The Ultimate Guide to Blocks, Procs & Lambdas](http://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/)
+* [Ruby中的Proc/lambda](https://my.oschina.net/jsk/blog/540371)
+* [Ruby-Core](https://ruby-doc.com/core/index.html)
+* [ruby-doc.org: Method](http://ruby-doc.org/core-2.5.1/doc/syntax/methods_rdoc.html)
+* [ruby-doc.org: Object Method: do](http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-do)
+* [Procs](http://ruby-doc.org/core-2.4.0/Proc.html)

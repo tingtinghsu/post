@@ -167,5 +167,7 @@ p tingsmessage.to_sym # :TZis is my 7th article! 前面多一個冒號
 ===
 
 Ref：
-[Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)| [數字、字串、陣列、範圍、雜湊、符號](https://railsbook.tw/chapters/06-ruby-basic-2.html#symbol_class)|
+
+* [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
+* [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
+* [數字、字串、陣列、範圍、雜湊、符號](https://railsbook.tw/chapters/06-ruby-basic-2.html#symbol_class)

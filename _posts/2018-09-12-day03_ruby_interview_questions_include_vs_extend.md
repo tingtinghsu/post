@@ -152,7 +152,8 @@ ExtendRuby.new.IThelp
 ![https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/IThelps.png](https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/IThelps.png)
 
 Ref：
-[Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html) |
-[Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers) |
-[Include vs Extend in Ruby](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/) |
-[What is the difference between include and extend in Ruby?](https://stackoverflow.com/questions/156362/what-is-the-difference-between-include-and-extend-in-ruby)
+
+* [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
+* [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
+* [Include vs Extend in Ruby](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/)
+* [What is the difference between include and extend in Ruby?](https://stackoverflow.com/questions/156362/what-is-the-difference-between-include-and-extend-in-ruby)
