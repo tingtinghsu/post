@@ -273,6 +273,6 @@ Ref：
 * [Ruby on Rails Interview questions](https://coderwall.com/p/yycytw/ruby-on-rails-interview-questions)
 * [Ruby 使用手冊 - 實例變數 Instance variables](https://guides.ruby.tw/ruby/instancevars.html)
 * [Ruby 使用手冊 - 存取器 Accessors](https://guides.ruby.tw/ruby/accessors.html)
-* [Effective Ruby中文版 | 寫出良好Ruby程式的48個具體做法(電子書)By Peter J. Jones](https://books.google.com.au/books?id=YcmUCgAAQBAJ)
+* [Effective Ruby中文版 - 寫出良好Ruby程式的48個具體做法(電子書)By Peter J. Jones](https://books.google.com.au/books?id=YcmUCgAAQBAJ)
 * [Ruby 語法放大鏡之「attr_accessor 是幹嘛的?」](https://kaochenlong.com/2015/03/21/attr_accessor/)
 * [Ruby女孩(21)：來聽聽類別變數與類別實體變數的自白(?)](https://ithelp.ithome.com.tw/articles/10160882)

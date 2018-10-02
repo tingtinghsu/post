@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day16 iterator 和 loop 比較"
-date:   2018-10-21 08:29:00 +1000
+date:   2018-10-01 08:29:00 +1000
 categories: ruby rails interview junior
 ---
 
@@ -18,7 +18,6 @@ categories: ruby rails interview junior
 迭代器 (iterator) 就是用來重複多次相同的事。(Do one thing many times like a loop.)還記得我們在前天的時候提到`.each`, `.map`和`.collect`時候，有提到迭代器的概念。今天要來接觸更多的迭代器，在文章後半部會提到相似的迴圈！
 
 首先從`.each`開始複習：
-
 
 ```ruby
 (collection).each do |variable|
@@ -118,10 +117,7 @@ end
 
 使用`.time`方法，`i`會從`0`開始跑迭代。
 
-
-
 小括號代表的範圍`(..)`又出現了！還記得括弧內如果以兩點`..`表示，會包含頭與尾的數值嗎?
-
 
 ## upto iterator
 
@@ -158,7 +154,7 @@ end #印出2-16之間的偶數 2 4 6 8 10 12 14 16
 樓梯可以往上爬也可以往下走:
 
 ```ruby
-16.step(16, 2) do |i|
+2.step(16, 2) do |i|
   puts i
 end #印出16-2之間的偶數 16 14 12 10 8 6 4 2
 ```
@@ -245,7 +241,7 @@ end #印出1-16之間的偶數 2 4 6 8 10 12 14 16
 
 最後，為什麼我們要多使用迭代器呢?因為iterator常常和array或是hash結合，加上許多實用的字串方法，幫我們用簡單、優雅的寫法完成複雜的功能：
 
-### Iterator - `.each寫法`
+### Iterator - `.each`寫法
 
 ```ruby
 a = [2, 4, 6, 8]
