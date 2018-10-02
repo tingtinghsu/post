@@ -11,7 +11,7 @@ categories: ruby rails interview junior
 
 `Day17 解釋Ruby裡的freeze和?frozen。 Explan when to use freeze and frozen in Ruby?`
 
-在Ruby裡面有一件好玩的事，就是連大寫的常數`CONSTANT`也可以修改！來看看下面的例子：
+在Ruby裡面有一件好玩的事，就是連大寫的常數`CONSTANT`也可以修改！來看看下面的例子：
 
 ```ruby
 ROLE_CONSTANT = "Rubyist"
@@ -43,16 +43,16 @@ print variable_array
 ["string", "integer", "array", "hash"]
 ```
 
-而freeze照字面解釋就是凍結的意思。如果我們要確保某個常數/變數不會被修改，就需要利用到`.freeze`方法。
+而freeze照字面解釋就是凍結的意思。如果我們要確保某個常數/變數不會被修改，就需要利用到`.freeze`方法。
 
 # `.freeze` 用在常數
 
-透過使用`.freeze`方法加在常數值之後，我們可以產生真正意義上的常數。讓常數永遠不變(immutable)
+透過使用`.freeze`方法加在常數值之後，我們可以產生真正意義上的常數。讓常數永遠不變(immutable)
 
 ```ruby
 ROLE_CONSTANT = "Rubyist".freeze
-ROLE_CONSTANT << "Bartender"
-puts ROLE_CONSTANT.inspect # can't modify frozen String (RuntimeError)
+ROLE_CONSTANT << "Bartender"
+puts ROLE_CONSTANT.inspect # can't modify frozen String (RuntimeError)
 ```
 
 如果硬要修改的話，就會產生`RuntimeError`錯誤。
@@ -77,12 +77,12 @@ frozen_array[0][2] ="y"
 p frozen_array #=> ["icy", "water", "steam"]
 ```
 
-
+
 Array裡的第一個字串從`ice`變成`icy`了。為了避免這種~~狸貓換太子~~的事情發生，我們來介紹一個新的方法：`.each(&:freeze)`。
 
 # `.each(&:freeze)`
 
-除了用`.freeze`確保陣列無法被改變，也要加入`.each(&:freeze)`方法，做好雙重保障，讓陣列裡面的各個值不能被修改。
+除了用`.freeze`確保陣列無法被改變，也要加入`.each(&:freeze)`方法，做好雙重保障，讓陣列裡面的各個值不能被修改。
 
 ```ruby
 frozen_array = %w(ice water steam)
@@ -93,7 +93,7 @@ frozen_array.each(&:freeze)
 frozen_array[0][2] ="y" #`[]=': can't modify frozen String (RuntimeError)
 ```
 
-加入`.each(&:freeze)`之後，`[]=`方法是不是就無法被隨便使用了呢?：）
+加入`.each(&:freeze)`之後，`[]=`方法是不是就無法被隨便使用了呢?：）
 
 # `.frozen?`
 
@@ -106,15 +106,15 @@ p frozen_array.frozen? #=> true
 
 # `.map(&:frozen?)`
 
-如果要檢查集合裡(Array或Hash)的元素是否被freeze，可以使用`.map(&:frozen?)`。
+如果要檢查集合裡(Array或Hash)的元素是否被freeze，可以使用`.map(&:frozen?)`。
 
 ```ruby
 frozen_array.each(&:freeze)
 p frozen_array.map(&:frozen?) # =>[true, true, true]
-p frozen_array.each(&:frozen?) # doesn't work! print nothing.
+p frozen_array.each(&:frozen?) # doesn't work! print nothing.
 ```
 
-注意：如果改成`.each(&:frozen?)`是無效的。因為我們曾在[第14天]的文章提到，`.map`方法會幫我們產生新陣列、放入新值，在以上的例子是放入布林值`[[true, true, true]`。而`.each`不會產生新陣列。
+注意：如果改成`.each(&:frozen?)`是無效的。因為我們曾在[第14天]的文章提到，`.map`方法會幫我們產生新陣列、放入新值，在以上的例子是放入布林值`[[true, true, true]`。而`.each`不會產生新陣列。
 
 # 使用freeze的效能
 
@@ -128,7 +128,7 @@ frozen_array.freeze
 end
 ```
 
-陣列在記憶體位置裡不改變：
+陣列在記憶體位置裡不改變：
 
 ```ruby
 70243150761140
@@ -156,9 +156,9 @@ end
 70200015880960
 ```
 
-[這篇文章](https://blog.honeybadger.io/when-to-use-freeze-and-frozen-in-ruby/)的Benchmark(標竿測試，讓程式設計者很方便的測量程式的執行時間)，幫我們比較`.freeze`和沒有freeze過的變數，結果發現freeze過的變數佔用的記憶體空間少，速度也更快！
+[這篇文章](https://blog.honeybadger.io/when-to-use-freeze-and-frozen-in-ruby/)的Benchmark(標竿測試，讓程式設計者很方便的測量程式的執行時間)，幫我們比較`.freeze`和沒有freeze過的變數，結果發現freeze過的變數佔用的記憶體空間少，速度也更快！
 
-舉例來說，使用在Rails的Route路由頁面，就可以大幅加快網路存取速度。[另外這篇文章](http://flats.github.io/blog/2016/01/03/frozen-strings/)也提醒我們，擁抱、並習慣這種以簡單的方式就能優化Ruby效能的寫法唷。：）
+舉例來說，使用在Rails的Route路由頁面，就可以大幅加快網路存取速度。[另外這篇文章](http://flats.github.io/blog/2016/01/03/frozen-strings/)也提醒我們，擁抱、並習慣這種以簡單的方式就能優化Ruby效能的寫法唷。：）
 
 Ref:
 
