@@ -2,7 +2,7 @@
 layout: post
 title:  "活用套件Carrierwave gem: (4)使用Imagemagick修改圖片大小"
 date:   2018-09-09 13:34:00 +1000
-categories: deploy heroku ruby rails gem
+categories: heroku rails gem
 ---
 前情提要：
 這幾天我都在實驗[Carrierwave](https://github.com/carrierwaveuploader)這套圖片上傳套件，也順利部署到Heroku架站正式環境了。：）

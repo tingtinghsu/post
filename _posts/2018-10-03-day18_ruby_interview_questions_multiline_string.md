@@ -13,7 +13,7 @@ categories: ruby rails interview junior
 
 ## `puts`多行字串
 
-在Ruby，表達多行字串是很容易的，只要用`puts`加上空行(Enter健)即可。立馬來用換行功能吟詩作對一下吧！
+在Ruby，表達多行字串是很容易的，只要用`puts`加上空行(Enter健)即可。立馬來用換行功能吟詩作對一下吧！
 
 ```ruby
 puts "
@@ -58,7 +58,7 @@ Output:
 
 ## `%Q{}`與`%q{}`多行字串
 
-我們通常會在`%{}`中間加入一個大寫Q，作用是一樣的：
+我們通常會在`%{}`中間加入一個大寫Q，作用是一樣的：
 
 ```ruby
 year = 1954
@@ -68,7 +68,7 @@ puts %Q{鄭愁予
 寫於#{year}年}
 ```
 
-`%Q`可以幫我們處理跳脫字元、特殊符號如#、單引號、雙引號的問題。
+`%Q`可以幫我們處理跳脫字元、特殊符號如#、單引號、雙引號的問題。
 
 ```ruby
 puts %Q[ 大寫Q + 中括弧:
@@ -86,7 +86,7 @@ Output:
 寫於1954年。It's a masterpiece!
 ```
 
-包夾符號其實也可以任意使用大括弧`{}`、中括弧`[]`，或小括弧`()`。（不過慣例上還是`{}`較常用呢！）
+包夾符號其實也可以任意使用大括弧`{}`、中括弧`[]`，或小括弧`()`。（不過慣例上還是`{}`較常用呢！）
 
 換成小寫的`%q`試試：
 
@@ -128,8 +128,8 @@ print_poet
 ```
 
 `EOF (End of File)`是`ruby`從`c語言`引進的概念，
-
-> 第一個`<<EOF`：表示把內容當作標準輸入程式`stdin (Standard Input)`
+
+> 第一個`<<EOF`：表示把內容當作標準輸入程式`stdin (Standard Input)`
 
 > 第二個`EOF`：表示自己定義的"文字流"（stream）的終止。在以上的例子中，我的文字流是一首詩。
 
@@ -158,11 +158,11 @@ end
 print_poet #can't find string "EOF" anywhere before EOF
 ```
 
-燈等！在程式的第二行出現了語法錯誤`unexpected end-of-input`。
+燈等！在程式的第二行出現了語法錯誤`unexpected end-of-input`。
 
 ## `<<-EOF`多行字串，提供縮排功能
 
-解法很簡單，如果我們要考慮縮排情形的話，在`EOF`年多加上`-`減號就行了：
+解法很簡單，如果我們要考慮縮排情形的話，在`EOF`年多加上`-`減號就行了：
 
 ```ruby
 def print_poet
@@ -175,9 +175,9 @@ def print_poet
 end
 ```
 
-## `<<`後的字串當作變數
+## `<<`後的字串當作變數
 
-`<<`後面的大寫字串，也可以用比較好理解的變數名稱（不一定要用EOF）；
+`<<`後面的大寫字串，也可以用比較好理解的變數名稱（不一定要用EOF）；
 
 可以進一步用`*`做運算:
 
@@ -199,7 +199,7 @@ Ruby很有趣吧!
 
 ```ruby
 puts <<LineOne + <<LineTwo
-那 達達的馬蹄聲
+那 達達的馬蹄聲
 LineOne
 是個 美麗的錯誤
 LineTwo
@@ -224,7 +224,7 @@ end
 ironman_log 18, "multiline"
 ```
 
-`ironman_log`方法幫我們hightlight今天這篇文章的重點。
+`ironman_log`方法幫我們hightlight今天這篇文章的重點。
 
 Output:
 

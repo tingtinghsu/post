@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>30天修煉Ruby面試精選30題 - Day17 Ruby裡的freeze和frozen? | Ting’s Square.</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day17 Ruby裡的freeze和frozen?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Copyright Ting Ting Hsu" />
+<meta property="og:description" content="Copyright Ting Ting Hsu" />
+<link rel="canonical" href="http://localhost:4000/ruby/interview/2018/10/02/day17_ruby_interview_questions_freeze.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/interview/2018/10/02/day17_ruby_interview_questions_freeze.html" />
+<meta property="og:site_name" content="Ting’s Square." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-02T08:15:00+10:00" />
+<script type="application/ld+json">
+{"description":"Copyright Ting Ting Hsu","@type":"BlogPosting","url":"http://localhost:4000/ruby/interview/2018/10/02/day17_ruby_interview_questions_freeze.html","headline":"30天修煉Ruby面試精選30題 - Day17 Ruby裡的freeze和frozen?","dateModified":"2018-10-02T08:15:00+10:00","datePublished":"2018-10-02T08:15:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/interview/2018/10/02/day17_ruby_interview_questions_freeze.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ting&#39;s Square.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day17 Ruby裡的freeze和frozen? </h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-10-02T08:15:00+10:00" itemprop="datePublished">Oct 2, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <hr />
+
+<h1 id="ruby經典面試題目-17">Ruby經典面試題目 #17</h1>
+
+<p><code class="highlighter-rouge">Day17 解釋Ruby裡的freeze和?frozen。 Explan when to use freeze and frozen in Ruby?</code></p>
+
+<p>在Ruby裡面有一件好玩的事，就是連大寫的常數<code class="highlighter-rouge">CONSTANT</code>也可以修改！來看看下面的例子：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ROLE_CONSTANT</span> <span class="o">=</span> <span class="s2">"Rubyist"</span>
+<span class="no">ROLE_CONSTANT</span> <span class="o">&lt;&lt;</span> <span class="s2">"Ironman"</span>
+<span class="nb">puts</span> <span class="no">ROLE_CONSTANT</span><span class="p">.</span><span class="nf">inspect</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">&lt;&lt;</code>幫我們改變了<code class="highlighter-rouge">ROLE_CONSTANT</code>常數：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="nb">freeze</span><span class="p">.</span><span class="nf">rb</span>
+<span class="s2">"RubyistIronman"</span>
+</code></pre></div></div>
+
+<p>大家對於常數應該要「恆常不變」的印象，竟然都會改變！更別說是一般的變數了：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">variable_array</span> <span class="o">=</span> <span class="sx">%w( string integer array )</span>
+<span class="nb">print</span> <span class="n">variable_array</span>
+<span class="nb">puts</span> <span class="s2">"-add something-"</span>
+<span class="n">variable_array</span> <span class="o">&lt;&lt;</span> <span class="s1">'hash'</span>
+<span class="nb">print</span> <span class="n">variable_array</span>
+</code></pre></div></div>
+
+<p>結果顯示：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s2">"string"</span><span class="p">,</span> <span class="s2">"integer"</span><span class="p">,</span> <span class="s2">"array"</span><span class="p">]</span><span class="o">-</span><span class="n">add</span> <span class="n">something</span><span class="o">-</span>
+<span class="p">[</span><span class="s2">"string"</span><span class="p">,</span> <span class="s2">"integer"</span><span class="p">,</span> <span class="s2">"array"</span><span class="p">,</span> <span class="s2">"hash"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>而freeze照字面解釋就是凍結的意思。如果我們要確保某個常數/變數不會被修改，就需要利用到<code class="highlighter-rouge">.freeze</code>方法。</p>
+
+<h1 id="freeze-用在常數"><code class="highlighter-rouge">.freeze</code> 用在常數</h1>
+
+<p>透過使用<code class="highlighter-rouge">.freeze</code>方法加在常數值之後，我們可以產生真正意義上的常數。讓常數永遠不變(immutable)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ROLE_CONSTANT</span> <span class="o">=</span> <span class="s2">"Rubyist"</span><span class="p">.</span><span class="nf">freeze</span>
+<span class="no">ROLE_CONSTANT</span> <span class="o">&lt;&lt;</span> <span class="s2">"Bartender"</span>
+<span class="nb">puts</span> <span class="no">ROLE_CONSTANT</span><span class="p">.</span><span class="nf">inspect</span> <span class="c1"># can't modify frozen String (RuntimeError)</span>
+</code></pre></div></div>
+
+<p>如果硬要修改的話，就會產生<code class="highlighter-rouge">RuntimeError</code>錯誤。</p>
+
+<h1 id="freeze-用在變數"><code class="highlighter-rouge">.freeze</code> 用在變數</h1>
+
+<p>而變數也一樣，我們想把新值加入已經被freeze的陣列，也會出現<code class="highlighter-rouge">RuntimeError</code>。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frozen_array</span> <span class="o">=</span> <span class="sx">%w( ice water steam )</span>
+<span class="n">frozen_array</span><span class="p">.</span><span class="nf">freeze</span>
+<span class="n">frozen_array</span> <span class="o">&lt;&lt;</span> <span class="s1">'fire'</span> <span class="c1">#can't modify frozen Array (RuntimeError)</span>
+</code></pre></div></div>
+
+<p>值得注意的是，雖然陣列不能被改變，但陣列裡的字串<code class="highlighter-rouge">string</code>仍然可以被改變！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frozen_array</span> <span class="o">=</span> <span class="sx">%w(ice water steam)</span>
+<span class="n">frozen_array</span><span class="p">.</span><span class="nf">freeze</span>
+
+<span class="n">frozen_array</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span><span class="s2">"y"</span>
+<span class="nb">p</span> <span class="n">frozen_array</span> <span class="c1">#=&gt; ["icy", "water", "steam"]</span>
+</code></pre></div></div>
+
+<p>Array裡的第一個字串從<code class="highlighter-rouge">ice</code>變成<code class="highlighter-rouge">icy</code>了。為了避免這種<del>狸貓換太子</del>的事情發生，我們來介紹一個新的方法：<code class="highlighter-rouge">.each(&amp;:freeze)</code>。</p>
+
+<h1 id="eachfreeze"><code class="highlighter-rouge">.each(&amp;:freeze)</code></h1>
+
+<p>除了用<code class="highlighter-rouge">.freeze</code>確保陣列無法被改變，也要加入<code class="highlighter-rouge">.each(&amp;:freeze)</code>方法，做好雙重保障，讓陣列裡面的各個值不能被修改。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frozen_array</span> <span class="o">=</span> <span class="sx">%w(ice water steam)</span>
+<span class="n">frozen_array</span><span class="p">.</span><span class="nf">freeze</span>
+<span class="n">frozen_array</span><span class="p">.</span><span class="nf">each</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:freeze</span><span class="p">)</span>
+<span class="c1">#frozen_array &lt;&lt; 'fire'</span>
+
+<span class="n">frozen_array</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span><span class="s2">"y"</span> <span class="c1">#`[]=': can't modify frozen String (RuntimeError)</span>
+</code></pre></div></div>
+
+<p>加入<code class="highlighter-rouge">.each(&amp;:freeze)</code>之後，<code class="highlighter-rouge">[]=</code>方法是不是就無法被隨便使用了呢?：）</p>
+
+<h1 id="frozen"><code class="highlighter-rouge">.frozen?</code></h1>
+
+<p><code class="highlighter-rouge">.frozen?</code>可以傳回<code class="highlighter-rouge">true</code>或<code class="highlighter-rouge">false</code>，幫我們確認凍結是否為真。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frozen_array</span><span class="p">.</span><span class="nf">freeze</span>
+<span class="nb">p</span> <span class="n">frozen_array</span><span class="p">.</span><span class="nf">frozen?</span> <span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+
+<h1 id="mapfrozen"><code class="highlighter-rouge">.map(&amp;:frozen?)</code></h1>
+
+<p>如果要檢查集合裡(Array或Hash)的元素是否被freeze，可以使用<code class="highlighter-rouge">.map(&amp;:frozen?)</code>。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frozen_array</span><span class="p">.</span><span class="nf">each</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:freeze</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">frozen_array</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:frozen?</span><span class="p">)</span> <span class="c1"># =&gt;[true, true, true]</span>
+<span class="nb">p</span> <span class="n">frozen_array</span><span class="p">.</span><span class="nf">each</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:frozen?</span><span class="p">)</span> <span class="c1"># doesn't work! print nothing.</span>
+</code></pre></div></div>
+
+<p>注意：如果改成<code class="highlighter-rouge">.each(&amp;:frozen?)</code>是無效的。因為我們曾在[第14天]的文章提到，<code class="highlighter-rouge">.map</code>方法會幫我們產生新陣列、放入新值，在以上的例子是放入布林值<code class="highlighter-rouge">[true, true, true]</code>。而<code class="highlighter-rouge">.each</code>不會產生新陣列。</p>
+
+<h1 id="使用freeze的效能">使用freeze的效能</h1>
+
+<p>提到freeze具有不可變(immutable)的功能，就讓我想起自己在[鐵人賽第七天]文章提到的Symbol符號與String的字串比較。檢查是否可變的最好方式，就是檢查<code class="highlighter-rouge">object_id</code>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frozen_array</span> <span class="o">=</span> <span class="sx">%w(ice water steam)</span>
+<span class="n">frozen_array</span><span class="p">.</span><span class="nf">freeze</span>
+<span class="mi">3</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+  <span class="nb">p</span> <span class="n">frozen_array</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>陣列在記憶體位置裡不改變：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">70243150761140</span>
+<span class="mi">70243150761140</span>
+<span class="mi">70243150761140</span>
+</code></pre></div></div>
+
+<p>而如果我們不使用<code class="highlighter-rouge">.each(&amp;:freeze)</code>方法，凍結陣列中的各個元素的話，</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frozen_array</span> <span class="o">=</span> <span class="sx">%w(ice water steam)</span>
+<span class="c1">#frozen_array.each(&amp;:freeze) 註解，暫時拿掉方法</span>
+<span class="mi">5</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+  <span class="nb">p</span> <span class="n">frozen_array</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">object_id</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>陣列內值的記憶體位置仍然會跑來跑去！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">70200015881620</span>
+<span class="mi">70200015881420</span>
+<span class="mi">70200015881320</span>
+<span class="mi">70200015881140</span>
+<span class="mi">70200015880960</span>
+</code></pre></div></div>
+
+<p><a href="https://blog.honeybadger.io/when-to-use-freeze-and-frozen-in-ruby/">這篇文章</a>的Benchmark(標竿測試，讓程式設計者很方便的測量程式的執行時間)，幫我們比較<code class="highlighter-rouge">.freeze</code>和沒有freeze過的變數，結果發現freeze過的變數佔用的記憶體空間少，速度也更快！</p>
+
+<p>舉例來說，使用在Rails的Route路由頁面，就可以大幅加快網路存取速度。<a href="http://flats.github.io/blog/2016/01/03/frozen-strings/">另外這篇文章</a>也提醒我們，擁抱、並習慣這種以簡單的方式就能優化Ruby效能的寫法唷。：）</p>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://blog.honeybadger.io/when-to-use-freeze-and-frozen-in-ruby/">When to use freeze and frozen? in Ruby</a></li>
+  <li><a href="http://rubylearning.com/satishtalim/ruby_constants.html">Ruby Constants</a></li>
+  <li><a href="http://www.rubyguides.com/2017/07/ruby-constants/">Everything You Need to Know About Ruby Constants</a></li>
+  <li><a href="http://www.rubyguides.com/2016/01/ruby-mutability/">Understanding Mutable Objects &amp; Frozen Strings</a></li>
+  <li><a href="http://flats.github.io/blog/2016/01/03/frozen-strings/">Frozen Strings, Symbols, and Garbage Collection in Ruby</a></li>
+  <li><a href="https://stackoverflow.com/questions/4235238/what-is-the-use-or-effect-of-freezing-symbols-and-numbers-in-ruby">What is the use or effect of freezing Symbols and Numbers in Ruby?</a></li>
+</ul>
+
+  </div><a class="u-url" href="/ruby/interview/2018/10/02/day17_ruby_interview_questions_freeze.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ting&#39;s Square.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ting&#39;s Square.</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tingtinghsu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tingtinghsu</span></a></li><li><a href="https://www.twitter.com/tingtingtour"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tingtingtour</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Copyright Ting Ting Hsu</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

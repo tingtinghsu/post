@@ -2,7 +2,7 @@
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day14 each, map 和 collect 比較 "
 date:   2018-09-23 08:30:00 +1000
-categories: ruby rails interview junior
+categories: ruby interview
 ---
 
 今天要講的是迭代器(iterator)，迭代器會一個一個地傳回集合裡的元素，讓我們可以利用迭代方法做重複的事。在Ruby裡的`collection`集合裡有`Array`陣列和`Hash`雜湊。今天要介紹三種用在集合的迭代器分別叫，`each`，`map`和`collect`，這也是常見的Ruby面試考題呢！

@@ -53,9 +53,10 @@
 <p>於是好奇的我決定照著關鍵字來搜尋一下，如法炮製做一個出來。</p>
 
 <p>這樣寫在IT邦的文章，也可以放一份到自己的Blog!
-https://tingtinghsu.github.io/jekyll/update/2018/08/25/github_jekyll_blog.html</p>
+<a href="https://tingtinghsu.github.io/jekyll/update/2018/08/25/github_jekyll_blog.html">https://tingtinghsu.github.io/jekyll/update/2018/08/25/github_jekyll_blog.html</a></p>
 
-<h2 id="a在你自己的github帳號建立新資料夾-githubio">A.在你自己的Github帳號建立新資料夾 github.io</h2>
+<h1 id="a在github帳號建立新資料夾-githubio">A.在Github帳號建立新資料夾 github.io</h1>
+
 <p><em>名稱必須是你的<code class="highlighter-rouge">username.github.io</code></em>
 <img src="https://ithelp.ithome.com.tw/upload/images/20180824/20111177JLQCXuETDs.png" alt="https://ithelp.ithome.com.tw/upload/images/20180824/20111177JLQCXuETDs.png" />
 建好後下載這個資料夾。</p>
@@ -64,16 +65,20 @@ https://tingtinghsu.github.io/jekyll/update/2018/08/25/github_jekyll_blog.html</
 無法放搭配<code class="highlighter-rouge">伺服器</code>與<code class="highlighter-rouge">資料庫</code>共同運作（例如會員登入、購物車等功能）的<code class="highlighter-rouge">動態網站</code>，！
 如果想架動態網站，可以去<a href="https://www.heroku.com/">Heroku</a></p>
 
-<h2 id="b-在githubio資料夾內新增首頁">B. 在github.io資料夾內新增首頁</h2>
+<h1 id="b-在githubio資料夾內新增首頁">B. 在github.io資料夾內新增首頁</h1>
+
 <p>剛剛下載的資料夾，預設會儲存至本機端電腦的這個路徑（以我的Mac為例）：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/tingtinghsu/Documents/GitHub/tingtinghsu.github.io
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/tingtinghsu/Documents/GitHub/tingtinghsu.github.io
 </code></pre></div></div>
+
 <p>在本機裡的yourusername.github.io新增空白頁面<code class="highlighter-rouge">index.html</code>，使用html語法編輯。</p>
 
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20180824/201111770XolTRJGtw.png" alt="https://ithelp.ithome.com.tw/upload/images/20180824/201111770XolTRJGtw.png" /></p>
 
 <p>來改一下簡單的Hello World Style程式碼：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</span>
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
   <span class="nt">&lt;/head&gt;</span>
@@ -94,63 +99,74 @@ https://tingtinghsu.github.io/jekyll/update/2018/08/25/github_jekyll_blog.html</
 <p>如果新手想先跳過git指令本機端的圖形介面編輯器，可以下載<a href="https://desktop.github.com/">Github桌面版</a> 。</p>
 
 <p>好囉！來網址列試試看自己的blog<em>陽春</em>首頁會不會出現?</p>
+
 <blockquote>
-  <p>http://tingtinghsu.github.io/</p>
+  <p><a href="http://tingtinghsu.github.io/">http://tingtinghsu.github.io/</a></p>
 </blockquote>
 
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20180824/20111177CSwxXlpA2v.png" alt="https://ithelp.ithome.com.tw/upload/images/20180824/20111177CSwxXlpA2v.png" /></p>
 
 <p>成功！</p>
 
-<h2 id="c在本機上裝jekyll">C.在本機上裝Jekyll</h2>
-<p><a href="http://jekyllcn.com/docs/posts/">Jekyll</a></p>
+<h1 id="c在本機上裝jekyll">C.在本機上裝Jekyll</h1>
 
-<p>Jekyll是base on ruby開發的部落格網站生成器，需要的版本要ruby2.0以上。
-在termimal輸入ruby -v確定一下版本：
-<img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177OspMdSGx4z.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177OspMdSGx4z.png" /></p>
+<p><a href="http://jekyllcn.com/docs/posts/">Jekyll</a> 是base on ruby開發的部落格網站生成器，需要的版本要ruby2.0以上。
+在termimal輸入ruby -v確定一下版本：</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177OspMdSGx4z.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177OspMdSGx4z.png" /></p>
 
 <p>Ruby版本沒問題，就可以輸入指令在本地安裝Jekyll</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>jekyll
 </code></pre></div></div>
 
 <p>建一個新資料夾寫Blog的指令:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new myblog
-cd myblog
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new myblog
+<span class="nb">cd </span>myblog
 </code></pre></div></div>
 
 <p>開啟Jekyll伺服器：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve
 </code></pre></div></div>
 
-<p>在網址列輸入http://localhost:4000/
+<p>在網址列輸入<a href="http://localhost:4000/">http://localhost:4000/</a>
 應該會出現這樣的畫面：
 <img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177JpBt2TiYL7.png" /></p>
 
 <p>接下我們就可以在本地端進行完修改網頁，再用git上傳。
-到你的網誌連結：http://tingtinghsu.github.io/
+到你的網誌連結：<a href="http://tingtinghsu.github.io/">http://tingtinghsu.github.io/</a>
 <img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177CyDdUoadop.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177CyDdUoadop.png" /></p>
 
 <p>就可以看到改好的頁面了～～</p>
 
-<p>[後記：]
-安裝Git這部分我卡住了一段時間，因為以前沒有相關的觀念。</p>
+<h1 id="後記">後記</h1>
+
+<p>安裝Git這部分我卡住了一段時間，因為以前沒有相關的觀念。</p>
 
 <p>感謝貓貓工程師教學：</p>
 
-<p>每次上傳前的好習慣是要輸入 <code class="highlighter-rouge">git status</code> ：先用git看看哪些資料夾還沒有merged</p>
+<ol>
+  <li>
+    <p>每次上傳前的好習慣是要輸入 <code class="highlighter-rouge">git status</code> ：先用git看看哪些資料夾還沒有merged。</p>
+  </li>
+  <li>
+    <p>如果出現了<code class="highlighter-rouge">Unmerged paths</code>，代表本地曾經新建過的新檔案，Github上還沒備份。</p>
+  </li>
+</ol>
 
-<p>如果出現了<code class="highlighter-rouge">Unmerged paths</code>，代表本地曾經新建過的新檔案，Github上還沒備份:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  (use "git add &lt;file&gt;..." to mark resolution)
+<pre><code class="language-bash">  (use "git add &lt;file&gt;..." to mark resolution)
 
         added by them:   _posts/2018-08-24-my_first_jekyll_page.markdown
         both modified:   _site/feed.xml
         both modified:   _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
-</code></pre></div></div>
+</code></pre>
 
 <p><code class="highlighter-rouge">git add .</code>:把所有更改過的所有網頁加入暫存變更
 如果只要加入某個特定網頁，就在<code class="highlighter-rouge">git add</code>後加上網頁路徑</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add _site/jekyll/update/2018/08/24/my_first_jekyll_page.html
 </code></pre></div></div>
 
 <p><code class="highlighter-rouge">git status</code>: 確定一下剛剛是否已經存入暫存變更
@@ -164,7 +180,6 @@ cd myblog
 <img src="https://ithelp.ithome.com.tw/upload/images/20180825/20111177xHVSTLH6hm.png" alt="https://ithelp.ithome.com.tw/upload/images/20180825/20111177xHVSTLH6hm.png" /></p>
 
 <p><code class="highlighter-rouge">git pull</code> ：如果和其他人協同作一個部落格/專案，有可能GitHub上的變更會比較新，此時要先Pull下來，再push上去，才會確保是最新版本喔！</p>
-
 
   </div><a class="u-url" href="/jekyll/2018/08/25/github_jekyll_blog.html" hidden></a>
 </article>

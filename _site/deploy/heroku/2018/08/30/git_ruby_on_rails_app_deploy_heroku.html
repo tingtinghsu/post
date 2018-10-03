@@ -54,7 +54,7 @@
 
 <p>以下以我在前篇文章寫的Ruby on Rails專案為例：</p>
 
-<h2 id="step1-getting-started-on-heroku-with-ruby">Step.1 Getting started on Heroku with Ruby</h2>
+<h1 id="step1-getting-started-on-heroku-with-ruby">Step.1 Getting started on Heroku with Ruby</h1>
 
 <p>二話不說，我們先到<a href="https://signup.heroku.com/">Heroku</a>的申請頁面用好自己的帳號，然後進入後台選擇Ruby程式語言，按下create new app：</p>
 
@@ -64,41 +64,47 @@
 
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/201111778UZsgHQjRc.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/201111778UZsgHQjRc.png" /></p>
 
-<h3 id="a在terminal確定ruby版本ruby--v">A.在Terminal確定Ruby版本：<code class="highlighter-rouge">ruby -v</code></h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:~ tingtinghsu$ ruby -v
-ruby 2.4.2p198 (2017-09-14 revision 59899) [x86_64-darwin17]
+<h2 id="a在terminal確定ruby版本ruby--v">A.在Terminal確定Ruby版本：<code class="highlighter-rouge">ruby -v</code></h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:~ tingtinghsu<span class="nv">$ </span>ruby <span class="nt">-v</span>
+ruby 2.4.2p198 <span class="o">(</span>2017-09-14 revision 59899<span class="o">)</span> <span class="o">[</span>x86_64-darwin17]
 </code></pre></div></div>
 
-<h3 id="b安裝bundler輸入-gem-install-bundler">B.安裝bundler：輸入 <code class="highlighter-rouge">gem install bundler</code></h3>
+<h2 id="b安裝bundler輸入-gem-install-bundler">B.安裝bundler：輸入 <code class="highlighter-rouge">gem install bundler</code></h2>
+
 <p>在Ruby世界裡，</p>
-<blockquote>
-  <p>Gem代表套件，是各種打包好的程式碼，讓開發效率更加速，節省工程師的寶貴時間。*</p>
-</blockquote>
 
-<blockquote>
-  <p>而<a href="http://gembundler.com/">Bundler</a> 是管理Gem相依性(dependencies)的工具，解決不同套件之間的依存關係，避免因為版本問題而產生衝突。*</p>
-</blockquote>
+<ul>
+  <li>
+    <p>Gem代表套件，是各種打包好的程式碼，讓開發效率更加速，節省工程師的寶貴時間。*</p>
+  </li>
+  <li>
+    <p>而<a href="http://gembundler.com/">Bundler</a> 是管理Gem相依性(dependencies)的工具，解決不同套件之間的依存關係，避免因為版本問題而產生衝突。*</p>
+  </li>
+</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:~ tingtinghsu$ gem install bundler
-Fetching: bundler-1.16.4.gem (100%)
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:~ tingtinghsu<span class="nv">$ </span>gem <span class="nb">install </span>bundler
+Fetching: bundler-1.16.4.gem <span class="o">(</span>100%<span class="o">)</span>
 Successfully installed bundler-1.16.4
-Parsing documentation for bundler-1.16.4
-Installing ri documentation for bundler-1.16.4
-Done installing documentation for bundler after 8 seconds
+Parsing documentation <span class="k">for </span>bundler-1.16.4
+Installing ri documentation <span class="k">for </span>bundler-1.16.4
+Done installing documentation <span class="k">for </span>bundler after 8 seconds
 1 gem installed
 </code></pre></div></div>
+
 <p>可以看到指令已經自動幫我裝好了<code class="highlighter-rouge">bundler-1.16.4.gem</code></p>
 
-<h3 id="c-安裝git">C. 安裝Git</h3>
+<h2 id="c-安裝git">C. 安裝Git</h2>
+
 <p>如果你的還沒有裝Git版本控制系統的話，Heroku教學文件也附上<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git官網安裝連結</a>。</p>
 
 <p>以上的步驟對接下來故事的發展很重要喔！</p>
 
-<h2 id="step2-在你的os設定heroku-cl介面">Step2. 在你的OS設定Heroku CL介面</h2>
+<h1 id="step2-在os設定heroku-cl介面">Step2. 在OS設定Heroku CL介面</h1>
 
 <p>接下來進入<a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up">Set Up</a>頁面照著步驟進行：</p>
 
-<h3 id="a-用homebrew安裝command-line介面">A. 用Homebrew安裝Command Line介面</h3>
+<h2 id="a-用homebrew安裝command-line介面">A. 用Homebrew安裝Command Line介面</h2>
 
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/20111177Hf2UtpKlcw.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/20111177Hf2UtpKlcw.png" /></p>
 
@@ -110,10 +116,12 @@ Done installing documentation for bundler after 8 seconds
 </blockquote>
 
 <p>來看看自己以前是否有裝過（<del>因為很有實驗精神的我很愛亂碰一些東西</del>）：<code class="highlighter-rouge">brew -v</code></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:~ tingtinghsu$ brew -v
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:~ tingtinghsu<span class="nv">$ </span>brew <span class="nt">-v</span>
 Homebrew 1.4.0
-Homebrew/homebrew-core (git revision fc09; last commit 2017-12-12)
+Homebrew/homebrew-core <span class="o">(</span>git revision fc09<span class="p">;</span> last commit 2017-12-12<span class="o">)</span>
 </code></pre></div></div>
+
 <p>記錄顯示一年前有玩弄過～
 果然今年開始養成寫筆記的好習慣是正確的，不然做過什麼有趣的事都忘記了，就很可惜呢。：）</p>
 
@@ -129,21 +137,22 @@ Homebrew/homebrew-core (git revision fc09; last commit 2017-12-12)
   </blockquote>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:~ tingtinghsu$ brew update
-Updated 1 tap (heroku/brew).
-==&gt; Updated Formulae
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:~ tingtinghsu<span class="nv">$ </span>brew update
+Updated 1 tap <span class="o">(</span>heroku/brew<span class="o">)</span><span class="nb">.</span>
+<span class="o">==&gt;</span> Updated Formulae
 heroku/brew/heroku ✔
-tingdeMacBook-Air:~ tingtinghsu$ brew -v
+tingdeMacBook-Air:~ tingtinghsu<span class="nv">$ </span>brew <span class="nt">-v</span>
 Homebrew 1.7.2
-Homebrew/homebrew-core (git revision 14e75; last commit 2018-08-30)
+Homebrew/homebrew-core <span class="o">(</span>git revision 14e75<span class="p">;</span> last commit 2018-08-30<span class="o">)</span>
 </code></pre></div></div>
 
-<h3 id="b-正式進入heroku-command-line">B. 正式進入Heroku Command Line</h3>
+<h2 id="b-正式進入heroku-command-line">B. 正式進入Heroku Command Line</h2>
 
 <p>關於部署Deploy，參考<a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#deploy-the-app">教學文件</a>，首先移動到你專案的路徑位置：（我的以yelpdemo資料夾為例）。</p>
 
 <p>輸入指令<code class="highlighter-rouge">heroku login</code>，然後輸入你的heroku帳號密碼：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku login
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>heroku login
 Enter your Heroku credentials.
 Email: user@example.com
 
@@ -155,99 +164,107 @@ Password:
 
 <p>以上顯示我已經在Heroku上開一台伺服器，Heroku隨機分配的名稱叫做<code class="highlighter-rouge">dry-sea-32555</code>，
 用<code class="highlighter-rouge">git remote -v</code>指令確認一下git在heroku遠端的節點：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu$ git remote -v
-heroku	https://git.heroku.com/dry-sea-32555.git (fetch)
-heroku	https://git.heroku.com/dry-sea-32555.git (push)
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>git remote <span class="nt">-v</span>
+heroku https://git.heroku.com/dry-sea-32555.git <span class="o">(</span>fetch<span class="o">)</span>
+heroku https://git.heroku.com/dry-sea-32555.git <span class="o">(</span>push<span class="o">)</span>
 </code></pre></div></div>
 
 <p>如果你想把網址改成好記一點的，可以輸入<code class="highlighter-rouge">heroku rename</code>+你喜歡的名稱：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu$ heroku rename tingsrailsdemo
-Renaming dry-sea-32555 to tingsrailsdemo... done
-https://tingsrailsdemo.herokuapp.com/ | https://git.heroku.com/tingsrailsdemo.git
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>heroku rename tingsrailsdemo
+Renaming dry-sea-32555 to tingsrailsdemo... <span class="k">done
+</span>https://tingsrailsdemo.herokuapp.com/ | https://git.heroku.com/tingsrailsdemo.git
 Git remote heroku updated
 </code></pre></div></div>
-<blockquote>
-  <p>接著去改完名的這個網址瞧瞧：</p>
-</blockquote>
+
+<p>接著去改完名的這個網址瞧瞧：</p>
 
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/20111177e6h39ERIxI.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/20111177e6h39ERIxI.png" />
 太好了，伺服器完工！</p>
 
-<h2 id="step3-getting-started-on-heroku-with-rails">Step3. Getting started on Heroku with Rails</h2>
+<h1 id="step3-getting-started-on-heroku-with-rails">Step3. Getting started on Heroku with Rails</h1>
 
 <p>重頭戲「利用指令部署專案至Heroku」開始上場！
 以下紀錄在把Ruby on Rail專案往Heroku上面推之前，記得到程式架構裡修改的步驟。</p>
 
-<h3 id="a-首先確定rails版本rails--v">A. 首先，確定Rails版本<code class="highlighter-rouge">rails -v</code>：</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu$ rails -v
+<h2 id="a-首先確定rails版本rails--v">A. 首先，確定Rails版本<code class="highlighter-rouge">rails -v</code>：</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>rails <span class="nt">-v</span>
 Rails 5.1.6
 </code></pre></div></div>
+
 <p>這時候一定要用力參考這篇如何設定Rails的<a href="https://devcenter.heroku.com/articles/getting-started-with-rails5">教學文件</a>Getting Started on Heroku with Rails 5.x，讓我們的程式碼可以順利在網際網路上運行。記得參考的Heroku文件必須搭配相應的rails版本，如果你的rails版本是4或更舊的版本，文件裡也有連結。</p>
 
-<h3 id="b-建立heroku-gem">B. 建立Heroku gem：</h3>
+<h2 id="b-建立heroku-gem">B. 建立Heroku gem：</h2>
+
 <p>還記得剛剛文章開頭我們聊過打包好的程式碼gem（套件），這時馬上是個練習的好機會。
-Horoku高度推薦我們開發專案所使用的資料庫是Postgresql：</p>
-<blockquote>
-  <p>If you’re using an existing app that was created without specifying –database=postgresql, you need to add the pg gem to your Rails project. 
+Horoku高度推薦我們開發專案所使用的資料庫是Postgresql</p>
+
+<p>If you’re using an existing app that was created without specifying –database=postgresql, you need to add the pg gem to your Rails project.
 Edit your Gemfile and change this line:<code class="highlighter-rouge">gem 'sqlite3'</code>To this:<code class="highlighter-rouge">gem 'pg'</code></p>
-</blockquote>
 
 <p>所以現在來到我的本地資料夾裡的gem file，新增一個gem叫做’pg’</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~&gt; 5.1.6'
-#gem 'sqlite3'             #database for Active Record
-gem 'pg'                   #在這個地方新增Postgresql gem
-gem 'puma', '~&gt; 3.7'       #app server
-gem 'sass-rails', '~&gt; 5.0' #stylesheets
-gem 'uglifier', '&gt;= 1.3.0' #compressor for JavaScript assets
-gem 'coffee-rails', '~&gt; 4.2' #.coffee assets and views
-gem 'turbolinks', '~&gt; 5' #navigate your web application faster
-gem 'jbuilder', '~&gt; 2.5' #Build JSON APIs
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+
+<span class="n">git_source</span><span class="p">(</span><span class="ss">:github</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">repo_name</span><span class="o">|</span>
+  <span class="n">repo_name</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">"</span> <span class="k">unless</span> <span class="n">repo_name</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+  <span class="s2">"https://github.com/</span><span class="si">#{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">.git"</span>
+<span class="k">end</span>
+<span class="c1"># Bundle edge Rails instead: gem 'rails', github: 'rails/rails'</span>
+<span class="n">gem</span> <span class="s1">'rails'</span><span class="p">,</span> <span class="s1">'~&gt; 5.1.6'</span>
+<span class="c1">#gem 'sqlite3'             #database for Active Record</span>
+<span class="n">gem</span> <span class="s1">'pg'</span>                   <span class="c1">#在這個地方新增Postgresql gem</span>
+<span class="n">gem</span> <span class="s1">'puma'</span><span class="p">,</span> <span class="s1">'~&gt; 3.7'</span>       <span class="c1">#app server</span>
+<span class="n">gem</span> <span class="s1">'sass-rails'</span><span class="p">,</span> <span class="s1">'~&gt; 5.0'</span> <span class="c1">#stylesheets</span>
+<span class="n">gem</span> <span class="s1">'uglifier'</span><span class="p">,</span> <span class="s1">'&gt;= 1.3.0'</span> <span class="c1">#compressor for JavaScript assets</span>
+<span class="n">gem</span> <span class="s1">'coffee-rails'</span><span class="p">,</span> <span class="s1">'~&gt; 4.2'</span> <span class="c1">#.coffee assets and views</span>
+<span class="n">gem</span> <span class="s1">'turbolinks'</span><span class="p">,</span> <span class="s1">'~&gt; 5'</span> <span class="c1">#navigate your web application faster</span>
+<span class="n">gem</span> <span class="s1">'jbuilder'</span><span class="p">,</span> <span class="s1">'~&gt; 2.5'</span> <span class="c1">#Build JSON APIs</span>
 
 </code></pre></div></div>
 
-<h3 id="c-利用bundle確認套件版本之間的相依性沒有衝突">C. 利用<code class="highlighter-rouge">bundle</code>確認套件版本之間的相依性沒有衝突。</h3>
+<h2 id="c-利用bundle確認套件版本之間的相依性沒有衝突">C. 利用<code class="highlighter-rouge">bundle</code>確認套件版本之間的相依性沒有衝突。</h2>
+
 <p>如同本文開頭所提到的，這個步驟很重要。
 記得，只要改過任何gemfile，就要再跑過<code class="highlighter-rouge">bundle install</code>指令，確認相依性：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching gem metadata from https://rubygems.org/.........
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching gem metadata from https://rubygems.org/.........
 Fetching gem metadata from https://rubygems.org/.
 Resolving dependencies...
 </code></pre></div></div>
+
 <p>bundler很乖地幫我們查找到了一個，這就是剛剛修改的Pg套件：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching pg 1.1.2
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching pg 1.1.2
 Installing pg 1.1.2 with native extensions
 ...
-Bundle complete! 16 Gemfile dependencies, 70 gems now installed.
-Use `bundle info [gemname]` to see where a bundled gem is installed.
+Bundle <span class="nb">complete</span><span class="o">!</span> 16 Gemfile dependencies, 70 gems now installed.
+Use <span class="sb">`</span>bundle info <span class="o">[</span>gemname]<span class="sb">`</span> to see where a bundled gem is installed.
 </code></pre></div></div>
 
 <p>每次頭一回安裝一個新套件，還跟它不熟時，
 你可以輸入<code class="highlighter-rouge">bundle info +套件名稱</code>深入了解詳細資料，增強自己的印象，以及對技術的近一步認識（以免裝過什麼gem玩意都很容易失憶啊）：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu$ bundle info pg
-  * pg (1.1.2)
-	Summary: Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/]
-	Homepage: https://bitbucket.org/ged/ruby-pg
-	Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/pg-1.1.2
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>bundle info pg
+  <span class="k">*</span> pg <span class="o">(</span>1.1.2<span class="o">)</span>
+  Summary: Pg is the Ruby interface to the <span class="o">{</span>PostgreSQL RDBMS<span class="o">}[</span>http://www.postgresql.org/]
+  Homepage: https://bitbucket.org/ged/ruby-pg
+  Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/pg-1.1.2
 </code></pre></div></div>
 
-<h3 id="d-利用git指令部署專案至herokugit-push-heroku-master">D. 利用git指令，部署專案至Heroku：<code class="highlighter-rouge">git push heroku master</code></h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu$ git push heroku master
-Counting objects: 129, done.
+<h2 id="d-利用git指令部署專案至herokugit-push-heroku-master">D. 利用git指令，部署專案至Heroku：<code class="highlighter-rouge">git push heroku master</code></h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>git push heroku master
+Counting objects: 129, <span class="k">done</span><span class="nb">.</span>
 Delta compression using up to 4 threads.
-Compressing objects: 100% (112/112), done.
-Writing objects: 100% (129/129), 28.60 KiB | 0 bytes/s, done.
-Total 129 (delta 9), reused 105 (delta 3)
+Compressing objects: 100% <span class="o">(</span>112/112<span class="o">)</span>, <span class="k">done</span><span class="nb">.</span>
+Writing objects: 100% <span class="o">(</span>129/129<span class="o">)</span>, 28.60 KiB | 0 bytes/s, <span class="k">done</span><span class="nb">.</span>
+Total 129 <span class="o">(</span>delta 9<span class="o">)</span>, reused 105 <span class="o">(</span>delta 3<span class="o">)</span>
 ...
 To https://git.heroku.com/tingsrailsdemo.git
- * [new branch]      master -&gt; master
+ <span class="k">*</span> <span class="o">[</span>new branch]      master -&gt; master
 </code></pre></div></div>
 
 <p>好了！既然推上去了，就跑去Heroku網站看一眼長什麼樣子：</p>
@@ -260,6 +277,7 @@ To https://git.heroku.com/tingsrailsdemo.git
 
 <p>為了解決剛剛的問題，在這裡解釋：
 Rails的環境分成三種</p>
+
 <ol>
   <li><code class="highlighter-rouge">development</code>開發模式，</li>
   <li><code class="highlighter-rouge">test</code>測試模式，和</li>
@@ -268,12 +286,12 @@ Rails的環境分成三種</p>
 
 <p>這個指令的意思，每次更改資料庫時，記得最後要在Heroku（產品正式上線模式）跑migration。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu$ heroku run rake db:migrate
-Running rake db:migrate on ⬢ tingsrailsdemo... up, run.3211 (Free)
-================================
--- create_table(:restaurants)
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>heroku run rake db:migrate
+Running rake db:migrate on ⬢ tingsrailsdemo... up, run.3211 <span class="o">(</span>Free<span class="o">)</span>
+<span class="o">================================</span>
+<span class="nt">--</span> create_table<span class="o">(</span>:restaurants<span class="o">)</span>
    -&gt; 0.0102s
-== 20180823054504 CreateRestaurants: migrated (0.0107s) =======================
+<span class="o">==</span> 20180823054504 CreateRestaurants: migrated <span class="o">(</span>0.0107s<span class="o">)</span> <span class="o">======================</span>
 </code></pre></div></div>
 
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/20111177BDlMFwsD86.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/20111177BDlMFwsD86.png" /></p>
@@ -286,7 +304,6 @@ Running rake db:migrate on ⬢ tingsrailsdemo... up, run.3211 (Free)
 
 <p>Ref:
 <a href="https://ithelp.ithome.com.tw/articles/10189021">龍哥的部落格</a></p>
-
 
   </div><a class="u-url" href="/deploy/heroku/2018/08/30/git_ruby_on_rails_app_deploy_heroku.html" hidden></a>
 </article>

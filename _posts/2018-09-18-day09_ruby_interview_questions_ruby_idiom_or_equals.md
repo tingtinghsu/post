@@ -2,7 +2,7 @@
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day09 Ruby的 a ||= b (or-equals)是什麼意思呢? "
 date:   2018-09-18 09:18:00 +1000
-categories: ruby rails interview junior
+categories: ruby interview
 ---
 前情提要:
 

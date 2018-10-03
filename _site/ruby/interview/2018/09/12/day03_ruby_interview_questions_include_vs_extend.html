@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend | Ting’s Square.</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="前情提要" />
+<meta property="og:description" content="前情提要" />
+<link rel="canonical" href="http://localhost:4000/ruby/interview/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/interview/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" />
+<meta property="og:site_name" content="Ting’s Square." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-09-12T09:00:00+10:00" />
+<script type="application/ld+json">
+{"description":"前情提要","@type":"BlogPosting","url":"http://localhost:4000/ruby/interview/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html","headline":"30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend","dateModified":"2018-09-12T09:00:00+10:00","datePublished":"2018-09-12T09:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/interview/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ting&#39;s Square.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day03 Module模組: include與extend</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-09-12T09:00:00+10:00" itemprop="datePublished">Sep 12, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="前情提要">前情提要</h1>
+
+<p>在第一天裡，我們很激昂地用Ruby的<code class="highlighter-rouge">類別</code>、<code class="highlighter-rouge">物件</code>、<code class="highlighter-rouge">方法</code>，寫了開賽宣言！
+在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>超級比一比</th>
+      <th>類別 Class</th>
+      <th>模組 Module</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>父類別 superclass</td>
+      <td>模組 Module</td>
+      <td>物件 Object</td>
+    </tr>
+    <tr>
+      <td>繼承 inheritance</td>
+      <td><em>可繼承</em></td>
+      <td>不可繼承</td>
+    </tr>
+    <tr>
+      <td>包含 inclusion</td>
+      <td>不可被包含</td>
+      <td>*可被包含**</td>
+    </tr>
+    <tr>
+      <td>延伸 extension</td>
+      <td>不可延伸</td>
+      <td>*可被延伸**</td>
+    </tr>
+    <tr>
+      <td>實例化 instantiation</td>
+      <td>可被實例化(instantiated)</td>
+      <td>不可被實例化</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>所以在第三天的文章裡，進一步研究module中的inclusion和extension是必須的！</p>
+
+<hr />
+
+<h1 id="ruby經典面試題目-03">Ruby經典面試題目 #03</h1>
+
+<p><code class="highlighter-rouge">包含與延伸有什麼不同? What's the Difference Between Include and Extend?</code></p>
+
+<p>還記得我們昨天舉的例子：網路圖書館（模組）有很多知識（方法）讓我們取用（include），讓你與我都能夠突破先天(繼承)的限制，變成更加聰明靈活的IT人。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Library</span>
+  <span class="k">def</span> <span class="nf">IThelp</span>
+    <span class="nb">p</span> <span class="s2">"I'm learning from others' IT articles on IThelp Website!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">EveryoneLearnsRuby</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+  <span class="kp">include</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="no">Ting</span> <span class="o">=</span> <span class="no">EveryoneLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Ting"</span><span class="p">)</span>
+<span class="no">Ting</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="no">You</span> <span class="o">=</span> <span class="no">EveryoneLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"You"</span><span class="p">)</span>
+<span class="no">You</span><span class="o">.</span> <span class="no">IThlep</span>
+</code></pre></div></div>
+
+<p>當然，使用類別(class)繼承也有它的好處，</p>
+
+<p>例如：在已有的功能基礎上，再追加擴展本身已有功能。
+（龍生龍、鳳生鳳；老鼠生的兒子會打洞！）</p>
+
+<p>或是以相同名稱的方法，重新定義，產生不同的效果。
+（王老先生有塊地，<del>那王小弟長大後可以把王老先生的那塊地拿去蓋民宿</del>。）</p>
+
+<p>但模組(module)的include就像開外掛一樣，讓我們可以在這個星球上學會更多技能。</p>
+
+<p>為了比較include與extend，我們把圖書館模組來稍加改寫：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Library</span>
+  <span class="k">def</span> <span class="nf">IThelp</span>
+    <span class="nb">p</span> <span class="s2">"IThelp helps me!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">NewbieLearnsRuby</span>
+  <span class="kp">include</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="no">NewbieLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1">#IThelp helps me!</span>
+
+<span class="no">NewbieLearnsRuby</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1">#NoMethodError</span>
+</code></pre></div></div>
+
+<p>如果我們把<code class="highlighter-rouge">NewbieLearnsRuby.new.IThelp</code>誤寫成<code class="highlighter-rouge">NewbieLearnsRuby.IThelp</code>，就會出現錯誤。</p>
+<blockquote>
+  <p>undefined method `IThelp’ for NewbieLearnsRuby:Class (NoMethodError)</p>
+</blockquote>
+
+<p>奇怪，為什麼會這樣呢？</p>
+
+<p>我們回到改寫前的圖書館例子：我先宣告(new)一個新物件You，
+讓「You」這個變數名字指向<code class="highlighter-rouge">EveryoneLearnsRuby.new("You")</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">You</span> <span class="o">=</span> <span class="no">EveryoneLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"You"</span><span class="p">)</span>
+<span class="no">You</span><span class="o">.</span><span class="no">IThlep</span>
+</code></pre></div></div>
+
+<p>所以剛剛的<code class="highlighter-rouge">NewbieLearnsRuby.new.IThelp</code>其實是以下的簡化：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">You</span> <span class="o">=</span> <span class="no">NewbieLearnsRuby</span><span class="p">.</span><span class="nf">new</span>
+<span class="no">You</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># [NewbieLearnsRuby.new].IThelp [中括號內的變數就是You!]</span>
+</code></pre></div></div>
+
+<p>這就是我們為什麼不能漏掉<code class="highlighter-rouge">.new</code>的原因。</p>
+
+<p>那，如果改寫成extend的程式碼，會是怎樣的光景呢？</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Library</span>
+  <span class="k">def</span> <span class="nf">IThelp</span>
+    <span class="nb">p</span> <span class="s2">"IThelp helps me!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">NewbieLearnsRuby</span>
+  <span class="kp">include</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">ExtendRuby</span>
+  <span class="kp">extend</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="no">NewbieLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># IThelp helps me!</span>
+
+<span class="no">ExtendRuby</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># IThelp helps me!</span>
+</code></pre></div></div>
+
+<p>由以上可知，<code class="highlighter-rouge">include</code>代表Newbie類別學Ruby時需要new一個新的物件實體，然後才能使用方法。
+但<code class="highlighter-rouge">extend</code>不用，在類別中使用它可以讓我們直接把方法拿過來用。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ExtendRuby</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># IThelp helps me!</span>
+
+<span class="no">ExtendRuby</span><span class="p">.</span><span class="nf">new</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># NoMethodError</span>
+</code></pre></div></div>
+
+<p>同樣的，想進一步了解為什麼輸入<code class="highlighter-rouge">ExtendRuby.new.IThelp</code>也是<code class="highlighter-rouge">NoMethodError</code>。接下來我們要拿關鍵字 <code class="highlighter-rouge">the difference between include and extend in ruby</code>去請教Google大神：</p>
+
+<blockquote>
+  <p>Now that we know the difference between an instance method and a class method, let’s cover the difference between include and extend in regards to modules. Include is for adding methods to an instance of a class and extend is for adding class methods. <a href="http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/">出處</a></p>
+</blockquote>
+
+<p>為了抽絲剝繭這段話的含義，這裡的<code class="highlighter-rouge">實體方法instance method</code>和<code class="highlighter-rouge">類別方法class method</code>將會成為我們下一篇文章的重點囉！</p>
+
+<h1 id="第三天感想">第三天感想</h1>
+
+<p>寫文章真的很有趣！當我寫出<code class="highlighter-rouge">NewbieLearnsRuby</code>這種名稱的class，就彷彿自己像寫一本武俠小說一樣，盡情地創造準備開始練功的新人物、新主角，。</p>
+
+<p>身為新手工程師，螢幕是我們的畫布～鍵盤上的各個中英文字、數值、符號就是我們的顏料，
+享受寫程式 + 寫文章的過程，願我們都可以在人生畫布上，揮灑、創造自己的新世界！</p>
+
+<p><img src="https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/IThelps.png" alt="https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/IThelps.png" /></p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a></li>
+  <li><a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a></li>
+  <li><a href="http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/">Include vs Extend in Ruby</a></li>
+  <li><a href="https://stackoverflow.com/questions/156362/what-is-the-difference-between-include-and-extend-in-ruby">What is the difference between include and extend in Ruby?</a></li>
+</ul>
+
+  </div><a class="u-url" href="/ruby/interview/2018/09/12/day03_ruby_interview_questions_include_vs_extend.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ting&#39;s Square.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ting&#39;s Square.</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tingtinghsu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tingtinghsu</span></a></li><li><a href="https://www.twitter.com/tingtingtour"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tingtingtour</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Copyright Ting Ting Hsu</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

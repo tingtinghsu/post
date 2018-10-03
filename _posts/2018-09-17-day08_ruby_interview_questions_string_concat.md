@@ -2,7 +2,7 @@
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day08 Sting的concat串接"
 date:   2018-09-17 09:18:00 +1000
-categories: ruby rails interview junior
+categories: ruby interview
 ---
 前情提要:
 

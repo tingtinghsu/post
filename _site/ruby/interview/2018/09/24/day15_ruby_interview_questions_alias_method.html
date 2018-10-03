@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>30天修煉Ruby面試精選30題 - Day15 alias 和 alias_method 比較 | Ting’s Square.</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day15 alias 和 alias_method 比較" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="昨天的文章在研究map和collect的時候，有一句話提到map是collect的別名 (map is an alias for collect)。除了讓我學到alias這個英文單字之外，也意外發現，ruby裡面還有alias方法！今天就來研究alias吧～" />
+<meta property="og:description" content="昨天的文章在研究map和collect的時候，有一句話提到map是collect的別名 (map is an alias for collect)。除了讓我學到alias這個英文單字之外，也意外發現，ruby裡面還有alias方法！今天就來研究alias吧～" />
+<link rel="canonical" href="http://localhost:4000/ruby/interview/2018/09/24/day15_ruby_interview_questions_alias_method.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/interview/2018/09/24/day15_ruby_interview_questions_alias_method.html" />
+<meta property="og:site_name" content="Ting’s Square." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-09-24T08:56:00+10:00" />
+<script type="application/ld+json">
+{"description":"昨天的文章在研究map和collect的時候，有\b一句話提到map是collect的別名 (map is an alias for collect)。除了讓我學到alias這\b個英文單字之外，也意外發現，ruby裡面還有alias方法！今天就來研究alias吧～","@type":"BlogPosting","url":"http://localhost:4000/ruby/interview/2018/09/24/day15_ruby_interview_questions_alias_method.html","headline":"30天修煉Ruby面試精選30題 - Day15 alias 和 alias_method 比較","dateModified":"2018-09-24T08:56:00+10:00","datePublished":"2018-09-24T08:56:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/interview/2018/09/24/day15_ruby_interview_questions_alias_method.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ting&#39;s Square.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day15 alias 和 alias_method 比較</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-09-24T08:56:00+10:00" itemprop="datePublished">Sep 24, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>昨天的文章在研究map和collect的時候，有一句話提到map是collect的別名 (map is an alias for collect)。除了讓我學到alias這個英文單字之外，也意外發現，ruby裡面還有alias方法！今天就來研究alias吧～</p>
+
+<hr />
+
+<h1 id="ruby經典面試題目-15">Ruby經典面試題目 #15</h1>
+
+<p><code class="highlighter-rouge">Day15 alias 和 alias_method比較? What's the difference between alias和 alias_method?</code></p>
+
+<h2 id="alias">alias</h2>
+
+<p>幾年前我曾經認養寵物-兩隻可愛的虎斑貓，還記得剛開始認養的時候非常興奮，當時最重要的步驟就是幫可愛的毛小孩取名了！所以我想用程式碼紀念一下當初的過程。
+為了命名第一隻貓（一隻底色為白色的虎斑貓），首先我建立Pet類別，定義first_name方法，且此方法的<code class="highlighter-rouge">alias</code>別名是<code class="highlighter-rouge">name</code>（新的別名要放在舊的名稱前面）：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pet</span>
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="nb">p</span> <span class="s2">"Mac"</span>
+  <span class="k">end</span>
+
+  <span class="k">alias</span> <span class="nb">name</span> <span class="n">first_name</span> <span class="c1">#Method之間不需要放","逗號</span>
+<span class="k">end</span>
+
+<span class="no">Pet</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; Mac</span>
+</code></pre></div></div>
+
+<p>結果印出：Mac。這是我家寵物的名字。</p>
+
+<h2 id="alias_method">alias_method</h2>
+
+<p>如果利用<code class="highlighter-rouge">alias_method</code>寫法也是可以的，只要把name方法前面加上<code class="highlighter-rouge">:冒號</code>，變成<code class="highlighter-rouge">Symbol</code>符號的寫法：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pet</span>
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="nb">p</span> <span class="s2">"Mac"</span>
+  <span class="k">end</span>
+
+  <span class="kp">alias_method</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:first_name</span> <span class="c1">#Symbol之間要加","逗號</span>
+<span class="k">end</span>
+
+<span class="no">Pet</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; Mac</span>
+</code></pre></div></div>
+
+<p>用<code class="highlighter-rouge">alias_method</code>的優點是可以作用在繼承的類別，來看看例子🌰：</p>
+
+<p>我家的Mac是一隻調皮的小公貓，有另外一個綽號叫做“麥少爺”。所以我寫了一個類別<code class="highlighter-rouge">Cat</code>繼承自<code class="highlighter-rouge">Pet</code>。在<code class="highlighter-rouge">Cat</code>類別和<code class="highlighter-rouge">Pet類別</code>下都有同名的方法<code class="highlighter-rouge">first_name</code>。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pet</span>
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="nb">p</span> <span class="s2">"Mac"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">nickname</span>
+    <span class="kp">alias_method</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:first_name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Pet</span>
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="nb">p</span> <span class="s2">"麥少爺"</span>
+  <span class="k">end</span>
+  <span class="n">nickname</span>
+<span class="k">end</span>
+
+<span class="no">Cat</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; "麥少爺"</span>
+</code></pre></div></div>
+
+<p>當我們用<code class="highlighter-rouge">Cat.new.name</code>產生一個新物件，程式會走一遍<code class="highlighter-rouge">Cat</code>類別，到了<code class="highlighter-rouge">nickname</code>這個方法，會跑去繼承父類別<code class="highlighter-rouge">Pet</code>的<code class="highlighter-rouge">self.nickname</code>方法。</p>
+
+<p>尋找到<code class="highlighter-rouge">alias_method</code>之後，呼叫<code class="highlighter-rouge">name</code>別名的舊名<code class="highlighter-rouge">:cat_name</code>，再回來<code class="highlighter-rouge">Cat</code>類別跑完執行<code class="highlighter-rouge">first_name</code>方法。</p>
+
+<p>此時Mac的花名出現啦！叫做<code class="highlighter-rouge">麥少爺</code>。</p>
+
+<h2 id="alias_method與alias的不同">alias_method與alias的不同</h2>
+
+<p>如果把上述程式碼轉為<code class="highlighter-rouge">alias</code>試試看，幫我的第二隻貓：Dell設定綽號。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pet</span>
+  <span class="k">def</span> <span class="nf">second_name</span>
+    <span class="nb">p</span> <span class="s2">"Dell"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">nickname</span>
+    <span class="k">alias</span> <span class="nb">name</span> <span class="n">second_name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Pet</span>
+  <span class="k">def</span> <span class="nf">second_name</span>
+    <span class="nb">p</span> <span class="s2">"戴公子"</span>
+  <span class="k">end</span>
+  <span class="n">nickname</span>
+<span class="k">end</span>
+
+<span class="no">Cat</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; Dell</span>
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Cat.new.name</code> 呼叫<code class="highlighter-rouge">nickname</code>方法後，並沒有出現別名<code class="highlighter-rouge">戴公子</code>，名字仍為<code class="highlighter-rouge">Dell</code>。
+這是因為<code class="highlighter-rouge">alias</code>只會尋找其關鍵字存在的scope，在本案例裡是<code class="highlighter-rouge">Pet</code>類別裡面的<code class="highlighter-rouge">second_name</code>方法。</p>
+
+<p><code class="highlighter-rouge">alias_method</code>在Ruby on Rails專案很常使用，因為它可以幫我們把功能重複的方法、透過重新改寫方法名的過程，整合到一起。（未來熟悉Rails後會補上例子，敬請期待）</p>
+
+<p>透過這兩個為小貓取花名的舉例的比較，希望大家能夠更了解<code class="highlighter-rouge">alias</code>和<code class="highlighter-rouge">alias_method</code>的不同喔！</p>
+
+<p>比一比：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><a href="http://ruby-doc.org/stdlib-1.9.1/libdoc/rdoc/rdoc/RDoc/Alias.html">alias</a></th>
+      <th><a href="http://ruby-doc.org/core-2.1.5/Module.html#method-i-alias_method">alias_method</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>在libdoc之下的RDoc裡的關鍵字</td>
+      <td>屬於Module模組方法</td>
+    </tr>
+    <tr>
+      <td>只會作用在關鍵字所屬的scope</td>
+      <td>可以重新定義方法，較為彈性</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>===</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://ruby-china.org/topics/13272">一份Ruby面試題</a></li>
+  <li><a href="https://blog.bigbinary.com/2012/01/08/alias-vs-alias-method.html">alias vs alias_method</a></li>
+  <li><a href="https://ernie.io/2014/10/23/in-defense-of-alias/">In Defense of Alias</a></li>
+  <li><a href="https://stackoverflow.com/questions/4763121/should-i-use-alias-or-alias-method">Should I use alias or alias_method?</a></li>
+  <li><a href="https://wikimatze.de/method-alias-in-ruby/">Method alias in ruby</a></li>
+  <li><a href="http://ruby-doc.org/stdlib-1.9.1/libdoc/rdoc/rdoc/RDoc/Alias.html">Ruby-doc.org : alias</a></li>
+  <li><a href="http://ruby-doc.org/core-2.5.1/Module.html#method-i-alias_method">Ruby-doc.org : alias method</a></li>
+</ul>
+
+  </div><a class="u-url" href="/ruby/interview/2018/09/24/day15_ruby_interview_questions_alias_method.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ting&#39;s Square.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ting&#39;s Square.</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tingtinghsu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tingtinghsu</span></a></li><li><a href="https://www.twitter.com/tingtingtour"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tingtingtour</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Copyright Ting Ting Hsu</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

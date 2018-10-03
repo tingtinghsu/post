@@ -2,7 +2,7 @@
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day11 Ruby 的 block, proc, lamdba方法比較 "
 date:   2018-09-20 11:57:00 +1000
-categories: ruby rails interview junior
+categories: ruby interview
 ---
 前情提要:
 
@@ -359,7 +359,7 @@ Ref：
 
 * [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
 * [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
-* [方法與程式碼區塊（block](https://railsbook.tw/chapters/07-ruby-basic-3.html)
+* [方法與程式碼區塊（block)](https://railsbook.tw/chapters/07-ruby-basic-3.html)
 * [The Ultimate Guide to Blocks, Procs & Lambdas](http://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/)
 * [Ruby中的Proc/lambda](https://my.oschina.net/jsk/blog/540371)
 * [Ruby-Core](https://ruby-doc.com/core/index.html)

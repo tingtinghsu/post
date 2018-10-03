@@ -2,7 +2,7 @@
 layout: post
 title:  "活用套件carrierwave gem: (3)Deploy 圖片上傳功能到 Heroku網站"
 date:   2018-09-08 13:34:00 +1000
-categories: deploy heroku ruby rails gem
+categories: heroku rails gem
 ---
 前情提要：
 

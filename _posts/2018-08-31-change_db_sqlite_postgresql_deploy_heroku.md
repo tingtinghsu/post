@@ -2,7 +2,7 @@
 layout: post
 title:  "在部署到Heroku之前，將Rails專案從SQLite設定為PostgreSQL "
 date:   2018-08-31 10:31:00 +1000
-categories: deploy heroku sqlite postgreSQL
+categories: heroku sqlite postgreSQL
 ---
 前情提要：
 Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的[上一篇文章：將Ruby on Rails專案部署到Heroku](https://ithelp.ithome.com.tw/articles/10199014)遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！~~找到點子寫文章果然是遇到bug的最佳副產品~~

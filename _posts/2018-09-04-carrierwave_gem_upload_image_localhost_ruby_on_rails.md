@@ -2,7 +2,7 @@
 layout: post
 title:  "活用套件carrierwave gem: (1)在Rails實現圖片上傳功能"
 date:   2018-09-04 16:05:00 +1000
-categories: ruby rails gem carrierwave
+categories: rails gem carrierwave
 ---
 [carrierwave](https://github.com/carrierwaveuploader/carrierwave)是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。
 （預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host，

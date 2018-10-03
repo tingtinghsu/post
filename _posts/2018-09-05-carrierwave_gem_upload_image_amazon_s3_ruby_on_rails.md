@@ -2,7 +2,7 @@
 layout: post
 title:  "活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器"
 date:   2018-09-05 14:22:00 +1000
-categories: ruby rails gem AmazonS3
+categories: rails gem AmazonS3
 ---
 來到第7篇了！培養寫作習慣真是不容易：）
 

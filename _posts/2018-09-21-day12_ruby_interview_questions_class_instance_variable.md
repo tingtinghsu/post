@@ -2,7 +2,7 @@
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day12 千變萬化的變數: class variable 與 class instance variable 與 instance variable "
 date:   2018-09-21 08:57:00 +1000
-categories: ruby rails interview junior
+categories: ruby interview
 ---
 
 前情提要:
