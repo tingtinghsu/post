@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day17 Ruby裡的freeze和?frozen "
+title:  "30天修煉Ruby面試精選30題 - Day17 Ruby裡的freeze和frozen? "
 date:   2018-10-02 08:15:00 +1000
 categories: ruby rails interview junior
 ---
@@ -114,7 +114,7 @@ p frozen_array.map(&:frozen?) # =>[true, true, true]
 p frozen_array.each(&:frozen?) # doesn't work! print nothing.
 ```
 
-注意：如果改成`.each(&:frozen?)`是無效的。因為我們曾在[第14天]的文章提到，`.map`方法會幫我們產生新陣列、放入新值，在以上的例子是放入布林值`[[true, true, true]`。而`.each`不會產生新陣列。
+注意：如果改成`.each(&:frozen?)`是無效的。因為我們曾在[第14天]的文章提到，`.map`方法會幫我們產生新陣列、放入新值，在以上的例子是放入布林值`[true, true, true]`。而`.each`不會產生新陣列。
 
 # 使用freeze的效能
 
@@ -136,7 +136,7 @@ end
 70243150761140
 ```
 
-而如果我們並沒有用`.each(&:freeze)`方法，凍結陣列中的各個元素的話，
+而如果我們不使用`.each(&:freeze)`方法，凍結陣列中的各個元素的話，
 
 ```ruby
 frozen_array = %w(ice water steam)
