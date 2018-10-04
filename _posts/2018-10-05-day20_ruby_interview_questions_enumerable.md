@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉"
-date:   2018-10-04 10:58:00 +1000
+date:   2018-10-04 13:38:00 +1000
 categories: ruby interview
 ---
 
@@ -194,6 +194,7 @@ Output:
 天氣轉涼了，大家要注意保暖唷：）
 
 Ref:
+
 * [ruby-doc.org : Enumerable](http://ruby-doc.org/core-2.4.2/Enumerable.html)
 * [ruby-doc.org : Regexp](https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby)
 * [Enumerables](http://ruby.bastardsbook.com/chapters/enumerables/)

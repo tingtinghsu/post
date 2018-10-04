@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-04T13:35:01+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉</title><link href="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉" /><published>2018-10-04T10:58:00+10:00</published><updated>2018-10-04T10:58:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html">&lt;p&gt;哇嗚～竟然來到了鐵人賽2/3的里程盃了。可喜可賀，恭喜老爺，賀喜夫人！&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-04T15:49:03+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉</title><link href="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉" /><published>2018-10-04T13:38:00+10:00</published><updated>2018-10-04T13:38:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html">&lt;p&gt;哇嗚～竟然來到了鐵人賽2/3的里程盃了。可喜可賀，恭喜老爺，賀喜夫人！&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -177,6 +177,7 @@
 &lt;p&gt;天氣轉涼了，大家要注意保暖唷：）&lt;/p&gt;
 
 &lt;p&gt;Ref:&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://ruby-doc.org/core-2.4.2/Enumerable.html&quot;&gt;ruby-doc.org : Enumerable&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby&quot;&gt;ruby-doc.org : Regexp&lt;/a&gt;&lt;/li&gt;
