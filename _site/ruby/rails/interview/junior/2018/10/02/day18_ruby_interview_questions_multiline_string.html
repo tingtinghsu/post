@@ -94,7 +94,7 @@
 
 <h2 id="q與q多行字串"><code class="highlighter-rouge">%Q{}</code>與<code class="highlighter-rouge">%q{}</code>多行字串</h2>
 
-<p>我們通常會在<code class="highlighter-rouge">%{}</code>中間加入一個大寫Q，作用是一樣的：</p>
+<p>我們通常會在<code class="highlighter-rouge">%{}</code>中間加入一個大寫Q，變成<code class="highlighter-rouge">%Q{}</code>，作用和<code class="highlighter-rouge">%{}</code>是一樣的：</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">year</span> <span class="o">=</span> <span class="mi">1954</span>
 
@@ -103,7 +103,7 @@
 寫於</span><span class="si">#{</span><span class="n">year</span><span class="si">}</span><span class="sx">年}</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">%Q</code>可以幫我們處理跳脫字元、特殊符號如#、單引號、雙引號的問題。</p>
+<p><code class="highlighter-rouge">%Q</code>和<code class="highlighter-rouge">%{}</code>都可以幫我們處理跳脫字元、特殊符號如#、單引號、雙引號的問題。</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="sx">%Q[ 大寫Q + 中括弧:
   鄭愁予

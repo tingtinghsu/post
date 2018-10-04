@@ -126,11 +126,11 @@ end
 整體結構如下：
 
 ```ruby
-spring = ["September", 
+spring = ["September",
   "October",
   "November"]
 
-def spring_month (array, start =1)
+def spring_month (array, start = 1)
   counter = start
   array.each do |item|
     puts "#{yield counter} #{item}"
@@ -157,5 +157,7 @@ output:
 Ref:
 
 * [Blocks and yields in Ruby](https://stackoverflow.com/questions/3066703/blocks-and-yields-in-ruby)
+* [Ruby Basics : The yield Keyword](https://rubyplus.com/articles/4801-Ruby-Basics-The-yield-Keyword)
+* [The Yield Keyword in Ruby](https://medium.com/@farsi_mehdi/the-yield-keyword-603a850b8921)
 * [I don't really understand what is this yield](https://www.codecademy.com/en/forum_questions/51c72e759c4e9d410501df42)
 * [block handle the formatting](http://labs.codecademy.com/BJrB#:workspace)

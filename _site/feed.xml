@@ -1,4 +1,337 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-03T14:10:50+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day18 Ruby裡的多行字串</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/10/02/day18_ruby_interview_questions_multiline_string.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day18 Ruby裡的多行字串 " /><published>2018-10-02T08:15:00+10:00</published><updated>2018-10-02T08:15:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/10/02/day18_ruby_interview_questions_multiline_string</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/10/02/day18_ruby_interview_questions_multiline_string.html">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-04T13:07:27+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉</title><link href="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉" /><published>2018-10-04T10:58:00+10:00</published><updated>2018-10-04T10:58:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html">&lt;p&gt;哇嗚～竟然來到了鐵人賽2/3的里程盃了。可喜可賀，恭喜老爺，賀喜夫人！&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;ruby經典面試題目-20&quot;&gt;Ruby經典面試題目 #20&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Day20 說明Ruby裡Enumerable的實用之處? Why Is Enumerable So Useful?&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;列舉(Enumerables)實用之處在於，能夠幫我們方便地走過、搜尋、排序或轉換&lt;code class=&quot;highlighter-rouge&quot;&gt;集合&lt;/code&gt;內的元素(traverse, , sort, search, and transform collections)。&lt;/p&gt;
+
+&lt;p&gt;而集合(Collection)&lt;del&gt;跟斯斯一樣&lt;/del&gt;有三種：&lt;code class=&quot;highlighter-rouge&quot;&gt;陣列Array&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;雜湊Hash&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;範圍Range&lt;/code&gt;，在前19天練習經典題目時，我都剛好有碰到、並透過舉🌰了解如何使用～今天就以陣列為例，來進一步深入了解&lt;code class=&quot;highlighter-rouge&quot;&gt;列舉&lt;/code&gt;的各項技能！&lt;/p&gt;
+
+&lt;h1 id=&quot;1-在陣列中移動traverse&quot;&gt;1. 在陣列中移動(traverse)&lt;/h1&gt;
+
+&lt;h2 id=&quot;arrayeach&quot;&gt;Array#each&lt;/h2&gt;
+
+&lt;p&gt;[第14天]時我們曾經比較過&lt;code class=&quot;highlighter-rouge&quot;&gt;each&lt;/code&gt;和 &lt;code class=&quot;highlighter-rouge&quot;&gt;map / collect&lt;/code&gt;。延續昨天的舉例，我們來使用季節作為陣列元素：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;season&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Spring&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Summer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Autumn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Winter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;lt;Enumerator: [&quot;Spring&quot;, &quot;Summer&quot;, &quot;Autumn&quot;, &quot;Winter&quot;]:each&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;看到了&lt;code class=&quot;highlighter-rouge&quot;&gt;Enumerator&lt;/code&gt;這個字眼！&lt;/p&gt;
+
+&lt;h1 id=&quot;2-排序陣列中的元素sort&quot;&gt;2. 排序陣列中的元素(sort)&lt;/h1&gt;
+
+&lt;h2 id=&quot;arraysort&quot;&gt;Array#sort&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.sort&lt;/code&gt; 會幫我們按造字母順序重新排序&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#[&quot;Autumn&quot;, &quot;Spring&quot;, &quot;Summer&quot;, &quot;Winter&quot;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#[&quot;Spring&quot;, &quot;Summer&quot;, &quot;Autumn&quot;, &quot;Winter&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.sort!&lt;/code&gt; 會幫我們按造字母順序重新排序。加了&lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;驚嘆號的method通常是提醒我們要小心！注意！因為此方法會改寫原本物件裡的值。在這裡的陣列已經被新的排序改寫：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort!&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#[&quot;Autumn&quot;, &quot;Spring&quot;, &quot;Summer&quot;, &quot;Winter&quot;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#[&quot;Autumn&quot;, &quot;Spring&quot;, &quot;Summer&quot;, &quot;Winter&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(&lt;code class=&quot;highlighter-rouge&quot;&gt;.sort!&lt;/code&gt;會造成氣候變遷～季節大亂啊…)&lt;/p&gt;
+
+&lt;h1 id=&quot;3-在陣列中搜尋search&quot;&gt;3. 在陣列中搜尋(search)&lt;/h1&gt;
+
+&lt;p&gt;Ruby提供許多語法幫我們完成搜尋任務。現在就來一一介紹吧！&lt;/p&gt;
+
+&lt;h2 id=&quot;30-arrayfind_indexobject&quot;&gt;3.0 Array#find_index(object)&lt;/h2&gt;
+
+&lt;p&gt;我們可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;find_index&lt;/code&gt;搜尋某個元素的index（索引值，從0開始）&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Summer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 印出index=1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;31-arrayfirst&quot;&gt;3.1 Array#first&lt;/h2&gt;
+
+&lt;p&gt;搜尋陣列中的第1個元素，可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;.first&lt;/code&gt;方法：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&quot;Spring&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;當不能確定元素內值的完整資訊時&quot;&gt;當不能確定元素內值的完整資訊時&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Question: 我們想要搜尋出季節陣列裡，開頭是&lt;code class=&quot;highlighter-rouge&quot;&gt;S&lt;/code&gt;的元素。此題怎解？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;32-arrayselect-加上string-methods&quot;&gt;3.2 Array#select 加上String Methods&lt;/h2&gt;
+
+&lt;p&gt;在[第9天]時提過字串有許多的方法，這邊要介紹新的兩種: &lt;code class=&quot;highlighter-rouge&quot;&gt;.include?&lt;/code&gt;與&lt;code class=&quot;highlighter-rouge&quot;&gt;match()&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;321-stringinclude--字元符號&quot;&gt;3.2.1 &lt;code class=&quot;highlighter-rouge&quot;&gt;String#include?&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;字元符號&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Ans: 陣列方法&lt;code class=&quot;highlighter-rouge&quot;&gt;.select&lt;/code&gt;可以幫忙做挑選；而在Block&lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt;裡面，用&lt;code class=&quot;highlighter-rouge&quot;&gt;String#include?&lt;/code&gt;做條件判斷，像個過濾網一樣，找出包含大寫&lt;code class=&quot;highlighter-rouge&quot;&gt;'S'&lt;/code&gt;開頭的元素：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'S'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# [&quot;Spring&quot;, &quot;Summer&quot;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'t'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# [&quot;Autumn&quot;, &quot;Winter&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;322-stringmatch代入正規表達式&quot;&gt;3.2.2 &lt;code class=&quot;highlighter-rouge&quot;&gt;String#match()&lt;/code&gt;代入正規表達式&lt;/h3&gt;
+
+&lt;p&gt;正規表達式（Regular Expression，常簡寫為&lt;code class=&quot;highlighter-rouge&quot;&gt;RegExp&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;regex&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;RE&lt;/code&gt;）是被用來匹配字串String中，字元組合的模式。&lt;/p&gt;
+
+&lt;p&gt;想像我們在用Google大神搜尋資料，最重要的就是輸入&lt;code class=&quot;highlighter-rouge&quot;&gt;關鍵字&lt;/code&gt;了。有時候我們會在關鍵字加入&lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;加號、&lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt; (OR)，或是用&lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;減號剔除篩選字。正規表達具有類似的功能。&lt;/p&gt;
+
+&lt;p&gt;同樣的，如果我們想要在進階搜尋的話，就必須使用到正規表達式。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Q2. 我們想要搜尋出季節陣列裡，第二個字母是&lt;code class=&quot;highlighter-rouge&quot;&gt;u&lt;/code&gt;的元素。此題怎解？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/^*u/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# [&quot;Summer&quot;, &quot;Autumn&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/正規表達符號/&lt;/code&gt;放在一組斜線&lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt;裡面，以上的例子，我們需要將&lt;code class=&quot;highlighter-rouge&quot;&gt;^&lt;/code&gt;開頭的第一個字元設定為任意字元&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt;，第二個字元為&lt;code class=&quot;highlighter-rouge&quot;&gt;u&lt;/code&gt;(正規表達規則請見&lt;a href=&quot;http://ruby-doc.org/core-2.4.2/Regexp.html&quot;&gt;Ruby API說明&lt;/a&gt;)。&lt;/p&gt;
+
+&lt;h2 id=&quot;33-arrayselect-搭配-stringregexp&quot;&gt;3.3 Array#select 搭配 String[/RegExp/]&lt;/h2&gt;
+
+&lt;p&gt;我們也可以省略String Method，直接在在&lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;內用元素s[&lt;code class=&quot;highlighter-rouge&quot;&gt;/加入正規表達/&lt;/code&gt;]來篩選符合條件的元素&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/^*u/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# [&quot;Summer&quot;, &quot;Autumn&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;34-arraygrepregexp-省略block&quot;&gt;3.4 Array#grep(/RegExp/) :省略block&lt;/h2&gt;
+
+&lt;p&gt;同樣解法，且程式碼更少的簡便寫法：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;grep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/^sa/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# []&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;但注意，沒有block，就不算列舉了唷！&lt;/p&gt;
+
+&lt;h1 id=&quot;4-將陣列中的元素作轉換transform&quot;&gt;4. 將陣列中的元素作轉換(transform)&lt;/h1&gt;
+
+&lt;p&gt;在實務上，我們常常將集合內的值做轉換，套用到需要的場景，[第14天]時學過的 &lt;code class=&quot;highlighter-rouge&quot;&gt;.map&lt;/code&gt;可以在此時派上用場。&lt;/p&gt;
+
+&lt;h2 id=&quot;41-arraymap-不改寫陣列裡的值&quot;&gt;4.1 Array#map 不改寫陣列裡的值&lt;/h2&gt;
+
+&lt;p&gt;北半球的天氣漸漸變冷，我來寫一個溫度陣列&lt;code class=&quot;highlighter-rouge&quot;&gt;temperature&lt;/code&gt;，並用&lt;code class=&quot;highlighter-rouge&quot;&gt;.map&lt;/code&gt;放入新的零下溫度陣列，但不影響到原本陣列裡的值 ：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;minus_temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;, &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &quot;0, 1, 2, 3, 4, 5, 6, 7, 8, 9&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minus_temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;, &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &quot;0, -1, -2, -3, -4, -5, -6, -7, -8, -9&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;42-arraymap-改寫陣列裡的值&quot;&gt;4.2 Array#map! 改寫陣列裡的值&lt;/h2&gt;
+
+&lt;p&gt;加了&lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;驚嘆號的方法又出現了～大家應該可以猜到&lt;code class=&quot;highlighter-rouge&quot;&gt;.map!&lt;/code&gt;會改變陣列值：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#將&quot;0, -1, -2, -3, -4, -5, -6, -7, -8, -9&quot;與原陣列各個元素相加  &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; =&amp;gt; &quot;0,0,0,0,0,0,0,0,0,0&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;全部變0度啦！&lt;/p&gt;
+
+&lt;h1 id=&quot;番外篇-enumerable結合yield&quot;&gt;[番外篇] &lt;code class=&quot;highlighter-rouge&quot;&gt;enumerable&lt;/code&gt;結合&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;&lt;/h1&gt;
+
+&lt;p&gt;[昨天]講過&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;的功用多多，今天來把它和列舉變數結合，再產生一次新火花～：）&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Winter&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#北半球冬天&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Enumerable&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#包含Enumerable Module（否則會出現NomethodError）&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@month&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%w[ December January Fabruary]&lt;/span&gt;  
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 定義each方法(否則Winter.new.map 會出現 NoMethodError)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;month&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@month&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;month&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Winter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;upcase&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 將月份改成大寫&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DECEMBER&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;JANUARY&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;FABRUARY&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;天氣轉涼了，大家要注意保暖唷：）&lt;/p&gt;
+
+&lt;p&gt;Ref:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-i-745d561cfebf&quot;&gt;The Enumerable module in Ruby: Part I&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ruby.bastardsbook.com/chapters/enumerables/&quot;&gt;Enumerables&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby&quot;&gt;How to search an array in Ruby?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby&quot;&gt;ruby-doc.org : Regexp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/17354864/ruby-filter-array-by-regex&quot;&gt;Ruby: filter array by regex?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-ii-41f69b36360&quot;&gt;The Enumerable module in Ruby: Part II&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">哇嗚～竟然來到了鐵人賽2/3的里程盃了。可喜可賀，恭喜老爺，賀喜夫人！</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day19 Ruby裡的yield</title><link href="http://localhost:4000/ruby/interview/2018/10/04/day19_ruby_interview_questions_yield.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day19 Ruby裡的yield" /><published>2018-10-04T10:58:00+10:00</published><updated>2018-10-04T10:58:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/10/04/day19_ruby_interview_questions_yield</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/04/day19_ruby_interview_questions_yield.html">&lt;h1 id=&quot;ruby經典面試題目-19&quot;&gt;Ruby經典面試題目 #19&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Day19 描述Ruby裡的yield用法? What is yield statement in Ruby?&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;yield--block&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;在[第11天]時，我們曾比較block, proc與lamdba方法，而&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;的實用場景是在&lt;code class=&quot;highlighter-rouge&quot;&gt;method&lt;/code&gt;裡讓路給&lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;區塊執行程式的意思。&lt;/p&gt;
+
+&lt;p&gt;現在來寫一個&lt;code class=&quot;highlighter-rouge&quot;&gt;IronmanDairy&lt;/code&gt;類別，用以產生新物件&lt;code class=&quot;highlighter-rouge&quot;&gt;day19&lt;/code&gt;，接著利用&lt;code class=&quot;highlighter-rouge&quot;&gt;get_topic&lt;/code&gt;方法透過&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;傳遞參數&lt;code class=&quot;highlighter-rouge&quot;&gt;topic&lt;/code&gt;給&lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IronmanDairy&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;topic&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+       &lt;span class=&quot;vi&quot;&gt;@topic&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;topic&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_topic&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@topic&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;day19&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Yield&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#invoking the method passing a block&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;day19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_topic&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;We are going to talk about &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topic&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; today!&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;從[第12天]文章比較&lt;code class=&quot;highlighter-rouge&quot;&gt;實體變數&lt;/code&gt;與&lt;code class=&quot;highlighter-rouge&quot;&gt;類別實體變數&lt;/code&gt;的整理，我們可以了解這裡的&lt;code class=&quot;highlighter-rouge&quot;&gt;@topic&lt;/code&gt;是&lt;code class=&quot;highlighter-rouge&quot;&gt;實體變數&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;tingdeMacBook&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Air&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:Ironman&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tingtinghsu&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rb&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;We&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;going&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;talk&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;about&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;today!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;今天的Opening出現啦!&lt;/p&gt;
+
+&lt;h2 id=&quot;yield--block-字串方法&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;: 字串方法&lt;/h2&gt;
+
+&lt;p&gt;Block裡面還可以玩許多有趣的&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;字串方法。例如，我們想要把大寫字母轉小寫、小寫字母轉大寫：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;topic_swapcase&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#set an empty string&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;day19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_topic&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;topic_swapcase&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;topic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;swapcase&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;We are going to talk about &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topic_swapcase&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; today!&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;tingdeMacBook&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Air&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:Ironman&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tingtinghsu&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yield_swapcase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rb&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;We&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;going&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;talk&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;about&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yIELD&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;today!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;yield--block-陣列方法&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;: 陣列方法&lt;/h2&gt;
+
+&lt;p&gt;在寫鐵人賽的我目前所在城市是Sydney，南半球的現在正是花朵盛開、氣候美妙的春天～我想用array表達曼妙愉快的心情：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;spring&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;September&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;October&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;November&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;我想要將春天的三個月份條列印出在螢幕上，可以寫成&lt;code class=&quot;highlighter-rouge&quot;&gt;print_list&lt;/code&gt;方法:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;spring&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;September&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;October&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;November&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;spring_month&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;next&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;spring_month&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spring&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;當我們呼叫&lt;code class=&quot;highlighter-rouge&quot;&gt;spring_month&lt;/code&gt;方法時，可傳入試先設定好的&lt;code class=&quot;highlighter-rouge&quot;&gt;spring&lt;/code&gt;陣列，再用&lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;方式跑完每一個陣列裡的值。（記得&lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;do...end&lt;/code&gt;都是&lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;的語法唷！）&lt;/p&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;September&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;October&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;November&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;現在，我想月份前面加上對應的阿拉伯數字，例如September是9，October是10…。該如何是好呢?&lt;/p&gt;
+
+&lt;p&gt;這時候&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;就派上用場啦!&lt;/p&gt;
+
+&lt;p&gt;我們把&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;放在計數器&lt;code class=&quot;highlighter-rouge&quot;&gt;counter&lt;/code&gt;前，當作設定格式的一種方式&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;會去呼叫以下的&lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;spring_month&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mth&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;. &quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;為了要讓第一個&lt;code class=&quot;highlighter-rouge&quot;&gt;item&lt;/code&gt;是&lt;code class=&quot;highlighter-rouge&quot;&gt;September&lt;/code&gt;從9開始，我們呼叫&lt;code class=&quot;highlighter-rouge&quot;&gt;spring_month&lt;/code&gt;方法時，也要代入參數&lt;code class=&quot;highlighter-rouge&quot;&gt;9&lt;/code&gt;，讓&lt;code class=&quot;highlighter-rouge&quot;&gt;spring_month&lt;/code&gt;方法幫助我們從9開始往上遞增。並且利用&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;#{mth}. &quot;&lt;/code&gt;設定格式。&lt;/p&gt;
+
+&lt;p&gt;整體結構如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;spring&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;September&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;October&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;November&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;spring_month&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;next&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#list all the months in Spring&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;spring_month&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mth&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;. &quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;
+output:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;  &lt;span class=&quot;no&quot;&gt;September&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;  &lt;span class=&quot;no&quot;&gt;October&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;  &lt;span class=&quot;no&quot;&gt;November&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以上的例子🌰顯示，方法裡面可以結合陣列，在&lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;裡面透過&lt;code class=&quot;highlighter-rouge&quot;&gt;array#each&lt;/code&gt;method對陣列裡的元素做出各種有趣的功能，再結合&lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;之後，是不是產生很大的威力呢？：）&lt;/p&gt;
+
+&lt;p&gt;Ref:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3066703/blocks-and-yields-in-ruby&quot;&gt;Blocks and yields in Ruby&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://rubyplus.com/articles/4801-Ruby-Basics-The-yield-Keyword&quot;&gt;Ruby Basics : The yield Keyword&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@farsi_mehdi/the-yield-keyword-603a850b8921&quot;&gt;The Yield Keyword in Ruby&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.codecademy.com/en/forum_questions/51c72e759c4e9d410501df42&quot;&gt;I don’t really understand what is this yield&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://labs.codecademy.com/BJrB#:workspace&quot;&gt;block handle the formatting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Ruby經典面試題目 #19</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day18 Ruby裡的多行字串</title><link href="http://localhost:4000/ruby/rails/interview/junior/2018/10/02/day18_ruby_interview_questions_multiline_string.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day18 Ruby裡的多行字串 " /><published>2018-10-02T08:15:00+10:00</published><updated>2018-10-02T08:15:00+10:00</updated><id>http://localhost:4000/ruby/rails/interview/junior/2018/10/02/day18_ruby_interview_questions_multiline_string</id><content type="html" xml:base="http://localhost:4000/ruby/rails/interview/junior/2018/10/02/day18_ruby_interview_questions_multiline_string.html">&lt;hr /&gt;
 
 &lt;h1 id=&quot;ruby經典面試題目-18&quot;&gt;Ruby經典面試題目 #18&lt;/h1&gt;
 
@@ -47,7 +380,7 @@
 
 &lt;h2 id=&quot;q與q多行字串&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%Q{}&lt;/code&gt;與&lt;code class=&quot;highlighter-rouge&quot;&gt;%q{}&lt;/code&gt;多行字串&lt;/h2&gt;
 
-&lt;p&gt;我們通常會在&lt;code class=&quot;highlighter-rouge&quot;&gt;%{}&lt;/code&gt;中間加入一個大寫Q，作用是一樣的：&lt;/p&gt;
+&lt;p&gt;我們通常會在&lt;code class=&quot;highlighter-rouge&quot;&gt;%{}&lt;/code&gt;中間加入一個大寫Q，變成&lt;code class=&quot;highlighter-rouge&quot;&gt;%Q{}&lt;/code&gt;，作用和&lt;code class=&quot;highlighter-rouge&quot;&gt;%{}&lt;/code&gt;是一樣的：&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1954&lt;/span&gt;
 
@@ -56,7 +389,7 @@
 寫於&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;年}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%Q&lt;/code&gt;可以幫我們處理跳脫字元、特殊符號如#、單引號、雙引號的問題。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%Q&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;%{}&lt;/code&gt;都可以幫我們處理跳脫字元、特殊符號如#、單引號、雙引號的問題。&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%Q[ 大寫Q + 中括弧:
   鄭愁予
@@ -1965,389 +2298,4 @@ print_poet #can't find string &quot;EOF&quot; anywhere before EOF
   &lt;li&gt;&lt;a href=&quot;http://ruby-doc.org/core-2.5.1/doc/syntax/methods_rdoc.html&quot;&gt;ruby-doc.org: Method&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-do&quot;&gt;ruby-doc.org: Object Method: do&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://ruby-doc.org/core-2.4.0/Proc.html&quot;&gt;Procs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">前情提要:</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day10 Ruby invoke method調用方法?</title><link href="http://localhost:4000/ruby/interview/2018/09/19/day10_ruby_interview_questions_ruby_invoke_method.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day10 Ruby invoke method調用方法? " /><published>2018-09-19T10:57:00+10:00</published><updated>2018-09-19T10:57:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/09/19/day10_ruby_interview_questions_ruby_invoke_method</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/09/19/day10_ruby_interview_questions_ruby_invoke_method.html">&lt;p&gt;前情提要:&lt;/p&gt;
-
-&lt;p&gt;不知不覺到了第10天囉！。鐵人賽進度1/3（挺胸！）接下來應該會進入學習的深水區，但是我會越戰越勇。路遙知馬力，日久見人心！🏃‍♀️&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;ruby經典面試題目-10&quot;&gt;Ruby經典面試題目 #10&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby如何引入方法? Please explain how Ruby looks up a method to invoke?&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;每當不知從何下筆時，我的起手式是開始回顧之前的文章，盤點我已經走了多遠、以及基礎觀念到底掌握了多少：&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;鐵人賽足跡&lt;/th&gt;
-      &lt;th&gt;面試問題&lt;/th&gt;
-      &lt;th&gt;我的總結&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 1&lt;/td&gt;
-      &lt;td&gt;class&lt;/td&gt;
-      &lt;td&gt;class建立物件實體，以method和資料互動&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 2&lt;/td&gt;
-      &lt;td&gt;class與 module&lt;/td&gt;
-      &lt;td&gt;class可繼承，module不可繼承&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 3&lt;/td&gt;
-      &lt;td&gt;module&lt;/td&gt;
-      &lt;td&gt;module裡的method可被include和extend&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 4&lt;/td&gt;
-      &lt;td&gt;instance method與class method&lt;/td&gt;
-      &lt;td&gt;include用於instance method, extend用於class method&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 5&lt;/td&gt;
-      &lt;td&gt;self物件與singleton method&lt;/td&gt;
-      &lt;td&gt;singleton method是singleton class的instence method&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 6&lt;/td&gt;
-      &lt;td&gt;public, protected, private method&lt;/td&gt;
-      &lt;td&gt;在classs外無法取得protected或private method&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 7&lt;/td&gt;
-      &lt;td&gt;symbol與string&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:符號&lt;/code&gt; symbol class的物件實體，object_id相同 / &lt;code class=&quot;highlighter-rouge&quot;&gt;字串:&lt;/code&gt; string變數指向字串物件，object_id不同&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 8&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;concat&lt;/code&gt; 與 &lt;code class=&quot;highlighter-rouge&quot;&gt;+=&lt;/code&gt; method&lt;/td&gt;
-      &lt;td&gt;以&lt;code class=&quot;highlighter-rouge&quot;&gt;concat&lt;/code&gt;串接， object_id相同 / &lt;code class=&quot;highlighter-rouge&quot;&gt;+=&lt;/code&gt; object_id不同&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Day 9&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;||=&lt;/code&gt; method&lt;/td&gt;
-      &lt;td&gt;(or-equals)條件判斷 &lt;code class=&quot;highlighter-rouge&quot;&gt;a||=b&lt;/code&gt;是 &lt;code class=&quot;highlighter-rouge&quot;&gt;a || a = b&lt;/code&gt;縮寫，意思為條件運算式 &lt;code class=&quot;highlighter-rouge&quot;&gt;a ? a : a = b&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;洋洋灑灑地條列出這麼多方法之後，我們好奇的問，Ruby到底是怎麼尋找這些方法的呢？&lt;/p&gt;
-
-&lt;p&gt;Ruby最先尋找的地方是物件的&lt;code class=&quot;highlighter-rouge&quot;&gt;eigenclass&lt;/code&gt;（特徵類別，物件上層的隱藏類別)method會直接定義在裡面，如同&lt;a href=&quot;https://tingtinghsu.github.io/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.htmln&quot;&gt;Day 5&lt;/a&gt;提到的singleton method(類別方法)。&lt;/p&gt;
-
-&lt;p&gt;如果Ruby沒有辦法在物件的&lt;code class=&quot;highlighter-rouge&quot;&gt;eigenclass&lt;/code&gt;找到，它會尋找此物件class所屬的上一層(ancestor)class、層層往上搜尋，深入到&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Object.html&quot;&gt;Object&lt;/a&gt;、到&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Kernel.html&quot;&gt;Kernal&lt;/a&gt;、最後去&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/BasicObject.html&quot;&gt;BasicObject&lt;/a&gt;搜尋method是否在裡面。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/class.png&quot; alt=&quot;https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/class.png&quot; /&gt; &lt;a href=&quot;https://ruby-china.org/topics/33308&quot;&gt;圖片來源&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;如果都找不到Method的話呢？&lt;/p&gt;
-
-&lt;p&gt;不用擔心，Ruby就像Google Map一樣給予提示，它會在內部搜尋另一個:&lt;code class=&quot;highlighter-rouge&quot;&gt;method_missing&lt;/code&gt; method給這個物件的class，提供Ruby工程師解bug的線索：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`某方法名稱' (NoMethodError)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;這個線索我們並不陌生，因為我們已經有多次經驗了：&lt;/p&gt;
-
-&lt;p&gt;在[Day 6]，無法使用class裡的方法&lt;code class=&quot;highlighter-rouge&quot;&gt;.protected&lt;/code&gt;及&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;day6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; undefined method `protected' (NoMethodError)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;day6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; undefined method `private' (NoMethodError)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;在[Day 7]Symbol找不到方法&lt;code class=&quot;highlighter-rouge&quot;&gt;[]=&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;:tingsmessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Z&quot;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#undefined method `[]=' for :tingsmessage:Symbol (NoMethodError)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;我從&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/&quot;&gt;https://ruby-doc.org/core-2.5.1/&lt;/a&gt;列出我在前十篇文章所用到的實體方法(Public Instance Methods)，整理表格如下：&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Object.html&quot;&gt;Object&lt;/a&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Kernel.html&quot;&gt;Kernal&lt;/a&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/BasicObject.html&quot;&gt;BasicObject&lt;/a&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt; →class&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;puts&lt;/code&gt;(obj, …) → nil&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;object_id&lt;/code&gt; →integer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;extend&lt;/code&gt;(module) →obj&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String(arg)&lt;/code&gt; → string&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;send&lt;/code&gt;(symbol [, args…]) → obj&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;singleton_method&lt;/code&gt;(sym) → method&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Hash(arg)&lt;/code&gt; → hash&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;new()&lt;/code&gt;&lt;em&gt;這個是Public Class Methods！&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;為了更清楚釐清自己的觀念，我決定用英文整理出這10天的學習紀錄：&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;觀念&lt;/th&gt;
-      &lt;th&gt;解釋&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Class.html&quot;&gt;class&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;Classes in Ruby are first-class objects.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html&quot;&gt;module&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;Modules serve two purposes in Ruby, namespacing and mix-in functionality.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods&quot;&gt;class method&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;Class methods (methods on a module) may be called directly.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods&quot;&gt;instance method&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;Instance methods defined in a module are only callable when included.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Module.html&quot;&gt;include&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;when the module is included, istance methods appear as methods in a class. (module methods do not.)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/Object.html#method-i-extend&quot;&gt;extend&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;Adds to obj the instance methods from each module given as a parameter.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-self&quot;&gt;self&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;Self refers to the object that defines the current scope. (it will change when it a different method or a new module) .&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/Object.html#method-i-singleton_method&quot;&gt;singleton class&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;If object is nil, true, or false, it returns NilClass, TrueClass, or FalseClass. (&lt;em&gt;可以直接存取，而不需要實體化此類別的物件。&lt;/em&gt;)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/singletonmethods.html&quot;&gt;singleton method&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;The behavior of an instance is determined by its class.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/Module.html#method-i-public&quot;&gt;public method&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;With no arguments, sets the default visibility for subsequently defined methods to public. With arguments, sets the named methods to have public visibility.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/Module.html#method-i-protected&quot;&gt;projected method&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;If a method has protected visibility, it is callable only where self of the context is the same as the method.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/Module.html#method-i-private&quot;&gt;private method&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;With no arguments, sets the default visibility for subsequently defined methods to private. With arguments, sets the named methods to have private visibility.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/Symbol.html&quot;&gt;symbol&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;Symbol objects represent names and some strings inside the Ruby interpreter.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/String.html&quot;&gt;string&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;A String object holds and manipulates an arbitrary sequence of bytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/String.html#method-i-concat&quot;&gt;concat&lt;/a&gt; (string method)&lt;/td&gt;
-      &lt;td&gt;Concatenates the given object(s) to str. If an object is an Integer, it is converted to a character before concatenation.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/String.html#method-i-2B&quot;&gt;+&lt;/a&gt; (string method)&lt;/td&gt;
-      &lt;td&gt;Concatenation — Returns a new String containing&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://ruby-doc.com/core/String.html#method-i-2B&quot;&gt;true&lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt;&lt;/a&gt; (TrueClass method)&lt;/td&gt;
-      &lt;td&gt;Or—Returns true. As obj is an argument to a method call, it is always evaluated&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;感想：&lt;/p&gt;
-
-&lt;p&gt;為了做Ruby如何invoke method的表格，我竟然把Ruby API的&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Object.html&quot;&gt;Object&lt;/a&gt; ，&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Kernel.html&quot;&gt;Kernal&lt;/a&gt; ，&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/BasicObject.html&quot;&gt;BasicObject&lt;/a&gt; 頁面翻閱了一遍，了解輸入的參數怎麼用、已經輸出的物件會是什麼形式。這是我過去從來沒想過自己可以做得到的事（感覺翻手冊是高手才看得懂的境界啊！）經過這10天成長收穫巨大！&lt;/p&gt;
-
-&lt;p&gt;明天來繼續研究更多method!!!! :)&lt;/p&gt;
-
-&lt;p&gt;===&lt;/p&gt;
-
-&lt;p&gt;Ref：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ruby-doc.com/core/index.html&quot;&gt;Ruby-Core&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[Please explain nuances of&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;=](https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[A short-circuit (&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">前情提要:</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day09 Ruby的 a ||= b (or-equals)是什麼意思呢?</title><link href="http://localhost:4000/ruby/interview/2018/09/18/day09_ruby_interview_questions_ruby_idiom_or_equals.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day09 Ruby的 a ||= b (or-equals)是什麼意思呢? " /><published>2018-09-18T09:18:00+10:00</published><updated>2018-09-18T09:18:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/09/18/day09_ruby_interview_questions_ruby_idiom_or_equals</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/09/18/day09_ruby_interview_questions_ruby_idiom_or_equals.html">&lt;p&gt;前情提要:&lt;/p&gt;
-
-&lt;p&gt;寫了這一系列下來，發現Ruby有許多特別的方法。前幾天講了關於String字串，在第八天我們了解串接(concatenate)與插入interpolation&lt;code class=&quot;highlighter-rouge&quot;&gt;#{}&lt;/code&gt;方法，就連加號&lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;也是方法之一呢。今天要來研究新的字串與數值比較的條件指定運算式(conditional assignment operator)囉！&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;ruby經典面試題目-09&quot;&gt;Ruby經典面試題目 #09&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;請解釋 Explain this ruby idiom (or-equals) : a ||= b?&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;如果a沒有被初始化，或是為空值&lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;，a等於b；
-其他情況下，a值不變。&lt;/p&gt;
-
-&lt;p&gt;If a is not initialized (or if it is set to &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;), set it with the value of b.&lt;/p&gt;
-
-&lt;p&gt;讓我們來看下列的運算式：
-指定a的值為1，因此非&lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;。
-a經過&lt;code class=&quot;highlighter-rouge&quot;&gt;||=&lt;/code&gt;(or-equals)的方法判斷，值仍維持不變 &lt;code class=&quot;highlighter-rouge&quot;&gt;a=1&lt;/code&gt;:&lt;/p&gt;
-
-&lt;p&gt;例子1&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#a原本為false，印出a=nil&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;例子2&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#a原本為nil，印出a=true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;例子3&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#a已指定值，印出a=1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;看起來很簡單的題目，為什麼特地單獨挑一天說明呢？因為其實這個&lt;code class=&quot;highlighter-rouge&quot;&gt;or-equals&lt;/code&gt;縮寫，背後大有玄機！&lt;/p&gt;
-
-&lt;p&gt;這邊想特別指出是，&lt;code class=&quot;highlighter-rouge&quot;&gt;a ||= b&lt;/code&gt; 為 &lt;code class=&quot;highlighter-rouge&quot;&gt;a || a = b&lt;/code&gt;的縮寫：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;---------------&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#or eqauls&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;---------------&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如果a沒有被初始化，或是為空值&lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;，a等於b；
-其他情況下，a值不變。&lt;/p&gt;
-
-&lt;p&gt;注意，&lt;code class=&quot;highlighter-rouge&quot;&gt;a ||= b&lt;/code&gt; 並非 &lt;code class=&quot;highlighter-rouge&quot;&gt;a = a || b&lt;/code&gt;的縮寫，讓我們來比較一下語法含義：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;---------------&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;---------------&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;在(if a then a = a)這個語法上，a已經被比較過兩次（it is evaluated twice），是不是就沒這麼簡潔與精確了呢?&lt;/p&gt;
-
-&lt;p&gt;因此，雖然這兩個縮寫印出來都會是 &lt;code class=&quot;highlighter-rouge&quot;&gt;a = 1&lt;/code&gt;。但意思是很不一樣的。&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#a=1&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#a=1&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#a=1&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;（在c++程式裡 &lt;code class=&quot;highlighter-rouge&quot;&gt;a += b&lt;/code&gt; 是 &lt;code class=&quot;highlighter-rouge&quot;&gt;a = a + b&lt;/code&gt;的縮寫，但Ruby不是C++，詳見&lt;a href=&quot;https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c&quot;&gt;Ruby Forum在2008年時這裡&lt;/a&gt;的討論串）&lt;/p&gt;
-
-&lt;p&gt;如果以擬人化的方式解釋，我會說a是在「成為自己的過程」。
-如果a的心裡沒有idea （夢想）尚未被初始化，或者什麼想法都沒有(&lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;)或是負面想法太多(&lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;)，
-a就會被b影響，變成為b。&lt;/p&gt;
-
-&lt;p&gt;我相信我們最終，都不想成為別人，只想成為自己。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Be Yourself. Everyone Else is Already Taken.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;就像Ruby之所以成為Ruby一樣的特別，因為它語法上的創新與簡潔，是其他程式無可取代的。&lt;/p&gt;
-
-&lt;p&gt;後記：
-為了找這一篇題目的解答，發現google mail list上(10年前)最初關於這個問題的討論串，還蠻感動的！&lt;/p&gt;
-
-&lt;p&gt;這或許就是追求知識源頭、逼近真實的過程吧！：）&lt;/p&gt;
-
-&lt;p&gt;===&lt;/p&gt;
-
-&lt;p&gt;Ref：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html&quot;&gt;Top 10 Essential Ruby Interview Questions&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers&quot;&gt;Ruby on Rails Technical Interview Questions&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[What does&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;= (or-equals) mean in Ruby?](https://stackoverflow.com/questions/995593/what-does-or-equals-mean-in-ruby)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[Please explain nuances of&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;=](https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[A short-circuit (&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><summary type="html">前情提要:</summary></entry></feed>
