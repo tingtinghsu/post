@@ -134,7 +134,7 @@ p season.grep(/^sa/)
 # []
 ```
 
-但注意，沒有block，就不算列舉了唷！
+更多的`.grep`用法看[這裡](http://ruby-doc.org/core-2.0.0/Enumerable.html#method-i-grep)
 
 # 4. 將陣列中的元素作轉換(transform)
 
@@ -194,10 +194,11 @@ Output:
 天氣轉涼了，大家要注意保暖唷：）
 
 Ref:
-
-* [The Enumerable module in Ruby: Part I](https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-i-745d561cfebf)
-* [Enumerables](http://ruby.bastardsbook.com/chapters/enumerables/)
-* [How to search an array in Ruby?](https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby)
+* [ruby-doc.org : Enumerable](http://ruby-doc.org/core-2.4.2/Enumerable.html)
 * [ruby-doc.org : Regexp](https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby)
-* [Ruby: filter array by regex?](https://stackoverflow.com/questions/17354864/ruby-filter-array-by-regex)
+* [Enumerables](http://ruby.bastardsbook.com/chapters/enumerables/)
+* [The Enumerable module in Ruby: Part I](https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-i-745d561cfebf)
 * [The Enumerable module in Ruby: Part II](https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-ii-41f69b36360)
+* [How to search an array in Ruby?](https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby)
+* [動動手來學 Regular Expression 正規表達式](https://5xruby.tw/posts/learn-regular-expression/)
+* [Ruby: filter array by regex?](https://stackoverflow.com/questions/17354864/ruby-filter-array-by-regex)

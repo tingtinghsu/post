@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-04T13:07:27+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉</title><link href="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉" /><published>2018-10-04T10:58:00+10:00</published><updated>2018-10-04T10:58:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html">&lt;p&gt;哇嗚～竟然來到了鐵人賽2/3的里程盃了。可喜可賀，恭喜老爺，賀喜夫人！&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-04T13:35:01+10:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉</title><link href="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day20 Ruby的Enumerable列舉" /><published>2018-10-04T10:58:00+10:00</published><updated>2018-10-04T10:58:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/04/day20_ruby_interview_questions_enumerable.html">&lt;p&gt;哇嗚～竟然來到了鐵人賽2/3的里程盃了。可喜可賀，恭喜老爺，賀喜夫人！&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -121,7 +121,7 @@
 &lt;span class=&quot;c1&quot;&gt;# []&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;但注意，沒有block，就不算列舉了唷！&lt;/p&gt;
+&lt;p&gt;更多的&lt;code class=&quot;highlighter-rouge&quot;&gt;.grep&lt;/code&gt;用法看&lt;a href=&quot;http://ruby-doc.org/core-2.0.0/Enumerable.html#method-i-grep&quot;&gt;這裡&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;4-將陣列中的元素作轉換transform&quot;&gt;4. 將陣列中的元素作轉換(transform)&lt;/h1&gt;
 
@@ -177,14 +177,15 @@
 &lt;p&gt;天氣轉涼了，大家要注意保暖唷：）&lt;/p&gt;
 
 &lt;p&gt;Ref:&lt;/p&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-i-745d561cfebf&quot;&gt;The Enumerable module in Ruby: Part I&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ruby.bastardsbook.com/chapters/enumerables/&quot;&gt;Enumerables&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby&quot;&gt;How to search an array in Ruby?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ruby-doc.org/core-2.4.2/Enumerable.html&quot;&gt;ruby-doc.org : Enumerable&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby&quot;&gt;ruby-doc.org : Regexp&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/17354864/ruby-filter-array-by-regex&quot;&gt;Ruby: filter array by regex?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ruby.bastardsbook.com/chapters/enumerables/&quot;&gt;Enumerables&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-i-745d561cfebf&quot;&gt;The Enumerable module in Ruby: Part I&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-ii-41f69b36360&quot;&gt;The Enumerable module in Ruby: Part II&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby&quot;&gt;How to search an array in Ruby?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://5xruby.tw/posts/learn-regular-expression/&quot;&gt;動動手來學 Regular Expression 正規表達式&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/17354864/ruby-filter-array-by-regex&quot;&gt;Ruby: filter array by regex?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><summary type="html">哇嗚～竟然來到了鐵人賽2/3的里程盃了。可喜可賀，恭喜老爺，賀喜夫人！</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day19 Ruby裡的yield</title><link href="http://localhost:4000/ruby/interview/2018/10/04/day19_ruby_interview_questions_yield.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day19 Ruby裡的yield" /><published>2018-10-04T10:58:00+10:00</published><updated>2018-10-04T10:58:00+10:00</updated><id>http://localhost:4000/ruby/interview/2018/10/04/day19_ruby_interview_questions_yield</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/04/day19_ruby_interview_questions_yield.html">&lt;h1 id=&quot;ruby經典面試題目-19&quot;&gt;Ruby經典面試題目 #19&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Day19 描述Ruby裡的yield用法? What is yield statement in Ruby?&lt;/code&gt;&lt;/p&gt;
