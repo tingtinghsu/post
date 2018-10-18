@@ -191,6 +191,7 @@ p rails.object_id #70263932897160
 == (等於) | === | eql? | equal?
 ------------- | -------------| -------------| -------------
 檢查兩個運算子的值是否相等 | 測試case語法中的`when子句相等性` (object class) | 如果接收器和`參數的值`和`類型`都相等，則為`true` | 如果接收器和參數的`object id`相同，則為`true`
+
 Ref:
 
 * [Ruby Interview Questions - Quizbucket](http://quizbucket.org/explain-each-of-the-following-operators-and-how-and-when-they-should-be-used-eql-equal-4248)

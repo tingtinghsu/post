@@ -176,13 +176,11 @@
   <p>A better name (IMHO, 以我的觀點來說) might be <code class="highlighter-rouge">.describes?</code>, or overload <code class="highlighter-rouge">.includes?</code></p>
 </blockquote>
 
-<p>這或許就是為什麼我們不能把<code class="highlighter-rouge">拿來比較</code>的參數放在左邊，而是右邊：）</p>
+<p>這或許就是為什麼我們不能把<code class="highlighter-rouge">拿來比較</code>的參數放在左邊，而是<code class="highlighter-rouge">右邊</code>：）</p>
 
 <h2 id="--與-regular-expression">===, == 與 Regular Expression</h2>
 <p>
-使用<code class="highlighter-rouge">===</code>的好處就是可以用<code class="highlighter-rouge">正規表示式</code>提取、比較更多符合我們需求的條件。</p>
-
-<p>參考<a href="https://ruby-doc.org/core-2.5.1/Regexp.html#Public%20Instance%20Methods">Ruby Doc 關於Regexp方法下的Public Instance Methods這頁說明</a>，我們可以分別用 <code class="highlighter-rouge">===</code>和 <code class="highlighter-rouge">==</code> 了解各項舉例是否為真：</p>
+使用<code class="highlighter-rouge">===</code>的好處就是可以用<code class="highlighter-rouge">正規表示式</code>提取、比較更多符合我們需求的條件。從以上的結論我們發現要將正規表示式放左邊。參考<a href="https://ruby-doc.org/core-2.5.1/Regexp.html#Public%20Instance%20Methods">Ruby Doc 關於Regexp方法下的Public Instance Methods這頁說明</a>，我們可以分別用 <code class="highlighter-rouge">===</code>和 <code class="highlighter-rouge">==</code> 了解各項舉例是否為真：</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="sr">/banana/</span> <span class="o">===</span> <span class="s1">'banana'</span> <span class="c1"># =&gt; true</span>
 <span class="nb">p</span> <span class="sr">/banana/</span> <span class="o">===</span> <span class="sr">/banana/</span> <span class="c1"># =&gt; false</span>
