@@ -158,7 +158,7 @@ end
 繼承 inheritance  | 可繼承  | 不可繼承
 包含 inclusion  | 不可被包含  | 可被包含
 延伸 extension  | 不可延伸  | 可被延伸
-實例化 instantiation  | 可被實例化(instantiated)  | 不可被實例化
+實體化 instantiation  | 可被實體化(instantiated)  | 不可被實體化
 
 今天先寫到這裡，~~因為網路要斷線了~~！預計明天文章會提到extension。
 做這個表格時，我發現：跟別人比較，比得好累好辛苦～

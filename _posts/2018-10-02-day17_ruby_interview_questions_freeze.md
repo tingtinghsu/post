@@ -47,7 +47,7 @@ print variable_array
 
 # `.freeze` 用在常數
 
-透過使用`.freeze`方法加在常數值之後，我們可以產生真正意義上的常數。讓常數永遠不變(immutable)
+透過使用`.freeze`方法加在常數值之後，我們可以產生真正意義上的常數，讓常數永遠不變(immutable)。
 
 ```ruby
 ROLE_CONSTANT = "Rubyist".freeze

@@ -17,7 +17,7 @@ categories: ruby interview
 
 ```ruby
 class IronmanDairy
-  def initialize( topic )
+  def initialize(topic)
        @topic = topic
   end
 

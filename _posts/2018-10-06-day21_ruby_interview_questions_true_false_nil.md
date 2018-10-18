@@ -15,7 +15,7 @@ categories: ruby interview
 
 # Ruby經典面試題目 #21
 
-`Day21 解釋Ruby裡的True, False與Nil? Explan True and False vs. "Truthy" and "Falsey / Falsy") in Ruby?`
+`Day21 解釋Ruby裡的True, False與Nil? Explan True and False vs. "Truthy" and "Falsey / Falsy" in Ruby?`
 
 老實說這題我拖了好久，因為相關的面試題目特別多，一直在構思怎麼整理、寫成文章會比較有架構，也希望自己的產出作品也可以讓其他Ruby新手同學們比較容易了解，所以...不知不覺就到了最後10天了～～（遮臉）
 
@@ -23,7 +23,7 @@ categories: ruby interview
 
 * (1) `true`物件，代表為`真`。True is truthy.
 * (2) `false`物件，代表為`假`。False is falsey.
-* (3) `nil`物件代表`空值`，空無一物的意思。 Nil is falsey. The object Nil represents “nothing”.
+* (3) `nil`物件代表`空無一物`的意思。 Nil is falsey. The object Nil represents “nothing”.
 
 來列張表格：
 
@@ -31,7 +31,7 @@ categories: ruby interview
 ------------- | ------------- | -------------| -------------
 `true`物件  | `真`  | 0, 1, "",[]`陣列`, {}`區塊`, [1,2,3] | Truthy
 `false`物件  | `假`  | 1+1==3 | Falsey
- `nil`物件  | `空值`  | nil, () | Falsey
+ `nil`物件  | `空無一物`  | nil, () | Falsey
 
 # True: truely
 
