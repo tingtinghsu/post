@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-18T11:32:24+11:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day22 Ruby的’==’，’===’ ‘eql?’ ‘equal?’</title><link href="http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_equal.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day22 Ruby的'=='，'===' 'eql?' 'equal?'" /><published>2018-10-17T10:39:00+11:00</published><updated>2018-10-17T10:39:00+11:00</updated><id>http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_equal</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_equal.html">&lt;p&gt;[昨天]我們把焦點集中在&lt;code class=&quot;highlighter-rouge&quot;&gt;True or False&lt;/code&gt;(判斷真假)，今天來研究幾個&lt;code class=&quot;highlighter-rouge&quot;&gt;比較是否相等&lt;/code&gt;的方法！在程式世界裡，&lt;code class=&quot;highlighter-rouge&quot;&gt;真假&lt;/code&gt;與&lt;code class=&quot;highlighter-rouge&quot;&gt;相等&lt;/code&gt;都有更多元、更超乎想像的概念。如果是程式新手，可能會對這幾個看起來特別像的運算子：&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;eql?&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;equal?&lt;/code&gt;充滿黑人問號…???&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-18T11:36:09+11:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">30天修煉Ruby面試精選30題 - Day22 Ruby的’==’，’===’ ‘eql?’ ‘equal?’</title><link href="http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_equal.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day22 Ruby的'=='，'===' 'eql?' 'equal?'" /><published>2018-10-17T10:39:00+11:00</published><updated>2018-10-17T10:39:00+11:00</updated><id>http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_equal</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_equal.html">&lt;p&gt;[昨天]我們把焦點集中在&lt;code class=&quot;highlighter-rouge&quot;&gt;True or False&lt;/code&gt;(判斷真假)，今天來研究幾個&lt;code class=&quot;highlighter-rouge&quot;&gt;比較是否相等&lt;/code&gt;的方法！在程式世界裡，&lt;code class=&quot;highlighter-rouge&quot;&gt;真假&lt;/code&gt;與&lt;code class=&quot;highlighter-rouge&quot;&gt;相等&lt;/code&gt;都有更多元、更超乎想像的概念。如果是程式新手，可能會對這幾個看起來特別像的運算子：&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;eql?&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;equal?&lt;/code&gt;充滿黑人問號…???&lt;/p&gt;
 
 &lt;p&gt;趕快來看看今天的題目！&lt;/p&gt;
 
@@ -175,10 +175,26 @@
 
 &lt;p&gt;超級比一比：&lt;/p&gt;
 
-&lt;p&gt;== (等於) | === | eql? | equal?
-————- | ————-| ————-| ————-
-檢查兩個運算子的值是否相等 | 測試case語法中的&lt;code class=&quot;highlighter-rouge&quot;&gt;when子句相等性&lt;/code&gt; (object class) | 如果接收器和&lt;code class=&quot;highlighter-rouge&quot;&gt;參數的值&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;類型&lt;/code&gt;都相等，則為&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; | 如果接收器和參數的&lt;code class=&quot;highlighter-rouge&quot;&gt;object id&lt;/code&gt;相同，則為&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;
-Ref:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;== (等於)&lt;/th&gt;
+      &lt;th&gt;===&lt;/th&gt;
+      &lt;th&gt;eql?&lt;/th&gt;
+      &lt;th&gt;equal?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;檢查兩個運算子的值是否相等&lt;/td&gt;
+      &lt;td&gt;測試case語法中的&lt;code class=&quot;highlighter-rouge&quot;&gt;when子句相等性&lt;/code&gt; (object class)&lt;/td&gt;
+      &lt;td&gt;如果接收器和&lt;code class=&quot;highlighter-rouge&quot;&gt;參數的值&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;類型&lt;/code&gt;都相等，則為&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;如果接收器和參數的&lt;code class=&quot;highlighter-rouge&quot;&gt;object id&lt;/code&gt;相同，則為&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Ref:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://quizbucket.org/explain-each-of-the-following-operators-and-how-and-when-they-should-be-used-eql-equal-4248&quot;&gt;Ruby Interview Questions - Quizbucket&lt;/a&gt;&lt;/li&gt;

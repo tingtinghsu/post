@@ -222,10 +222,26 @@
 
 <p>超級比一比：</p>
 
-<p>== (等於) | === | eql? | equal?
-————- | ————-| ————-| ————-
-檢查兩個運算子的值是否相等 | 測試case語法中的<code class="highlighter-rouge">when子句相等性</code> (object class) | 如果接收器和<code class="highlighter-rouge">參數的值</code>和<code class="highlighter-rouge">類型</code>都相等，則為<code class="highlighter-rouge">true</code> | 如果接收器和參數的<code class="highlighter-rouge">object id</code>相同，則為<code class="highlighter-rouge">true</code>
-Ref:</p>
+<table>
+  <thead>
+    <tr>
+      <th>== (等於)</th>
+      <th>===</th>
+      <th>eql?</th>
+      <th>equal?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>檢查兩個運算子的值是否相等</td>
+      <td>測試case語法中的<code class="highlighter-rouge">when子句相等性</code> (object class)</td>
+      <td>如果接收器和<code class="highlighter-rouge">參數的值</code>和<code class="highlighter-rouge">類型</code>都相等，則為<code class="highlighter-rouge">true</code></td>
+      <td>如果接收器和參數的<code class="highlighter-rouge">object id</code>相同，則為<code class="highlighter-rouge">true</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ref:</p>
 
 <ul>
   <li><a href="http://quizbucket.org/explain-each-of-the-following-operators-and-how-and-when-they-should-be-used-eql-equal-4248">Ruby Interview Questions - Quizbucket</a></li>
