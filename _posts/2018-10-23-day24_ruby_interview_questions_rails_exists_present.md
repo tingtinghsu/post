@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day24 .exists? 和 .present? 比較"
+title:  "30天修煉Ruby面試精選30題 - Day24 Rails比一比: .present? 和 .exists?比較"
 date:   2018-10-23 08:51:00 +1000
 categories: ruby interview
 ---
