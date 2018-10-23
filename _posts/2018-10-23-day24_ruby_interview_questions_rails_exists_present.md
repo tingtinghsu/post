@@ -17,7 +17,7 @@ categories: ruby interview
 
 根據我們在這趟鐵人賽journey所養成的好習慣，當學到新的方法時，第一步就是去：翻手冊！
 
-## `.present?()`
+# `.present?()`
 
 從`.present()`所在的API手冊網址：https://api.rubyonrails.org/classes/Object.html#method-i-present-3F
 我們可以發現`.present?()`方法是屬於`Object`之下的方法。如果物件Object不是`blank`(nil, 空值, 或空白鍵)，就是代表`現在；在場`，回傳true。
@@ -33,7 +33,7 @@ def present?
 end
 ```
 
-## present與presence改寫:
+# `.present`與`.presence`
 
 present是動詞，presence是名詞，我們從[Rails API](https://api.rubyonrails.org/classes/Object.html#method-i-presence)發現
 這兩者方法可以互相轉換，
@@ -74,7 +74,7 @@ params[:something] == ''
 object.present? ? object : nil
 ```
 
-##.exists?
+# `.exists?`
 
 接著來看看`.exists()`所在的API手冊網址：
 https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html#method-c-exists-3F
