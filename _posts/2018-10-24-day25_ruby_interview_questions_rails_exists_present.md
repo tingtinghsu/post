@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day24 Rails比一比: .present? 和 .exists?比較"
+title:  "30天修煉Ruby面試精選30題 - Day24 初探 Rails: .present? 和 .exists?比較"
 date:   2018-10-23 08:51:00 +1000
 categories: ruby interview
 ---
@@ -164,10 +164,7 @@ Ironman.exists?(name: "Ting Ting")
 # => SELECT 1 AS one from ironman WHERE name ="Ting Ting" limit 1;
 ```
 
-之前鐵人賽文章曾提到的`Benchmark`標竿測試，我們常比較不同的method在不同數量級的資料下，哪一個效能較佳。相信你也可以像我一樣猜到`.exist?()`來自於確認請求網路資源是否存在的`ActiveResource::Base`，速度當然要飛快才行！
-
-[這篇文章的案例]測試(https://www.ombulabs.com/blog/benchmark/performance/rails/present-vs-any-vs-exists.html)`.present?`花了900ms(毫秒)，而`.exists?`僅花了1ms!!!
-
+之前鐵人賽文章曾提到的`Benchmark`標竿測試，我們常比較不同的method在不同數量級的資料下，哪一個效能較佳。相信你也可以像我一樣猜到`.exist?()`來自於確認請求網路資源是否存在的`ActiveResource::Base`，速度當然要飛快才行！[這篇文章的案例](https://www.ombulabs.com/blog/benchmark/performance/rails/present-vs-any-vs-exists.html)標竿測試`.present?`花了900ms(毫秒)，而`.exists?`僅花了1ms!!!
 
 最後，不免俗地來個超級比一比：）
 
@@ -175,7 +172,7 @@ Ironman.exists?(name: "Ting Ting")
 ------------- | -------------|-------------|
 路徑| active_support/core_ext/object/blank.rb | activeresource/lib/active_resource/base.rb|
 用途 | 如果物件Object不為`blank`(nil, 空值, 或空白鍵)，回傳`true` |若資源存在，回傳`true` |
-特點 | 利用ActiveRecord初始化物件，效能差 | 效能佳 |
+特點 | 利用ActiveRecord初始化物件，效能差 | ActiveResource下的方法，效能佳 |
 
 
 Ref:

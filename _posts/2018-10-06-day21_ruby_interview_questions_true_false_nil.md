@@ -23,7 +23,7 @@ categories: ruby interview
 
 * (1) `true`物件，代表為`真`。True is truthy.
 * (2) `false`物件，代表為`假`。False is falsey.
-* (3) `nil`物件代表`空無一物`的意思。 Nil is falsey. The object Nil represents “nothing”.
+* (3) `nil`物件代表`沒有`的意思。 Nil is falsey. The object Nil represents “nothing”.
 
 來列張表格：
 
@@ -31,7 +31,7 @@ categories: ruby interview
 ------------- | ------------- | -------------| -------------
 `true`物件  | `真`  | 0, 1, "",[]`陣列`, {}`區塊`, [1,2,3] | Truthy
 `false`物件  | `假`  | 1+1==3 | Falsey
- `nil`物件  | `空無一物`  | nil, () | Falsey
+ `nil`物件  | `沒有`  | nil, () | Falsey
 
 # True: truely
 
@@ -76,7 +76,7 @@ end
 
 # Nil: falsey
 
-關於`nil`，我把它比喻為`錢包裡沒錢`～錢包沒錢當然是假的～～！！！是假的！！！**當然要催眠自己的錢包裡很有錢(挺)**
+關於`nil`，我把它比喻為`錢包裡沒有錢`～錢包沒有錢當然是假的～～！！！是假的！！！**當然要催眠自己的錢包裡很有錢(挺)**
 
 ```ruby
 if nil
@@ -173,11 +173,25 @@ else
 end #it is falsey! Both are false.
 ```
 
+最後，來列兩個`或且`九宮格比較一下：
+
+[`or` . `||` . `或`]
+`||` | true | false
+------------- | -------------|-------------|
+true| true | true|
+false| true | false
+
+[`and` . `&&` . `且`]
+
+`&&` | true | false
+------------- | -------------|-------------|
+true| true | false|
+false| false | false
+
 我相信實務上有更多複雜的真假判斷句子，不過不用擔心！只要我們在每一天都能穩健地做好基礎打底工作，未來就不怕以假亂真了！：Ｐ
 
 Ref:
 
 * [Ruby true, false, or nil](https://stackoverflow.com/questions/34594477/ruby-true-false-or-nil)
-* [ruby-doc.org : Object method (equal?)](http://ruby-doc.org/core-2.5.1/Object.html#method-i-eql-3F)
-* [What's the difference between equal?, eql?, ===, and ==?](https://stackoverflow.com/questions/7156955/whats-the-difference-between-equal-eql-and)
+
 * [true and false vs. "truthy" and "falsey" (or "falsy") in Ruby, Python, and JavaScript](https://gist.github.com/jfarmer/2647362)

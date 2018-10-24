@@ -1,17 +1,17 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day22 Ruby的'=='，'===' 'eql?' 'equal?'"
+title:  "30天修煉Ruby面試精選30題 - Day25 Ruby的'=='，'===' 'eql?' 'equal?'"
 date:   2018-10-17 09:39:00 +1000
 categories: ruby interview
 ---
 
-[昨天]我們把焦點集中在`True or False`(判斷真假)，今天來研究幾個`比較是否相等`的方法！在程式世界裡，`真假`與`相等`都有更多元、更超乎想像的概念。如果是程式新手，可能會對這幾個看起來特別像的運算子：`==`, `===`, `eql?`, `equal?`充滿黑人問號...???
+前幾天我們把焦點集中在`True or False`(判斷真假)，今天來研究幾個`比較是否相等`的方法！在程式世界裡，`真假`與`相等`都有更多元、更超乎想像的概念。如果是程式新手，可能會對這幾個看起來特別像的運算子：`==`, `===`, `eql?`, `equal?`充滿黑人問號...???
 
 趕快來看看今天的題目！
 
-# Ruby經典面試題目 #22
+# Ruby經典面試題目 #25
 
-`Day22 解釋Ruby裡的 ==, ===, eql?, equal。 Explain each of the following operators  ==, ===, eql?, equal?`
+`Day25 解釋Ruby裡的 ==, ===, eql?, equal。 Explain each of the following operators  ==, ===, eql?, equal?`
 
 有些方法比其他的方法更相等(Some are more equal than others)。這是怎麼回事？讓我們繼續看下去～
 
