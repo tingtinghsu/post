@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day25 Ruby的'=='，'===' 'eql?' 'equal?'"
+title:  "30天修煉Ruby面試精選30題 - Day23 Ruby的'=='，'===' 'eql?' 'equal?'"
 date:   2018-10-17 09:39:00 +1000
 categories: ruby interview
 ---
@@ -9,9 +9,9 @@ categories: ruby interview
 
 趕快來看看今天的題目！
 
-# Ruby經典面試題目 #25
+# Ruby經典面試題目 #23
 
-`Day25 解釋Ruby裡的 ==, ===, eql?, equal。 Explain each of the following operators  ==, ===, eql?, equal?`
+`Day23 解釋Ruby裡的 ==, ===, eql?, equal。 Explain each of the following operators  ==, ===, eql?, equal?`
 
 有些方法比其他的方法更相等(Some are more equal than others)。這是怎麼回事？讓我們繼續看下去～
 

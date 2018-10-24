@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day23 nil?, empty? 和, blank? present? 比較?"
+title:  "30天修煉Ruby面試精選30題 - Day24 nil?, empty? 和, blank? present? 比較?"
 date:   2018-10-21 09:51:00 +1000
 categories: ruby interview
 ---
@@ -9,9 +9,9 @@ categories: ruby interview
 
 ---
 
-# Ruby經典面試題目 #23
+# Ruby經典面試題目 #24
 
-`Day23 nil?, empty? 和, blank? present? 比較。 what's the difference between nil?, empty?blank? and present? `
+`Day24 nil?, empty? 和, blank? present? 比較。 what's the difference between nil?, empty?blank? and present? `
 
 # 1. `nil?`
 

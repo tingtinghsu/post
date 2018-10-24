@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day24 初探 Rails: .present? 和 .exists?比較"
+title:  "30天修煉Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較"
 date:   2018-10-23 08:51:00 +1000
 categories: ruby interview
 ---
@@ -11,9 +11,9 @@ categories: ruby interview
 
 ---
 
-# Ruby經典面試題目 #24
+# Ruby經典面試題目 #25
 
-`Day24 .present? 和.exists?  比較? What is the difference between .present? and .exists?`
+`Day25 .present? 和.exists?  比較? What is the difference between .present? and .exists?`
 
 根據我們在這趟鐵人賽journey所養成的好習慣，當學到新的方法時，第一步就是去：翻手冊！
 
@@ -91,7 +91,7 @@ https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html#method-c-exist
 IronmanDairy.create(:title => 'Day 24', :body => 'The importance of Existence checks')
 
 IronmanDairy.exists?(1) # => true
-IronmanDairy.exists(1349) # => false
+IronmanDairy.exists(9527) # => false
 ```
 
 來看看rails文件的`.exists`方法是怎麼被刻出來的：
