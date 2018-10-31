@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day29 Ruby的tap method"
+title:  "30天修煉Ruby面試精選30題 - Day29 Ruby的tap method"
 date:   2018-11-01 13:58:00 +1000
 categories: ruby interview
 ---
