@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>30天修煉Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較 | Ting’s Square.</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="[昨天]的鐵人賽裡，我們提到了.present?方法，第一次把腳跨進Rails的領域，這是一種從Ruby幼幼班畢業的架勢！" />
+<meta property="og:description" content="[昨天]的鐵人賽裡，我們提到了.present?方法，第一次把腳跨進Rails的領域，這是一種從Ruby幼幼班畢業的架勢！" />
+<link rel="canonical" href="http://localhost:4000/ruby/interview/2018/10/23/day25_ruby_interview_questions_rails_exists_present.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/interview/2018/10/23/day25_ruby_interview_questions_rails_exists_present.html" />
+<meta property="og:site_name" content="Ting’s Square." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-23T07:51:00+09:00" />
+<script type="application/ld+json">
+{"description":"[昨天]的鐵人賽裡，我們提到了.present?方法，第一次把腳跨進Rails的領域，這是一種從Ruby幼幼班畢業的架勢！","@type":"BlogPosting","url":"http://localhost:4000/ruby/interview/2018/10/23/day25_ruby_interview_questions_rails_exists_present.html","headline":"30天修煉Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較","dateModified":"2018-10-23T07:51:00+09:00","datePublished":"2018-10-23T07:51:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/interview/2018/10/23/day25_ruby_interview_questions_rails_exists_present.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ting&#39;s Square.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-10-23T07:51:00+09:00" itemprop="datePublished">Oct 23, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>[昨天]的鐵人賽裡，我們提到了<code class="highlighter-rouge">.present?</code>方法，第一次把腳跨進<code class="highlighter-rouge">Rails</code>的領域，這是一種從<code class="highlighter-rouge">Ruby</code>幼幼班畢業的架勢！</p>
+
+<p>今天再來研究另一個<code class="highlighter-rouge">Rails</code>方法:<code class="highlighter-rouge">.exists?</code>，從英文字面上來說這兩個方法名字挺像的(<code class="highlighter-rouge">.present?</code>現在?在場?；<code class="highlighter-rouge">.exists?</code>存在?生存?)，讓我們來繼續看下</p>
+
+<hr />
+
+<h1 id="ruby經典面試題目-25">Ruby經典面試題目 #25</h1>
+
+<p><code class="highlighter-rouge">Day25 .present? 和.exists?  比較? What is the difference between .present? and .exists?</code></p>
+
+<p>根據我們在這趟鐵人賽journey所養成的好習慣，當學到新的方法時，第一步就是去：翻手冊！</p>
+
+<h1 id="present"><code class="highlighter-rouge">.present?()</code></h1>
+
+<p>從<code class="highlighter-rouge">.present()</code>所在的API手冊網址：https://api.rubyonrails.org/classes/Object.html#method-i-present-3F
+我們可以發現<code class="highlighter-rouge">.present?()</code>方法是屬於<code class="highlighter-rouge">Object</code>之下的方法。如果物件Object不是<code class="highlighter-rouge">blank</code>(nil, 空值, 或空白鍵)，就是代表<code class="highlighter-rouge">現在；在場</code>，回傳true。</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">.present?()</code>: An object is present if it’s not blank.</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">@return [true, false]</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File activesupport/lib/active_support/core_ext/object/blank.rb, line 26</span>
+<span class="k">def</span> <span class="nf">present?</span>
+  <span class="o">!</span><span class="n">blank?</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h1 id="present與presence"><code class="highlighter-rouge">.present</code>與<code class="highlighter-rouge">.presence</code></h1>
+
+<p>present是動詞，presence是名詞，我們從<a href="https://api.rubyonrails.org/classes/Object.html#method-i-presence">Rails API</a>發現
+這兩者方法可以互相轉換，</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File activesupport/lib/active_support/core_ext/object/blank.rb, line 46</span>
+<span class="k">def</span> <span class="nf">presence</span>
+  <span class="nb">self</span> <span class="k">if</span> <span class="n">present?</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">present?</code>可以和<code class="highlighter-rouge">presence</code>互相改寫：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span><span class="p">[</span><span class="ss">:something</span><span class="p">]</span> <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="ss">:something</span><span class="p">].</span><span class="nf">present?</span>
+</code></pre></div></div>
+
+<p>變成</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span><span class="p">[</span><span class="ss">:something</span><span class="p">].</span><span class="nf">presence</span>
+</code></pre></div></div>
+
+<p>程式碼從兩行變成一行了呢～～</p>
+
+<p>如果某物件<code class="highlighter-rouge">不在場(present)</code>，就回傳<code class="highlighter-rouge">nil</code>(returns <code class="highlighter-rouge">nil</code> if object is ‘empty’)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span><span class="p">[</span><span class="ss">:something</span><span class="p">]</span> <span class="o">==</span> <span class="s1">''</span>
+
+<span class="p">[].</span><span class="nf">presence</span>
+<span class="c1"># =&gt; nil</span>
+</code></pre></div></div>
+
+<p>等同於</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">object</span><span class="p">.</span><span class="nf">present?</span> <span class="p">?</span> <span class="n">object</span> <span class="p">:</span> <span class="kp">nil</span>
+</code></pre></div></div>
+
+<h1 id="exists"><code class="highlighter-rouge">.exists?</code></h1>
+
+<p>接著來看看<code class="highlighter-rouge">.exists()</code>所在的API手冊網址：
+https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html#method-c-exists-3F
+可以發現<code class="highlighter-rouge">.exists()</code>方法是屬於<code class="highlighter-rouge">ActiveResource::Base</code>下的方法。</p>
+
+<p>當我們架設一個包含多種功能的動態網站，為了防止效能變差，確保系統資源能被有效利用，我們會先檢查<code class="highlighter-rouge">資源是否存在</code>。</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">exists?(id, options = {})</code>Asserts the existence of a resource, returning true if the resource is found.</p>
+</blockquote>
+
+<p><a href="https://semaphoreci.com/blog/2017/03/14/faster-rails-how-to-check-if-a-record-exists.html">這篇文章提到</a><code class="highlighter-rouge">Existence checks in Rails</code>是非常重要的觀念！就好像出門前要先檢查<code class="highlighter-rouge">鑰匙</code>、<code class="highlighter-rouge">錢包</code>、<code class="highlighter-rouge">手機</code>是否隨身攜帶；出國去機場坐飛機前記得檢查是否攜帶<code class="highlighter-rouge">護照</code>，不然就要再回家拿、浪費大把時間與資源、又搞得自己很狼狽喔！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s1">'Day 24'</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s1">'The importance of Existence checks'</span><span class="p">)</span>
+
+<span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="mi">9527</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<p>來看看rails文件的<code class="highlighter-rouge">.exists</code>方法是怎麼被刻出來的：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File activeresource/lib/active_resource/base.rb, line 869</span>
+<span class="k">def</span> <span class="nf">exists?</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+  <span class="k">if</span> <span class="nb">id</span>
+    <span class="n">prefix_options</span><span class="p">,</span> <span class="n">query_options</span> <span class="o">=</span> <span class="n">split_options</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="ss">:params</span><span class="p">])</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">element_path</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prefix_options</span><span class="p">,</span> <span class="n">query_options</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="n">response</span><span class="p">.</span><span class="nf">code</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">==</span> <span class="mi">200</span>
+  <span class="k">end</span>
+  <span class="c1"># id &amp;&amp; !find_single(id, options).nil? id存在且不為空</span>
+<span class="k">rescue</span> <span class="no">ActiveResource</span><span class="o">::</span><span class="no">ResourceNotFound</span><span class="p">,</span> <span class="no">ActiveResource</span><span class="o">::</span><span class="no">ResourceGone</span>
+  <span class="kp">false</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>至於什麼是<code class="highlighter-rouge">ActiveResource::Base</code>呢?</p>
+
+<blockquote>
+  <p>It is the main class for mapping <code class="highlighter-rouge">RESTful</code> resources as <code class="highlighter-rouge">models</code> in a Rails application.<a href="https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html">出處</a></p>
+</blockquote>
+
+<p>這邊的<code class="highlighter-rouge">RESTful</code>和<code class="highlighter-rouge">MVC框架</code>的<code class="highlighter-rouge">model</code>兩個博大精深的概念都可以另外再寫兩本書了，因此限於篇幅，這邊就先暫不提起。（想研究的新手同好可參考:<a href="https://medium.com/alpha-camp-%E5%8F%B0%E7%81%A3/restful%E8%88%87mvc%E7%9A%84%E6%97%85%E7%A8%8B-%E4%B9%8B-%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%B8%8D%E6%87%82%E7%9A%84rails-a4bbc12539e2">RESTful 與 MVC 的旅程 之 那些年我不懂的 Rails</a>）等到小妹未來Ruby功力加深後，會續寫30篇Rails面試精選題深入研究的：）</p>
+
+<h1 id="present與exists比較"><code class="highlighter-rouge">.present?</code>與<code class="highlighter-rouge">.exists?</code>比較</h1>
+
+<p>由於<code class="highlighter-rouge">.present?</code>來自於<code class="highlighter-rouge">ActiveRecord</code>，<code class="highlighter-rouge">.exists</code>來自於<code class="highlighter-rouge">ActiveResource</code>，它們本質上的意義其實很不同：</p>
+
+<p><code class="highlighter-rouge">.present?</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Ironmen</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'Ting Ting'</span><span class="p">)</span>
+
+<span class="no">Ironmen</span> <span class="no">Load</span> <span class="p">(</span><span class="mf">8.1</span><span class="n">ms</span><span class="p">)</span> <span class="no">SELECT</span> <span class="s2">"ironmen"</span><span class="p">.</span><span class="nf">*</span> <span class="no">FROM</span> <span class="s2">"ironmen"</span> <span class="no">WHERE</span> <span class="s2">"ironmen"</span><span class="o">.</span><span class="s2">"name"</span> <span class="o">=</span> <span class="vg">$1</span> <span class="no">ORDER</span> <span class="no">BY</span> <span class="n">users</span><span class="p">.</span><span class="nf">id</span> <span class="no">ASC</span>  <span class="p">[[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s1">'Ting Ting'</span><span class="p">]]</span>
+
+<span class="no">You</span> <span class="n">have</span> <span class="n">initialized</span> <span class="n">an</span> <span class="n">object!</span>
+<span class="no">You</span> <span class="n">have</span> <span class="n">initialized</span> <span class="n">an</span> <span class="n">object!</span>
+
+</code></pre></div></div>
+
+<p>我們看到了初始化<code class="highlighter-rouge">initialized an object</code>的提示。</p>
+
+<p><code class="highlighter-rouge">.exists?</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Ironmen</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'Ting Ting'</span><span class="p">)</span>
+
+<span class="no">Ironmen</span> <span class="no">Exists</span> <span class="p">(</span><span class="mf">2.4</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="mi">1</span> <span class="no">AS</span> <span class="n">one</span> <span class="no">FROM</span> <span class="s2">"ironmen"</span> <span class="no">WHERE</span> <span class="s2">"ironmen"</span><span class="o">.</span><span class="s2">"name"</span> <span class="o">=</span> <span class="vg">$1</span> <span class="no">ORDER</span> <span class="no">BY</span> <span class="n">users</span><span class="p">.</span><span class="nf">id</span> <span class="no">ASC</span> <span class="no">LIMIT</span> <span class="mi">1</span>  <span class="p">[[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s1">'Ting Ting'</span><span class="p">]]</span>
+
+</code></pre></div></div>
+
+<p>我們發現<code class="highlighter-rouge">.present?</code>與<code class="highlighter-rouge">.exists?</code>所代表的SQL語法也有所差異：</p>
+
+<p><code class="highlighter-rouge">.present?</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Ironman</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Ting Ting"</span><span class="p">).</span><span class="nf">present?</span>
+
+<span class="c1"># =&gt; SELECT COUNT(*) FROM ironman WHERE ironman.name = "Ting Ting";</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">.exists?</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Ironman</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Ting Ting"</span><span class="p">)</span>
+
+<span class="c1"># =&gt; SELECT 1 AS one from ironman WHERE name ="Ting Ting" limit 1;</span>
+</code></pre></div></div>
+
+<p>之前鐵人賽文章曾提到的<code class="highlighter-rouge">Benchmark</code>標竿測試，我們常比較不同的method在不同數量級的資料下，哪一個效能較佳。相信你也可以像我一樣猜到<code class="highlighter-rouge">.exist?()</code>來自於確認請求網路資源是否存在的<code class="highlighter-rouge">ActiveResource::Base</code>，速度當然要飛快才行！<a href="https://www.ombulabs.com/blog/benchmark/performance/rails/present-vs-any-vs-exists.html">這篇文章的案例</a>標竿測試<code class="highlighter-rouge">.present?</code>花了900ms(毫秒)，而<code class="highlighter-rouge">.exists?</code>僅花了1ms!!!</p>
+
+<p>最後，不免俗地來個超級比一比：）</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th><code class="highlighter-rouge">.present?()</code></th>
+      <th><code class="highlighter-rouge">.exists?()</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>路徑</td>
+      <td>active_support/core_ext/object/blank.rb</td>
+      <td>activeresource/lib/active_resource/base.rb</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>如果物件Object不為<code class="highlighter-rouge">blank</code>(nil, 空值, 或空白鍵)，回傳<code class="highlighter-rouge">true</code></td>
+      <td>若資源存在，回傳<code class="highlighter-rouge">true</code></td>
+    </tr>
+    <tr>
+      <td>特點</td>
+      <td>利用ActiveRecord初始化物件，效能差</td>
+      <td>ActiveResource下的方法，效能佳</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/13186722/what-is-the-difference-between-using-exists-and-present-in-ruby">What is the difference between using .exists?, and .present? in Ruby?</a></li>
+  <li><a href="https://stackoverflow.com/questions/19637499/what-is-the-point-of-object-presence/19637602">What is the point of object.presence?</a></li>
+  <li><a href="https://api.rubyonrails.org/classes/Object.html#method-i-present-3F">Rails API:present?()</a></li>
+  <li><a href="https://api.rubyonrails.org/classes/Object.html#method-i-presence">Rails API:presence()</a></li>
+  <li><a href="https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html#method-c-exists-3F">Rails API:exists?(id, options = {})</a></li>
+  <li><a href="https://semaphoreci.com/blog/2017/03/14/faster-rails-how-to-check-if-a-record-exists.html">Faster Rails: How to Check if a Record Exists</a></li>
+  <li><a href="https://www.ombulabs.com/blog/benchmark/performance/rails/present-vs-any-vs-exists.html">Present? vs Any? vs Exists?</a></li>
+  <li><a href="https://www.ombulabs.com/blog/benchmark/performance/rails/present-vs-any-vs-exists.html">empty?, blank?, any?, exists? methods of Ruby on Rails ActiveRecord</a></li>
+</ul>
+
+  </div><a class="u-url" href="/ruby/interview/2018/10/23/day25_ruby_interview_questions_rails_exists_present.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ting&#39;s Square.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ting&#39;s Square.</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tingtinghsu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tingtinghsu</span></a></li><li><a href="https://www.twitter.com/tingtingtour"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tingtingtour</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Copyright Ting Ting Hsu</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

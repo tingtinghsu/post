@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/ruby/interview/2018/10/05/day21_ruby_interview_questions_true_false_nil.html" />
 <meta property="og:site_name" content="Ting’s Square." />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-10-05T13:39:00+10:00" />
+<meta property="article:published_time" content="2018-10-05T12:39:00+09:00" />
 <script type="application/ld+json">
-{"description":"話說這個世界上有許多真假難分的東西…","@type":"BlogPosting","url":"http://localhost:4000/ruby/interview/2018/10/05/day21_ruby_interview_questions_true_false_nil.html","headline":"30天修煉Ruby面試精選30題 - Day21 Ruby的true，false和nil","dateModified":"2018-10-05T13:39:00+10:00","datePublished":"2018-10-05T13:39:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/interview/2018/10/05/day21_ruby_interview_questions_true_false_nil.html"},"@context":"http://schema.org"}</script>
+{"description":"話說這個世界上有許多真假難分的東西…","@type":"BlogPosting","url":"http://localhost:4000/ruby/interview/2018/10/05/day21_ruby_interview_questions_true_false_nil.html","headline":"30天修煉Ruby面試精選30題 - Day21 Ruby的true，false和nil","dateModified":"2018-10-05T12:39:00+09:00","datePublished":"2018-10-05T12:39:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/interview/2018/10/05/day21_ruby_interview_questions_true_false_nil.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
 <body><header class="site-header" role="banner">
@@ -40,7 +40,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day21 Ruby的true，false和nil</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-10-05T13:39:00+10:00" itemprop="datePublished">Oct 5, 2018
+      <time class="dt-published" datetime="2018-10-05T12:39:00+09:00" itemprop="datePublished">Oct 5, 2018
       </time></p>
   </header>
 
@@ -66,7 +66,7 @@
 <ul>
   <li>(1) <code class="highlighter-rouge">true</code>物件，代表為<code class="highlighter-rouge">真</code>。True is truthy.</li>
   <li>(2) <code class="highlighter-rouge">false</code>物件，代表為<code class="highlighter-rouge">假</code>。False is falsey.</li>
-  <li>(3) <code class="highlighter-rouge">nil</code>物件代表<code class="highlighter-rouge">空無一物</code>的意思。 Nil is falsey. The object Nil represents “nothing”.</li>
+  <li>(3) <code class="highlighter-rouge">nil</code>物件代表<code class="highlighter-rouge">沒有</code>的意思。 Nil is falsey. The object Nil represents “nothing”.</li>
 </ul>
 
 <p>來列張表格：</p>
@@ -95,7 +95,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">nil</code>物件</td>
-      <td><code class="highlighter-rouge">空無一物</code></td>
+      <td><code class="highlighter-rouge">沒有</code></td>
       <td>nil, ()</td>
       <td>Falsey</td>
     </tr>
@@ -143,7 +143,7 @@
 
 <h1 id="nil-falsey">Nil: falsey</h1>
 
-<p>關於<code class="highlighter-rouge">nil</code>，我把它比喻為<code class="highlighter-rouge">錢包裡沒錢</code>～錢包沒錢當然是假的～～！！！是假的！！！<strong>當然要催眠自己的錢包裡很有錢(挺)</strong></p>
+<p>關於<code class="highlighter-rouge">nil</code>，我把它比喻為<code class="highlighter-rouge">錢包裡沒有錢</code>～錢包沒有錢當然是假的～～！！！是假的！！！<strong>當然要催眠自己的錢包裡很有錢(挺)</strong></p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="kp">nil</span>
   <span class="nb">puts</span> <span class="s2">"nil is truthy"</span>
@@ -233,15 +233,49 @@
 <span class="k">end</span> <span class="c1">#it is falsey! Both are false.</span>
 </code></pre></div></div>
 
+<p>最後，來列兩個<code class="highlighter-rouge">或且</code>九宮格比較一下：</p>
+
+<p>[<code class="highlighter-rouge">or</code> . <code class="highlighter-rouge">||</code> . <code class="highlighter-rouge">或</code>]
+<code class="highlighter-rouge">||</code> | true | false
+————- | ————-|————-|
+true| true | true|
+false| true | false</p>
+
+<p>[<code class="highlighter-rouge">and</code> . <code class="highlighter-rouge">&amp;&amp;</code> . <code class="highlighter-rouge">且</code>]</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="highlighter-rouge">&amp;&amp;</code></th>
+      <th>true</th>
+      <th>false</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>true</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>false</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
 <p>我相信實務上有更多複雜的真假判斷句子，不過不用擔心！只要我們在每一天都能穩健地做好基礎打底工作，未來就不怕以假亂真了！：Ｐ</p>
 
 <p>Ref:</p>
 
 <ul>
-  <li><a href="https://stackoverflow.com/questions/34594477/ruby-true-false-or-nil">Ruby true, false, or nil</a></li>
-  <li><a href="http://ruby-doc.org/core-2.5.1/Object.html#method-i-eql-3F">ruby-doc.org : Object method (equal?)</a></li>
-  <li><a href="https://stackoverflow.com/questions/7156955/whats-the-difference-between-equal-eql-and">What’s the difference between equal?, eql?, ===, and ==?</a></li>
-  <li><a href="https://gist.github.com/jfarmer/2647362">true and false vs. “truthy” and “falsey” (or “falsy”) in Ruby, Python, and JavaScript</a></li>
+  <li>
+    <p><a href="https://stackoverflow.com/questions/34594477/ruby-true-false-or-nil">Ruby true, false, or nil</a></p>
+  </li>
+  <li>
+    <p><a href="https://gist.github.com/jfarmer/2647362">true and false vs. “truthy” and “falsey” (or “falsy”) in Ruby, Python, and JavaScript</a></p>
+  </li>
 </ul>
 
   </div><a class="u-url" href="/ruby/interview/2018/10/05/day21_ruby_interview_questions_true_false_nil.html" hidden></a>
