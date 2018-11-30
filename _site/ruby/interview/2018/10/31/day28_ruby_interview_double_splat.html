@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>30天修煉Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator | Ting’s Square.</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ruby經典面試題目 #28" />
+<meta property="og:description" content="Ruby經典面試題目 #28" />
+<link rel="canonical" href="http://localhost:4000/ruby/interview/2018/10/31/day28_ruby_interview_double_splat.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/interview/2018/10/31/day28_ruby_interview_double_splat.html" />
+<meta property="og:site_name" content="Ting’s Square." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-31T09:58:00+09:00" />
+<script type="application/ld+json">
+{"description":"Ruby經典面試題目 #28","@type":"BlogPosting","url":"http://localhost:4000/ruby/interview/2018/10/31/day28_ruby_interview_double_splat.html","headline":"30天修煉Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator","dateModified":"2018-10-31T09:58:00+09:00","datePublished":"2018-10-31T09:58:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/interview/2018/10/31/day28_ruby_interview_double_splat.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ting&#39;s Square.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-10-31T09:58:00+09:00" itemprop="datePublished">Oct 31, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="ruby經典面試題目-28">Ruby經典面試題目 #28</h1>
+
+<p><code class="highlighter-rouge">Day28 Ruby的**運算子是啥米碗糕? What does ** double splat) operator do?</code></p>
+
+<h1 id="-single-splat">* single splat</h1>
+
+<p>要了解 <code class="highlighter-rouge">double splat</code>前，讓我們先來聊聊 <code class="highlighter-rouge">single splat</code>的用法。</p>
+
+<h2 id="1-方法代入的參數將list轉成array">1. 方法代入的參數：將list轉成array</h2>
+
+<p>自從IT鐵人賽開始後，我慢慢發現用Ruby程式碼寫日記還挺有趣的！現在建一個可以傳入參數(<code class="highlighter-rouge">*args</code>)<code class="highlighter-rouge">ironmandairy</code>方法，並在方法外設定鐵人賽日記的作者(:ting, <code class="highlighter-rouge">:symbol</code>)，文章數(30, <code class="highlighter-rouge">fixnum</code>)，主題(topic: :ruby, <code class="highlighter-rouge">hash</code>)。為了讓程式碼多樣化，特地想一些型態各自不同的參數，形成數組(<code class="highlighter-rouge">list</code>)：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">ironmandairy</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">args</span>
+<span class="k">end</span>
+
+<span class="n">ironmandairy</span> <span class="ss">:ting</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="ss">topic: :ruby</span> <span class="c1"># =&gt; [:ting, 30, {:topic=&gt;:ruby}]</span>
+</code></pre></div></div>
+
+<p>我在2018年10月份最重要的<code class="highlighter-rouge">project</code>:鐵人賽日記被印出來啦！資訊包含我的名字、文章數和主題。</p>
+
+<h2 id="2-方法代入的參數用block輸出多個值">2. 方法代入的參數：用block輸出多個值</h2>
+
+<p>今天是10月的最後一天了。再過5天，我就要離開住了5年的澳洲，搬去另一個國家體驗另一階段的生活，因此最近密集地跟好友們聚餐。我想寫個method印出朋友的名字，紀念這些日子的陪伴：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">say_goodbye</span><span class="p">(</span><span class="o">*</span><span class="n">friend</span><span class="p">)</span>
+  <span class="n">friend</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"Thanks </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">! Hope our paths will cross in the future."</span> <span class="p">}</span>
+<span class="k">end</span>
+ 
+<span class="n">say_goodbye</span><span class="p">(</span><span class="s2">"Claire"</span><span class="p">,</span> <span class="s2">"Thomas"</span><span class="p">,</span> <span class="s2">"Sarah"</span><span class="p">,</span> <span class="s2">"Magrit"</span><span class="p">,</span><span class="s2">"Mia"</span><span class="p">,</span><span class="s2">"Soumen"</span><span class="p">,</span> <span class="s2">"Ling"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Thanks</span> <span class="no">Claire</span><span class="o">!</span> <span class="no">Hope</span> <span class="n">our</span> <span class="n">paths</span> <span class="n">will</span> <span class="n">cross</span> <span class="k">in</span> <span class="n">the</span> <span class="n">future</span><span class="o">.</span>
+<span class="no">Thanks</span> <span class="no">Thomas</span><span class="o">!</span> <span class="no">Hope</span> <span class="n">our</span> <span class="n">paths</span> <span class="n">will</span> <span class="n">cross</span> <span class="k">in</span> <span class="n">the</span> <span class="n">future</span><span class="o">.</span>
+<span class="no">Thanks</span> <span class="no">Sarah</span><span class="o">!</span> <span class="no">Hope</span> <span class="n">our</span> <span class="n">paths</span> <span class="n">will</span> <span class="n">cross</span> <span class="k">in</span> <span class="n">the</span> <span class="n">future</span><span class="o">.</span>
+<span class="no">Thanks</span> <span class="no">Magrit</span><span class="o">!</span> <span class="no">Hope</span> <span class="n">our</span> <span class="n">paths</span> <span class="n">will</span> <span class="n">cross</span> <span class="k">in</span> <span class="n">the</span> <span class="n">future</span><span class="o">.</span>
+<span class="no">Thanks</span> <span class="no">Mia</span><span class="o">!</span> <span class="no">Hope</span> <span class="n">our</span> <span class="n">paths</span> <span class="n">will</span> <span class="n">cross</span> <span class="k">in</span> <span class="n">the</span> <span class="n">future</span><span class="p">.</span>
+<span class="nf">.</span><span class="o">..</span>
+<span class="o">...</span>
+<span class="o">...</span>
+
+</code></pre></div></div>
+
+<p>要感謝的朋友太多了～</p>
+
+<p>那就感謝天吧：）</p>
+
+<h2 id="3-方法外使用的時機-將array反轉成list">3. 方法外使用<code class="highlighter-rouge">*</code>的時機: 將array反轉成list</h2>
+
+<p><code class="highlighter-rouge">* single splat operator</code>可以將陣列轉為數組。5天之後我將會從雪梨前往大阪，所以我來寫一個<code class="highlighter-rouge">travel</code> method～期待期待:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">travel</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hello </span><span class="si">#{</span><span class="n">to</span><span class="p">.</span><span class="nf">capitalize</span><span class="si">}</span><span class="s2">. </span><span class="si">#{</span><span class="n">from</span><span class="p">.</span><span class="nf">capitalize</span><span class="si">}</span><span class="s2"> see you another time!"</span>
+<span class="k">end</span>
+
+<span class="n">itinerary</span> <span class="o">=</span> <span class="sx">%w(australia japan)</span>
+<span class="n">travel</span> <span class="o">*</span><span class="n">itinerary</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Hello</span> <span class="no">Japan</span><span class="o">.</span> <span class="no">Australia</span> <span class="n">see</span> <span class="n">you</span> <span class="n">another</span> <span class="n">time!</span>
+</code></pre></div></div>
+
+<h2 id="single-splat在array裡-代表其他未被指定的值">*single splat在array裡: 代表其他未被指定的值</h2>
+
+<p>以上三個例子橫跨了arry, list, hash和block. 現在來用簡單的例子看<code class="highlighter-rouge">*</code>的作用：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">a</span> <span class="c1"># =&gt; :a</span>
+<span class="nb">p</span> <span class="n">b</span> <span class="c1"># =&gt; :b</span>
+
+<span class="c1"># 只指定陣列中前兩個參數的值</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:x</span><span class="p">,</span> <span class="ss">:y</span><span class="p">,</span> <span class="ss">:z</span><span class="p">]</span> <span class="c1"># :x, :y, :z is missing</span>
+<span class="nb">p</span> <span class="n">a</span> <span class="c1"># =&gt; :a</span>
+<span class="nb">p</span> <span class="n">b</span> <span class="c1"># =&gt; :b</span>
+
+<span class="c1"># 將陣列中沒用到的值給 * single splat operator</span>
+<span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">others</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:x</span><span class="p">,</span> <span class="ss">:y</span><span class="p">,</span> <span class="ss">:z</span><span class="p">]</span> 
+<span class="nb">p</span> <span class="n">a</span> <span class="c1"># =&gt; :a</span>
+<span class="nb">p</span> <span class="n">others</span> <span class="c1"># =&gt;[:b, :x, :y, :z]</span>
+
+<span class="c1"># 除了第一個值其他不重要的話， *others還可以省略不寫</span>
+<span class="n">first</span> <span class="p">,</span><span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:x</span><span class="p">,</span> <span class="ss">:y</span><span class="p">,</span> <span class="ss">:z</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">first</span> <span class="c1"># =&gt; :a</span>
+</code></pre></div></div>
+
+<h1 id="single-splat-和-double-splat-比較">*single splat 和 **double splat 比較</h1>
+
+<p>為了比較<code class="highlighter-rouge">*single splat</code>和 <code class="highlighter-rouge">**double splat的差異</code>，我們來寫一個可以代入三個參數的方法<code class="highlighter-rouge">splat</code>：(OS:你要0顆星、1顆星、還是2顆星??)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">splat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">c</span><span class="p">)</span>
+  <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>接下來是超級<del>大亂鬥</del>比一比時間了，請各位客倌仔細瞧瞧！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">p</span> <span class="n">splat</span> <span class="mi">0</span>
+<span class="c1"># =&gt; [0, [], {}]</span>
+
+<span class="nb">p</span> <span class="n">splat</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="c1"># =&gt; [0, [1], {}]</span>
+<span class="c1"># 不出所料，single splat果然把1轉成Array[1]了</span>
+
+<span class="nb">p</span> <span class="n">splat</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="c1"># =&gt; [0, [1, 2], {}]</span>
+<span class="c1"># *single splat在array裡: 代表其他未被指定的值，所以把2也搶進來，變成array[1, 2]</span>
+<span class="c1"># **double splat:顯示為{}，看來跟hash很有關聯</span>
+
+<span class="nb">p</span> <span class="n">splat</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">d: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">e: </span><span class="mi">4</span>
+<span class="c1"># =&gt; [0, [1, 2], {:d=&gt;3, :e=&gt;4}]</span>
+<span class="c1"># **double splat:顯示為hash{:d=&gt;3, :e=&gt;4} </span>
+
+<span class="nb">p</span> <span class="n">splat</span> <span class="mi">0</span><span class="p">,</span> <span class="ss">d: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">e: </span><span class="mi">4</span>
+<span class="c1"># =&gt; [0, [],{:d=&gt;3, :e=&gt;4}]</span>
+<span class="c1"># 0指定給a, 其餘並沒有留下任何數值給*single splat: 顯示為空陣列[]</span>
+</code></pre></div></div>
+
+<p>最後的最後，來寫幾行**double splat的Ruby code，祝大家在鐵人賽旅程的尾聲，旅途愉快！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">airport</span><span class="p">(</span><span class="n">city</span><span class="p">:,</span> <span class="o">**</span><span class="n">iatacode</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">city</span><span class="p">,</span> <span class="n">iatacode</span>
+<span class="k">end</span>
+
+<span class="n">airport</span> <span class="ss">city: </span><span class="s1">'Osaka'</span><span class="p">,</span> <span class="ss">code: :KIX</span>
+<span class="n">airport</span> <span class="ss">city: </span><span class="s1">'Sydney'</span><span class="p">,</span> <span class="ss">code: :SYD</span>
+<span class="n">airport</span> <span class="ss">city: </span><span class="s1">'Cairns'</span><span class="p">,</span> <span class="ss">code: :CNS</span>
+<span class="n">airport</span> <span class="ss">city: </span><span class="s1">'Taipei'</span><span class="p">,</span> <span class="ss">code: :TPE</span>
+<span class="n">airport</span> <span class="ss">city: </span><span class="s1">'Love'</span><span class="p">,</span> <span class="ss">code: :IOU</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Osaka"</span>
+<span class="p">{</span><span class="ss">:code</span><span class="o">=&gt;</span><span class="ss">:KIX</span><span class="p">}</span>
+<span class="s2">"Sydney"</span>
+<span class="p">{</span><span class="ss">:code</span><span class="o">=&gt;</span><span class="ss">:SYD</span><span class="p">}</span>
+<span class="s2">"Cairns"</span>
+<span class="p">{</span><span class="ss">:code</span><span class="o">=&gt;</span><span class="ss">:CNS</span><span class="p">}</span>
+<span class="s2">"Taipei"</span>
+<span class="p">{</span><span class="ss">:code</span><span class="o">=&gt;</span><span class="ss">:TPE</span><span class="p">}</span>
+<span class="s2">"Love"</span>
+<span class="p">{</span><span class="ss">:code</span><span class="o">=&gt;</span><span class="ss">:IOU</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">&lt;3 &lt;3 &lt;3</code></p>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/18289152/what-does-a-double-splat-operator-do">What does a double * (splat) operator do</a></li>
+  <li><a href="https://dev.firmafon.dk/blog/splat-goes-ruby/">Splat goes Ruby</a></li>
+  <li><a href="https://dev.firmafon.dk/blog/drat-ruby-has-a-double-splat/">Drat! - Ruby has a Double Splat</a></li>
+  <li><a href="http://andrewberls.com/blog/post/naked-asterisk-parameters-in-ruby">Naked asterisk parameters in Ruby</a></li>
+  <li><a href="https://codeday.me/bug/20170531/18871.html">ruby – 什么是double *(splat)操作符</a></li>
+</ul>
+
+  </div><a class="u-url" href="/ruby/interview/2018/10/31/day28_ruby_interview_double_splat.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ting&#39;s Square.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ting&#39;s Square.</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tingtinghsu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tingtinghsu</span></a></li><li><a href="https://www.twitter.com/tingtingtour"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tingtingtour</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Copyright Ting Ting Hsu</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
