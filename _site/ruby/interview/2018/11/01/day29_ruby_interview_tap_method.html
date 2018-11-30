@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>30天修煉Ruby面試精選30題 - Day29 Ruby的tap method | Ting’s Square.</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="30天修煉Ruby面試精選30題 - Day29 Ruby的tap method" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="倒數第。二。篇！成功就在不遠處，可喜可賀！（翹腳捻鬍鬚～～）" />
+<meta property="og:description" content="倒數第。二。篇！成功就在不遠處，可喜可賀！（翹腳捻鬍鬚～～）" />
+<link rel="canonical" href="http://localhost:4000/ruby/interview/2018/11/01/day29_ruby_interview_tap_method.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/interview/2018/11/01/day29_ruby_interview_tap_method.html" />
+<meta property="og:site_name" content="Ting’s Square." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-01T12:58:00+09:00" />
+<script type="application/ld+json">
+{"description":"倒數第。二。篇！成功就在不遠處，可喜可賀！（翹腳捻鬍鬚～～）","@type":"BlogPosting","url":"http://localhost:4000/ruby/interview/2018/11/01/day29_ruby_interview_tap_method.html","headline":"30天修煉Ruby面試精選30題 - Day29 Ruby的tap method","dateModified":"2018-11-01T12:58:00+09:00","datePublished":"2018-11-01T12:58:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/interview/2018/11/01/day29_ruby_interview_tap_method.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ting&#39;s Square.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">30天修煉Ruby面試精選30題 - Day29 Ruby的tap method</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-11-01T12:58:00+09:00" itemprop="datePublished">Nov 1, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>倒數第。二。篇！成功就在不遠處，可喜可賀！（翹腳捻鬍鬚～～）</p>
+
+<h1 id="ruby經典面試題目-29">Ruby經典面試題目 #29</h1>
+
+<p><code class="highlighter-rouge">Day29 請解釋Ruby的tap method?  What is tap method in Ruby?</code></p>
+
+<p>Tap method可以幫助我們更容易取得<code class="highlighter-rouge">Block區塊</code>裡的<code class="highlighter-rouge">Object</code>物件，且更便於除錯。（do something with an object inside of a block, and always have that block return the object itself.）</p>
+
+<h1 id="tap-public">tap() public</h1>
+
+<p>來看看<a href="https://apidock.com/ruby/Object/tap">Ruby API文件</a>的說明：</p>
+
+<blockquote>
+  <p>Yields x to the block, and then returns x.</p>
+</blockquote>
+
+<p>Ruby source code:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span>
+<span class="n">rb_obj_tap</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">obj</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">rb_yield</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><code class="highlighter-rouge">Tap method</code>幫我們改進了在<a href="https://ithelp.ithome.com.tw/articles/10201297">第14天: Ruby 的 block, proc, lamdba方法比較</a>中我們整理的block的特點：<code class="highlighter-rouge">不是物件</code>、<code class="highlighter-rouge">不是參數</code>、<code class="highlighter-rouge">沒有回傳值</code>。</p>
+
+<p>讀完以下<a href="https://apidock.com/ruby/Object/tap">Rails API文件</a>source code，讓我更明白能表達<code class="highlighter-rouge">tap method</code>的精髓：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File activesupport/lib/active_support/core_ext/object/misc.rb, line 53</span>
+  <span class="k">def</span> <span class="nf">tap</span>
+    <span class="k">yield</span> <span class="nb">self</span>
+    <span class="nb">self</span>
+  <span class="k">end</span>
+</code></pre></div></div>
+
+<p>真是簡單又好用！</p>
+
+<h1 id="例子1--traditional-method-類別與方法">例子1- traditional method: 類別與方法</h1>
+
+<p>從2018年10月4日，鐵人賽開賽<a href="https://ithelp.ithome.com.tw/articles/10199897">Day1</a>到今天，我從Ruby新新手慢慢累積，每天累積一點點的觀念釐清，現在寫得出像這樣的架構：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Ironman</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="c1">#class method</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_ironman</span>
+    <span class="n">ironman</span> <span class="o">=</span> <span class="no">Ironman</span><span class="p">.</span><span class="nf">new</span>
+    <span class="n">ironman</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Ting Ting"</span>
+    <span class="n">ironman</span> <span class="c1">#回傳值。若在tap method中，此行就可省略</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">ironman</span> <span class="o">=</span> <span class="no">Ironman</span><span class="p">.</span><span class="nf">create_ironman</span>
+<span class="nb">puts</span> <span class="n">ironman</span><span class="p">.</span><span class="nf">inspect</span>
+<span class="c1">#&lt;Ironman:0x00007fb9df069d70 @name="Ting Ting"&gt;</span>
+</code></pre></div></div>
+
+<h1 id="例子2--tap-method">例子2- Tap Method</h1>
+
+<p><code class="highlighter-rouge">Tap method</code>其實是透過透過<code class="highlighter-rouge">yield</code>某個<code class="highlighter-rouge">object</code>物件進入<code class="highlighter-rouge">block</code>，再傳回此<code class="highlighter-rouge">object</code>。(讓我想到投籃得分時，籃球進框再回彈到手中的感覺！)</p>
+
+<p>所以，我們可以把例子1的傳統方法改成<code class="highlighter-rouge">tap method</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Ironman</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_ironman</span>
+    <span class="no">Ironman</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">tap</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+      <span class="n">i</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Ting Ting"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">ironman</span> <span class="o">=</span> <span class="no">Ironman</span><span class="p">.</span><span class="nf">create_ironman</span>
+<span class="nb">puts</span> <span class="n">ironman</span><span class="p">.</span><span class="nf">inspect</span>
+<span class="c1">#&lt;Ironman:0x00007f8496949c20 @name="Ting Ting"&gt;</span>
+</code></pre></div></div>
+
+<h1 id="tap-methhod的用途-檢查method-chain便於除錯">tap methhod的用途: 檢查method chain，便於除錯</h1>
+
+<p>有的時候我們寫出一個比較複雜的方法，方法裡還有其他方法（稱為method chain）。Tap method可以幫我們更容易檢測method chain裡的值。(例如在<a href="https://ithelp.ithome.com.tw/articles/10202250">第14天</a>有舉過一個Hash#map結合 Array#map複雜方法的例子。)</p>
+
+<blockquote>
+  <p>The primary purpose of this method is to “tap into” a method chain, in order to perform operations on intermediate results within the chain.</p>
+</blockquote>
+
+<p>現在來看看以下案例。我們要從<code class="highlighter-rouge">1,2,3,4,5</code>數字中，像尋找犯人一樣層層找出需要的資訊：</p>
+
+<ul>
+  <li>1 列出陣列值 [1, 2, 3, 4, 5]</li>
+  <li>2 選出偶數的值 [2, 4]</li>
+  <li>3 將選出的偶數做完平方 [4, 16]</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">).</span><span class="nf">tap</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"element: </span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span> <span class="p">}.</span><span class="nf">to_a</span>
+  <span class="c1"># =&gt; element: 1..5</span>
+  <span class="p">.</span><span class="nf">tap</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"array: </span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+  <span class="c1"># =&gt; array: [1, 2, 3, 4, 5]</span>
+  <span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span>
+  <span class="p">.</span><span class="nf">tap</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"evens: </span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+   <span class="c1"># =&gt; evens: [2, 4]</span>
+  <span class="p">.</span><span class="nf">map</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span>
+  <span class="p">.</span><span class="nf">tap</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"squares: </span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+   <span class="c1"># =&gt; squares: [4, 16]</span>
+</code></pre></div></div>
+
+<p></p>
+<blockquote>
+  <p>tap enables you to “tap into” a method chain and perform some tangential function.</p>
+</blockquote>
+
+<p>感想：經過3小時的研究之後，發現Tap method用在<code class="highlighter-rouge">集合collection</code>真的說是非常方便！未來邁向成為資深工程師的道路，寫更複雜的method時，就可以流露出（就算程式碼有錯誤，我也能夠快速找到）的自信了！</p>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://apidock.com/ruby/Object/tap">API dock: Ruby/Object/tap</a></li>
+  <li><a href="https://apidock.com/rails/v2.3.8/Object/tap">API dock: Rails/Object/tap</a></li>
+  <li><a href="https://medium.com/aviabird/ruby-tap-that-method-90c8a801fd6a">Ruby: Tap that method</a></li>
+  <li><a href="http://kronosapiens.github.io/blog/2014/02/16/the-ruby-tap-method-for-objects.html">The Ruby ‘Tap’ Method for Objects</a></li>
+  <li><a href="https://www.youtube.com/watch?v=QAJMxBkYaUQ">The Ruby Tap Method</a></li>
+</ul>
+
+  </div><a class="u-url" href="/ruby/interview/2018/11/01/day29_ruby_interview_tap_method.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ting&#39;s Square.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ting&#39;s Square.</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tingtinghsu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tingtinghsu</span></a></li><li><a href="https://www.twitter.com/tingtingtour"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tingtingtour</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Copyright Ting Ting Hsu</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
