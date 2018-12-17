@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /about
 ---
 
 <p>Believe it and act as if it were impossible to fail!</p>

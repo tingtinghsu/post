@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
 <title>活用套件carrierwave gem: (1)在Rails實現圖片上傳功能 | Ting’s Square.</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="活用套件carrierwave gem: (1)在Rails實現圖片上傳功能" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="carrierwave是一款經典的圖片上傳套件，本篇的目標是先在本地端(development)的rails專案試成功gem。 （預計中集的進度會練習怎麼利用Amazone S3架設圖片上傳Host， 並再下集遠端(production)實作上傳，敬請期待！）" />
@@ -30,7 +30,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"><a class="page-link" href="/about">About</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -74,8 +74,8 @@ app |放Controllers、Models和Views檔案</p>
 
 <p>2.每次新增任何新的Gem到Gemfile，就要在Terminal輸入<code class="highlighter-rouge">bundle install</code>處理相依性，然後<code class="highlighter-rouge">rails s</code>重啟伺服器。</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>bundle <span class="nb">install
-</span>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>bundle info carrierwave
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>bundle install
+tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>bundle info carrierwave
   <span class="k">*</span> carrierwave <span class="o">(</span>1.2.3<span class="o">)</span>
     Summary: Ruby file upload library
     Homepage: https://github.com/carrierwaveuploader/carrierwave

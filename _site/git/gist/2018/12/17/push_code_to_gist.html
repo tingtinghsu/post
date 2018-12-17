@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>將程式碼上傳至gist | Ting’s Square.</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="將程式碼上傳至gist" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="原始需求" />
+<meta property="og:description" content="原始需求" />
+<link rel="canonical" href="http://localhost:4000/git/gist/2018/12/17/push_code_to_gist.html" />
+<meta property="og:url" content="http://localhost:4000/git/gist/2018/12/17/push_code_to_gist.html" />
+<meta property="og:site_name" content="Ting’s Square." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-17T07:23:00+09:00" />
+<script type="application/ld+json">
+{"description":"原始需求","@type":"BlogPosting","url":"http://localhost:4000/git/gist/2018/12/17/push_code_to_gist.html","headline":"將程式碼上傳至gist","dateModified":"2018-12-17T07:23:00+09:00","datePublished":"2018-12-17T07:23:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/git/gist/2018/12/17/push_code_to_gist.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ting's Square." /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ting&#39;s Square.</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">將程式碼上傳至gist</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-12-17T07:23:00+09:00" itemprop="datePublished">Dec 17, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="原始需求">原始需求</h1>
+
+<p>Oct-Nov.2018完成鐵人賽之後，想將文章整理放在自己的blog，但對於版型不甚滿意。</p>
+
+<p>製作新版的過程中git blog, 從修改版型[註1]變成從 <a href="https://tingtinghsu.github.io">https://tingtinghsu.github.io</a> 換到<a href="https://tingtinghsu.github.io/blog">https://tingtinghsu.github.io/blog</a> 的工程。</p>
+
+<h2 id="jekyll資料夾結構">Jekyll資料夾結構</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+|-- index.html   <span class="c">#網站首頁</span>
+|-- _config.yml  <span class="c">#網站設定檔</span>
+|
+|---/_includes  <span class="c">#網站結構資料夾</span>
+|    |--/JB      <span class="c">#Jekyll-bootstrap 模組</span>
+|    |--/themes  <span class="c">#Jekyll-bootstrap 預設版型</span>
+|
+|---/_layouts   <span class="c">#版型</span>
+|
+|---/_posts     <span class="c">#文章資料夾</span>
+
+</code></pre></div></div>
+
+<h2 id="舊版blog與新版blog差異">舊版blog與新版blog差異</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>比較</th>
+      <th>舊版</th>
+      <th>新版</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>遠端網址</td>
+      <td><a href="https://tingtinghsu.github.io">https://tingtinghsu.github.io</a></td>
+      <td><a href="https://tingtinghsu.github.io/blog">https://tingtinghsu.github.io/blog</a></td>
+    </tr>
+    <tr>
+      <td>local路徑</td>
+      <td><code class="highlighter-rouge">/本機Github/tingtinghsu.github</code></td>
+      <td><code class="highlighter-rouge">/本機Github/blog</code></td>
+    </tr>
+    <tr>
+      <td>啟動server</td>
+      <td>jekyll server</td>
+      <td>jekyll server -p 4001</td>
+    </tr>
+    <tr>
+      <td>本機網址</td>
+      <td>jekyll server</td>
+      <td>jekyll server -p 4001</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[註1] 版型修改途中遇到大量問題，例如<code class="highlighter-rouge">push</code>之後，收到Github的警告訊息：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+GitHub opened this alert 9 minutes ago
+
+1 jekyll vulnerability found <span class="k">in</span> Gemfile.lock 9 minutes ago
+
+Remediation
+Upgrade jekyll to version 3.8.4 or later. For example:
+gem <span class="s2">"jekyll"</span>, <span class="s2">"&gt;= 3.8.4"</span>
+Always verify the validity and compatibility of suggestions with your codebase.
+
+Details
+CVE-2018-17567 
+
+moderate severity
+
+Vulnerable versions: &gt;<span class="o">=</span> 3.8.0, &lt; 3.8.4
+Patched version: 3.8.4
+Jekyll through 3.6.2, 3.7.x through 3.7.3, and 3.8.x through 3.8.3 allows attackers to access arbitrary files by specifying a symlink <span class="k">in </span>the <span class="s2">"include"</span> key <span class="k">in </span>the <span class="s2">"_config.yml"</span> file.
+
+</code></pre></div></div>
+
+<p>其原因主要來自於<a href="https://pages.github.com/themes/">Jekyll官方支援的版型</a>，其Jekyll版本與穩定的blog版本不相容。</p>
+
+<p>解法：在搬移內容的過程為了保留舊版本做對照(舊版僅供自己參考)，我將版型改為<a href="http://lanyon.getpoole.com/">lanyon</a>，並按照<a href="">此教學影片</a><strong>更改了blog網址</strong>。</p>
+
+  </div><a class="u-url" href="/git/gist/2018/12/17/push_code_to_gist.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ting&#39;s Square.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ting&#39;s Square.</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tingtinghsu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tingtinghsu</span></a></li><li><a href="https://www.twitter.com/tingtingtour"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tingtingtour</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Copyright Ting Ting Hsu</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

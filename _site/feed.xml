@@ -1,4 +1,176 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-11-30T22:14:07+09:00</updated><id>http://localhost:4000/</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">Day01_rails_project_front_end_design</title><link href="http://localhost:4000/2018/11/08/day01_rails_project_front_end_design.html" rel="alternate" type="text/html" title="Day01_rails_project_front_end_design" /><published>2018-11-08T00:00:00+09:00</published><updated>2018-11-08T00:00:00+09:00</updated><id>http://localhost:4000/2018/11/08/day01_rails_project_front_end_design</id><content type="html" xml:base="http://localhost:4000/2018/11/08/day01_rails_project_front_end_design.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day30 Ruby的duck type + 完賽感言！</title><link href="http://localhost:4000/ruby/interview/2018/11/02/day30_ruby_interview_duck_type.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day30 Ruby的duck type + 完賽感言！" /><published>2018-11-02T12:58:00+09:00</published><updated>2018-11-02T12:58:00+09:00</updated><id>http://localhost:4000/ruby/interview/2018/11/02/day30_ruby_interview_duck_type</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/11/02/day30_ruby_interview_duck_type.html">&lt;p&gt;感動流淚中！沒想到完賽這天Day30終於到來～～。寫IT文章原來可以是這麼有趣的事呢！&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-12-17T09:48:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ting’s Square.</title><subtitle>Copyright Ting Ting Hsu</subtitle><entry><title type="html">將程式碼上傳至gist</title><link href="http://localhost:4000/git/gist/2018/12/17/push_code_to_gist.html" rel="alternate" type="text/html" title="將程式碼上傳至gist" /><published>2018-12-17T07:23:00+09:00</published><updated>2018-12-17T07:23:00+09:00</updated><id>http://localhost:4000/git/gist/2018/12/17/push_code_to_gist</id><content type="html" xml:base="http://localhost:4000/git/gist/2018/12/17/push_code_to_gist.html">&lt;h1 id=&quot;原始需求&quot;&gt;原始需求&lt;/h1&gt;
+
+&lt;p&gt;Oct-Nov.2018完成鐵人賽之後，想將文章整理放在自己的blog，但對於版型不甚滿意。&lt;/p&gt;
+
+&lt;p&gt;製作新版的過程中git blog, 從修改版型[註1]變成從 &lt;a href=&quot;https://tingtinghsu.github.io&quot;&gt;https://tingtinghsu.github.io&lt;/a&gt; 換到&lt;a href=&quot;https://tingtinghsu.github.io/blog&quot;&gt;https://tingtinghsu.github.io/blog&lt;/a&gt; 的工程。&lt;/p&gt;
+
+&lt;h2 id=&quot;jekyll資料夾結構&quot;&gt;Jekyll資料夾結構&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+|-- index.html   &lt;span class=&quot;c&quot;&gt;#網站首頁&lt;/span&gt;
+|-- _config.yml  &lt;span class=&quot;c&quot;&gt;#網站設定檔&lt;/span&gt;
+|
+|---/_includes  &lt;span class=&quot;c&quot;&gt;#網站結構資料夾&lt;/span&gt;
+|    |--/JB      &lt;span class=&quot;c&quot;&gt;#Jekyll-bootstrap 模組&lt;/span&gt;
+|    |--/themes  &lt;span class=&quot;c&quot;&gt;#Jekyll-bootstrap 預設版型&lt;/span&gt;
+|
+|---/_layouts   &lt;span class=&quot;c&quot;&gt;#版型&lt;/span&gt;
+|
+|---/_posts     &lt;span class=&quot;c&quot;&gt;#文章資料夾&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;舊版blog與新版blog差異&quot;&gt;舊版blog與新版blog差異&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;比較&lt;/th&gt;
+      &lt;th&gt;舊版&lt;/th&gt;
+      &lt;th&gt;新版&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;遠端網址&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://tingtinghsu.github.io&quot;&gt;https://tingtinghsu.github.io&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://tingtinghsu.github.io/blog&quot;&gt;https://tingtinghsu.github.io/blog&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;local路徑&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/本機Github/tingtinghsu.github&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/本機Github/blog&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;啟動server&lt;/td&gt;
+      &lt;td&gt;jekyll server&lt;/td&gt;
+      &lt;td&gt;jekyll server -p 4001&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;本機網址&lt;/td&gt;
+      &lt;td&gt;jekyll server&lt;/td&gt;
+      &lt;td&gt;jekyll server -p 4001&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;[註1] 版型修改途中遇到大量問題，例如&lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt;之後，收到Github的警告訊息：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+GitHub opened this alert 9 minutes ago
+
+1 jekyll vulnerability found &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; Gemfile.lock 9 minutes ago
+
+Remediation
+Upgrade jekyll to version 3.8.4 or later. For example:
+gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;= 3.8.4&quot;&lt;/span&gt;
+Always verify the validity and compatibility of suggestions with your codebase.
+
+Details
+CVE-2018-17567 
+
+moderate severity
+
+Vulnerable versions: &amp;gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 3.8.0, &amp;lt; 3.8.4
+Patched version: 3.8.4
+Jekyll through 3.6.2, 3.7.x through 3.7.3, and 3.8.x through 3.8.3 allows attackers to access arbitrary files by specifying a symlink &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the &lt;span class=&quot;s2&quot;&gt;&quot;include&quot;&lt;/span&gt; key &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the &lt;span class=&quot;s2&quot;&gt;&quot;_config.yml&quot;&lt;/span&gt; file.
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;其原因主要來自於&lt;a href=&quot;https://pages.github.com/themes/&quot;&gt;Jekyll官方支援的版型&lt;/a&gt;，其Jekyll版本與穩定的blog版本不相容。&lt;/p&gt;
+
+&lt;p&gt;解法：在搬移內容的過程為了保留舊版本做對照(舊版僅供自己參考)，我將版型改為&lt;a href=&quot;http://lanyon.getpoole.com/&quot;&gt;lanyon&lt;/a&gt;，並按照&lt;a href=&quot;&quot;&gt;此教學影片&lt;/a&gt;&lt;strong&gt;更改了blog網址&lt;/strong&gt;。&lt;/p&gt;</content><author><name></name></author><summary type="html">原始需求</summary></entry><entry><title type="html">[Note]更換Jekyll版型</title><link href="http://localhost:4000/jekyll/2018/12/17/change_theme_for_jekyll_blog.html" rel="alternate" type="text/html" title="[Note]更換Jekyll版型" /><published>2018-12-17T07:23:00+09:00</published><updated>2018-12-17T07:23:00+09:00</updated><id>http://localhost:4000/jekyll/2018/12/17/change_theme_for_jekyll_blog</id><content type="html" xml:base="http://localhost:4000/jekyll/2018/12/17/change_theme_for_jekyll_blog.html">&lt;h1 id=&quot;原始需求&quot;&gt;原始需求&lt;/h1&gt;
+
+&lt;p&gt;Oct-Nov.2018完成鐵人賽之後，想將文章整理放在自己的blog，但對於版型不甚滿意。&lt;/p&gt;
+
+&lt;p&gt;製作新版的過程中git blog, 從修改版型&lt;em&gt;[註1]&lt;/em&gt;變成從 &lt;a href=&quot;https://tingtinghsu.github.io&quot;&gt;https://tingtinghsu.github.io&lt;/a&gt; 換到&lt;a href=&quot;https://tingtinghsu.github.io/blog&quot;&gt;https://tingtinghsu.github.io/blog&lt;/a&gt; 的工程。&lt;/p&gt;
+
+&lt;h2 id=&quot;jekyll資料夾結構&quot;&gt;Jekyll資料夾結構&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+|-- index.html   &lt;span class=&quot;c&quot;&gt;#網站首頁&lt;/span&gt;
+|-- _config.yml  &lt;span class=&quot;c&quot;&gt;#網站設定檔&lt;/span&gt;
+|
+|---/_includes  &lt;span class=&quot;c&quot;&gt;#網站結構資料夾&lt;/span&gt;
+|    |--/JB      &lt;span class=&quot;c&quot;&gt;#Jekyll-bootstrap 模組&lt;/span&gt;
+|    |--/themes  &lt;span class=&quot;c&quot;&gt;#Jekyll-bootstrap 預設版型&lt;/span&gt;
+|
+|---/_layouts   &lt;span class=&quot;c&quot;&gt;#版型&lt;/span&gt;
+|
+|---/_posts     &lt;span class=&quot;c&quot;&gt;#文章資料夾&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;舊版blog與新版blog差異&quot;&gt;舊版blog與新版blog差異&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;比較&lt;/th&gt;
+      &lt;th&gt;舊版&lt;/th&gt;
+      &lt;th&gt;新版&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;遠端網址&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://tingtinghsu.github.io&quot;&gt;https://tingtinghsu.github.io&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://tingtinghsu.github.io/blog&quot;&gt;https://tingtinghsu.github.io/blog&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;local路徑&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/本機Github/tingtinghsu.github&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/本機Github/blog&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;啟動server&lt;/td&gt;
+      &lt;td&gt;jekyll server&lt;/td&gt;
+      &lt;td&gt;jekyll serve –port 4001&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;本機網址&lt;/td&gt;
+      &lt;td&gt;http://127.0.0.1:4000/&lt;/td&gt;
+      &lt;td&gt;http://127.0.0.1:4001/blog/ &lt;em&gt;&lt;a href=&quot;####[註2]&quot;&gt;註2&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;編按&quot;&gt;編按&lt;/h3&gt;
+
+&lt;h4 id=&quot;註1&quot;&gt;[註1]&lt;/h4&gt;
+
+&lt;p&gt;版型修改途中遇到大量問題，例如&lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt;之後收到Github的警告訊息：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+GitHub opened this alert 9 minutes ago
+
+1 jekyll vulnerability found &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; Gemfile.lock 9 minutes ago
+
+Remediation
+Upgrade jekyll to version 3.8.4 or later. For example:
+gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;= 3.8.4&quot;&lt;/span&gt;
+Always verify the validity and compatibility of suggestions with your codebase.
+
+Details
+CVE-2018-17567 
+
+moderate severity
+
+Vulnerable versions: &amp;gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 3.8.0, &amp;lt; 3.8.4
+Patched version: 3.8.4
+Jekyll through 3.6.2, 3.7.x through 3.7.3, and 3.8.x through 3.8.3 allows attackers to access arbitrary files by specifying a symlink &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the &lt;span class=&quot;s2&quot;&gt;&quot;include&quot;&lt;/span&gt; key &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the &lt;span class=&quot;s2&quot;&gt;&quot;_config.yml&quot;&lt;/span&gt; file.
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;其原因主要來自於&lt;a href=&quot;https://pages.github.com/themes/&quot;&gt;Jekyll官方支援的版型&lt;/a&gt;，其Jekyll版本與穩定的blog版本不相容。&lt;/p&gt;
+
+&lt;p&gt;解法：在搬移內容的過程為了保留舊版本做對照(舊版僅供自己參考)，我將版型改為&lt;a href=&quot;http://lanyon.getpoole.com/&quot;&gt;lanyon&lt;/a&gt;，並按照&lt;a href=&quot;https://www.youtube.com/watch?v=bty7LHm14CA&quot;&gt;此教學影片&lt;/a&gt;&lt;strong&gt;更改了blog網址&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h4 id=&quot;註2&quot;&gt;[註2]&lt;/h4&gt;
+
+&lt;p&gt;如何在本機run多個 Jekyll server，參考&lt;a href=&quot;https://jekyllrb.com/docs/configuration/options/#serve-command-options&quot;&gt;官網&lt;/a&gt;與&lt;a href=&quot;(https://stackoverflow.com/questions/25650749/is-it-possible-to-serve-multiple-jekyll-sites-locally/25650755)&quot;&gt;StackOverflow問題&lt;/a&gt;。&lt;/p&gt;</content><author><name></name></author><summary type="html">原始需求</summary></entry><entry><title type="html">Rails_login_authentication</title><link href="http://localhost:4000/2018/12/03/rails_login_authentication.html" rel="alternate" type="text/html" title="Rails_login_authentication" /><published>2018-12-03T00:00:00+09:00</published><updated>2018-12-03T00:00:00+09:00</updated><id>http://localhost:4000/2018/12/03/rails_login_authentication</id><content type="html" xml:base="http://localhost:4000/2018/12/03/rails_login_authentication.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day30 Ruby的duck type + 完賽感言！</title><link href="http://localhost:4000/ruby/interview/2018/11/02/day30_ruby_interview_duck_type.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day30 Ruby的duck type + 完賽感言！" /><published>2018-11-02T12:58:00+09:00</published><updated>2018-11-02T12:58:00+09:00</updated><id>http://localhost:4000/ruby/interview/2018/11/02/day30_ruby_interview_duck_type</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/11/02/day30_ruby_interview_duck_type.html">&lt;p&gt;感動流淚中！沒想到完賽這天Day30終於到來～～。寫IT文章原來可以是這麼有趣的事呢！&lt;/p&gt;
 
 &lt;h1 id=&quot;ruby經典面試題目-30&quot;&gt;Ruby經典面試題目 #30&lt;/h1&gt;
 
@@ -1059,379 +1231,4 @@ https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html#method-c-exist
   &lt;li&gt;&lt;a href=&quot;https://api.rubyonrails.org/classes/Object.html#method-i-blank-3F&quot;&gt;Rails API: blank?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://api.rubyonrails.org/classes/Object.html#method-i-present-3F&quot;&gt;Rails API: present?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/rails/rails/blob/fc5dd0b85189811062c85520fd70de8389b55aeb/activesupport/lib/active_support/core_ext/object/blank.rb#L19&quot;&gt;Github: rails/activesupport/lib/active_support/core_ext/object/blank.rb&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">這一系列精選面試題寫下來，我發現新手工程師對於相似、接近的method或概念都會比較困惑，也難怪熱門面試要考這些題目了！這樣才能鑑別出面試候選人真的有弄懂程式觀念。也希望我整理好的這30篇鐵人賽文章，未來能幫助到許多想學Ruby、進而想找相關工作的新手們！</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day22 and or 和 &amp;amp;&amp;amp; || 比較</title><link href="http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_and_or.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day22 and or 和 &amp;&amp; || 比較" /><published>2018-10-17T16:51:00+09:00</published><updated>2018-10-17T16:51:00+09:00</updated><id>http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_and_or</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/17/day22_ruby_interview_questions_and_or.html">&lt;h1 id=&quot;ruby經典面試題目-22&quot;&gt;Ruby經典面試題目 #22&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Day22 [and], [or] 和 [&amp;amp;&amp;amp;], [||] 比較? What is the difference between [and]&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;[or]&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;[&amp;amp;&amp;amp;]&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;[||]&lt;/code&gt; ?`&lt;/p&gt;
-
-&lt;p&gt;基本上而言：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; 就是 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;（且）&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; 就是&lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt; （或）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt; 以及 &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt; 的意思雖然一樣，但就像以前在數學課學過的&lt;code class=&quot;highlighter-rouge&quot;&gt;先乘除後加減&lt;/code&gt;的概念一樣，程式中的運算子之間也具有優先順序之分。符號的&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt; 的優先權高於關鍵字&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt;(https://ruby-doc.com/core/doc/keywords_rdoc.html)。&lt;/p&gt;
-
-&lt;h1 id=&quot;short-circuit-evaluation-最短路徑計算&quot;&gt;short-circuit evaluation 最短路徑計算&lt;/h1&gt;
-
-&lt;p&gt;事有輕重緩急，資源要放在要緊的地方。要比較哪個運算式先處理之前，在此我們介紹一個概念：&lt;code class=&quot;highlighter-rouge&quot;&gt;short-circuit evaluation&lt;/code&gt;(又稱：短路計算、捷徑計算、最小化計算)。&lt;/p&gt;
-
-&lt;p&gt;當表達式的結果已經確定時，程式會節省資源，減少不必要的運算。不管是&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;.&lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt;還是&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt;.&lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt;，都會符合&lt;code class=&quot;highlighter-rouge&quot;&gt;最短路徑計算&lt;/code&gt;原則。&lt;/p&gt;
-
-&lt;p&gt;舉個例子來說：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;  
-&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; false&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;在以上的例子裡，&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;代表括弧內的條件判斷必須&lt;code class=&quot;highlighter-rouge&quot;&gt;全部為真&lt;/code&gt;才成立。一開始我們指定&lt;code class=&quot;highlighter-rouge&quot;&gt;a = 0&lt;/code&gt;，因此，在&lt;code class=&quot;highlighter-rouge&quot;&gt;if (a==1)&lt;/code&gt;這個敘述為&lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;的情況，&lt;strong&gt;我們不需要走完下一條判斷式&lt;code class=&quot;highlighter-rouge&quot;&gt;b%2 == 1 (b為奇數)&lt;/code&gt;&lt;/strong&gt;，這就是「最短路徑計算」。&lt;/p&gt;
-
-&lt;h1 id=&quot;使用---不要使用-and-or&quot;&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt; ，不要使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt;&lt;/h1&gt;
-
-&lt;p&gt;根據&lt;a href=&quot;https://github.com/rubocop-hq/ruby-style-guide&quot;&gt;RuboCop Headquarters&lt;/a&gt;的Ruby Style Guide：&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; keywords are banned. The minimal added readability is just not worth the high probability of introducing subtle bugs. For boolean expressions, always use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt; instead.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;由於&lt;code class=&quot;highlighter-rouge&quot;&gt;優先權(precedence)&lt;/code&gt;的問題，&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt;是很容易出bug的：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;… &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; even has lower precedence than &lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;. &lt;a href=&quot;https://stackoverflow.com/questions/1426826/difference-between-and-and-in-ruby&quot;&gt;出處&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;因此，再次強調，使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt; ，不要使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt;。&lt;/p&gt;
-
-&lt;h1 id=&quot;-與-and--有初始值的情況下&quot;&gt;&amp;amp;&amp;amp; 與 and : 有初始值的情況下&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt; 與 &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; 都是&lt;code class=&quot;highlighter-rouge&quot;&gt;且&lt;/code&gt;的意思。&lt;/p&gt;
-
-&lt;p&gt;我的鐵人賽日記&lt;code class=&quot;highlighter-rouge&quot;&gt;IronmanDairy&lt;/code&gt; 來到第22天，且第22天是個偶數天，顯示為true.&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;和&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;結果相同。&lt;/p&gt;
-
-&lt;p&gt;以上例子，我們明白到 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;和 &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; 可以確認一串條件判斷式，其中是否有&lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;的部分，&lt;code class=&quot;highlighter-rouge&quot;&gt;全部為true&lt;/code&gt;的情況，才會通過條件判斷。&lt;/p&gt;
-
-&lt;h1 id=&quot;-的優先權高於-&quot;&gt;&amp;amp;&amp;amp; 的優先權高於 &lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;&lt;/h1&gt;
-
-&lt;p&gt;談到優先權，開車的朋友可以聯想到路權，直行車的權利大於轉彎車。 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt; 就像直行車一樣：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#undefined method `%' for nil:NilClass (NoMethodError)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;我們可以理解到，上列程式會出現NoMethodError的原因是&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;有較高的優先權，對Ruby來說，意思是：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;由於&lt;code class=&quot;highlighter-rouge&quot;&gt;IronmanDairy&lt;/code&gt;尚未初始化(uninitialized)，而讓&lt;code class=&quot;highlighter-rouge&quot;&gt;22 &amp;amp;&amp;amp; IronmanDairy&lt;/code&gt; 為&lt;code class=&quot;highlighter-rouge&quot;&gt;NilClass&lt;/code&gt;，然而NilClass 除以2是無意義的。&lt;/p&gt;
-
-&lt;p&gt;如果我們把同一條件判斷式，加上適當的括弧：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;就可以完成我們要達到的語義目的：&lt;/p&gt;
-
-&lt;p&gt;給定鐵人賽日記&lt;code class=&quot;highlighter-rouge&quot;&gt;IronmanDairy&lt;/code&gt;這個值為22，且22是個偶數，顯示為true.&lt;/p&gt;
-
-&lt;h1 id=&quot;and-的優先權低於-&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; 的優先權低於 &lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;&lt;/h1&gt;
-
-&lt;p&gt;而在上述案例，若 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt; 改成 &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; 的意思，就天差地遠了：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; 22&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IronmanDairy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; 22&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;不管括弧是否存在，結果已經變成印出了&lt;code class=&quot;highlighter-rouge&quot;&gt;IronmanDairy指定的數值22&lt;/code&gt;，而不是出現我們想判斷的布林值&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;，因為&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IronmanDairy = 22&lt;/code&gt;的 &lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt; 比 &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; 的優先權還高。為了防止誤會大了，產生的bug又難以偵錯，請不要用&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt;喔！&lt;/p&gt;
-
-&lt;h1 id=&quot;番外篇control-flow-modifiers&quot;&gt;番外篇：Control-flow modifiers&lt;/h1&gt;
-
-&lt;h2 id=&quot;and-和-or-的取代語法&quot;&gt;and 和 or 的取代語法&lt;/h2&gt;
-
-&lt;h3 id=&quot;and-關鍵字與if&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; 關鍵字與&lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;有的時候，我們點擊動態網站中的連結，會跳出&lt;code class=&quot;highlighter-rouge&quot;&gt;(showup)&lt;/code&gt;意想不到的視窗&lt;code class=&quot;highlighter-rouge&quot;&gt;(suprise)&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;suprise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;suprise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;showup&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;next&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;寫法等同於&lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt;(如果跳出視窗，就進行下一步&lt;code class=&quot;highlighter-rouge&quot;&gt;next&lt;/code&gt;):&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;suprise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;suprise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;showup&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如同把 &lt;code class=&quot;highlighter-rouge&quot;&gt;I am hungry and I eat an apple&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;改寫為&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;I wanna eat an apple if I am hungry!&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;把&lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt;改&lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt;，這樣是不是比較類似英文語法的邏輯呢？：）&lt;/p&gt;
-
-&lt;h3 id=&quot;or-關鍵字與unless&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; 關鍵字與&lt;code class=&quot;highlighter-rouge&quot;&gt;unless&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;而有的時候，我們點擊連結想連到某個頁面，會出現&lt;code class=&quot;highlighter-rouge&quot;&gt;錯誤訊息404:找不到此網頁&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;read_article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Could not find this article!&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;我們可以寫成：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Could not find this article!&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read_article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()?&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如同把 &lt;code class=&quot;highlighter-rouge&quot;&gt;Do exercise, or you won't be healthy!&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;改寫為&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;You won't be healthy unless you do exercise!&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;不過，&lt;a href=&quot;https://github.com/airbnb/ruby&quot;&gt;Airbnb&lt;/a&gt;的Ruby Style Guide有提到，只有在簡單可寫成一行的情況再使用&lt;code class=&quot;highlighter-rouge&quot;&gt;if/unless&lt;/code&gt;唷！&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Modifier if/unless usage is okay when the body is simple, the condition is simple, and the whole thing fits on one line. Otherwise, avoid modifier if/unless. &lt;a href=&quot;https://github.com/airbnb/ruby&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/1426826/difference-between-and-and-in-ruby&quot;&gt;Difference between “and” and &amp;amp;&amp;amp; in Ruby?&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/&quot;&gt;Using “and” and “or” in Ruby&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/1426826/difference-between-and-and-in-ruby&quot;&gt;Difference between “and” and &amp;amp;&amp;amp; in Ruby?&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Ruby經典面試題目 #22</summary></entry><entry><title type="html">30天修煉Ruby面試精選30題 - Day23 Ruby的’==’，’===’ ‘eql?’ ‘equal?’</title><link href="http://localhost:4000/ruby/interview/2018/10/17/day23_ruby_interview_questions_equal.html" rel="alternate" type="text/html" title="30天修煉Ruby面試精選30題 - Day23 Ruby的'=='，'===' 'eql?' 'equal?'" /><published>2018-10-17T08:39:00+09:00</published><updated>2018-10-17T08:39:00+09:00</updated><id>http://localhost:4000/ruby/interview/2018/10/17/day23_ruby_interview_questions_equal</id><content type="html" xml:base="http://localhost:4000/ruby/interview/2018/10/17/day23_ruby_interview_questions_equal.html">&lt;p&gt;前幾天我們把焦點集中在&lt;code class=&quot;highlighter-rouge&quot;&gt;True or False&lt;/code&gt;(判斷真假)，今天來研究幾個&lt;code class=&quot;highlighter-rouge&quot;&gt;比較是否相等&lt;/code&gt;的方法！在程式世界裡，&lt;code class=&quot;highlighter-rouge&quot;&gt;真假&lt;/code&gt;與&lt;code class=&quot;highlighter-rouge&quot;&gt;相等&lt;/code&gt;都有更多元、更超乎想像的概念。如果是程式新手，可能會對這幾個看起來特別像的運算子：&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;eql?&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;equal?&lt;/code&gt;充滿黑人問號…???&lt;/p&gt;
-
-&lt;p&gt;趕快來看看今天的題目！&lt;/p&gt;
-
-&lt;h1 id=&quot;ruby經典面試題目-23&quot;&gt;Ruby經典面試題目 #23&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Day23 解釋Ruby裡的 ==, ===, eql?, equal。 Explain each of the following operators  ==, ===, eql?, equal?&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;有些方法比其他的方法更相等(Some are more equal than others)。這是怎麼回事？讓我們繼續看下去～&lt;/p&gt;
-
-&lt;h1 id=&quot;1-&quot;&gt;1. &lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt; 檢查兩個運算子的&lt;code class=&quot;highlighter-rouge&quot;&gt;值&lt;/code&gt;是否相等 (check if the value of two operands are equal)&lt;/p&gt;
-
-&lt;h1 id=&quot;2-eql&quot;&gt;2. &lt;code class=&quot;highlighter-rouge&quot;&gt;eql?&lt;/code&gt;&lt;/h1&gt;
-
-&lt;p&gt;如果接收器和參數的&lt;code class=&quot;highlighter-rouge&quot;&gt;值&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;類型&lt;/code&gt;都相等，則為&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;. ( checks if the &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;type of two operands&lt;/code&gt; are the same )，&lt;/p&gt;
-
-&lt;h2 id=&quot;eql與--比較&quot;&gt;eql?與 == 比較&lt;/h2&gt;
-
-&lt;p&gt;來比較一下&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;.eql?&lt;/code&gt;的用法：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;100.0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; true&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;eql?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;100.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; false&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;從以上例子看到&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;與&lt;code class=&quot;highlighter-rouge&quot;&gt;100.0&lt;/code&gt;同樣皆為數值1，但&lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;的類型為&lt;code class=&quot;highlighter-rouge&quot;&gt;Fixnum&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;1.0&lt;/code&gt;的類型為&lt;code class=&quot;highlighter-rouge&quot;&gt;Float&lt;/code&gt;浮點數（包含小數點）。&lt;/p&gt;
-
-&lt;h1 id=&quot;3-&quot;&gt;3. &lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt; 測試case語法中、when子句內的相等性 (test equality within the when clause of a case statement)&lt;/p&gt;
-
-&lt;p&gt;舉個生活化的例子來描述case語法：&lt;/p&gt;
-
-&lt;p&gt;下週我要出遠門旅行，因此我規劃去超市裡購物，在旅行大背包裡放一些食物補給品。我想要以[第7天]學到的符號Symbol將food歸類：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;type_of&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Apple'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:fruit&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Banana'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:fruit&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Chocolate'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:sweet&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Noodles'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:meal&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Chips'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:junkfood&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:unknown&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type_of&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Chips'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; :junkfood&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;hmmm….被發現買洋芋片是&lt;code class=&quot;highlighter-rouge&quot;&gt;垃圾食物了&lt;/code&gt;了！&lt;/p&gt;
-
-&lt;h2 id=&quot;-與-if-else&quot;&gt;=== 與 if else&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;代表的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;case equality&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;以上的&lt;code class=&quot;highlighter-rouge&quot;&gt;case...when&lt;/code&gt;，其實是從&lt;code class=&quot;highlighter-rouge&quot;&gt;if...else&lt;/code&gt;加上&lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;的語法改寫而來。&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;type_of&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'apple'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:fruit&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Chocolate'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:sweet&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Noodles'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:meal&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Chips'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:junkfood&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:unknown&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type_of&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Nuts'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; :unknown&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;旅行時買一些腰果核桃補充能量，比洋芋片建康一些。XD&lt;/p&gt;
-
-&lt;p&gt;補充一下：Ruby的&lt;code class=&quot;highlighter-rouge&quot;&gt;when&lt;/code&gt;後面可以放多個參數，讓程式更簡潔，因此我來放更多的食物&lt;code class=&quot;highlighter-rouge&quot;&gt;Orange&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Bread&lt;/code&gt;進去旅行大背包：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;type_of&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Apple'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Banana'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Orange'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:fruit&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Chocolate'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:sweet&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Noodles'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Bread'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:meal&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Chips'&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:junkfood&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:unknown&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type_of&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Orange'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; :fruit&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;-不是-&quot;&gt;=== 不是 ==&lt;/h2&gt;
-
-&lt;p&gt;從以上大背包放食物的例子我們可以發現，&lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;比的是&lt;code class=&quot;highlighter-rouge&quot;&gt;case equality in case statement&lt;/code&gt;(更近一步來說，比的是上層的類別物件class object)，所以以下四條判斷式，會顯示為全部為真：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Class&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Class&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Class&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Class&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# all true. 萬物皆為物件!&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;比較tricky的部分是&lt;code class=&quot;highlighter-rouge&quot;&gt;Fixnum&lt;/code&gt;，我發現到了如果將&lt;code class=&quot;highlighter-rouge&quot;&gt;Fixnum&lt;/code&gt;擺在&lt;code class=&quot;highlighter-rouge&quot;&gt;===(threequality)&lt;/code&gt;的右邊，結果為假：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Fixnum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Fixnum&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; false&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Fixnum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Fixnum&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; false&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#warning: constant ::Fixnum is deprecated&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1cqdp89_kolr4q1YAQaB-6i5GXip8MHyve8MvQ_1r6_s/edit#slide=id.g2fa7c811_0_12&quot;&gt;Ruby Gotchas&lt;/a&gt;這份slide説明:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A better name (IMHO, 以我的觀點來說) might be &lt;code class=&quot;highlighter-rouge&quot;&gt;.describes?&lt;/code&gt;, or overload &lt;code class=&quot;highlighter-rouge&quot;&gt;.includes?&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;這或許就是為什麼我們不能把&lt;code class=&quot;highlighter-rouge&quot;&gt;拿來比較&lt;/code&gt;的參數放在左邊，而是&lt;code class=&quot;highlighter-rouge&quot;&gt;右邊&lt;/code&gt;：）&lt;/p&gt;
-
-&lt;h2 id=&quot;--與-regular-expression&quot;&gt;===, == 與 Regular Expression&lt;/h2&gt;
-&lt;p&gt;
-使用&lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;的好處就是可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;正規表示式&lt;/code&gt;提取、比較更多符合我們需求的條件。從以上的結論我們發現要將正規表示式放左邊。參考&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Regexp.html#Public%20Instance%20Methods&quot;&gt;Ruby Doc 關於Regexp方法下的Public Instance Methods這頁說明&lt;/a&gt;，我們可以分別用 &lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;和 &lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt; 了解各項舉例是否為真：&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/banana/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'banana'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/banana/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/banana/&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; false&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/banana/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'banana'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; false&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/banana/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/banana/&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;為何在上述&lt;code class=&quot;highlighter-rouge&quot;&gt;banana&lt;/code&gt;的例子裡，&lt;code class=&quot;highlighter-rouge&quot;&gt;/banana/ === 'banana'&lt;/code&gt;為真，而
-&lt;code class=&quot;highlighter-rouge&quot;&gt;/banana/ == 'banana'&lt;/code&gt; 為假呢?&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Regexp#===&lt;/code&gt;是用來&lt;code class=&quot;highlighter-rouge&quot;&gt;比對(match)&lt;/code&gt;字串是否包含&lt;code class=&quot;highlighter-rouge&quot;&gt;/正規表示式/&lt;/code&gt;裡的字符號 (tests whether or not the argument matches the regular expression.)。而在此例子裡，&lt;code class=&quot;highlighter-rouge&quot;&gt;'banana'&lt;/code&gt;字串的確包含&lt;code class=&quot;highlighter-rouge&quot;&gt;banana&lt;/code&gt;這些字符號。&lt;/p&gt;
-
-&lt;p&gt;但&lt;code class=&quot;highlighter-rouge&quot;&gt;/banana/&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;'banana'&lt;/code&gt;本身並&lt;code class=&quot;highlighter-rouge&quot;&gt;不是同一個值&lt;/code&gt;，所以&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;結果為假。&lt;/p&gt;
-
-&lt;h1 id=&quot;4-equal&quot;&gt;4. &lt;code class=&quot;highlighter-rouge&quot;&gt;equal?&lt;/code&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;equal?&lt;/code&gt; : 如果接收器和參數的&lt;code class=&quot;highlighter-rouge&quot;&gt;物件id&lt;/code&gt;(記憶體位置)相同，則為&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; (compares if both operands refer to the same object i.e. have the same object id)&lt;/p&gt;
-
-&lt;h2 id=&quot;equal-與-eql-與--比較&quot;&gt;equal? 與 eql? 與 == 比較&lt;/h2&gt;
-
-&lt;p&gt;最後我們來用Ruby is Awesome作為總結吧！&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;awesome&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;awesome&quot;&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true #ruby和rails都很awesome!&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;eql?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# ruby和rails不但都很awesome, 而且兩者的類型都是字串(string)!&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;equal?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; false&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#ruby和rails分別存在不同的記憶體位置，它們不是同一個物件&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;object_id&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#70263932897220&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;object_id&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#70263932897160&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;超級比一比：&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;== (等於)&lt;/th&gt;
-      &lt;th&gt;===&lt;/th&gt;
-      &lt;th&gt;eql?&lt;/th&gt;
-      &lt;th&gt;equal?&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;檢查兩個運算子的值是否相等&lt;/td&gt;
-      &lt;td&gt;測試case語法中的&lt;code class=&quot;highlighter-rouge&quot;&gt;when子句相等性&lt;/code&gt; (object class)&lt;/td&gt;
-      &lt;td&gt;如果接收器和&lt;code class=&quot;highlighter-rouge&quot;&gt;參數的值&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;類型&lt;/code&gt;都相等，則為&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;如果接收器和參數的&lt;code class=&quot;highlighter-rouge&quot;&gt;object id&lt;/code&gt;相同，則為&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Ref:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://quizbucket.org/explain-each-of-the-following-operators-and-how-and-when-they-should-be-used-eql-equal-4248&quot;&gt;Ruby Interview Questions - Quizbucket&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ruby-doc.org/core-2.5.1/Regexp.html#Public%20Instance%20Methods&quot;&gt;Ruby Doc: rxp === str → true or false&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.runoob.com/ruby/ruby-operator.html&quot;&gt;Ruby算數運算符&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1cqdp89_kolr4q1YAQaB-6i5GXip8MHyve8MvQ_1r6_s/edit#slide=id.p&quot;&gt;Ruby Gotchas&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3422223/vs-in-ruby&quot;&gt;=== vs. == in Ruby&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/4467538/what-does-the-operator-do-in-ruby/4467823#4467823&quot;&gt;What does the “===” operator do in Ruby?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.skorks.com/2009/08/how-a-ruby-case-statement-works-and-what-you-can-do-with-it/&quot;&gt;How A Ruby Case Statement Works And What You Can Do With It&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blog.molawson.com/the-power-of-ruby-s-case-statement&quot;&gt;The Power of Ruby’s Case Statement&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://batsov.com/articles/2013/07/10/the-elements-of-style-in-ruby-number-7-the-case-against-equals-equals-equals/&quot;&gt;The Elements of Style in Ruby #7: The Case Against ===&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">前幾天我們把焦點集中在True or False(判斷真假)，今天來研究幾個比較是否相等的方法！在程式世界裡，真假與相等都有更多元、更超乎想像的概念。如果是程式新手，可能會對這幾個看起來特別像的運算子：==, ===, eql?, equal?充滿黑人問號…???</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">這一系列精選面試題寫下來，我發現新手工程師對於相似、接近的method或概念都會比較困惑，也難怪熱門面試要考這些題目了！這樣才能鑑別出面試候選人真的有弄懂程式觀念。也希望我整理好的這30篇鐵人賽文章，未來能幫助到許多想學Ruby、進而想找相關工作的新手們！</summary></entry></feed>
