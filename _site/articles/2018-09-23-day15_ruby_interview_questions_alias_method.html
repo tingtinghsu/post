@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day15 alias和alias_method比較 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day15 alias和alias_method比較</h3>
+  <span class="post-date">23 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 374 words. </small> <br>
+  <br>
+  <p>昨天的文章在研究map和collect的時候，有一句話提到map是collect的別名 (map is an alias for collect)。除了讓我學到alias這個英文單字之外，也意外發現，ruby裡面還有alias方法！今天就來研究alias吧～
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-15" id="markdown-toc-ruby經典面試題目-15">Ruby經典面試題目 #15</a>    <ul>
+      <li><a href="#alias" id="markdown-toc-alias">alias</a></li>
+      <li><a href="#alias_method" id="markdown-toc-alias_method">alias_method</a></li>
+      <li><a href="#alias_method與alias的不同" id="markdown-toc-alias_method與alias的不同">alias_method與alias的不同</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-15">Ruby經典面試題目 #15</h1>
+
+<ul>
+  <li><code class="highlighter-rouge">alias</code> 和 <code class="highlighter-rouge">alias_method</code>比較?<br />
+What’s the difference between alias和 alias_method?`</li>
+</ul>
+
+<h2 id="alias">alias</h2>
+
+<p>幾年前我曾經認養寵物-兩隻可愛的虎斑貓，還記得剛開始認養的時候非常興奮，當時最重要的步驟就是幫可愛的毛小孩取名了！所以我想用程式碼紀念一下當初的過程。
+為了命名第一隻貓（一隻底色為白色的虎斑貓），首先我建立Pet類別，定義first_name方法，且此方法的<code class="highlighter-rouge">alias</code>別名是<code class="highlighter-rouge">name</code>（新的別名要放在舊的名稱前面）：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pet</span>
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="nb">p</span> <span class="s2">"Mac"</span>
+  <span class="k">end</span>
+
+  <span class="k">alias</span> <span class="nb">name</span> <span class="n">first_name</span> <span class="c1">#Method之間不需要放","逗號</span>
+<span class="k">end</span>
+
+<span class="no">Pet</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; Mac</span>
+</code></pre></div></div>
+
+<p>結果印出：Mac。這是我家寵物的名字。</p>
+
+<h2 id="alias_method">alias_method</h2>
+
+<p>如果利用<code class="highlighter-rouge">alias_method</code>寫法也是可以的，只要把name方法前面加上<code class="highlighter-rouge">:冒號</code>，變成<code class="highlighter-rouge">Symbol</code>符號的寫法：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pet</span>
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="nb">p</span> <span class="s2">"Mac"</span>
+  <span class="k">end</span>
+
+  <span class="kp">alias_method</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:first_name</span> <span class="c1">#Symbol之間要加","逗號</span>
+<span class="k">end</span>
+
+<span class="no">Pet</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; Mac</span>
+</code></pre></div></div>
+
+<p>用<code class="highlighter-rouge">alias_method</code>的優點是可以作用在繼承的類別，來看看例子🌰：</p>
+
+<p>我家的Mac是一隻調皮的小公貓，有另外一個綽號叫做“麥少爺”。所以我寫了一個類別<code class="highlighter-rouge">Cat</code>繼承自<code class="highlighter-rouge">Pet</code>。在<code class="highlighter-rouge">Cat</code>類別和<code class="highlighter-rouge">Pet類別</code>下都有同名的方法<code class="highlighter-rouge">first_name</code>。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pet</span>
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="nb">p</span> <span class="s2">"Mac"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">nickname</span>
+    <span class="kp">alias_method</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:first_name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Pet</span>
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="nb">p</span> <span class="s2">"麥少爺"</span>
+  <span class="k">end</span>
+  <span class="n">nickname</span>
+<span class="k">end</span>
+
+<span class="no">Cat</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; "麥少爺"</span>
+</code></pre></div></div>
+
+<p>當我們用<code class="highlighter-rouge">Cat.new.name</code>產生一個新物件，程式會走一遍<code class="highlighter-rouge">Cat</code>類別，到了<code class="highlighter-rouge">nickname</code>這個方法，會跑去繼承父類別<code class="highlighter-rouge">Pet</code>的<code class="highlighter-rouge">self.nickname</code>方法。</p>
+
+<p>尋找到<code class="highlighter-rouge">alias_method</code>之後，呼叫<code class="highlighter-rouge">name</code>別名的舊名<code class="highlighter-rouge">:cat_name</code>，再回來<code class="highlighter-rouge">Cat</code>類別跑完執行<code class="highlighter-rouge">first_name</code>方法。</p>
+
+<p>此時Mac的花名出現啦！叫做<code class="highlighter-rouge">麥少爺</code>。</p>
+
+<h2 id="alias_method與alias的不同">alias_method與alias的不同</h2>
+
+<p>如果把上述程式碼轉為<code class="highlighter-rouge">alias</code>試試看，幫我的第二隻貓：Dell設定綽號。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pet</span>
+  <span class="k">def</span> <span class="nf">second_name</span>
+    <span class="nb">p</span> <span class="s2">"Dell"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">nickname</span>
+    <span class="k">alias</span> <span class="nb">name</span> <span class="n">second_name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Pet</span>
+  <span class="k">def</span> <span class="nf">second_name</span>
+    <span class="nb">p</span> <span class="s2">"戴公子"</span>
+  <span class="k">end</span>
+  <span class="n">nickname</span>
+<span class="k">end</span>
+
+<span class="no">Cat</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; Dell</span>
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Cat.new.name</code> 呼叫<code class="highlighter-rouge">nickname</code>方法後，並沒有出現別名<code class="highlighter-rouge">戴公子</code>，名字仍為<code class="highlighter-rouge">Dell</code>。
+這是因為<code class="highlighter-rouge">alias</code>只會尋找其關鍵字存在的scope，在本案例裡是<code class="highlighter-rouge">Pet</code>類別裡面的<code class="highlighter-rouge">second_name</code>方法。</p>
+
+<p><code class="highlighter-rouge">alias_method</code>在Ruby on Rails專案很常使用，因為它可以幫我們把功能重複的方法、透過重新改寫方法名的過程，整合到一起。（未來熟悉Rails後會補上例子，敬請期待）</p>
+
+<p>透過這兩個為小貓取花名的舉例的比較，希望大家能夠更了解<code class="highlighter-rouge">alias</code>和<code class="highlighter-rouge">alias_method</code>的不同喔！</p>
+
+<p>比一比：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><a href="http://ruby-doc.org/stdlib-1.9.1/libdoc/rdoc/rdoc/RDoc/Alias.html">alias</a></th>
+      <th><a href="http://ruby-doc.org/core-2.1.5/Module.html#method-i-alias_method">alias_method</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>在libdoc之下的RDoc裡的關鍵字</td>
+      <td>屬於Module模組方法</td>
+    </tr>
+    <tr>
+      <td>只會作用在關鍵字所屬的scope</td>
+      <td>可以重新定義方法，較為彈性</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>===</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://ruby-china.org/topics/13272">一份Ruby面試題</a></li>
+  <li><a href="https://blog.bigbinary.com/2012/01/08/alias-vs-alias-method.html">alias vs alias_method</a></li>
+  <li><a href="https://ernie.io/2014/10/23/in-defense-of-alias/">In Defense of Alias</a></li>
+  <li><a href="https://stackoverflow.com/questions/4763121/should-i-use-alias-or-alias-method">Should I use alias or alias_method?</a></li>
+  <li><a href="https://wikimatze.de/method-alias-in-ruby/">Method alias in ruby</a></li>
+  <li><a href="http://ruby-doc.org/stdlib-1.9.1/libdoc/rdoc/rdoc/RDoc/Alias.html">Ruby-doc.org : alias</a></li>
+  <li><a href="http://ruby-doc.org/core-2.5.1/Module.html#method-i-alias_method">Ruby-doc.org : alias method</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

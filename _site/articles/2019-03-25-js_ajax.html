@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day23] JS: javascript AJAX &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day23] JS: javascript AJAX</h3>
+  <span class="post-date">25 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 2397 words. </small> <br>
+  <br>
+  <p><code class="highlighter-rouge">AJAX</code> (Asynchronous JavaScript and XML)<br />
+非同步的JavaScript and XML</p>
+
+<p>AJAX有以下的特性：</p>
+
+<ul>
+  <li>使用 JavaScript 為主要程式語言</li>
+  <li>使用 DocumentObjectModel 的方式編修HTML</li>
+  <li>使用 XML 做為資料交換的格式</li>
+  <li>使用 XHTML 與 CSS 以呈現資料</li>
+  <li>使用 XMLHttpRequest 物件來傳輸與接收資料<br />
+(<a href="https://ithelp.ithome.com.tw/articles/10074729">Ref.</a>)</li>
+</ul>
+
+<!-- more -->
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#同步與非同步" id="markdown-toc-同步與非同步">同步與非同步</a>    <ul>
+      <li><a href="#同步案例乒乓球" id="markdown-toc-同步案例乒乓球">同步案例:乒乓球</a></li>
+    </ul>
+  </li>
+  <li><a href="#ajax優點" id="markdown-toc-ajax優點">AJAX優點</a></li>
+  <li><a href="#1-非同步語法-promiseresolve-reject" id="markdown-toc-1-非同步語法-promiseresolve-reject">1. 非同步語法: <code class="highlighter-rouge">promise(resolve, reject)</code></a>    <ul>
+      <li><a href="#settimeout用途等到事件完成之後再呈現資料" id="markdown-toc-settimeout用途等到事件完成之後再呈現資料"><code class="highlighter-rouge">setTimeout()</code>，用途：等到事件完成之後再呈現資料</a></li>
+      <li><a href="#練習-釋放大絕招遊戲" id="markdown-toc-練習-釋放大絕招遊戲">練習: 釋放大絕招遊戲</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-什麼是api" id="markdown-toc-2-什麼是api">2. 什麼是API</a>    <ul>
+      <li><a href="#常見的web-api回應格式" id="markdown-toc-常見的web-api回應格式">常見的Web API回應格式</a>        <ul>
+          <li><a href="#json" id="markdown-toc-json">JSON</a></li>
+          <li><a href="#xml" id="markdown-toc-xml">XML</a></li>
+          <li><a href="#csv" id="markdown-toc-csv">CSV</a></li>
+        </ul>
+      </li>
+      <li><a href="#練習-製作api抓取網路資料" id="markdown-toc-練習-製作api抓取網路資料">練習: 製作API抓取網路資料</a>        <ul>
+          <li><a href="#抓網路資料使用-fetch" id="markdown-toc-抓網路資料使用-fetch">抓網路資料，使用 <code class="highlighter-rouge">fetch()</code></a></li>
+          <li><a href="#cors的含義" id="markdown-toc-cors的含義">CORS的含義</a></li>
+          <li><a href="#把資料做成圖表的js函式庫-chartjs" id="markdown-toc-把資料做成圖表的js函式庫-chartjs">把資料做成圖表的js函式庫: <code class="highlighter-rouge">Chart.js</code></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="同步與非同步">同步與非同步</h1>
+
+<p>同步: 打電話。需要等對方回應才能進行下一個步驟<br />
+非同步：傳訊息。不需要等對方回應，可以先去做其他的事情</p>
+
+<h2 id="同步案例乒乓球">同步案例:乒乓球</h2>
+
+<p>1.打乒乓球必須一來一回</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">ping</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ping!'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">pong</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'pong!'</span><span class="p">);</span>	
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">play</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Go!'</span><span class="p">);</span>
+	<span class="nx">ping</span><span class="p">();</span>
+	<span class="nx">pong</span><span class="p">();</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Game Set!'</span><span class="p">);</span>	
+<span class="p">}</span>
+<span class="nx">play</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Go!"</span>
+<span class="s2">"ping!"</span>
+<span class="s2">"pong!"</span>
+<span class="s2">"Game Set!"</span> <span class="c1">//按照順序</span>
+</code></pre></div></div>
+
+<p>2.加入延遲時間的情況，其結果並沒有按照順序</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">ping</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ping!'</span><span class="p">);</span>
+	<span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'殺球！！！'</span><span class="p">);</span>
+	<span class="p">},</span> <span class="mi">3000</span><span class="p">)</span>
+	<span class="c1">//3000 mini secs = 3 secs</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">pong</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'pong!'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">play</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Go!'</span><span class="p">);</span>
+	<span class="nx">ping</span><span class="p">();</span>
+	<span class="nx">pong</span><span class="p">();</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Game Set!'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">play</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Go!"</span>
+<span class="s2">"ping!"</span>
+<span class="s2">"pong!"</span>
+<span class="s2">"Game Set!"</span>
+<span class="s2">"殺球！！！"</span> <span class="c1">// 殺球在game set 之後出現</span>
+</code></pre></div></div>
+<h1 id="ajax優點">AJAX優點</h1>
+<ol>
+  <li>非同步：在不更新整個頁面的情況去修改部分的資料</li>
+  <li>常見用途：API</li>
+</ol>
+
+<h1 id="1-非同步語法-promiseresolve-reject">1. 非同步語法: <code class="highlighter-rouge">promise(resolve, reject)</code></h1>
+
+<p><code class="highlighter-rouge">promise()</code>有兩個參數: 成功<code class="highlighter-rouge">resolve</code>, 失敗<code class="highlighter-rouge">reject</code></p>
+
+<p>1.<code class="highlighter-rouge">resolve</code>: 成功才做下一步<code class="highlighter-rouge">.then()</code>，失敗則不做</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">killer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">resolve</span><span class="p">(</span><span class="s1">'十萬福特'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">killer</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">skill</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">//上一步成功，才會接到這一步</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">skill</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"十萬福特"</span>
+</code></pre></div></div>
+
+<p>2.<code class="highlighter-rouge">reject</code>: 失敗時<code class="highlighter-rouge">.then()</code>沒反應</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">killer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">reject</span><span class="p">(</span><span class="s1">'十萬福特'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">killer</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">skill</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">//上一步成功，才會接到這一步</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">skill</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>console: 沒有印出資料</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>什麼都沒有<span class="o">)</span>
+</code></pre></div></div>
+
+<p>3.失敗時，丟參數進去<code class="highlighter-rouge">.catch(error =&gt; )</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">killer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">reject</span><span class="p">(</span><span class="s1">'十萬福特'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">killer</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">skill</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">//上一步成功，才會接到這一步</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">skill</span><span class="p">);</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'error = '</span> <span class="o">+</span> <span class="nx">error</span><span class="p">)}</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"error = 十萬福特"</span>
+</code></pre></div></div>
+
+<h2 id="settimeout用途等到事件完成之後再呈現資料"><code class="highlighter-rouge">setTimeout()</code>，用途：等到事件完成之後再呈現資料</h2>
+
+<p>4.加入延遲時間的情況</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">killer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="nx">resolve</span><span class="p">(</span><span class="s1">'十萬福特'</span><span class="p">);</span>
+	<span class="p">},</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="p">});</span>
+
+<span class="nx">killer</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">skill</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">//上一步成功，才會接到這一步</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">skill</span><span class="p">);</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'error = '</span> <span class="o">+</span> <span class="nx">error</span><span class="p">)</span>
+<span class="p">})</span>
+
+</code></pre></div></div>
+
+<p>console: 三秒之後印出十萬伏特</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"十萬福特"</span>
+</code></pre></div></div>
+
+<h2 id="練習-釋放大絕招遊戲">練習: 釋放大絕招遊戲</h2>
+
+<p>三秒內點五次按鈕，放出大絕招 <strong>元氣玉</strong>
+完成品連結 https://codepen.io/tingtinghsu/full/qwbrMr</p>
+
+<p>Step 1. jQuery起手式</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Step 2. 抓<code class="highlighter-rouge">hitbutton</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#hitButton'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Step 3. 點擊計數</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">chi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#hitButton'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">chi</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#hitButton'</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">`集氣 (</span><span class="p">${</span><span class="nx">chi</span><span class="p">}</span><span class="s2"> 次) `</span><span class="p">);</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+
+</code></pre></div></div>
+
+<p>Step 4. 設定 <code class="highlighter-rouge">promise</code> 函數: 成功resolve, 失敗reject</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="err">大絕招</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nx">chi</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="s1">'元氣玉'</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">reject</span><span class="p">(</span><span class="s1">'元氣玉'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Step5. 成功和失敗時所呈現的html</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">大絕招</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="err">招式</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#result'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">`使用絕招：</span><span class="p">${</span><span class="err">招式</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#result'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">err</span><span class="p">}</span><span class="s2">無法使用！`</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Step6. 整理成一行</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">大絕招</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="err">招式</span> <span class="o">=&gt;</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#result'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">`使用絕招：</span><span class="p">${</span><span class="err">招式</span><span class="p">}</span><span class="s2">`</span><span class="p">))</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#result'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">err</span><span class="p">}</span><span class="s2">無法使用！`</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>小結</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">chi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#hitButton'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">chi</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#hitButton'</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">`集氣 (</span><span class="p">${</span><span class="nx">chi</span><span class="p">}</span><span class="s2"> 次) `</span><span class="p">);</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="err">大絕招</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nx">chi</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="s1">'元氣玉'</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">reject</span><span class="p">(</span><span class="s1">'元氣玉'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="p">});</span>
+
+<span class="err">大絕招</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="err">招式</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#result'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">`使用絕招：</span><span class="p">${</span><span class="err">招式</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#result'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">err</span><span class="p">}</span><span class="s2">無法使用！`</span><span class="p">)</span>
+<span class="p">})</span>
+
+</code></pre></div></div>
+
+<h1 id="2-什麼是api">2. 什麼是API</h1>
+
+<p>Application Programming Interface<br />
+應用程式介面</p>
+
+<p>提供開發人員一些預先定義好的函式庫，可以快速使用其功能而不必了解實際運作。</p>
+
+<h2 id="常見的web-api回應格式">常見的Web API回應格式</h2>
+
+<p>有 JSON / XML / CSV 這三種</p>
+
+<h3 id="json">JSON</h3>
+
+<p>JavaScript Object Notation<br />
+JavaScript的物件表示法</p>
+
+<p>JSON資料格式的表示<br />
+https://jsoneditoronline.org/</p>
+
+<p>物件(object)用大括號 { }
+陣列(array)用中括號 [ ]</p>
+
+<p>範例:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ting"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ting"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Math"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="xml">XML</h3>
+
+<p>Extensible-Markup Language<br />
+可延伸標記語言
+意思是：有含意的標籤取名</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;news&gt;</span>
+    <span class="nt">&lt;to&gt;</span>日本<span class="nt">&lt;/to&gt;</span>
+    <span class="nt">&lt;from&gt;</span>台灣<span class="nt">&lt;/from&gt;</span>
+    <span class="nt">&lt;heading&gt;</span>鈴木一朗要退休了!<span class="nt">&lt;/heading&gt;</span>
+    <span class="nt">&lt;body&gt;</span>不.....................<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/news&gt;</span>
+</code></pre></div></div>
+
+<h3 id="csv">CSV</h3>
+
+<p>Comma-Separated Values<br />
+逗號分隔值</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"1997","Ford","E350"
+</code></pre></div></div>
+
+<h2 id="練習-製作api抓取網路資料">練習: 製作API抓取網路資料</h2>
+
+<p>農產品價格
+完成品：https://codepen.io/tingtinghsu/full/QPyerz</p>
+
+<p>Step 1. jQuery起手式</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//希望DOM元素載完再做其他的事情</span>
+<span class="nx">$</span><span class="p">().</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Step 2. <code class="highlighter-rouge">fetch()</code></p>
+
+<h3 id="抓網路資料使用-fetch">抓網路資料，使用 <code class="highlighter-rouge">fetch()</code></h3>
+
+<p>抓資料網址<br />
+http://data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx</p>
+
+<p>回傳一個Promise(). then()可以接著處理抓回來的資料</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//DOM元素載完後再做其他的事情</span>
+<span class="nx">$</span><span class="p">().</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s1">'http://data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>console 出現錯誤訊息:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Cross</span><span class="o">-</span><span class="nx">Origin</span> <span class="nx">Request</span> <span class="nx">Blocked</span><span class="p">:</span> 
+<span class="nx">The</span> <span class="nx">Same</span> <span class="nx">Origin</span> <span class="nx">Policy</span> <span class="nx">disallows</span> <span class="nx">reading</span> <span class="nx">the</span> <span class="nx">remote</span> <span class="nx">resource</span> <span class="nx">at</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx. </span>
+<span class="p">(</span><span class="nx">Reason</span><span class="p">:</span> <span class="nx">CORS</span> <span class="nx">header</span> <span class="err">‘</span><span class="nx">Access</span><span class="o">-</span><span class="nx">Control</span><span class="o">-</span><span class="nx">Allow</span><span class="o">-</span><span class="nx">Origin</span><span class="err">’</span> <span class="nx">missing</span><span class="p">).</span>
+</code></pre></div></div>
+
+<p>出現了關於<code class="highlighter-rouge">CORS</code>的警告訊息</p>
+
+<h3 id="cors的含義">CORS的含義</h3>
+
+<p>Cross-Origin Resource Sharing<br />
+跨網域資料分享</p>
+
+<p>若是抓取的網站沒有開CORS，可以</p>
+
+<ol>
+  <li>使用CORS Proxy（可能不太穩定）</li>
+  <li>用後端程式抓</li>
+</ol>
+
+<p>改成另外的網址</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//DOM元素載完後再做其他的事情</span>
+<span class="nx">$</span><span class="p">().</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://ubin.io/data/vegetables?item=香蕉'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Response</span> <span class="p">{</span> <span class="nl">type</span><span class="p">:</span> <span class="s2">"cors"</span><span class="p">,</span> <span class="nx">url</span><span class="p">:</span> <span class="s2">"https://ubin.io/data/vegetables?item=%E9%A6%99%E8%95%89"</span><span class="p">,</span> <span class="nx">redirected</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">status</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">ok</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">statusText</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span> <span class="nx">headers</span><span class="p">:</span> <span class="nx">Headers</span><span class="p">,</span> <span class="nx">body</span><span class="p">:</span> <span class="nx">ReadableStream</span><span class="p">,</span> <span class="nx">bodyUsed</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Step 3. 把抓取菜價的功能提出成為<code class="highlighter-rouge">function getVegetablePrice()</code>
+可傳不同的蔬菜參數進去</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">().</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">getVegetable</span><span class="p">(</span><span class="s1">'香蕉'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">getVegetable</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://ubin.io/data/vegetables?item=</span><span class="p">${</span><span class="nx">item</span><span class="p">}</span><span class="s2">`</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Response <span class="o">{</span> <span class="nb">type</span>: <span class="s2">"cors"</span>, url: <span class="s2">"https://ubin.io/data/vegetables?item=%E9%A6%99%E8%95%89"</span>, redirected: <span class="nb">false</span>, status: 200, ok: <span class="nb">true</span>, statusText: <span class="s2">"OK"</span>, headers: Headers, body: ReadableStream, bodyUsed: <span class="nb">false</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Step 4. 解析轉成json格式，再回傳一個promise</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getVegetable</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://ubin.io/data/vegetables?item=</span><span class="p">${</span><span class="nx">item</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+    <span class="c1">// 解析轉成json格式</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+    <span class="c1">// 再回傳一個promise</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>item: <span class="s2">"香蕉"</span>
+​
+prices: <span class="o">(</span>9<span class="o">)</span> <span class="o">[</span>…]
+0: Object <span class="o">{</span> market: <span class="s2">"台北二"</span>, price: 23.8 <span class="o">}</span>
+1: Object <span class="o">{</span> market: <span class="s2">"台北一"</span>, price: 22.4 <span class="o">}</span>
+2: Object <span class="o">{</span> market: <span class="s2">"板橋區"</span>, price: 24.6 <span class="o">}</span>
+3: Object <span class="o">{</span> market: <span class="s2">"三重區"</span>, price: 24.7 <span class="o">}</span>
+4: Object <span class="o">{</span> market: <span class="s2">"宜蘭市"</span>, price: 22 <span class="o">}</span>
+5: Object <span class="o">{</span> market: <span class="s2">"台中市"</span>, price: 21.2 <span class="o">}</span>
+6: Object <span class="o">{</span> market: <span class="s2">"豐原區"</span>, price: 19.38 <span class="o">}</span>
+7: Object <span class="o">{</span> market: <span class="s2">"高雄市"</span>, price: 25 <span class="o">}</span>
+8: Object <span class="o">{</span> market: <span class="s2">"鳳山區"</span>, price: 23 <span class="o">}</span>
+length: 9
+</code></pre></div></div>
+
+<h3 id="把資料做成圖表的js函式庫-chartjs">把資料做成圖表的js函式庫: <code class="highlighter-rouge">Chart.js</code></h3>
+
+<p>1.installation</p>
+
+<p>Chart.js：https://cdnjs.com/libraries/Chart.js<br />
+將js檔案另存新檔，放入資料夾。</p>
+
+<p>2.usage</p>
+
+<p>https://www.chartjs.org/docs/latest/getting-started/usage.html</p>
+
+<p>html</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"scripts/Chart.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"myChart"</span> <span class="na">width=</span><span class="s">"400"</span> <span class="na">height=</span><span class="s">"400"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"scripts/script.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getVegetable</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://ubin.io/data/vegetables?item=</span><span class="p">${</span><span class="nx">item</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+    <span class="c1">// 解析轉成json格式</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+    <span class="c1">// 再回傳一個promise</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>  <span class="nx">renderChart</span><span class="p">(</span><span class="nx">data</span><span class="p">);})</span> <span class="c1">//畫圖</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Step 5. renderchart抓取蔬果資料(變數: market/price)</p>
+
+<p>ES6的 <code class="highlighter-rouge">.map()</code>: 
+針對某個陣列的每個元素做某件事情，再重新搜集成一個陣列</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">renderChart</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">markets</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="s2">"prices"</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">p</span><span class="p">.</span><span class="nx">market</span>
+    <span class="c1">//等於 return price["market"]</span>
+  <span class="p">})</span> 
+
+  <span class="c1">//測試 console.log(markets);</span>
+
+  <span class="kd">let</span> <span class="nx">prices</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="s2">"prices"</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">p</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span>
+  <span class="p">})</span>
+
+  <span class="c1">// 測試 console.log(prices);</span>
+</code></pre></div></div>
+
+<p>整理更簡潔的程式碼</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">let</span> <span class="nx">markets</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="s2">"prices"</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">market</span><span class="p">)</span> 
+  <span class="kd">let</span> <span class="nx">prices</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="s2">"prices"</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">price</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>最後，把抓好的資料填進去圖表！</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">let</span> <span class="nx">title</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">item</span><span class="p">}</span><span class="s2">價格`</span><span class="p">;</span>
+  
+  <span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#myChart'</span><span class="p">);</span>  
+  <span class="kd">var</span> <span class="nx">myChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">type</span><span class="p">:</span> <span class="s1">'bar'</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">labels</span><span class="p">:</span> <span class="nx">markets</span><span class="p">,</span>  <span class="c1">//各地市場  </span>
+        <span class="na">datasets</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="na">label</span><span class="p">:</span> <span class="nx">title</span><span class="p">,</span> <span class="c1">// 標題</span>
+            <span class="na">data</span><span class="p">:</span> <span class="nx">prices</span><span class="p">,</span> <span class="c1">// 價格</span>
+            <span class="na">backgroundColor</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">'rgba(255, 99, 132, 0.2)'</span><span class="p">,</span>
+                <span class="s1">'rgba(54, 162, 235, 0.2)'</span><span class="p">,</span>
+                <span class="s1">'rgba(255, 206, 86, 0.2)'</span><span class="p">,</span>
+                <span class="s1">'rgba(75, 192, 192, 0.2)'</span><span class="p">,</span>
+                <span class="s1">'rgba(153, 102, 255, 0.2)'</span><span class="p">,</span>
+                <span class="s1">'rgba(255, 159, 64, 0.2)'</span><span class="p">,</span>
+                <span class="s1">'rgba(155, 199, 132, 0.2)'</span><span class="p">,</span>
+                <span class="s1">'rgba(54, 162, 235, 0.2)'</span><span class="p">,</span>
+                <span class="s1">'rgba(255, 206, 86, 0.2)'</span>                
+            <span class="p">],</span>
+            <span class="na">borderColor</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">'rgba(255, 99, 132, 1)'</span><span class="p">,</span>
+                <span class="s1">'rgba(54, 162, 235, 1)'</span><span class="p">,</span>
+                <span class="s1">'rgba(255, 206, 86, 1)'</span><span class="p">,</span>
+                <span class="s1">'rgba(75, 192, 192, 1)'</span><span class="p">,</span>
+                <span class="s1">'rgba(153, 102, 255, 1)'</span><span class="p">,</span>
+                <span class="s1">'rgba(255, 159, 64, 1)'</span>
+            <span class="p">],</span>
+            <span class="na">borderWidth</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}]</span>
+    <span class="p">},</span>
+    <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">scales</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">yAxes</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="na">ticks</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">beginAtZero</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">}]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/b0Bfp09RRZidfpoF3Ad9Mg?view">HackMD筆記</a><br />
+<a href="https://codepen.io/tingtinghsu/full/qwbrMr">CodePen練習一</a><br />
+<a href="https://codepen.io/tingtinghsu/full/drKqPy">CodePen練習二</a><br />
+<a href="../public/note/jsdemo/23-AJAX-energy.html">網頁版-釋放放大絕招遊戲</a><br />
+<a href="../public/note/jsdemo/23-AJAX-API.html">網頁版-API抓資料</a><br />
+<a href="https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=zh-TW">JSON Viewer（Chrome 外掛）</a><br />
+<a href="https://www.chartjs.org/">Chart.js</a><br />
+<a href="https://data.gov.tw/">政府資料交換平台</a><br />
+<a href="https://data.gov.tw/dataset/8066">農產品交易行情（官方版）</a><br />
+<a href="https://ubin.io/data/vegetables?item=香蕉">農產品交易行情（特製版）</a></p>
+
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-22-js_chrome_console">[Day20] JS: javascript 使用Chrome Console撰寫</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

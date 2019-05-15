@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day27 Ruby裡的Hash預設值 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day27 Ruby裡的Hash預設值</h3>
+  <span class="post-date">30 Oct 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 840 words. </small> <br>
+  <br>
+  <p>在<a href="https://ithelp.ithome.com.tw/articles/10202250">第14天</a>的時候，我們曾經提到<code class="highlighter-rouge">Hash(雜湊)</code>是一對<code class="highlighter-rouge">key(鍵)</code>與<code class="highlighter-rouge">value(值)</code>的集合。今天的大哉問是，我們要如何設定預設值呢？
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-27" id="markdown-toc-ruby經典面試題目-27">Ruby經典面試題目 #27</a></li>
+  <li><a href="#hash-與-array" id="markdown-toc-hash-與-array">Hash 與 Array</a></li>
+  <li><a href="#hash-與-block" id="markdown-toc-hash-與-block">Hash 與 Block</a></li>
+  <li><a href="#hash-與-結合比較" id="markdown-toc-hash-與-結合比較">Hash <code class="highlighter-rouge">&lt;&lt;</code>與 <code class="highlighter-rouge">+=</code>結合比較</a>    <ul>
+      <li><a href="#1-hash-用-指定值" id="markdown-toc-1-hash-用-指定值">1. hash: 用 « 指定值</a></li>
+      <li><a href="#2-hash-block-與-" id="markdown-toc-2-hash-block-與-">2. hash, block 與 «</a></li>
+      <li><a href="#3-hash-用--改變值" id="markdown-toc-3-hash-用--改變值">3. hash: 用 += 改變值</a></li>
+      <li><a href="#4-hash-用--與-freeze-固定值" id="markdown-toc-4-hash-用--與-freeze-固定值">4. hash: 用 += 與 <code class="highlighter-rouge">freeze?</code> 固定值</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-27">Ruby經典面試題目 #27</h1>
+
+<ul>
+  <li>如何設定Ruby的Hash預設值?<br />
+How to set default value in hash?</li>
+</ul>
+
+<p>首先，起手式就是來翻閱<a href="http://ruby-doc.org/core-2.4.2/Hash.html#method-c-new">Ruby API手冊</a>看看裡面的例子，並依照我自己的喜好，改寫成容易被我記憶學習的變數。</p>
+
+<h1 id="hash-與-array">Hash 與 Array</h1>
+
+<p>記得我在<a href="https://ithelp.ithome.com.tw/articles/10202250">第14天</a>使用過銀行帳戶的例子，在這裡繼續沿用類似的情境。假設我創建一個hash記錄我的銀行帳戶名稱和存款金額:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hbank</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Bank Name"</span><span class="p">)</span>
+<span class="n">hbank</span><span class="p">[</span><span class="s2">"CAN"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">hbank</span><span class="p">[</span><span class="s2">"NAB"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="nb">p</span> <span class="n">hbank</span><span class="p">.</span><span class="nf">keys</span> <span class="c1">#=&gt; 銀行名["CAN", "NAB"]</span>
+<span class="nb">p</span> <span class="n">hbank</span><span class="p">.</span><span class="nf">values</span> <span class="c1">#=&gt; 存款金額[100, 200]</span>
+
+<span class="nb">p</span> <span class="n">hbank</span><span class="p">[</span><span class="s2">"CAN"</span><span class="p">]</span>  <span class="c1">#=&gt; 100</span>
+<span class="nb">p</span> <span class="n">hbank</span><span class="p">[</span><span class="s2">"NAB"</span><span class="p">]</span> <span class="c1">#=&gt; 200</span>
+</code></pre></div></div>
+
+<p>如果我要查閱某個並沒有在此Hash的銀行名稱呢？</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">hbank</span><span class="p">[</span><span class="s2">"WEST"</span><span class="p">]</span>           <span class="c1">#=&gt; "Bank Name"</span>
+</code></pre></div></div>
+
+<p>它會出現預設值`Bank Name。</p>
+
+<p>如果你以為這題面試題這麼簡單，那就大錯特錯了！（<del>不要來～污辱我的美</del>）我們必須深入探討另一個常見實務場景：如何改動Hash裡的值呢？</p>
+
+<p>你或許會想到：使用<code class="highlighter-rouge">method</code>!趕快搬出常見的字串方法使一使：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">hbank</span><span class="p">[</span><span class="s2">"WEST"</span><span class="p">]</span>           <span class="c1">#=&gt; "Bank Name"</span>
+<span class="nb">p</span> <span class="n">hbank</span><span class="p">[</span><span class="s2">"WEST"</span><span class="p">].</span><span class="nf">upcase!</span>   <span class="c1">#=&gt; "BANK NAME"</span>
+<span class="nb">p</span> <span class="n">hbank</span><span class="p">[</span><span class="s2">"WEST"</span><span class="p">]</span>           <span class="c1">#=&gt; "BANK NAME"</span>
+</code></pre></div></div>
+
+<p><a href="https://ithelp.ithome.com.tw/articles/10202250">第14天</a>講過：</p>
+
+<blockquote>
+  <p>加上!驚嘆號的方法，通常代表小心！注意！的意思。<code class="highlighter-rouge">Array#.map!</code>方法會讓原本的物件陣列值被改變！</p>
+</blockquote>
+
+<p>因此這裡的 <code class="highlighter-rouge">string#.upcase!</code>就讓Hash裡的<code class="highlighter-rouge">Bank Name</code>硬生生地變成<code class="highlighter-rouge">BANK NAME</code>了。因此，我們了解到<code class="highlighter-rouge">陣列</code>是個<code class="highlighter-rouge">可變的</code>物件。（Array in Ruby is mutable object）</p>
+
+<h1 id="hash-與-block">Hash 與 Block</h1>
+
+<p>要預設Hash，我們還必須複習<a href="https://ithelp.ithome.com.tw/articles/10201297">第11天</a>的<code class="highlighter-rouge">block(區塊)</code>，因為Hash和block有密不可分的關係！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hbank_key</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span><span class="nb">name</span><span class="o">|</span> <span class="nb">hash</span><span class="p">[</span><span class="nb">name</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bank Name: </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+
+<span class="nb">p</span> <span class="n">hbank_key</span><span class="p">[</span><span class="s2">"ANZ"</span><span class="p">]</span>           <span class="c1">#=&gt; "Bank Name: ANZ"</span>
+<span class="nb">p</span> <span class="n">hbank_key</span><span class="p">[</span><span class="s2">"ANZ"</span><span class="p">].</span><span class="nf">upcase!</span>   <span class="c1">#=&gt; "BANK NAME: ANZ"</span>
+<span class="nb">p</span> <span class="n">hbank_key</span><span class="p">[</span><span class="s2">"ANZ"</span><span class="p">]</span>
+<span class="c1">#=&gt; "BANK NAME: ANZ" 變大寫了</span>
+<span class="nb">p</span> <span class="n">hbank_key</span><span class="p">[</span><span class="s2">"CBA"</span><span class="p">]</span>           <span class="c1">#=&gt; "Bank Name: CBA" 還是小寫</span>
+<span class="nb">p</span> <span class="n">hbank_key</span><span class="p">.</span><span class="nf">keys</span>           <span class="c1">#=&gt; ["ANZ", "CBA"]</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">hbank_key</code>這個雜湊的例子比第一個版本<code class="highlighter-rouge">hbank</code>稍微進步，讓<code class="highlighter-rouge">hbank_key["CBA"]</code>的‘值並不會因為<code class="highlighter-rouge">hbank_key["ANZ"].upcase!</code>作怪，而受到影響。</p>
+
+<p><a href="https://stackoverflow.com/questions/2698460/strange-unexpected-behavior-disappearing-changing-values-when-using-hash-defa">Stackovrflow 原文</a>這句話解釋的很清楚：</p>
+
+<blockquote>
+  <p>It is the block’s responsibility to store the value in the hash if required.</p>
+</blockquote>
+
+<h1 id="hash-與-結合比較">Hash <code class="highlighter-rouge">&lt;&lt;</code>與 <code class="highlighter-rouge">+=</code>結合比較</h1>
+
+<p>如果我們<del>硬要唱反調</del>，讓Hash設定default value時不使用block，看會發生什麼情況？</p>
+
+<h2 id="1-hash-用-指定值">1. hash: 用 « 指定值</h2>
+
+<p>我們在<a href="https://ithelp.ithome.com.tw/articles/10203332">第17天</a>已了解到：<code class="highlighter-rouge">&lt;&lt; 會改變常數</code>，因此<code class="highlighter-rouge">hsh_array[:z]</code>被指定了新值。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hsh_array</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">([])</span>
+<span class="nb">p</span> <span class="n">hsh_array</span> <span class="c1"># =&gt; {} 預設是空hash</span>
+<span class="n">hsh_array</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s1">'This is symbol a'</span>
+<span class="n">hsh_array</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s1">'This is symblo b'</span>
+
+<span class="nb">p</span> <span class="n">hsh_array</span><span class="p">[</span><span class="ss">:z</span><span class="p">]</span>
+<span class="c1"># =&gt; ["This is symbol a", "This is symblo b"]</span>
+
+<span class="nb">p</span> <span class="n">hsh_array</span> <span class="c1"># =&gt; {} hash不變，仍是空hash</span>
+</code></pre></div></div>
+
+<h2 id="2-hash-block-與-">2. hash, block 與 «</h2>
+
+<p>例子1 在<code class="highlighter-rouge">Hash</code>內使用<code class="highlighter-rouge">&lt;&lt;</code>指定值時(the assignment way)，<code class="highlighter-rouge">hsh_array[:z]</code>原本預設為[]，卻受到[:a]與[:b]的改變而影響：那改成<code class="highlighter-rouge">&lt;&lt;</code>(the mutable way)呢？</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hsh_block</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">h</span><span class="p">,</span> <span class="n">k</span><span class="o">|</span> <span class="n">h</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">}</span>
+
+<span class="nb">p</span> <span class="n">hsh_block</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s1">'This is symbol a'</span>  <span class="c1">#=&gt; ["a"]</span>
+<span class="nb">p</span> <span class="n">hsh_block</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s1">'This is symblo b'</span>  <span class="c1">#=&gt; ["b"]</span>
+
+<span class="nb">p</span> <span class="n">hsh_block</span><span class="p">[</span><span class="ss">:z</span><span class="p">]</span> <span class="c1">#[]</span>
+<span class="nb">p</span> <span class="n">hsh_block</span>            <span class="c1">#=&gt; {:a=&gt;["This is symbol a"], :b=&gt;["This is symblo b"], :z=&gt;[]}</span>
+</code></pre></div></div>
+
+<h2 id="3-hash-用--改變值">3. hash: 用 += 改變值</h2>
+
+<p>關於串接字串，來複習一下<a href="https://ithelp.ithome.com.tw/articles/10200836">第8天</a>的<code class="highlighter-rouge">+=</code>是<code class="highlighter-rouge">mutable</code>的方法，其<code class="highlighter-rouge">object_id</code>會隨著新串接上的字串，而改變記憶體位置。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hsh_plus</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">([])</span>
+<span class="nb">p</span> <span class="n">hsh_plus</span>  <span class="c1"># =&gt; {} 預設是空hash</span>
+<span class="nb">p</span> <span class="n">hsh_plus</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">'This is symbol a'</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">hsh_plus</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">'This is symblo b'</span><span class="p">]</span>
+
+<span class="nb">p</span> <span class="n">hsh_plus</span><span class="p">[</span><span class="ss">:z</span><span class="p">]</span>
+<span class="c1"># =&gt; [] 空array</span>
+
+<span class="nb">p</span> <span class="n">hsh_plus</span>
+<span class="c1"># {:a=&gt;["This is symbol a"], :b=&gt;["This is symblo b"]}</span>
+<span class="c1"># hash is mutable&lt; 預設值已被改變</span>
+</code></pre></div></div>
+
+<h2 id="4-hash-用--與-freeze-固定值">4. hash: 用 += 與 <code class="highlighter-rouge">freeze?</code> 固定值</h2>
+
+<p>最後，如果要讓hash的<code class="highlighter-rouge">+=</code>不透過block的作用也能變成<code class="highlighter-rouge">imutable</code>，我們就要來複習<a href="https://ithelp.ithome.com.tw/articles/10203332">Day17</a>的<code class="highlighter-rouge">freeze?</code>方法：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hsh_freeze</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">([].</span><span class="nf">freeze</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">hsh_freeze</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">'This is symbol a'</span><span class="p">]</span>  <span class="c1">#=&gt; ["This is symbol a"]</span>
+<span class="nb">p</span> <span class="n">hsh_freeze</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">'This is symbol b'</span><span class="p">]</span>   <span class="c1">#=&gt; ["This is symbol b"]</span>
+<span class="nb">p</span> <span class="n">hsh_freeze</span><span class="p">[</span><span class="ss">:z</span><span class="p">]</span>           <span class="c1">#=&gt; [] #=&gt; hash值不受更動，仍為空</span>
+<span class="nb">p</span> <span class="n">hsh_freeze</span>              <span class="c1">#=&gt; {:a=&gt;["This is symbol a"], :b=&gt;["This is symbol b"]}</span>
+</code></pre></div></div>
+
+<p>結論：</p>
+
+<p>看完幾篇文章，發現有寫工程師偏好不要變動預設變數、但也有些人偏好能夠更彈性的變動變數，端看個人開發習慣。不過寫完落落長的比較，這個結論你一定要熟記喔！</p>
+
+<blockquote>
+  <p>We must store the default value in the <code class="highlighter-rouge">hash</code> from within the <code class="highlighter-rouge">block</code> if we wish to use <code class="highlighter-rouge">&lt;&lt;</code> instead of <code class="highlighter-rouge">&lt;&lt;=</code></p>
+</blockquote>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://devblast.com/b/ruby-tricks-improve-code">10 Ruby tricks to improve your code</a></li>
+  <li><a href="https://stackoverflow.com/questions/16159370/ruby-hash-default-value-behavior">Ruby hash default value behavior</a></li>
+  <li><a href="https://stackoverflow.com/questions/2698460/strange-unexpected-behavior-disappearing-changing-values-when-using-hash-defa">Strange, unexpected behavior (disappearing/changing values) when using Hash default value, e.g. Hash.new([])</a></li>
+  <li><a href="http://ruby-doc.org/core-2.4.2/Hash.html#method-c-new">Ruby API: Hash.new</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

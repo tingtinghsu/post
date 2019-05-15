@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day19 Ruby裡的yield &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day19 Ruby裡的yield</h3>
+  <span class="post-date">04 Oct 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 674 words. </small> <br>
+  <br>
+  <p>在[第11天]時，我們曾比較block, proc與lamdba方法，而<code class="highlighter-rouge">yield</code>的實用場景是在<code class="highlighter-rouge">method</code>裡讓路給<code class="highlighter-rouge">block</code>區塊執行程式的意思。
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-19" id="markdown-toc-ruby經典面試題目-19">Ruby經典面試題目 #19</a>    <ul>
+      <li><a href="#yield--block" id="markdown-toc-yield--block"><code class="highlighter-rouge">yield</code> + <code class="highlighter-rouge">block</code></a></li>
+      <li><a href="#yield--block-字串方法" id="markdown-toc-yield--block-字串方法"><code class="highlighter-rouge">yield</code> + <code class="highlighter-rouge">block</code>: 字串方法</a></li>
+      <li><a href="#yield--block-陣列方法" id="markdown-toc-yield--block-陣列方法"><code class="highlighter-rouge">yield</code> + <code class="highlighter-rouge">block</code>: 陣列方法</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-19">Ruby經典面試題目 #19</h1>
+
+<ul>
+  <li>描述Ruby裡的<code class="highlighter-rouge">yield</code>用法?<br />
+What is yield statement in Ruby?`</li>
+</ul>
+
+<h2 id="yield--block"><code class="highlighter-rouge">yield</code> + <code class="highlighter-rouge">block</code></h2>
+
+<p>現在來寫一個<code class="highlighter-rouge">IronmanDairy</code>類別，用以產生新物件<code class="highlighter-rouge">day19</code>，接著利用<code class="highlighter-rouge">get_topic</code>方法透過<code class="highlighter-rouge">yield</code>傳遞參數<code class="highlighter-rouge">topic</code>給<code class="highlighter-rouge">block</code>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanDairy</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+       <span class="vi">@topic</span> <span class="o">=</span> <span class="n">topic</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">get_topic</span>
+      <span class="k">yield</span><span class="p">(</span> <span class="vi">@topic</span> <span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">day19</span> <span class="o">=</span> <span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Yield"</span><span class="p">)</span>
+
+<span class="c1">#invoking the method passing a block</span>
+<span class="n">day19</span><span class="p">.</span><span class="nf">get_topic</span> <span class="k">do</span> <span class="o">|</span><span class="n">topic</span><span class="o">|</span>
+    <span class="nb">puts</span> <span class="s2">"We are going to talk about </span><span class="si">#{</span><span class="n">topic</span><span class="si">}</span><span class="s2"> today!"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>從[第12天]文章比較<code class="highlighter-rouge">實體變數</code>與<code class="highlighter-rouge">類別實體變數</code>的整理，我們可以了解這裡的<code class="highlighter-rouge">@topic</code>是<code class="highlighter-rouge">實體變數</code>。</p>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="k">yield</span><span class="p">.</span><span class="nf">rb</span>
+<span class="no">We</span> <span class="n">are</span> <span class="n">going</span> <span class="n">to</span> <span class="n">talk</span> <span class="n">about</span> <span class="no">Yield</span> <span class="n">today!</span>
+</code></pre></div></div>
+
+<p>今天的Opening出現啦!</p>
+
+<h2 id="yield--block-字串方法"><code class="highlighter-rouge">yield</code> + <code class="highlighter-rouge">block</code>: 字串方法</h2>
+
+<p>Block裡面還可以玩許多有趣的<code class="highlighter-rouge">String</code>字串方法。例如，我們想要把大寫字母轉小寫、小寫字母轉大寫：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">topic_swapcase</span> <span class="o">=</span> <span class="s2">""</span> <span class="c1">#set an empty string</span>
+<span class="n">day19</span><span class="p">.</span><span class="nf">get_topic</span> <span class="k">do</span> <span class="o">|</span><span class="n">topic</span><span class="o">|</span>
+  <span class="n">topic_swapcase</span> <span class="o">=</span> <span class="n">topic</span><span class="p">.</span><span class="nf">swapcase</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"We are going to talk about </span><span class="si">#{</span><span class="n">topic_swapcase</span><span class="si">}</span><span class="s2"> today!"</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">yield_swapcase</span><span class="p">.</span><span class="nf">rb</span>
+<span class="no">We</span> <span class="n">are</span> <span class="n">going</span> <span class="n">to</span> <span class="n">talk</span> <span class="n">about</span> <span class="n">yIELD</span> <span class="n">today!</span>
+</code></pre></div></div>
+
+<h2 id="yield--block-陣列方法"><code class="highlighter-rouge">yield</code> + <code class="highlighter-rouge">block</code>: 陣列方法</h2>
+
+<p>在寫鐵人賽的我目前所在城市是Sydney，南半球的現在正是花朵盛開、氣候美妙的春天～我想用array表達曼妙愉快的心情：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"September"</span><span class="p">,</span>
+  <span class="s2">"October"</span><span class="p">,</span>
+  <span class="s2">"November"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>我想要將春天的三個月份條列印出在螢幕上，可以寫成<code class="highlighter-rouge">print_list</code>方法:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"September"</span><span class="p">,</span>
+  <span class="s2">"October"</span><span class="p">,</span>
+  <span class="s2">"November"</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">spring_month</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">counter</span> <span class="o">=</span> <span class="n">start</span>
+  <span class="n">array</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">counter</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="p">.</span><span class="nf">next</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">spring_month</span><span class="p">(</span> <span class="n">spring</span> <span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">mth</span><span class="o">|</span> <span class="n">mth</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>當我們呼叫<code class="highlighter-rouge">spring_month</code>方法時，可傳入試先設定好的<code class="highlighter-rouge">spring</code>陣列，再用<code class="highlighter-rouge">block</code>方式跑完每一個陣列裡的值。（記得<code class="highlighter-rouge">{}</code>和<code class="highlighter-rouge">do...end</code>都是<code class="highlighter-rouge">block</code>的語法唷！）</p>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="no">September</span>
+<span class="mi">2</span> <span class="no">October</span>
+<span class="mi">3</span> <span class="no">November</span>
+</code></pre></div></div>
+
+<p>現在，我想月份前面加上對應的阿拉伯數字，例如September是9，October是10…。該如何是好呢?</p>
+
+<p>這時候<code class="highlighter-rouge">yield</code>就派上用場啦!</p>
+
+<p>我們把<code class="highlighter-rouge">yield</code>放在計數器<code class="highlighter-rouge">counter</code>前，當作設定格式的一種方式</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="k">yield</span> <span class="n">counter</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">yield</code>會去呼叫以下的<code class="highlighter-rouge">block</code>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spring_month</span><span class="p">(</span> <span class="n">spring</span><span class="p">,</span> <span class="mi">9</span> <span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">mth</span><span class="o">|</span>
+  <span class="s2">"</span><span class="si">#{</span><span class="n">mth</span><span class="si">}</span><span class="s2">. "</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>為了要讓第一個<code class="highlighter-rouge">item</code>是<code class="highlighter-rouge">September</code>從9開始，我們呼叫<code class="highlighter-rouge">spring_month</code>方法時，也要代入參數<code class="highlighter-rouge">9</code>，讓<code class="highlighter-rouge">spring_month</code>方法幫助我們從9開始往上遞增。並且利用<code class="highlighter-rouge">"#{mth}. "</code>設定格式。</p>
+
+<p>整體結構如下：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"September"</span><span class="p">,</span>
+  <span class="s2">"October"</span><span class="p">,</span>
+  <span class="s2">"November"</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">spring_month</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">counter</span> <span class="o">=</span> <span class="n">start</span>
+  <span class="n">array</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="k">yield</span> <span class="n">counter</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="p">.</span><span class="nf">next</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1">#list all the months in Spring</span>
+<span class="n">spring_month</span><span class="p">(</span> <span class="n">spring</span><span class="p">,</span> <span class="mi">9</span> <span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">mth</span><span class="o">|</span>
+  <span class="s2">"</span><span class="si">#{</span><span class="n">mth</span><span class="si">}</span><span class="s2">. "</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">9</span><span class="o">.</span>  <span class="no">September</span>
+<span class="mi">10</span><span class="o">.</span>  <span class="no">October</span>
+<span class="mi">11</span><span class="o">.</span>  <span class="no">November</span>
+</code></pre></div></div>
+
+<p>以上的例子顯示，方法裡面可以結合陣列，在<code class="highlighter-rouge">block</code>裡面透過<code class="highlighter-rouge">array#each</code>method對陣列裡的元素做出各種有趣的功能，再結合<code class="highlighter-rouge">yield</code>之後，是不是產生很大的威力呢？：）</p>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/3066703/blocks-and-yields-in-ruby">Blocks and yields in Ruby</a></li>
+  <li><a href="https://rubyplus.com/articles/4801-Ruby-Basics-The-yield-Keyword">Ruby Basics : The yield Keyword</a></li>
+  <li><a href="https://medium.com/@farsi_mehdi/the-yield-keyword-603a850b8921">The Yield Keyword in Ruby</a></li>
+  <li><a href="https://www.codecademy.com/en/forum_questions/51c72e759c4e9d410501df42">I don’t really understand what is this yield</a></li>
+  <li><a href="http://labs.codecademy.com/BJrB#:workspace">block handle the formatting</a></li>
+</ul>
+
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

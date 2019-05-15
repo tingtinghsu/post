@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day16 iterator 和 loop 比較 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day16 iterator 和 loop 比較</h3>
+  <span class="post-date">30 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 1203 words. </small> <br>
+  <br>
+  <p>話說工程師們是一群創新又偷懶的人，能夠只寫一行程式碼，就不用寫兩行。迭代器就是一個能幫助我們達成這個目標的好東西，能把做重複的事情的情況減少到最低，這樣我們就可以省下更多時間去享受人生啦～
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-16" id="markdown-toc-ruby經典面試題目-16">Ruby經典面試題目 #16</a></li>
+  <li><a href="#iterator" id="markdown-toc-iterator">Iterator</a>    <ul>
+      <li><a href="#string-字串迭代器-each_line-iterator" id="markdown-toc-string-字串迭代器-each_line-iterator">String: 字串迭代器: each_line iterator</a></li>
+      <li><a href="#character-字元迭代器-each_byte-iterator" id="markdown-toc-character-字元迭代器-each_byte-iterator">Character: 字元迭代器: each_byte iterator</a></li>
+      <li><a href="#each-iterator" id="markdown-toc-each-iterator">each iterator</a></li>
+      <li><a href="#time-iterator" id="markdown-toc-time-iterator">time iterator</a></li>
+      <li><a href="#upto-iterator" id="markdown-toc-upto-iterator">upto iterator</a></li>
+      <li><a href="#downto-iterator" id="markdown-toc-downto-iterator">downto iterator</a></li>
+      <li><a href="#step-iterator" id="markdown-toc-step-iterator">step iterator</a></li>
+    </ul>
+  </li>
+  <li><a href="#loop" id="markdown-toc-loop">Loop</a>    <ul>
+      <li><a href="#直接把loop關鍵字加在block之前" id="markdown-toc-直接把loop關鍵字加在block之前">直接把Loop關鍵字加在block之前</a></li>
+      <li><a href="#while-loop" id="markdown-toc-while-loop">while loop</a></li>
+      <li><a href="#until-loop" id="markdown-toc-until-loop">until loop</a></li>
+      <li><a href="#for-loop" id="markdown-toc-for-loop">for loop</a>        <ul>
+          <li><a href="#iterator---each寫法" id="markdown-toc-iterator---each寫法">Iterator - <code class="highlighter-rouge">.each</code>寫法</a></li>
+          <li><a href="#loop---while-用在-array的寫法" id="markdown-toc-loop---while-用在-array的寫法">Loop - <code class="highlighter-rouge">while</code> 用在 Array的寫法</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-16">Ruby經典面試題目 #16</h1>
+
+<ul>
+  <li>什麼是迭代器? 請解釋Ruby裡面有哪幾種迭代器?<br />
+What’s <code class="highlighter-rouge">Iterator</code>? How many iterators are there in Ruby?`</li>
+</ul>
+
+<h1 id="iterator">Iterator</h1>
+
+<p>迭代器 (iterator) 就是用來重複多次相同的事。(Do one thing many times like a loop.)還記得我們在前天的時候提到<code class="highlighter-rouge">.each</code>, <code class="highlighter-rouge">.map</code>和<code class="highlighter-rouge">.collect</code>時候，有提到迭代器的概念。今天要來接觸更多的迭代器，在文章後半部會提到相似的迴圈！</p>
+
+<p>首先從<code class="highlighter-rouge">.each</code>開始複習：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">collection</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">variable</span><span class="o">|</span>
+ <span class="c1">#做一些重複的事#</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>範例:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="o">...</span><span class="mi">4</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+   <span class="nb">puts</span> <span class="s2">"鐵人賽第16天了!!"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>結果:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">鐵人賽第</span><span class="mi">16</span><span class="err">天了</span><span class="o">!!</span>
+<span class="err">鐵人賽第</span><span class="mi">16</span><span class="err">天了</span><span class="o">!!</span>
+<span class="err">鐵人賽第</span><span class="mi">16</span><span class="err">天了</span><span class="o">!!</span>
+</code></pre></div></div>
+
+<p>這邊的<code class="highlighter-rouge">(1...4)</code>是<code class="highlighter-rouge">Range（範圍）</code>的寫法。</p>
+
+<p><code class="highlighter-rouge">(...)</code>中間有三個點，代表不包含最後一個數字4。（從1到3而已，所以只印了3次）；</p>
+
+<p>如果是只有兩點的話<code class="highlighter-rouge">(..)</code>，像這樣子<code class="highlighter-rouge">(1..4</code>)就會印4次喔。</p>
+
+<h2 id="string-字串迭代器-each_line-iterator">String: 字串迭代器: each_line iterator</h2>
+
+<p>Each_line和each的方法類似，都可以利用<code class="highlighter-rouge">do...end</code>或是<code class="highlighter-rouge">{}</code>大括弧的語法，在<code class="highlighter-rouge">block</code>區塊內寫下我們想要程式幫忙重複執行的功能。<code class="highlighter-rouge">each_line</code>可以偵測到空行<code class="highlighter-rouge">\n</code>段落，印出空行：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"[成為工程師]</span><span class="se">\n</span><span class="s2">專心！</span><span class="se">\n</span><span class="s2">堅持！</span><span class="se">\n</span><span class="s2">一定可以</span><span class="se">\n</span><span class="s2">成功的喔！"</span><span class="p">.</span><span class="nf">each_line</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">line</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>結果：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">iterator</span><span class="p">.</span><span class="nf">rb</span>
+<span class="p">[</span><span class="err">成為工程師</span><span class="p">]</span>
+<span class="err">專心！</span>
+<span class="err">堅持！</span>
+<span class="err">一定可以</span>
+<span class="err">成功的喔！</span>
+</code></pre></div></div>
+
+<h2 id="character-字元迭代器-each_byte-iterator">Character: 字元迭代器: each_byte iterator</h2>
+
+<p>除了字串迭代，字元也可以迭代！<code class="highlighter-rouge">.each_byte</code>可以幫我們輕鬆達到這個功能，</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"You can achieve anything you want to"</span><span class="p">.</span><span class="nf">each_byte</span> <span class="p">{</span> <span class="c1">#block把do end 換成大括弧也可以</span>
+  <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="nb">printf</span> <span class="s2">"%c "</span><span class="p">,</span> <span class="n">c</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">printf</code>使用格式化的字元<code class="highlighter-rouge">%c</code>輸出字串，就和c語言一樣；而<code class="highlighter-rouge">print</code>與<code class="highlighter-rouge">puts</code>的差別在於<code class="highlighter-rouge">print</code>不會幫我們自動換行，<a href="http://maku77.github.io/ruby/io/print-to-stdout.html">參考這裡</a>。（這大概是為什麼<code class="highlighter-rouge">puts</code>比較常見吧！有沒有換行的視覺效果差很多～）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">iterator</span><span class="p">.</span><span class="nf">rb</span>
+<span class="p">[</span><span class="err">成為工程師</span><span class="p">]</span>
+<span class="err">專心！</span>
+<span class="err">堅持！</span>
+<span class="err">一定可以</span>
+<span class="err">成功的喔！</span>
+<span class="no">Y</span> <span class="n">o</span> <span class="n">u</span>   <span class="n">c</span> <span class="n">a</span> <span class="n">n</span>   <span class="n">a</span> <span class="n">c</span> <span class="n">h</span> <span class="n">i</span> <span class="n">e</span> <span class="n">v</span> <span class="n">e</span>   <span class="n">a</span> <span class="n">n</span> <span class="n">y</span> <span class="n">t</span> <span class="n">h</span> <span class="n">i</span> <span class="n">n</span> <span class="n">g</span>   <span class="n">y</span> <span class="n">o</span> <span class="n">u</span>   <span class="n">w</span> <span class="n">a</span> <span class="n">n</span> <span class="n">t</span>   <span class="n">t</span> <span class="n">o</span> <span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span>
+</code></pre></div></div>
+
+<p>信心喊話完成！</p>
+
+<p>接下來我們要介紹各種迭代器運用在數值變數的情形。為了紀念鐵人賽第16天（進度條超過一半了！）我打算利用各種迭代器印出從1到16的偶數，並在文章的最後與loop迴圈做比較：</p>
+
+<h2 id="each-iterator">each iterator</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">16</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+ <span class="k">end</span>
+<span class="k">end</span> <span class="c1">#印出1-16之間的偶數 2 4 6 8 10 12 14 16</span>
+</code></pre></div></div>
+
+<h2 id="time-iterator">time iterator</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">16</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+ <span class="k">end</span>
+<span class="k">end</span>
+<span class="c1"># #印出0-15之間的偶數 0 2 4 6 8 10 12 14</span>
+</code></pre></div></div>
+
+<p>使用<code class="highlighter-rouge">.time</code>方法，<code class="highlighter-rouge">i</code>會從<code class="highlighter-rouge">0</code>開始跑迭代。</p>
+
+<p>小括號代表的範圍<code class="highlighter-rouge">(..)</code>又出現了！還記得括弧內如果以兩點<code class="highlighter-rouge">..</code>表示，會包含頭與尾的數值嗎?</p>
+
+<h2 id="upto-iterator">upto iterator</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span><span class="nf">upto</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+  <span class="k">end</span>
+<span class="k">end</span> <span class="c1">#印出1-16之間的偶數 2 4 6 8 10 12 14 16</span>
+</code></pre></div></div>
+
+<h2 id="downto-iterator">downto iterator</h2>
+
+<p>除了往上數<code class="highlighter-rouge">.upto</code>，iterator也有往下數<code class="highlighter-rouge">.downto</code>的方法：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">16</span><span class="p">.</span><span class="nf">downto</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+  <span class="k">end</span>
+<span class="k">end</span>  <span class="c1">#印出16-1之間的偶數 16 14 12 10 8 6 4 2</span>
+</code></pre></div></div>
+
+<h2 id="step-iterator">step iterator</h2>
+
+<p><code class="highlighter-rouge">.step</code> iterator就像爬樓梯一樣，一次爬兩格樓梯試試看：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span><span class="p">.</span><span class="nf">step</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+<span class="k">end</span> <span class="c1">#印出2-16之間的偶數 2 4 6 8 10 12 14 16</span>
+</code></pre></div></div>
+
+<p>樓梯可以往上爬也可以往下走:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span><span class="p">.</span><span class="nf">step</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+<span class="k">end</span> <span class="c1">#印出16-2之間的偶數 16 14 12 10 8 6 4 2</span>
+</code></pre></div></div>
+
+<h1 id="loop">Loop</h1>
+
+<p>在挑戰今天的鐵人賽的時候，我發現<code class="highlighter-rouge">Loop</code>和<code class="highlighter-rouge">Iterator</code>基本上都有類似的功能：<code class="highlighter-rouge">重複做相同的事</code>。來介紹迴圈<code class="highlighter-rouge">loop</code>：<code class="highlighter-rouge">for</code>迴圈， <code class="highlighter-rouge">while</code>，以及While的孿生兄弟<code class="highlighter-rouge">until</code>吧！</p>
+
+<h2 id="直接把loop關鍵字加在block之前">直接把Loop關鍵字加在block之前</h2>
+
+<p>如果要達成和迭代器，同樣的功能(印出1到16之間的偶數)，Loop該如何進行呢?</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#記得設定初始值!</span>
+<span class="nb">puts</span><span class="p">(</span><span class="kp">loop</span> <span class="k">do</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+  <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+  <span class="k">break</span> <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">16</span> <span class="c1">#記得加上終止條件</span>
+<span class="k">end</span><span class="p">)</span> <span class="c1">#印出2-16之間的偶數 2 4 6 8 10 12 14 16</span>
+</code></pre></div></div>
+
+<p>光是看到這樣落落長的寫法就覺得很不美觀，換成while試試:</p>
+
+<h2 id="while-loop">while loop</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span><span class="mi">1</span> <span class="c1">#記得設定初始值</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">)</span> <span class="k">do</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="n">i</span>
+  <span class="k">end</span>
+  <span class="n">i</span> <span class="o">+=</span><span class="mi">1</span>
+<span class="k">end</span>  <span class="c1">#印出2-16之間的偶數 2 4 6 8 10 12 14 16</span>
+</code></pre></div></div>
+
+<h2 id="until-loop">until loop</h2>
+
+<p><code class="highlighter-rouge">until</code>則剛好是<code class="highlighter-rouge">while</code>的相反，意思是除非條件不符合，否則進行迴圈:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span><span class="mi">1</span> <span class="c1">#記得設定初始值</span>
+<span class="k">until</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">16</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="n">i</span>
+  <span class="k">end</span>  
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>那，Loop迴圈和Iterator迭代器，到底差在哪裡，且孰優孰劣呢?</p>
+
+<p>如果只是跑單純的Loop話（例如從1加到1百萬），Loop速度會比Iterator快很多。<a href="https://blog.bater.gq/ruby/2017/11/26/ruby-Iterator-and-which-one-is-faster.html">參考Bater的文章</a></p>
+
+<p>而<a href="https://www.codecademy.com/en/forum_questions/5294ba4480ff338cc9002444">從Codecademy這篇文章</a>可以了解，Loop一定要包含終止條件。如果你不能確定迴圈的終止條件（必須為<code class="highlighter-rouge">true</code>）就執行迴圈，那無窮迴圈（鬼打牆）的情形就有可能發生。</p>
+
+<p>舉個例子🌰來說，我在改while loop程式碼以符合我的邏輯（印出1-16之間的偶數）時，不小心把<code class="highlighter-rouge">i+=1</code>放進<code class="highlighter-rouge">if條件判斷式</code>裡，結果程式碼整個當掉（因為i到最後一次執行+1完就大於16了）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span><span class="mi">1</span> <span class="c1">#記得設定初始值</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">)</span> <span class="k">do</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="n">i</span>
+    <span class="n">i</span> <span class="o">+=</span><span class="mi">1</span> <span class="c1">#這行放錯地方了!</span>
+  <span class="k">end</span>
+  <span class="c1">#i +=1  應該要放在if...end外才對!</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>因此，記得在while的迴圈之前，必須設定<code class="highlighter-rouge">i=1</code>初始值，且強制讓每次跑完迴圈時，i能夠遞增<code class="highlighter-rouge">i+=1</code>。</p>
+
+<h2 id="for-loop">for loop</h2>
+
+<p>如果我們不要每次都設定<code class="highlighter-rouge">i=1</code>和<code class="highlighter-rouge">i+=1</code>（好煩啊而且位置容易擺錯、程式就當掉 XD），可以利用<code class="highlighter-rouge">for...end</code>迴圈，與文章開頭提到的<code class="highlighter-rouge">Range(..)</code>(範圍)的結合：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">..</span><span class="mi">16</span> <span class="c1"># (1..16)範圍的小括號可省略</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">#加入偶數的條件判斷</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+ <span class="k">end</span>
+<span class="k">end</span> <span class="c1">#印出1-16之間的偶數 2 4 6 8 10 12 14 16</span>
+</code></pre></div></div>
+
+<p>最後，為什麼我們要多使用迭代器呢?因為iterator常常和array或是hash結合，加上許多實用的字串方法，幫我們用簡單、優雅的寫法完成複雜的功能：</p>
+
+<h3 id="iterator---each寫法">Iterator - <code class="highlighter-rouge">.each</code>寫法</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">a</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">}</span> <span class="c1">#=&gt; [2,4,6,8]</span>
+</code></pre></div></div>
+
+<h3 id="loop---while-用在-array的寫法">Loop - <code class="highlighter-rouge">while</code> 用在 Array的寫法</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="nf">length</span><span class="p">)</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">).</span><span class="nf">to_s</span> <span class="o">+</span> <span class="s2">" "</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+<span class="nb">print</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="c1">#=&gt; 2 4 6 8</span>
+</code></pre></div></div>
+
+<p>只要在Array或Hash的結構裡、實現的功能越複雜，iterator就比loop省下更多的程式碼！</p>
+
+<p>如上述顯示，<code class="highlighter-rouge">.each</code>比起while，僅用了2行程式碼就完成了我們需要的功能。有沒有發現迭代器的強大之處呢？</p>
+
+<p>每天寫完程式文章，都會發現自己對重要觀念的印象又更加深了！或許這就是鐵人賽的魅力吧：）</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://guides.ruby.tw/ruby/iterators.html">Ruby 使用手冊 - 迭代器 Iterators</a></li>
+  <li><a href="https://blog.bater.gq/ruby/2017/11/26/ruby-Iterator-and-which-one-is-faster.html">Ruby Iterator and which one is faster</a></li>
+  <li><a href="https://www.codecademy.com/en/forum_questions/5294ba4480ff338cc9002444">Loops vs iterators: I don’t get the difference</a></li>
+  <li><a href="https://www.skorks.com/2009/09/a-wealth-of-ruby-loops-and-iterators/">A Wealth Of Ruby Loops And Iterators</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

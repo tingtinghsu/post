@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day14 each, map 和 collect 比較  &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day14 each, map 和 collect 比較 </h3>
+  <span class="post-date">22 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 923 words. </small> <br>
+  <br>
+  <p>今天要講的是迭代器(iterator)。迭代器會一個一個地傳回集合裡的元素，讓我們可以利用迭代方法做重複的事。在Ruby裡的<code class="highlighter-rouge">collection</code>集合裡有<code class="highlighter-rouge">Array</code>陣列和<code class="highlighter-rouge">Hash</code>雜湊。今天要介紹三種用在集合的迭代器分別叫，<code class="highlighter-rouge">each</code>，<code class="highlighter-rouge">map</code>和<code class="highlighter-rouge">collect</code>，這也是常見的Ruby面試考題喔。
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-14" id="markdown-toc-ruby經典面試題目-14">Ruby經典面試題目 #14</a></li>
+  <li><a href="#array" id="markdown-toc-array">Array</a>    <ul>
+      <li><a href="#arrayeach" id="markdown-toc-arrayeach">Array#each</a></li>
+      <li><a href="#arraycollect" id="markdown-toc-arraycollect">Array#collect</a></li>
+      <li><a href="#arraymap" id="markdown-toc-arraymap">Array#map</a></li>
+      <li><a href="#更多arraymap用法" id="markdown-toc-更多arraymap用法">更多Array#map用法</a></li>
+    </ul>
+  </li>
+  <li><a href="#hash" id="markdown-toc-hash">Hash</a>    <ul>
+      <li><a href="#hasheach" id="markdown-toc-hasheach">Hash#each</a></li>
+      <li><a href="#hashmap" id="markdown-toc-hashmap">Hash#map</a></li>
+      <li><a href="#hashmap-結合-arrayeach-與-arraymap" id="markdown-toc-hashmap-結合-arrayeach-與-arraymap">Hash#map 結合 Array#each 與 Array#map</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-14">Ruby經典面試題目 #14</h1>
+
+<ul>
+  <li><code class="highlighter-rouge">each</code>, <code class="highlighter-rouge">map</code> 和 <code class="highlighter-rouge">collect</code> 比較? What’s the difference between each, map and collect?`</li>
+</ul>
+
+<p>我們來用這三種迭代器，在Array和Hash兩種集合裡面各舉例子：</p>
+
+<h1 id="array">Array</h1>
+
+<h2 id="arrayeach">Array#each</h2>
+
+<p>最近我在進行旅行存錢計劃。我有三個銀行帳戶，NAB, CAN, 和WESTPAC，開戶金額分別為100,200,300。所以我寫一個陣列集合放入初始金額。</p>
+
+<p>假設我打算開始從本週開始在每個帳戶存入50元，本週+50元。我們可以在陣列後加上<code class="highlighter-rouge">.each</code>方法：（注意：<code class="highlighter-rouge">puts</code>寫在<code class="highlighter-rouge">block</code>大括號裡）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">].</span><span class="nf">each</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">n</span><span class="o">+</span><span class="mi">50</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>結果列出各個帳戶的金額：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">150</span>
+<span class="mi">250</span>
+<span class="mi">350</span>
+</code></pre></div></div>
+
+<p>經過<code class="highlighter-rouge">.each</code>方法作用之後，只會分別印出同一陣列中各個元素的值，不會產生新陣列。</p>
+
+<h2 id="arraycollect">Array#collect</h2>
+
+<p>以上案例，換成<code class="highlighter-rouge">.collect</code>試試看：（注意！puts擺在前面）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">].</span><span class="nf">collect</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">+</span><span class="mi">50</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">.collect</code>會幫我們把結果放入新的陣列。結果印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">350</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="arraymap">Array#map</h2>
+
+<p>同樣的，<code class="highlighter-rouge">.map</code>方法也會幫我們產生新的陣列。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">].</span><span class="nf">map</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">+</span><span class="mi">50</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>結果印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">350</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>那<code class="highlighter-rouge">.collect</code>與<code class="highlighter-rouge">.map</code>又有什麼不同？以及分別用在什麼情況呢？這時候就要翻查Ruby手冊裡，關於<a href="http://ruby-doc.org/core-2.5.1/Array.html#method-i-collect">.collect</a>和<a href="http://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-map">.map</a>的介紹了:</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">collect { |item| block } → new_ary</code> Invokes the given block once for each element of self. Creates a new array containing the values returned by the block.</p>
+</blockquote>
+
+<p>hmm…好像看不出有什麼差異呢！</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">map { |obj| block } → array</code> Returns a new array with the results of running block once for every element in enum.</p>
+</blockquote>
+
+<p>近一步查詢<a href="https://stackoverflow.com/questions/9429034/what-is-the-difference-between-map-each-and-collect">stackoverflow</a>map是collect的別名 (map is an alias for collect)，實務上，比較常使用<code class="highlighter-rouge">map</code>喔！</p>
+
+<h2 id="更多arraymap用法">更多Array#map用法</h2>
+
+<p>我想把我的銀行帳戶陣列放進account變數，再用<code class="highlighter-rouge">.inspect</code>檢查陣列的值：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">account</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="n">account</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">+</span><span class="mi">50</span><span class="p">}</span>
+<span class="nb">p</span> <span class="n">account</span><span class="p">.</span><span class="nf">inspect</span>
+</code></pre></div></div>
+
+<p>結果印出</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"[100, 200, 300]"</span>
+</code></pre></div></div>
+
+<p>如果在<code class="highlighter-rouge">.map</code>後加上驚嘆號<code class="highlighter-rouge">.map!</code>呢?</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">account</span><span class="p">.</span><span class="nf">map!</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">+</span><span class="mi">50</span><span class="p">}</span>
+<span class="nb">p</span> <span class="n">account</span><span class="p">.</span><span class="nf">inspect</span>
+</code></pre></div></div>
+
+<p>存進去原本的陣列了。錢錢變多了！開心～～（加上!的方法，代表原本的物件會被改變）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"[150, 250, 350]"</span>
+</code></pre></div></div>
+
+<h1 id="hash">Hash</h1>
+
+<p><code class="highlighter-rouge">Hash</code>雜湊是一對<code class="highlighter-rouge">key</code>與<code class="highlighter-rouge">value</code>的集合。在剛剛的銀行帳戶例子裡，我們可以把<code class="highlighter-rouge">銀行名稱</code>當作<code class="highlighter-rouge">索引</code>，<code class="highlighter-rouge">存款數目</code>當作<code class="highlighter-rouge">值</code>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">account</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"NAB"</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"CAN"</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">"WEST"</span> <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>利用雜湊來展現，這樣就可讀性更加清楚了。</p>
+
+<h2 id="hasheach">Hash#each</h2>
+
+<p>現在我想要計算三個帳戶加總共有多少錢，以<code class="highlighter-rouge">.each</code>的方式可寫為：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mymoney</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">account</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span><span class="o">|</span><span class="n">bankname</span><span class="p">,</span> <span class="n">saving</span><span class="o">|</span> <span class="n">mymoney</span> <span class="o">+=</span> <span class="n">saving</span><span class="p">}</span> <span class="c1">#把索引和值列出</span>
+<span class="nb">print</span> <span class="s2">"My Money: $ "</span> <span class="o">+</span> <span class="n">mymoney</span><span class="p">.</span><span class="nf">to_s</span>
+</code></pre></div></div>
+
+<p>或是</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mymoney</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#設定初始值</span>
+<span class="n">account</span><span class="p">.</span><span class="nf">each</span><span class="p">{</span><span class="o">|</span><span class="n">bank</span><span class="o">|</span> <span class="n">mymoney</span> <span class="o">+=</span> <span class="n">bank</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span> <span class="c1">#依序加總bank集合裡第二個元素bank[1]</span>
+<span class="nb">print</span> <span class="s2">"My Money: $ "</span> <span class="o">+</span> <span class="n">mymoney</span><span class="p">.</span><span class="nf">to_s</span>
+</code></pre></div></div>
+
+<p>結果都會印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">My</span> <span class="no">Money</span><span class="p">:</span> <span class="err">$</span> <span class="mi">600</span>  
+</code></pre></div></div>
+
+<h2 id="hashmap">Hash#map</h2>
+
+<p>在Hash裡，把<code class="highlighter-rouge">.each</code>換成<code class="highlighter-rouge">.map</code>或是<code class="highlighter-rouge">.collect</code>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mymoney</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#設定初始值</span>
+<span class="n">account</span><span class="p">.</span><span class="nf">collect</span><span class="p">{</span><span class="o">|</span><span class="n">bank</span><span class="o">|</span> <span class="n">mymoney</span> <span class="o">+=</span> <span class="n">bank</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span> <span class="c1">#依序加總bank集合裡第二個元素bank[1]</span>
+<span class="nb">print</span> <span class="s2">"My Money: $ "</span> <span class="o">+</span> <span class="n">mymoney</span><span class="p">.</span><span class="nf">to_s</span>
+</code></pre></div></div>
+
+<p>結果都是一樣的：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">My</span> <span class="no">Money</span><span class="p">:</span> <span class="err">$</span> <span class="mi">600</span>  
+</code></pre></div></div>
+
+<h2 id="hashmap-結合-arrayeach-與-arraymap">Hash#map 結合 Array#each 與 Array#map</h2>
+
+<p>現在要進階到一個較為複雜的例子：<code class="highlighter-rouge">hash</code>裡包含<code class="highlighter-rouge">索引</code>和<code class="highlighter-rouge">值</code>兩部份，那我們可不可以把<code class="highlighter-rouge">陣列</code>當作值放在裡面呢？當然可以！</p>
+
+<p>假設我的NAB銀行下有2個子帳戶，CAN銀行下有3個子帳戶，分別放入這些資產：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"NAB"</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Cash"</span><span class="p">,</span> <span class="s2">"Gold"</span><span class="p">],</span> <span class="s2">"CAN"</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Bitcoin"</span><span class="p">,</span> <span class="s2">"Litecoin"</span><span class="p">,</span> <span class="s2">"Ethereum"</span><span class="p">]</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>利用<code class="highlighter-rouge">hash.map</code>會產生一個新的陣列：(進一步了解看<a href="https://stackoverflow.com/questions/16281983/hash-map-method">這裡</a>)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="nb">hash</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>結果顯示：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[[</span><span class="s2">"NAB"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"Cash"</span><span class="p">,</span> <span class="s2">"Gold"</span><span class="p">]],</span> <span class="p">[</span><span class="s2">"CAN"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"Bitcoin"</span><span class="p">,</span> <span class="s2">"Litecoin"</span><span class="p">,</span> <span class="s2">"Ethereum"</span><span class="p">]]]</span> <span class="c1">#我有好多帳戶!NAB下有2個，CAN下有3個</span>
+</code></pre></div></div>
+
+<p>我想分別提取出<code class="highlighter-rouge">銀行:帳戶名稱</code>的這一對資訊，並且用逗號<code class="highlighter-rouge">.join(", ")</code>隔開。</p>
+
+<p>為了程式可讀性，<code class="highlighter-rouge">hash</code>的<code class="highlighter-rouge">索引</code>命名為<code class="highlighter-rouge">bank</code>(銀行名)，<code class="highlighter-rouge">值</code>為<code class="highlighter-rouge">account_arry</code>(放了不同數目的子帳戶陣列)。在走<code class="highlighter-rouge">account_arry.each</code>展開陣列迭代器時，每在集合裡走完一個元素，就印出<code class="highlighter-rouge">#{bank}: #{sub_account}</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="nb">hash</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span>
+            <span class="o">|</span><span class="n">bank</span><span class="p">,</span> <span class="n">account_arry</span><span class="o">|</span> <span class="n">account_arry</span><span class="p">.</span><span class="nf">each</span><span class="p">{</span>
+                <span class="o">|</span><span class="n">sub_account</span><span class="o">|</span> <span class="s2">"</span><span class="si">#{</span><span class="n">bank</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">sub_account</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+        <span class="p">}.</span><span class="nf">join</span><span class="p">(</span><span class="s2">", "</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>結果僅印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Cash, Gold, Bitcoin, Litecoin, Ethereum"</span>
+</code></pre></div></div>
+
+<p>奇怪，這不是我要的結果呀！我很希望帳戶前面能顯示出銀行名稱呢！</p>
+
+<p>這是因為剛剛說過，<code class="highlighter-rouge">arry.each</code>會回傳<strong>陣列本身</strong>，在這個例子🌰裡，分別回傳的是<code class="highlighter-rouge">["Cash", "Gold"]</code>和<code class="highlighter-rouge">["Bitcoin", "Litecoin", "Ethereum"]</code></p>
+
+<p>改成<code class="highlighter-rouge">.map</code>試試看：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="nb">hash</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span>
+            <span class="o">|</span><span class="n">bank</span><span class="p">,</span> <span class="n">account_arry</span><span class="o">|</span> <span class="n">account_arry</span><span class="p">.</span><span class="nf">map</span><span class="p">{</span>
+                <span class="o">|</span><span class="n">sub_account</span><span class="o">|</span> <span class="s2">"</span><span class="si">#{</span><span class="n">bank</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">sub_account</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+        <span class="p">}.</span><span class="nf">join</span><span class="p">(</span><span class="s2">", "</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>結果顯示為：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"NAB: Cash, NAB: Gold, CAN: Bitcoin, CAN: Litecoin, CAN: Ethereum"</span>
+</code></pre></div></div>
+
+<p>這是因為<code class="highlighter-rouge">account_arry.map</code>自動幫我們產生新的陣列，放進<code class="highlighter-rouge">bank</code>與對應的<code class="highlighter-rouge">sub_account</code>並回傳。</p>
+
+<p>最後放個小小的比較作為總結，祝福大家collect不同的資產，不管是有形的財富、還是無形的知識，最後都可以達成錢多多的心願喔！</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>each</th>
+      <th>map / collect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Array方法</td>
+      <td>Enumerable(列舉)方法</td>
+    </tr>
+    <tr>
+      <td>回傳Array本身</td>
+      <td>產生新的Array並回傳</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>===</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://www.toptal.com/ruby/interview-questions">21 Essential Ruby Interview Questions</a></li>
+  <li><a href="https://stackoverflow.com/questions/5347949/whats-different-between-each-and-collect-method-in-ruby">what’s different between each and collect method in Ruby</a></li>
+  <li><a href="https://stackoverflow.com/questions/5254128/arrayeach-vs-arraymap">Array#each vs. Array#map</a></li>
+  <li><a href="http://ruby-doc.org/core-2.5.1/Array.html#method-i-collect">Ruby-doc.org : collect</a></li>
+  <li><a href="http://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-map">Ruby-doc.org : map</a></li>
+  <li><a href="http://ruby-doc.org/core-2.5.1/Hash.html#method-i-each">Ruby-doc.org : hash#each</a></li>
+  <li><a href="https://stackoverflow.com/questions/16281983/hash-map-method">Hash.map method</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

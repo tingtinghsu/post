@@ -1,13 +1,17 @@
 ---
+title:  "Ruby面試精選30題 - Day04 玩弄Ruby的方法: instance method與class method"
+preview: "Ruby interview question: Explain instance method and class method."
+permalink: "/articles/2018-09-13-day04_ruby_interview_questions_instance_class_method"
+date:   2018-09-13 14:59:00
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day04 玩弄Ruby的方法: instance method與class method"
-date:   2018-09-13 15:50:00 +1000
-categories: ruby interview
+tags: 
+  - "interview"
+comments: true
 ---
 
-# 前情提要
-
 在第三天裡，我們解說了如何在class裡用include與extend使用module的method。
+
+<!-- more -->
 
 > Include is for adding methods to an instance of a class.
 > Extend is for adding class methods. [(出處)](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/)
@@ -41,13 +45,20 @@ ExtendRuby.IThelp
 # IThelp helps me!
 ```
 
-話不多說，進入今天的章節：
+話不多說，進入今天的章節!
+
+---
+
+重點摘要:
+* abstact
+{:toc}
 
 ---
 
 # Ruby經典面試題目 #04
 
-`解釋實體方法與類別方法 Explain instance method and class method.`
+* 解釋`實體方法`與`類別方法`  
+Explain instance method and class method.
 
 # 類別方法class method
 
@@ -88,11 +99,11 @@ IronmanList.find(1)
 
 我們把 `class << self ... end` 這部分都用註解消掉，直接使用self這個class method，讓 `self.find(id)`與之前呈現出一樣的結果！
 
-## 使用class method的情況
+## 使用class method的情況
 
 當我們要寫class method時，如果此方法並不會和某個特定的實例變數綁在一起，就該使用類別方法！
 
-# 實體方法（instance method)
+# 實體方法（instance method)
 
 把鐵人賽名單類別擴充一下，除了`find方法`，還有`ironmanwinner方法`：
 

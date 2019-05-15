@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Deploy到Heroku前，將Rails專案從SQLite設定為PostgreSQL  &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Deploy到Heroku前，將Rails專案從SQLite設定為PostgreSQL </h3>
+  <span class="post-date">31 Aug 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/heroku">&nbsp;#heroku</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 238 words. </small> <br>
+  <br>
+  <p>Paas（平台及服務）公司Heroku是個可以把我們寫好的App部署到網際網路的好地方。而本篇是我從自己的<a href="https://ithelp.ithome.com.tw/articles/10199014">上一篇文章：將Ruby on Rails專案部署到Heroku</a>遇到的問題，當時困擾了快兩小時，好在搜尋完解法搞定完後，就興奮地延伸為一篇文章了！</p>
+
+<!-- more -->
+
+<p><del>找到點子寫文章果然是遇到bug的最佳副產品!</del></p>
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#step1-修改configgemfile" id="markdown-toc-step1-修改configgemfile">Step1. 修改<code class="highlighter-rouge">/config/Gemfile</code></a></li>
+  <li><a href="#step2-bundle-install再重啟rails-server" id="markdown-toc-step2-bundle-install再重啟rails-server">Step2. <code class="highlighter-rouge">bundle install</code>，再重啟rails server。</a></li>
+  <li><a href="#step3-部署到herokugit-push-heroku-master" id="markdown-toc-step3-部署到herokugit-push-heroku-master">Step3. 部署到Heroku：<code class="highlighter-rouge">git push heroku master</code></a></li>
+</ul>
+
+<p>內文:</p>
+
+<blockquote>
+  <p>Heroku的資料庫是使用<a href="https://devcenter.heroku.com/articles/heroku-postgresql#local-setup">PostgreSQL</a>，而這篇文章有說明<a href="https://devcenter.heroku.com/articles/sqlite3">為什麼不用SQLite在Heroku</a>。
+但Rails框架在我們的電腦本機<code class="highlighter-rouge">rails new app</code>設定時，為了初學者快速理解學習，預設是SQLite。
+所以如果沒有變更資料庫，直接把Rails push到Heroku上去，就會出現問題。</p>
+</blockquote>
+
+<p>看完<a href="https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems">這篇</a>資料庫的文章比較，以一句話來大概解釋比較sqlite與PostgreSQL，sqlite缺乏額外優化性能的靈活性，且同一時間只允許一個寫入操作；可擴展的PostgreSQL提供了可靠性和數據完整性，因此是更好的選擇。</p>
+
+<p>[問題]
+我在本機的Ruby on Rails專案所用的資料庫是SQLite，當時還未想到之後會部署到Heroku。</p>
+
+<p>因此，在<a href="https://ithelp.ithome.com.tw/articles/10199014">上篇文章</a>做到<code class="highlighter-rouge">Step3 &gt;&gt; 步驟 B. 建立Heroku gem</code>：修改我的本地資料夾裡的gem file，當我新增一個gem叫做’pg’這個步驟時…</p>
+
+<p>問題出現了！本機遇到的錯誤訊息： No connection pool for ActiveRecord::Base
+<a href="https://stackoverflow.com/questions/38176304/no-connection-pool-for-activerecordbase">https://stackoverflow.com/questions/38176304/no-connection-pool-for-activerecordbase</a></p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/201111779bYfI1JbY4.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/201111779bYfI1JbY4.png" /></p>
+
+<p>[解法]</p>
+
+<h1 id="step1-修改configgemfile">Step1. 修改<code class="highlighter-rouge">/config/Gemfile</code></h1>
+
+<p><code class="highlighter-rouge">Pg</code>套件，讓我們在Ruby上使用關聯式資料庫PostgreSQL的介面的好幫手。
+（Pg套件詳細資料： <a href="https://bitbucket.org/ged/ruby-pg/wiki/Home">https://bitbucket.org/ged/ruby-pg/wiki/Home</a> ）</p>
+
+<p>我們可以修改rails專案的<code class="highlighter-rouge">/config/Gemfile</code>，加上這幾行程式碼，
+讓在Heroku上線時候跑的是PostgreSQL，而在本機的時候還是跑SQLite。</p>
+
+<blockquote>
+  <p><strong>Rails 應用程式預設提供了三種不同的執行模式：</strong>
+development environment:開發模式，用在你的開發的時候
+test environment: 測試模式，用在執行測試程式時
+production environment: 正式上線模式，用在實際的上線運作環境</p>
+</blockquote>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">group</span> <span class="ss">:production</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'pg'</span>
+<span class="k">end</span>
+
+<span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'sqlite3'</span>  
+<span class="k">end</span>  
+</code></pre></div></div>
+
+<p>或是寫成：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'sqlite3'</span><span class="p">,</span>             <span class="ss">group: :development</span>
+<span class="n">gem</span> <span class="s1">'pg'</span><span class="p">,</span>                  <span class="ss">group: :production</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>[注意]<code class="highlighter-rouge">gem 'pg'</code>後面要加逗號<code class="highlighter-rouge">,</code>啊！不然就會向我一樣出現Syntax error…</p>
+</blockquote>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/20111177KkGqGHfOwo.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/20111177KkGqGHfOwo.png" /></p>
+
+<blockquote>
+  <p>欣慰的是，用錯誤訊息搜尋關鍵字，發現在stackoverflow上也有人跟我犯過同樣的錯誤 XD</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-tidentifier-expecting-end-of-input">https://stackoverflow.com/questions/18684527/gemfile22-syntax-error-unexpected-tidentifier-expecting-end-of-input</a></p>
+
+<h1 id="step2-bundle-install再重啟rails-server">Step2. <code class="highlighter-rouge">bundle install</code>，再重啟rails server。</h1>
+
+<p>記得，每次在Gemfile修改套件資料，都要跑<code class="highlighter-rouge">bundle install</code>處理套件相依性問題。
+（如果你在本機，想避免安裝任何在production環境下跑的gem，可輸入：<code class="highlighter-rouge">bundle install --without production</code> ）</p>
+
+<p>而每次跑完bundle都要先用<code class="highlighter-rouge">control+ c</code>關掉Terminal頁面的伺服器，
+再重啟伺服器<code class="highlighter-rouge">rails s</code>之後，如下圖：localhost資料庫的問題已解決了：</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/20111177a6CAZPI3la.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/20111177a6CAZPI3la.png" /></p>
+
+<p>但你還是看不到首頁的資料：</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/20111177s3GYTJzv4H.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/20111177s3GYTJzv4H.png" /></p>
+
+<h1 id="step3-部署到herokugit-push-heroku-master">Step3. 部署到Heroku：<code class="highlighter-rouge">git push heroku master</code></h1>
+
+<p>最後兩步：push!<code class="highlighter-rouge">git push heroku master</code>，
+還要跑完<code class="highlighter-rouge">heroku rake db:migrate</code>指令才會生效喔！</p>
+
+<p>（如果轉換資料庫之前有些bug，run指令的時候會提示哪些欄位可能出了問題。）
+<img src="https://ithelp.ithome.com.tw/upload/images/20180830/20111177DpBPmcKhGu.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/20111177DpBPmcKhGu.png" /></p>
+
+<p>首頁成功顯示資料庫！</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180830/20111177wzI70OZUTI.png" alt="https://ithelp.ithome.com.tw/upload/images/20180830/20111177wzI70OZUTI.png" /></p>
+
+<p>＝＝
+後記：
+遇到這個bug讓我提早了解跟ruby on rails相關的資料庫概念，是一個很有價值的坑(?)！</p>
+
+<p>如果你想在本機建立rails app的當下，直接設定成PostgreSQL而非SQLite（節省之後deploy的麻煩～），可以參考這篇文章：
+<a href="https://medium.com/@yengttt/rails-%E4%BD%BF%E7%94%A8-postgresql-bc3123216d2a">Rails 使用 PostgreSQL</a></p>
+
+<p>Ref:
+<a href="https://ithelp.ithome.com.tw/articles/10196781">第二十三天：認識資料庫</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-09-08-upload_image_function_deploy_heroku">[RubyGems] carrierwave (3) Deploy 圖片上傳功能到 Heroku網站</a><br>
+        
+          
+        
+      
+        
+          
+        
+      
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

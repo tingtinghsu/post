@@ -1,18 +1,25 @@
 ---
+title:  "Ruby面試精選30題 - Day10 Ruby invoke method調用方法?"
+preview: "Ruby interview question: Explain how Ruby looks up a method to invoke?"
+permalink: "/articles/2018-09-19-day10_ruby_interview_questions_ruby_invoke_method"
+date:   2018-09-19 10:57:00
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day10 Ruby invoke method調用方法? "
-date:   2018-09-19 10:57:00 +1000
-categories: ruby interview
+tags: 
+  - "interview"
+comments: true
 ---
-前情提要:
 
-不知不覺到了第10天囉！。鐵人賽進度1/3（挺胸！）接下來應該會進入學習的深水區，但是我會越戰越勇。路遙知馬力，日久見人心！🏃‍♀️
+不知不覺到了第10天囉！
+
+鐵人賽進度1/3（挺胸！）接下來應該會進入學習的深水區，但是我會越戰越勇。路遙知馬力，日久見人心！🏃‍♀️
+<!-- more -->
 
 ---
 
 # Ruby經典面試題目 #10
 
-`Ruby如何引入方法? Please explain how Ruby looks up a method to invoke?`
+* Ruby如何引入方法?  
+Explain how Ruby looks up a method to invoke?
 
 每當不知從何下筆時，我的起手式是開始回顧之前的文章，盤點我已經走了多遠、以及基礎觀念到底掌握了多少：
 
@@ -103,5 +110,5 @@ Ref：
 * [Top 10 Essential Ruby Interview Questions](https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html)
 * [Ruby on Rails Technical Interview Questions](https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers)
 * [Ruby-Core](https://ruby-doc.com/core/index.html)
-* [Please explain nuances of ||=](https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c)
-* [A short-circuit (||=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)
+* [Please explain nuances of \|\|=](https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c)
+* [A short-circuit (\|\|=) edge case](http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case)

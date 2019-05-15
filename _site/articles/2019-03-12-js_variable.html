@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day13] JS: javascript 變數 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day13] JS: javascript 變數</h3>
+  <span class="post-date">12 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 1650 words. </small> <br>
+  <br>
+  <p>Javascript的特性</p>
+<ol>
+  <li>全域變數</li>
+  <li>Automatic Semicolon Insertion (ASI) 自動加分號<br />
+<!-- more --></li>
+</ol>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#1-變數名稱與型態" id="markdown-toc-1-變數名稱與型態">1. 變數名稱與型態</a>    <ul>
+      <li><a href="#不同變數型態相連--轉型" id="markdown-toc-不同變數型態相連--轉型">不同變數型態相連 =&gt; 轉型</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-布林值" id="markdown-toc-2-布林值">2. 布林值</a>    <ul>
+      <li><a href="#true--false" id="markdown-toc-true--false">true / false</a></li>
+      <li><a href="#用邏輯判斷true或false" id="markdown-toc-用邏輯判斷true或false">用邏輯判斷true或false</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-四則運算" id="markdown-toc-3-四則運算">3. 四則運算</a>    <ul>
+      <li><a href="#先乘除後加減" id="markdown-toc-先乘除後加減">先乘除後加減</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-指定值" id="markdown-toc-4-指定值">4. 指定值</a>    <ul>
+      <li><a href="#a--a--1" id="markdown-toc-a--a--1">a <code class="highlighter-rouge">=</code> a + 1</a></li>
+      <li><a href="#-給值-vs--值相等" id="markdown-toc--給值-vs--值相等"><code class="highlighter-rouge">=</code> 給值 v.s. <code class="highlighter-rouge">==</code> 值相等</a></li>
+      <li><a href="#-vs--vs--值與型態相等" id="markdown-toc--vs--vs--值與型態相等"><code class="highlighter-rouge">=</code> v.s. <code class="highlighter-rouge">==</code> v.s. <code class="highlighter-rouge">===</code> 值與型態相等</a></li>
+      <li><a href="#bmi練習題" id="markdown-toc-bmi練習題">BMI練習題</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-流程控制" id="markdown-toc-5-流程控制">5. 流程控制</a>    <ul>
+      <li><a href="#if---else" id="markdown-toc-if---else">if - else</a></li>
+      <li><a href="#if---else-if---else" id="markdown-toc-if---else-if---else">if - else if - else</a></li>
+      <li><a href="#三元運算子-條件--符合時--不符合時" id="markdown-toc-三元運算子-條件--符合時--不符合時">三元運算子 <code class="highlighter-rouge">(條件) ? 符合時 : 不符合時</code></a></li>
+      <li><a href="#switch" id="markdown-toc-switch">switch</a></li>
+      <li><a href="#true--false-判斷" id="markdown-toc-true--false-判斷">true / false 判斷</a></li>
+      <li><a href="#避免放進條件式的5種變數型態" id="markdown-toc-避免放進條件式的5種變數型態">避免放進條件式的5種變數型態</a></li>
+    </ul>
+  </li>
+  <li><a href="#promt-讓使用者輸入變數" id="markdown-toc-promt-讓使用者輸入變數">promt(): 讓使用者輸入變數</a>    <ul>
+      <li><a href="#閏年練習題" id="markdown-toc-閏年練習題">閏年練習題</a></li>
+    </ul>
+  </li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="1-變數名稱與型態">1. 變數名稱與型態</h1>
+
+<p>變數本身沒有型態，需要設定（如同在瓶子上貼上標籤）</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*沒指定值, undefined*/</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"龍女僕"</span><span class="p">;</span>   <span class="cm">/*文字*/</span>
+<span class="kd">var</span> <span class="nx">power</span> <span class="o">=</span> <span class="mi">520000</span><span class="p">;</span>  <span class="cm">/*數字*/</span>
+<span class="kd">var</span> <span class="nx">goodGuy</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="cm">/*布林值*/</span>
+
+<span class="kd">var</span> <span class="nx">hello</span><span class="p">;</span> <span class="cm">/*預設undefined*/</span>
+<span class="kd">var</span> <span class="nx">ud</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="cm">/*it's not necessary to initialized 'ud' to 'undefined' */</span>
+<span class="kd">var</span> <span class="nx">nl</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="不同變數型態相連--轉型">不同變數型態相連 =&gt; 轉型</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'1+1'</span><span class="p">);</span> <span class="c1">// "1+1"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="s2">"1"</span><span class="p">);</span> <span class="c1">// "11" 自動轉型</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hello'</span> <span class="o">+</span> <span class="mi">123</span><span class="p">);</span> <span class="c1">// "hello123" 數字被轉成文字</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hello'</span> <span class="o">+</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// "hellotrue" 自動轉型</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// 124 true自動轉型為1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// 124 false自動轉型為0</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"123"</span> <span class="o">+</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// 123true自動轉型</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="kc">undefined</span><span class="p">);</span> <span class="c1">// NaN, not a number</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([]</span><span class="o">+</span><span class="p">[]);</span> <span class="c1">// "" 空陣列+空陣列=空字串</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([]</span><span class="o">+</span><span class="p">{});</span> <span class="c1">// [object Obeject] 陣列裡面放的物件</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({}</span><span class="o">+</span><span class="p">[]);</span> <span class="c1">// 0? </span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({}</span><span class="o">+</span><span class="p">{});</span> <span class="c1">// "[object Object][object Object]" 物件+物件</span>
+</code></pre></div></div>
+
+<h1 id="2-布林值">2. 布林值</h1>
+
+<h2 id="true--false">true / false</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="cm">/*true*/</span>
+</code></pre></div></div>
+
+<h2 id="用邏輯判斷true或false">用邏輯判斷true或false</h2>
+
+<p>用一個變數，判斷另一變數是否符合條件:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">isAdult</span> <span class="o">=</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isAdult</span><span class="p">);</span>  <span class="cm">/*false*/</span>
+</code></pre></div></div>
+
+<h1 id="3-四則運算">3. 四則運算</h1>
+
+<h2 id="先乘除後加減">先乘除後加減</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span> <span class="cm">/* 6+2=8 */</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span> <span class="cm">/* 5*2=10 */</span>
+</code></pre></div></div>
+
+<h1 id="4-指定值">4. 指定值</h1>
+
+<h2 id="a--a--1">a <code class="highlighter-rouge">=</code> a + 1</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/* +1 */</span>
+<span class="nx">a</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/* 再+1 */</span>
+<span class="nx">a</span> <span class="o">++</span> <span class="p">;</span> <span class="cm">/* 再+1 */</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="cm">/* 4 */</span>
+</code></pre></div></div>
+
+<h2 id="-給值-vs--值相等"><code class="highlighter-rouge">=</code> 給值 v.s. <code class="highlighter-rouge">==</code> 值相等</h2>
+
+<p>no</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'yes'</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'no'</span><span class="p">);</span> <span class="cm">/* no */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>yes</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'yes'</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'no'</span><span class="p">);</span> <span class="cm">/* yes */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="-vs--vs--值與型態相等"><code class="highlighter-rouge">=</code> v.s. <code class="highlighter-rouge">==</code> v.s. <code class="highlighter-rouge">===</code> 值與型態相等</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="s2">"1"</span><span class="p">);</span> <span class="cm">/* 值(內容物)同, true */</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">===</span> <span class="s2">"1"</span><span class="p">);</span>  <span class="cm">/* 型態不同, false */</span>
+</code></pre></div></div>
+
+<h2 id="bmi練習題">BMI練習題</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">baterWeight</span> <span class="o">=</span> <span class="mi">78</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">baterHeight</span> <span class="o">=</span> <span class="mf">1.75</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">bmi</span> <span class="o">=</span> <span class="nx">baterWeight</span> <span class="o">/</span> <span class="p">(</span><span class="nx">baterHeight</span> <span class="o">*</span> <span class="nx">baterHeight</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">bmi</span> <span class="o">&lt;</span> <span class="mi">24</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bmi</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'bmi = '</span><span class="o">+</span> <span class="nx">bmi</span> <span class="o">+</span><span class="s1">' 該運動了'</span><span class="p">);</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="5-流程控制">5. 流程控制</h1>
+
+<h2 id="if---else">if - else</h2>
+
+<p>選項只有兩個：
+Yes or No</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'YES'</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'NO'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>已成年 or 未成年：</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="cm">/* 已成年 */</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'已成年'</span><span class="p">);</span> <span class="cm">/*加括弧，增加可讀性*/</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'未成年'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="if---else-if---else">if - else if - else</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span> <span class="cm">/* 青少年 */</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'已成年'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="nx">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">12</span><span class="p">))</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'青少年'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'小朋友'</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h2 id="三元運算子-條件--符合時--不符合時">三元運算子 <code class="highlighter-rouge">(條件) ? 符合時 : 不符合時</code></h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">isAdult</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">isAdult</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="nx">isAdult</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isAdult</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>第4行到第8行，可利用三元運算子省略</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">isAdult</span> <span class="o">=</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">?</span> <span class="kc">true</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isAdult</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="switch">switch</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gender</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="cm">/* 不想說 */</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="nx">gender</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Male'</span><span class="p">);</span>
+		<span class="k">break</span><span class="p">;</span>
+
+	<span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Female'</span><span class="p">);</span>
+		<span class="k">break</span><span class="p">;</span>
+
+	<span class="nl">default</span><span class="p">:</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'不想說'</span><span class="p">);</span>
+		<span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="true--false-判斷">true / false 判斷</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">guesswhat</span><span class="p">;</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="nx">guesswhat</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span><span class="p">);</span>
+		<span class="k">break</span><span class="p">;</span>
+
+	<span class="k">case</span> <span class="kc">null</span><span class="p">:</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'null'</span><span class="p">);</span>
+		<span class="k">break</span><span class="p">;</span>
+
+	<span class="k">case</span> <span class="s2">""</span><span class="p">:</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
+		<span class="k">break</span><span class="p">;</span>
+
+	<span class="nl">default</span><span class="p">:</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">guesswhat</span><span class="p">);</span> <span class="cm">/*undefined*/</span>
+		<span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h2 id="避免放進條件式的5種變數型態">避免放進條件式的5種變數型態</h2>
+
+<ol>
+  <li>0</li>
+  <li>undefined</li>
+  <li>null</li>
+  <li>空字串</li>
+  <li>NaN</li>
+</ol>
+
+<p>以上皆會被判定成false</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">isTrue</span><span class="p">;</span> <span class="cm">/* undefined */</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nx">isTrue</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* 條件成立 */</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'true'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span><span class="p">);</span> <span class="cm">/* undefined印出為false */</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>使用NaN</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">isTrue</span> <span class="o">=</span> <span class="kc">NaN</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nx">isTrue</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'true'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span><span class="p">);</span> <span class="cm">/* NaN印出為false */</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h1 id="promt-讓使用者輸入變數">promt(): 讓使用者輸入變數</h1>
+
+<h2 id="閏年練習題">閏年練習題</h2>
+
+<p>閏年判斷方式公式：
+年份可以被4整除而不可被100整除，但又可以被400整除。
+https://zh.wikipedia.org/wiki/%E9%97%B0%E5%B9%B4</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'請輸入年份'</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(((</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">))</span> <span class="o">||</span> <span class="p">((</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">===</span> <span class="mi">0</span><span class="p">))){</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">year</span> <span class="o">+</span> <span class="s1">' 是閏年'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">year</span> <span class="o">+</span> <span class="s1">' 不是閨年'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>輸出:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"1980 是閏年"
+"1900 不是閨年"
+"2000 是閏年"
+</code></pre></div></div>
+
+<p>程式簡寫：
+（可以被400整除為零，則一定可以被100整除。）</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'請輸入年份'</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(((</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">))</span> <span class="o">||</span> <span class="p">(</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)){</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">year</span> <span class="o">+</span> <span class="s1">' 是閏年'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">year</span> <span class="o">+</span> <span class="s1">' 不是閨年'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/UeUrL6FjSPm5173AjCsRsQ?view">HackMD筆記</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

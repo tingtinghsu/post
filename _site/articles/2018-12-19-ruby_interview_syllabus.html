@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - 題目大綱 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - 題目大綱</h3>
+  <span class="post-date">19 Dec 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 572 words. </small> <br>
+  <br>
+  <p><img src="https://ithelp.ithome.com.tw/images/ironman_sticker/10/web.png?sticker" alt="" />
+自從Oct-Nov.2018這段時間在Sydney將IT邦鐵人賽完賽之後，一直在想如何將這30篇文章做最佳利用。目前訂閱我的<a href="https://ithelp.ithome.com.tw/users/20111177/ironman/1613"><code class="highlighter-rouge">30天修煉Ruby面試精選30題</code></a>系列的人超乎想像熱烈(30篇文章，共有26人訂閱)，對於首次參加鐵人賽完賽的作者來說是很大的鼓勵。謝謝觀眾們！</p>
+
+<p>這篇文章是個Ruby面試題列表，希望整理過後可以幫到未來面試的我和你們。</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20190510/20111177Xw7Nk1Q0A6.jpg" alt="https://ithelp.ithome.com.tw/upload/images/20190510/20111177Xw7Nk1Q0A6.jpg" /></p>
+
+<!-- more -->
+
+<h2 id="01">01</h2>
+
+<blockquote>
+  <p>什麼是類別？<br />
+What is a Class?</p>
+</blockquote>
+
+<p><a href="./2018-09-09-day01_ruby_interview_questions_class#ruby經典面試題目-01">原文</a></p>
+
+<h2 id="02">02</h2>
+
+<blockquote>
+  <p>類別與模組有什麼不同?<br />
+What’s the Difference Between a <code class="highlighter-rouge">Class</code> and a <code class="highlighter-rouge">Module</code>?</p>
+</blockquote>
+
+<p><a href="./2018-09-10-day02_ruby_interview_questions_class_vs_module.html#ruby經典面試題目-02">原文</a></p>
+
+<h2 id="03">03</h2>
+
+<blockquote>
+  <p>包含與延伸有什麼不同?<br />
+What’s the Difference Between <code class="highlighter-rouge">include</code> and <code class="highlighter-rouge">extend</code>?</p>
+</blockquote>
+
+<p><a href="./2018-09-11-day03_ruby_interview_questions_include_vs_extend.html#ruby經典面試題目-03">原文</a></p>
+
+<h2 id="04">04</h2>
+
+<blockquote>
+  <p>請解釋實體方法與類別方法?<br />
+Explain <code class="highlighter-rouge">instance method</code> and <code class="highlighter-rouge">class method</code>.</p>
+</blockquote>
+
+<p><a href="./2018-09-13-day04_ruby_interview_questions_instance_class_method.html#ruby經典面試題目-04">原文</a></p>
+
+<h2 id="05">05</h2>
+
+<blockquote>
+  <p>self是什麼意思？<br />
+What does <code class="highlighter-rouge">self</code> mean?</p>
+</blockquote>
+
+<p><a href="./2018-09-14-day05_ruby_interview_questions_self_singleton_method.html#ruby經典面試題目-05">原文</a></p>
+
+<h2 id="06">06</h2>
+
+<blockquote>
+  <p>請說明Ruby的三種存取限制。<br />
+Explain 3 levels of <code class="highlighter-rouge">access control</code> for Ruby methods.</p>
+</blockquote>
+
+<p><a href="./2018-09-15-day06_ruby_interview_questions_public_protected_private_method.html#ruby經典面試題目-06">原文</a></p>
+
+<h2 id="07">07</h2>
+
+<blockquote>
+  <p>符號和字串有什麼不同?<br />
+What’s difference between <code class="highlighter-rouge">symbol</code> and <code class="highlighter-rouge">string</code>?</p>
+</blockquote>
+
+<p><a href="./2018-09-15-day07_ruby_interview_questions_symbol_vs_string.html#ruby經典面試題目-07">原文</a></p>
+
+<h2 id="08">08</h2>
+
+<blockquote>
+  <p>+=和concat有什麼不同?<br />
+What’s difference between <code class="highlighter-rouge">concat</code> and <code class="highlighter-rouge">+=</code>?</p>
+</blockquote>
+
+<p><a href="./2018-09-16-day08_ruby_interview_questions_string_concat.html#ruby經典面試題目-08">原文</a></p>
+
+<h2 id="09">09</h2>
+
+<blockquote>
+  <p>請解釋 a ||= b?<br />
+Explain this ruby idiom (or-equals) : <code class="highlighter-rouge">a ||= b</code> ?</p>
+</blockquote>
+
+<p><a href="./2018-09-17-day09_ruby_interview_questions_ruby_idiom_or_equals.html#ruby經典面試題目-09">原文</a></p>
+
+<h2 id="10">10</h2>
+
+<blockquote>
+  <p>Ruby如何引入方法?<br />
+Please explain how Ruby looks up a method to <code class="highlighter-rouge">invoke</code>?</p>
+</blockquote>
+
+<p><a href="./2018-09-19-day10_ruby_interview_questions_ruby_invoke_method.html#ruby經典面試題目-10">原文</a></p>
+
+<h2 id="11">11</h2>
+
+<blockquote>
+  <p>Ruby 的 block, proc, lamdba方法比較?<br />
+What’s difference between <code class="highlighter-rouge">blocks</code>, <code class="highlighter-rouge">procs</code> and <code class="highlighter-rouge">lambdas</code>?</p>
+</blockquote>
+
+<p><a href="./2018-09-20-day11_ruby_interview_questions_blocks_procs_lambdas.html#ruby經典面試題目-11">原文</a></p>
+
+<h2 id="12">12</h2>
+
+<blockquote>
+  <p>Ruby 的 類別變數與類別實體變數，與實體變數有何不同?<br />
+What is difference between <code class="highlighter-rouge">class variable</code>, <code class="highlighter-rouge">class instance variable</code> and <code class="highlighter-rouge">instance variable</code>?</p>
+</blockquote>
+
+<p><a href="./2018-09-20-day12_ruby_interview_questions_class_instance_variable.html#ruby經典面試題目-12">原文</a></p>
+
+<h2 id="13">13</h2>
+
+<blockquote>
+  <p>instance_eval 和 class_eval 的差別 ?<br />
+What’s the difference between <code class="highlighter-rouge">instance_eval</code> and <code class="highlighter-rouge">class_eval</code>?</p>
+</blockquote>
+
+<p><a href="./2018-09-21-day13_ruby_interview_questions_class_instance_eval.html#ruby經典面試題目-13">原文</a></p>
+
+<h2 id="14">14</h2>
+
+<blockquote>
+  <p>each, map 和 collect 比較?<br />
+What’s the difference between each, map and collect?</p>
+</blockquote>
+
+<p><a href="./2018-09-22-day14_ruby_interview_questions_each_map_collect.html#ruby經典面試題目-14">原文</a></p>
+
+<h2 id="15">15</h2>
+
+<blockquote>
+  <p>alias 和 alias_method比較?<br />
+What’s the difference between alias和 alias_method?</p>
+</blockquote>
+
+<p><a href="./2018-09-23-day15_ruby_interview_questions_alias_method.html#ruby經典面試題目-15">原文</a></p>
+
+<h2 id="16">16</h2>
+
+<blockquote>
+  <p>什麼是迭代器? 請解釋Ruby裡面有哪幾種迭代器?<br />
+What’s <code class="highlighter-rouge">Iterator</code>? How many iterators are there in Ruby?</p>
+</blockquote>
+
+<p><a href="./2018-09-30-day16_ruby_interview_questions_iterator.html#ruby經典面試題目-16">原文</a></p>
+
+<h2 id="17">17</h2>
+
+<blockquote>
+  <p>解釋Ruby裡的 freeze 和 ?frozen。<br />
+Explan when to use <code class="highlighter-rouge">freeze</code> and <code class="highlighter-rouge">frozen</code> in Ruby?</p>
+</blockquote>
+
+<p><a href="./2018-10-01-day17_ruby_interview_questions_freeze.html#ruby經典面試題目-17">原文</a></p>
+
+<h2 id="18">18</h2>
+
+<blockquote>
+  <p>如何在Ruby寫下多行字串?<br />
+How to write <code class="highlighter-rouge">multiline string</code> in Ruby?</p>
+</blockquote>
+
+<p><a href="./2018-10-02-day18_ruby_interview_questions_multiline_string.html#ruby經典面試題目-18">原文</a></p>
+
+<h2 id="19">19</h2>
+
+<blockquote>
+  <p>描述Ruby裡的yield用法?<br />
+What is <code class="highlighter-rouge">yield</code> statement in Ruby?</p>
+</blockquote>
+
+<p><a href="./2018-10-04-day19_ruby_interview_questions_yield.html#ruby經典面試題目-19">原文</a></p>
+
+<h2 id="20">20</h2>
+
+<blockquote>
+  <p>說明Ruby裡Enumerable的實用之處?<br />
+Why Is <code class="highlighter-rouge">Enumerable</code> So Useful?</p>
+</blockquote>
+
+<p><a href="./2018-10-05-day20_ruby_interview_questions_enumerable.html#ruby經典面試題目-20">原文</a></p>
+
+<h2 id="21">21</h2>
+
+<blockquote>
+  <p>解釋Ruby裡的True, False與Nil?<br />
+Explan True and False vs. <code class="highlighter-rouge">Truthy</code> and <code class="highlighter-rouge">Falsey / Falsy</code> in Ruby?</p>
+</blockquote>
+
+<p><a href="./2018-10-06-day21_ruby_interview_questions_true_false_nil.html#ruby經典面試題目-21">原文</a></p>
+
+<h2 id="22">22</h2>
+
+<blockquote>
+  <p>[and], [or] 和 [&amp;&amp;], [||] 比較?<br />
+What’s the difference between <code class="highlighter-rouge">[and]</code>, <code class="highlighter-rouge">[or]</code> and <code class="highlighter-rouge">[&amp;&amp;]</code>, <code class="highlighter-rouge">[||]</code>?</p>
+</blockquote>
+
+<p><a href="./2018-10-16-day22_ruby_interview_questions_and_or.html#ruby經典面試題目-22">原文</a></p>
+
+<h2 id="23">23</h2>
+
+<blockquote>
+  <p>解釋Ruby裡的 ==, ===, eql?, equal。<br />
+Explain each of the following operators  <code class="highlighter-rouge">==</code>, <code class="highlighter-rouge">===</code>, <code class="highlighter-rouge">eql?</code>, <code class="highlighter-rouge">equal</code>?</p>
+</blockquote>
+
+<p><a href="./2018-10-17-day23_ruby_interview_questions_equal.html#ruby經典面試題目-23">原文</a></p>
+
+<h2 id="24">24</h2>
+
+<blockquote>
+  <p>nil?, empty? 和, blank? present? 比較?<br />
+What’s the difference between <code class="highlighter-rouge">nil?</code>, <code class="highlighter-rouge">empty?</code>, <code class="highlighter-rouge">blank?</code> and <code class="highlighter-rouge">present?</code> ?</p>
+</blockquote>
+
+<p><a href="./2018-10-18-day24_ruby_interview_questions_nil_empty_blank.html#ruby經典面試題目-24">原文</a></p>
+
+<h2 id="25">25</h2>
+
+<blockquote>
+  <p>.present? 和.exists?  比較?<br />
+What is the difference between <code class="highlighter-rouge">.present?</code> and <code class="highlighter-rouge">.exists?</code></p>
+</blockquote>
+
+<p><a href="./2018-10-23-day25_ruby_interview_questions_rails_exists_present.html#ruby經典面試題目-25">原文</a></p>
+
+<h2 id="26">26</h2>
+
+<blockquote>
+  <p>說明Ruby的錯誤處理機制。
+Explain <code class="highlighter-rouge">Error Handling</code> in Ruby.</p>
+</blockquote>
+
+<p><a href="./2018-10-25-day26_ruby_interview_exception_handling_rescue.html#ruby經典面試題目-26">原文</a></p>
+
+<h2 id="27">27</h2>
+
+<blockquote>
+  <p>如何設定Ruby的Hash預設值?<br />
+How to set <code class="highlighter-rouge">default value</code> in hash?</p>
+</blockquote>
+
+<p><a href="./2018-10-30-day27_ruby_interview_hash_default_value.html#ruby經典面試題目-27">原文</a></p>
+
+<h2 id="28">28</h2>
+
+<blockquote>
+  <p>Ruby的 ** 運算子是什麼?<br />
+What does <code class="highlighter-rouge">** (double splat)</code> operator do?</p>
+</blockquote>
+
+<p><a href="./2018-10-31-day28_ruby_interview_double_splat.html#ruby經典面試題目-28">原文</a></p>
+
+<h2 id="29">29</h2>
+
+<blockquote>
+  <p>請解釋Ruby的tap method?<br />
+What is <code class="highlighter-rouge">tap method</code> in Ruby?</p>
+</blockquote>
+
+<p><a href="./2018-11-01-day29_ruby_interview_tap_method.html#ruby經典面試題目-29">原文</a></p>
+
+<h2 id="30">30</h2>
+
+<blockquote>
+  <p>請解釋Ruby的鴨子型別(duck type)?<br />
+What is <code class="highlighter-rouge">duck type</code>?</p>
+</blockquote>
+
+<p><a href="./2018-11-02-day30_ruby_interview_duck_type.html#ruby經典面試題目-30">原文</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-30-day27_ruby_interview_hash_default_value">Ruby面試精選30題 - Day27 Ruby裡的Hash預設值</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

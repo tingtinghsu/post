@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Ting's Square</title>
+ <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/blog"/>
+ <updated>2019-05-13T11:22:39+09:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Ting Ting Hsu</name>
+   <email>tingtinghsu.tw[at]gm</email>
+ </author>
+
+ 
+ <entry>
+   <title>[Day24] JS: javascript blackjack game</title>
+   <link href="http://localhost:4000/articles/2019-03-26-js_blackjack"/>
+   <updated>2019-03-26T18:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_blackjack</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day23] JS: javascript AJAX</title>
+   <link href="http://localhost:4000/articles/2019-03-25-js_ajax"/>
+   <updated>2019-03-25T18:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_ajax</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day22] JS: javascript jQuery</title>
+   <link href="http://localhost:4000/articles/2019-03-24-js_jquery"/>
+   <updated>2019-03-24T18:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_jquery</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day21] JS: javascript ES6</title>
+   <link href="http://localhost:4000/articles/2019-03-23-js_es6"/>
+   <updated>2019-03-23T18:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_es6</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day20] JS: javascript 使用Chrome Console撰寫</title>
+   <link href="http://localhost:4000/articles/2019-03-22-js_chrome_console"/>
+   <updated>2019-03-22T18:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_chrome_console</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day19] JS: javascript 物件導向程式</title>
+   <link href="http://localhost:4000/articles/2019-03-21-js_oop"/>
+   <updated>2019-03-21T19:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_oop</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day18] JS: javascript 事件</title>
+   <link href="http://localhost:4000/articles/2019-03-20-js_event"/>
+   <updated>2019-03-20T19:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_event</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day17] JS: javascript DOM</title>
+   <link href="http://localhost:4000/articles/2019-03-16-js_dom"/>
+   <updated>2019-03-16T20:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_dom</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day16] JS: javascript 迴圈</title>
+   <link href="http://localhost:4000/articles/2019-03-15-js_loop"/>
+   <updated>2019-03-15T20:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_loop</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day15] JS: javascript 陣列</title>
+   <link href="http://localhost:4000/articles/2019-03-14-js_list"/>
+   <updated>2019-03-14T19:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_list</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day14] JS: javascript 函數</title>
+   <link href="http://localhost:4000/articles/2019-03-13-js_function"/>
+   <updated>2019-03-13T19:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_function</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day13] JS: javascript 變數</title>
+   <link href="http://localhost:4000/articles/2019-03-12-js_variable"/>
+   <updated>2019-03-12T19:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_variable</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day12] JS: javascript 簡介</title>
+   <link href="http://localhost:4000/articles/2019-03-11-js_introduction"/>
+   <updated>2019-03-11T20:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/js_introduction</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day11] CSS: RWD 響應式網頁設計</title>
+   <link href="http://localhost:4000/articles/2019-03-11-css_rwd"/>
+   <updated>2019-03-11T20:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_rwd</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day10] CSS: bootstrap</title>
+   <link href="http://localhost:4000/articles/2019-03-11-css_bootstrap"/>
+   <updated>2019-03-11T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_bootstrap</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day09] CSS: flexbox遊戲-青蛙攻略</title>
+   <link href="http://localhost:4000/articles/2019-03-10-css_flexbox_floggy"/>
+   <updated>2019-03-10T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_flexbox_floggy</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day08] CSS: flexbox排版</title>
+   <link href="http://localhost:4000/articles/2019-03-08-css_flexbox"/>
+   <updated>2019-03-08T20:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_flexbox</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day07] CSS: scss.sass</title>
+   <link href="http://localhost:4000/articles/2019-03-05-css_scss_sass"/>
+   <updated>2019-03-05T20:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_scss_sass</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day06] CSS: 個人簡歷</title>
+   <link href="http://localhost:4000/articles/2019-03-05-css_resume"/>
+   <updated>2019-03-05T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_resume</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day05] CSS: 新聞排版</title>
+   <link href="http://localhost:4000/articles/2019-03-04-css_typesetting"/>
+   <updated>2019-03-04T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_typesetting</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day04] CSS: 進階排版語法</title>
+   <link href="http://localhost:4000/articles/2019-03-03-css_advanced"/>
+   <updated>2019-03-03T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_advanced</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day03] CSS: Box Model</title>
+   <link href="http://localhost:4000/articles/2019-02-28-css_box_model"/>
+   <updated>2019-02-28T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_box_model</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day02] CSS: 常用語法</title>
+   <link href="http://localhost:4000/articles/2019-02-27-css_introduction"/>
+   <updated>2019-02-27T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_introduction</id>
+ </entry>
+ 
+ <entry>
+   <title>[Day01] CSS: 標籤位置與選取器</title>
+   <link href="http://localhost:4000/articles/2019-02-26-css_selector"/>
+   <updated>2019-02-26T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/css_selector</id>
+ </entry>
+ 
+ <entry>
+   <title>使用RVM安裝Ruby和Rails新版本</title>
+   <link href="http://localhost:4000/articles/2019-01-24-rails_ruby_version_RVM"/>
+   <updated>2019-01-24T19:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/rails_ruby_version_RVM</id>
+ </entry>
+ 
+ <entry>
+   <title>使用實體變數instance variable增進rails效能</title>
+   <link href="http://localhost:4000/articles/2019-01-17-rails_instance_variable_performance"/>
+   <updated>2019-01-17T21:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/rails_insance_variable_performance</id>
+ </entry>
+ 
+ <entry>
+   <title>Rails的 MVC 架構: 淺談 model 和 controller</title>
+   <link href="http://localhost:4000/articles/2019-01-14-rails_MVC_model_view_controller"/>
+   <updated>2019-01-14T18:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/rails_MVC_model_view_controller</id>
+ </entry>
+ 
+ <entry>
+   <title>在jekyll blog加入新tag</title>
+   <link href="http://localhost:4000/articles/2019-01-01-add_new_tag_in_jekyll_blog"/>
+   <updated>2019-01-01T17:55:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/add_new_tag_in_jekyll_blog</id>
+ </entry>
+ 
+ <entry>
+   <title>更換Jekyll版型記錄</title>
+   <link href="http://localhost:4000/articles/2018-12-26-change_them_for_jekyll_blog"/>
+   <updated>2018-12-26T21:23:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/change_theme_for_jekyll_blog</id>
+ </entry>
+ 
+ <entry>
+   <title>將程式碼用command line上傳至gist</title>
+   <link href="http://localhost:4000/articles/2018-12-20-push_code_to_gist"/>
+   <updated>2018-12-20T17:23:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/push_code_to_gist</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - 題目大綱</title>
+   <link href="http://localhost:4000/articles/2018-12-19-ruby_interview_syllabus"/>
+   <updated>2018-12-19T19:38:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/ruby_interview_syllabus</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</title>
+   <link href="http://localhost:4000/articles/2018-11-02-day30_ruby_interview_duck_type"/>
+   <updated>2018-11-02T21:38:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day30_ruby_interview_duck_type</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day29 Ruby的tap method</title>
+   <link href="http://localhost:4000/articles/2018-11-01-day29_ruby_interview_tap_method"/>
+   <updated>2018-11-01T22:58:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day29_ruby_interview_tap_method</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</title>
+   <link href="http://localhost:4000/articles/2018-10-31-day28_ruby_interview_double_splat"/>
+   <updated>2018-10-31T19:58:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day28_ruby_interview_double_splat</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day27 Ruby裡的Hash預設值</title>
+   <link href="http://localhost:4000/articles/2018-10-30-day27_ruby_interview_hash_default_value"/>
+   <updated>2018-10-30T23:58:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day27_ruby_interview_hash_default_value</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day26 Ruby的錯誤處理機制 Rescue</title>
+   <link href="http://localhost:4000/articles/2018-10-25-day26_ruby_interview_exception_handling_rescue"/>
+   <updated>2018-10-25T21:58:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day26_ruby_interview_exception_handling_rescue</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較</title>
+   <link href="http://localhost:4000/articles/2018-10-23-day25_ruby_interview_questions_rails_exists_present"/>
+   <updated>2018-10-23T17:51:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day25_ruby_interview_questions_rails_exists_present</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day24 nil?, empty? 和, blank? present? 比較?</title>
+   <link href="http://localhost:4000/articles/2018-10-18-day24_ruby_interview_questions_nil_empty_blank"/>
+   <updated>2018-10-18T18:51:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day24_ruby_interview_questions_nil_empty_blank</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day23 Ruby的'=='，'===' 'eql?' 'equal?'</title>
+   <link href="http://localhost:4000/articles/2018-10-17-day23_ruby_interview_questions_equal"/>
+   <updated>2018-10-17T18:39:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day23_ruby_interview_questions_equal</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day22 and 和 or 比較</title>
+   <link href="http://localhost:4000/articles/2018-10-16-day22_ruby_interview_questions_and_or"/>
+   <updated>2018-10-16T16:51:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day22_ruby_interview_questions_and_or</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day21 Ruby的true，false和nil</title>
+   <link href="http://localhost:4000/articles/2018-10-06-day21_ruby_interview_questions_true_false_nil"/>
+   <updated>2018-10-06T22:39:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day21_ruby_interview_questions_true_false_nil</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day20 Ruby的Enumerable列舉</title>
+   <link href="http://localhost:4000/articles/2018-10-05-day20_ruby_interview_questions_enumerable"/>
+   <updated>2018-10-05T22:38:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day20_ruby_interview_questions_enumerable</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day19 Ruby裡的yield</title>
+   <link href="http://localhost:4000/articles/2018-10-04-day19_ruby_interview_questions_yield"/>
+   <updated>2018-10-04T19:58:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day19_ruby_interview_questions_yield</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day18 Ruby裡的多行字串</title>
+   <link href="http://localhost:4000/articles/2018-10-02-day18_ruby_interview_questions_multiline_string"/>
+   <updated>2018-10-02T17:15:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day18_ruby_interview_questions_multiline_string</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day17 Ruby裡的freeze和frozen? </title>
+   <link href="http://localhost:4000/articles/2018-10-01-day17_ruby_interview_questions_freeze"/>
+   <updated>2018-10-01T17:15:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day17_ruby_interview_questions_freeze</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day16 iterator 和 loop 比較</title>
+   <link href="http://localhost:4000/articles/2018-09-30-day16_ruby_interview_questions_iterator"/>
+   <updated>2018-09-30T17:29:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day16_ruby_interview_questions_iterator</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day15 alias和alias_method比較</title>
+   <link href="http://localhost:4000/articles/2018-09-23-day15_ruby_interview_questions_alias_method"/>
+   <updated>2018-09-23T17:56:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day15_ruby_interview_questions_alias_method</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day14 each, map 和 collect 比較 </title>
+   <link href="http://localhost:4000/articles/2018-09-22-day14_ruby_interview_questions_each_map_collect"/>
+   <updated>2018-09-22T17:30:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day14_ruby_interview_questions_each_map_collect</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day13 instance_eval 和 class_eval 的差別 </title>
+   <link href="http://localhost:4000/articles/2018-09-21-day13_ruby_interview_questions_class_instance_eval"/>
+   <updated>2018-09-21T17:15:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day13_ruby_interview_questions_class_instance_eval</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day12 千變萬化的變數: class variable, class instance variable 與 instance variable</title>
+   <link href="http://localhost:4000/articles/2018-09-20-day12_ruby_interview_questions_class_instance_variable"/>
+   <updated>2018-09-20T23:57:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day12_ruby_interview_questions_class_instance_variable</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day11 Ruby 的 block, proc, lamdba方法比較</title>
+   <link href="http://localhost:4000/articles/2018-09-20-day11_ruby_interview_questions_blocks_procs_lambdas"/>
+   <updated>2018-09-20T20:57:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day11_ruby_interview_questions_blocks_procs_lambdas</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day10 Ruby invoke method調用方法?</title>
+   <link href="http://localhost:4000/articles/2018-09-19-day10_ruby_interview_questions_ruby_invoke_method"/>
+   <updated>2018-09-19T19:57:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day10_ruby_interview_questions_ruby_invoke_method</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day09 Ruby的 or-equals 是什麼意思呢?</title>
+   <link href="http://localhost:4000/articles/2018-09-17-day09_ruby_interview_questions_ruby_idiom_or_equals"/>
+   <updated>2018-09-17T18:18:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day09_ruby_interview_questions_ruby_idiom_or_equals</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day08 Sting的concat串接</title>
+   <link href="http://localhost:4000/articles/2018-09-16-day08_ruby_interview_questions_string_concat"/>
+   <updated>2018-09-16T18:18:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day08_ruby_interview_questions_string_concat</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protected, Private</title>
+   <link href="http://localhost:4000/articles/2018-09-15-day06_ruby_interview_questions_public_protected_private_method"/>
+   <updated>2018-09-15T23:50:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day06_ruby_interview_questions_public_protected_private_method</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day07 Symbol符號與String字串比較</title>
+   <link href="http://localhost:4000/articles/2018-09-15-day07_ruby_interview_questions_symbol_vs_string"/>
+   <updated>2018-09-15T23:18:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day07_ruby_interview_questions_symbol_vs_string</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</title>
+   <link href="http://localhost:4000/articles/2018-09-14-day05_ruby_interview_questions_self_singleton_method"/>
+   <updated>2018-09-14T22:08:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day05_ruby_interview_questions_self_singleton_method</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day04 玩弄Ruby的方法: instance method與class method</title>
+   <link href="http://localhost:4000/articles/2018-09-13-day04_ruby_interview_questions_instance_class_method"/>
+   <updated>2018-09-13T23:59:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day04_ruby_interview_questions_instance_class_method</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day03 Module模組: include與extend</title>
+   <link href="http://localhost:4000/articles/2018-09-11-day03_ruby_interview_questions_include_vs_extend"/>
+   <updated>2018-09-11T18:00:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day03_ruby_interview_questions_include_vs_extend</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day02 Module模組與Class類別比一比</title>
+   <link href="http://localhost:4000/articles/2018-09-10-day02_ruby_interview_questions_class_vs_module"/>
+   <updated>2018-09-10T18:40:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day02_ruby_interview_questions_class_vs_module</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby面試精選30題 - Day01 用Class類別寫個參賽宣言吧！</title>
+   <link href="http://localhost:4000/articles/2018-09-09-day01_ruby_interview_questions_class"/>
+   <updated>2018-09-09T22:40:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/day01_ruby_interview_questions_class</id>
+ </entry>
+ 
+ <entry>
+   <title>[RubyGems] carrierwave (4) 使用Imagemagick修改圖片大小</title>
+   <link href="http://localhost:4000/articles/2018-09-09-crrierwave_gem_resize_image_imagemagick_and_minimagick"/>
+   <updated>2018-09-09T18:34:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/crrierwave_gem_resize_image_imagemagick_and_minimagick</id>
+ </entry>
+ 
+ <entry>
+   <title>[RubyGems] carrierwave (3) Deploy 圖片上傳功能到 Heroku網站</title>
+   <link href="http://localhost:4000/articles/2018-09-08-upload_image_function_deploy_heroku"/>
+   <updated>2018-09-08T19:31:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/upload_image_function_deploy_heroku</id>
+ </entry>
+ 
+ <entry>
+   <title>[RubyGems] carrierwave (2) 利用Amazon S3 架設圖片伺服器</title>
+   <link href="http://localhost:4000/articles/2018-09-05-carrierwave_gem_upload_image_amazon_s3_ruby_on_rails"/>
+   <updated>2018-09-05T19:31:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/carrierwave_gem_upload_image_amazon_s3_ruby_on_rails</id>
+ </entry>
+ 
+ <entry>
+   <title>[RubyGems] carrierwave (1) 在Rails實現圖片上傳功能</title>
+   <link href="http://localhost:4000/articles/2018-09-04-carrierwave_gem_upload_image_localhost_ruby_on_rails"/>
+   <updated>2018-09-04T19:31:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/carrierwave_gem_upload_image_localhost_ruby_on_rails</id>
+ </entry>
+ 
+ <entry>
+   <title>Deploy到Heroku前，將Rails專案從SQLite設定為PostgreSQL </title>
+   <link href="http://localhost:4000/articles/2018-08-31-change_db_sqlite_postgresql_deploy_heroku"/>
+   <updated>2018-08-31T19:31:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/change_db_sqlite_postgresql_deploy_heroku</id>
+ </entry>
+ 
+ <entry>
+   <title>在Github用Jekyll創建屬於你自己的blog</title>
+   <link href="http://localhost:4000/articles/2018-08-25-github_jekyll_blog"/>
+   <updated>2018-08-25T21:23:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/github_jekyll_blog</id>
+ </entry>
+ 
+ <entry>
+   <title>Ruby on Rails練習 - MacOS安裝篇</title>
+   <link href="http://localhost:4000/articles/2018-08-21-install_ruby_rails_on_MacOS"/>
+   <updated>2018-08-21T21:23:00+09:00</updated>
+   <id>http://localhost:4000/blog/articles/install_ruby_rails_on_MacOS</id>
+ </entry>
+ 
+
+</feed>

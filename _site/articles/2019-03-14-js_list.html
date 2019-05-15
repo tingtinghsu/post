@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day15] JS: javascript 陣列 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day15] JS: javascript 陣列</h3>
+  <span class="post-date">14 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 423 words. </small> <br>
+  <br>
+  <p>javascript list 陣列<br />
+在本篇我們將會學習使用<code class="highlighter-rouge">list</code>把資料存進陣列、取出陣列某一元素的值和刪除、查詢陣列內的值。
+<!-- more --></p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#取出陣列的值" id="markdown-toc-取出陣列的值">取出陣列的值</a></li>
+  <li><a href="#修改陣列的值" id="markdown-toc-修改陣列的值"><code class="highlighter-rouge">修改</code>陣列的值</a></li>
+  <li><a href="#新增陣列元素的值" id="markdown-toc-新增陣列元素的值"><code class="highlighter-rouge">新增</code>陣列元素的值</a>    <ul>
+      <li><a href="#listpush-加至最後" id="markdown-toc-listpush-加至最後">list.push() 加至最後</a></li>
+      <li><a href="#listunshift-加至最前" id="markdown-toc-listunshift-加至最前">list.unshift() 加至最前</a></li>
+    </ul>
+  </li>
+  <li><a href="#刪除陣列元素的值" id="markdown-toc-刪除陣列元素的值"><code class="highlighter-rouge">刪除</code>陣列元素的值</a>    <ul>
+      <li><a href="#listpop-刪除最後一個" id="markdown-toc-listpop-刪除最後一個">list.pop() 刪除最後一個</a></li>
+      <li><a href="#listshift-刪除第一個" id="markdown-toc-listshift-刪除第一個">list.shift() 刪除第一個</a></li>
+    </ul>
+  </li>
+  <li><a href="#查詢陣列元素的值" id="markdown-toc-查詢陣列元素的值"><code class="highlighter-rouge">查詢</code>陣列元素的值</a>    <ul>
+      <li><a href="#indexof想查詢的元素" id="markdown-toc-indexof想查詢的元素">indexOf(‘想查詢的元素’)</a></li>
+    </ul>
+  </li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<p>list: 陣列
+list.length: 陣列屬性-長度
+list<code class="highlighter-rouge">[]</code>: 取出陣列某一元素的值</p>
+
+<h1 id="取出陣列的值">取出陣列的值</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"aa"</span><span class="p">,</span> <span class="s2">"bb"</span><span class="p">,</span> <span class="mi">123</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span> <span class="cm">/*拿出最後一個元素*/</span>
+</code></pre></div></div>
+
+<p>輸出結果</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>1, 2, 3, <span class="s2">"aa"</span>, <span class="s2">"bb"</span>, 123]
+6
+1
+<span class="s2">"aa"</span>
+</code></pre></div></div>
+
+<h1 id="修改陣列的值"><code class="highlighter-rouge">修改</code>陣列的值</h1>
+
+<p>再重新指定一次</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"xx"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>輸出結果</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"xx"</span>
+<span class="o">[</span>1, 2, <span class="s2">"xx"</span>, <span class="s2">"aa"</span>, <span class="s2">"bb"</span>, 123]
+</code></pre></div></div>
+
+<h1 id="新增陣列元素的值"><code class="highlighter-rouge">新增</code>陣列元素的值</h1>
+
+<h2 id="listpush-加至最後">list.push() 加至最後</h2>
+<h2 id="listunshift-加至最前">list.unshift() 加至最前</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myMonsters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'皮卡丘'</span><span class="p">,</span> <span class="s1">'鯉魚王'</span><span class="p">,</span> <span class="s1">'小火龍'</span><span class="p">,</span> <span class="s1">'傑尼龜'</span><span class="p">];</span>
+<span class="nx">myMonsters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">"大眼蛙"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMonsters</span><span class="p">);</span>
+
+<span class="nx">myMonsters</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s2">"龍女僕"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMonsters</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>輸出結果</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span><span class="s2">"皮卡丘"</span>, <span class="s2">"鯉魚王"</span>, <span class="s2">"小火龍"</span>, <span class="s2">"傑尼龜"</span>, <span class="s2">"大眼蛙"</span><span class="o">]</span>
+<span class="o">[</span><span class="s2">"龍女僕"</span>, <span class="s2">"皮卡丘"</span>, <span class="s2">"鯉魚王"</span>, <span class="s2">"小火龍"</span>, <span class="s2">"傑尼龜"</span>, <span class="s2">"大眼蛙"</span><span class="o">]</span>
+</code></pre></div></div>
+
+<h1 id="刪除陣列元素的值"><code class="highlighter-rouge">刪除</code>陣列元素的值</h1>
+
+<h2 id="listpop-刪除最後一個">list.pop() 刪除最後一個</h2>
+<h2 id="listshift-刪除第一個">list.shift() 刪除第一個</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myMonsters</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMonsters</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>輸出結果</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span><span class="s2">"龍女僕"</span>, <span class="s2">"皮卡丘"</span>, <span class="s2">"鯉魚王"</span>, <span class="s2">"小火龍"</span>, <span class="s2">"傑尼龜"</span><span class="o">]</span>
+<span class="o">[</span><span class="s2">"皮卡丘"</span>, <span class="s2">"鯉魚王"</span>, <span class="s2">"小火龍"</span>, <span class="s2">"傑尼龜"</span><span class="o">]</span>
+</code></pre></div></div>
+
+<h1 id="查詢陣列元素的值"><code class="highlighter-rouge">查詢</code>陣列元素的值</h1>
+
+<h2 id="indexof想查詢的元素">indexOf(‘想查詢的元素’)</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMonsters</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'皮卡丘'</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMonsters</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'喵貓'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>輸出結果</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0
+<span class="nt">-1</span> /<span class="k">*</span> 值為1的話，此元素不存在在陣列中<span class="k">*</span>/
+</code></pre></div></div>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/DagM3U5KQ6aV-E3cxGjDpg?view">HackMD筆記</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

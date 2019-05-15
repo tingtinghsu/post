@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day04 玩弄Ruby的方法: instance method與class method &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day04 玩弄Ruby的方法: instance method與class method</h3>
+  <span class="post-date">13 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 628 words. </small> <br>
+  <br>
+  <p>在第三天裡，我們解說了如何在class裡用include與extend使用module的method。</p>
+
+<!-- more -->
+
+<blockquote>
+  <p>Include is for adding methods to an instance of a class.
+Extend is for adding class methods. <a href="http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/">(出處)</a>
+…Also, it is sometimes ok to use “include” to add both instance and class methods. # 這句話比較進階，之後再研究：）</p>
+</blockquote>
+
+<p>並透過圖書館模組的程式碼明白這段話的含義：</p>
+
+<p><code class="highlighter-rouge">include</code>是把<code class="highlighter-rouge">類別</code>中的<code class="highlighter-rouge">物件實體</code>加上<code class="highlighter-rouge">方法</code>；</p>
+
+<p><code class="highlighter-rouge">extend</code>是用於<code class="highlighter-rouge">類別方法</code>。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Library</span>
+  <span class="k">def</span> <span class="nf">IThelp</span>
+    <span class="nb">p</span> <span class="s2">"IThelp helps me!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">NewbieLearnsRuby</span>
+  <span class="kp">include</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">ExtendRuby</span>
+  <span class="kp">extend</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="no">NewbieLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># IThelp helps me!</span>
+
+<span class="no">ExtendRuby</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># IThelp helps me!</span>
+</code></pre></div></div>
+
+<p>話不多說，進入今天的章節!</p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-04" id="markdown-toc-ruby經典面試題目-04">Ruby經典面試題目 #04</a></li>
+  <li><a href="#類別方法class-method" id="markdown-toc-類別方法class-method">類別方法class method</a>    <ul>
+      <li><a href="#使用class-method的情況" id="markdown-toc-使用class-method的情況">使用class method的情況</a></li>
+    </ul>
+  </li>
+  <li><a href="#實體方法instance-method" id="markdown-toc-實體方法instance-method">實體方法（instance method)</a>    <ul>
+      <li><a href="#使用instance-method的情況" id="markdown-toc-使用instance-method的情況">使用instance method的情況</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-04">Ruby經典面試題目 #04</h1>
+
+<ul>
+  <li>解釋<code class="highlighter-rouge">實體方法</code>與<code class="highlighter-rouge">類別方法</code><br />
+Explain instance method and class method.</li>
+</ul>
+
+<h1 id="類別方法class-method">類別方法class method</h1>
+
+<p>為了瞭解類別方法，我們今天要建立新的類別class:<code class="highlighter-rouge">鐵人賽名單IronmanList</code>，讓這個class利用<code class="highlighter-rouge">find方法</code>，以傳入的id值順利找到某位鐵人賽的參賽者：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanList</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="nb">p</span> <span class="s2">"finding Ironman ID: </span><span class="si">#{</span><span class="nb">id</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">IronmanList</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># finding Ironman ID: 1</span>
+</code></pre></div></div>
+
+<p>當傳入<code class="highlighter-rouge">1</code>給<code class="highlighter-rouge">id</code>，會使<code class="highlighter-rouge">IronmanList</code>這個類別，印出<code class="highlighter-rouge">finding Ironman ID: 1</code>。</p>
+
+<p>以上的程式代表，當接收者不是<code class="highlighter-rouge">物件object</code>，而是<code class="highlighter-rouge">類別class</code>本身，就是一個<code class="highlighter-rouge">類別方法class method</code>。</p>
+
+<blockquote>
+  <p>這邊的<code class="highlighter-rouge">&lt;&lt;</code>指的是<code class="highlighter-rouge">push</code>方法，用在<code class="highlighter-rouge">class method</code>，意思是將<code class="highlighter-rouge">self method</code> push到 <code class="highlighter-rouge">類別class</code>裡。</p>
+</blockquote>
+
+<p>鐵人賽名單class也可寫為：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanList</span>
+  <span class="c1">#class &lt;&lt; self</span>
+    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="c1">#在這裡的self is a class Method</span>
+    <span class="nb">p</span> <span class="s2">"finding Ironman ID: </span><span class="si">#{</span><span class="nb">id</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">end</span>
+  <span class="c1">#end</span>
+<span class="k">end</span>
+
+<span class="no">IronmanList</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>我們把 <code class="highlighter-rouge">class &lt;&lt; self ... end</code> 這部分都用註解消掉，直接使用self這個class method，讓 <code class="highlighter-rouge">self.find(id)</code>與之前呈現出一樣的結果！</p>
+
+<h2 id="使用class-method的情況">使用class method的情況</h2>
+
+<p>當我們要寫class method時，如果此方法並不會和某個特定的實例變數綁在一起，就該使用類別方法！</p>
+
+<h1 id="實體方法instance-method">實體方法（instance method)</h1>
+
+<p>把鐵人賽名單類別擴充一下，除了<code class="highlighter-rouge">find方法</code>，還有<code class="highlighter-rouge">ironmanwinner方法</code>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanList</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="nb">p</span> <span class="s2">"finding Ironman ID: </span><span class="si">#{</span><span class="nb">id</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">ironmanwinner</span>
+    <span class="nb">p</span> <span class="s2">"I've got a trophy!"</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="no">IronmanList</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#這是類別方法</span>
+<span class="no">IronmanList</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">ironmanwinner</span> <span class="c1">#這是實體方法</span>
+</code></pre></div></div>
+
+<p>結果會印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">finding</span> <span class="no">Ironman</span> <span class="no">ID</span><span class="p">:</span> <span class="mi">1</span>
+<span class="no">I</span><span class="err">'</span><span class="n">ve</span> <span class="n">got</span> <span class="n">a</span> <span class="n">trophy!</span>
+</code></pre></div></div>
+
+<h2 id="使用instance-method的情況">使用instance method的情況</h2>
+
+<p>如果你需要將實體方法，運用在某個客製化的實體。</p>
+
+<blockquote>
+  <p>This is often when the functionality concerns the identity of the instance such as calling properties on the object, or invoking behaviour.<a href="https://www.culttt.com/2015/06/10/understanding-class-methods-verses-instance-methods-in-ruby/">出處</a></p>
+</blockquote>
+
+<p>如同鐵人賽的贏家不會只有一個名額，只要能自我挑戰成功，都能練成鐵人：）。
+因此我們可以再new更多的物件，盡情使用這個<code class="highlighter-rouge">ironmanwinner</code>實例方法：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanList</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="s2">"finding Ironman ID: </span><span class="si">#{</span><span class="nb">id</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+
+
+  <span class="k">def</span> <span class="nf">ironmanwinner</span>
+    <span class="nb">p</span> <span class="s2">"I've got a trophy!"</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+<span class="c1"># IronmanList.find(1)</span>
+
+<span class="no">Ting</span> <span class="o">=</span> <span class="no">IronmanList</span><span class="p">.</span><span class="nf">new</span>
+<span class="no">Ting</span><span class="p">.</span><span class="nf">ironmanwinner</span>
+
+<span class="no">Bater</span> <span class="o">=</span> <span class="no">IronmanList</span><span class="p">.</span><span class="nf">new</span>
+<span class="no">Bater</span><span class="p">.</span><span class="nf">ironmanwinner</span>
+</code></pre></div></div>
+
+<p>結果印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"I've got a trophy!"</span>
+<span class="s2">"I've got a trophy!"</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>同樣的，例子🌰不會只有一種，解釋方法更不會只有一種。我們除了用自己寫的程式碼理解概念，近一步拿關鍵字 <code class="highlighter-rouge">instance method class method ruby</code>去請教Google大神透過網路這座大圖書館，其他工程師們的部落格文章、透過各種文字說明與舉例加深我們的印象。看到排名第一的解釋寫著：</p>
+
+<blockquote>
+  <p>Class can use methods from three areas:
+1) Instances of class can call methods that are defined as instance methods in their class.
+2) Instances of Class have access to the instance methods defined in Module
+3) Or instances can call a singleton method of a class object. <a href="https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49">出處</a></p>
+</blockquote>
+
+<p>這裡又發現一個新名詞了：<code class="highlighter-rouge">singleton method</code>，這可以成為我們下一篇的素材呢！</p>
+
+<p>=欲知詳情，下回分解！=</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a></li>
+  <li><a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a></li>
+  <li><a href="https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49">Ruby: Class vs Instance Methods</a></li>
+  <li><a href="https://www.culttt.com/2015/06/10/understanding-class-methods-verses-instance-methods-in-ruby/">Understanding Class Methods verses Instance Methods in Ruby</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

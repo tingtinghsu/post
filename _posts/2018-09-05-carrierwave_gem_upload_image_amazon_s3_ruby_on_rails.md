@@ -1,14 +1,27 @@
 ---
+title:  "[RubyGems] carrierwave (2) 利用Amazon S3 架設圖片伺服器"
+preview: "Using carrierwave gem to upload images on Amazon S3"
+permalink: "/articles/2018-09-05-carrierwave_gem_upload_image_amazon_s3_ruby_on_rails"
+date: 2018-09-05 10:31:00
+
 layout: post
-title:  "活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器"
-date:   2018-09-05 14:22:00 +1000
-categories: rails gem AmazonS3
+tags: 
+  - "rubygem"
+comments: true
 ---
-來到第7篇了！培養寫作習慣真是不容易：）
 
-在我的上一篇文章[活用套件carrierwave gem: (1)在Rails實現圖片上傳功能](https://ithelp.ithome.com.tw/articles/10199035) ，上傳圖片功能已經完成啦！但是目前圖片僅能上傳在自己的本地資料夾內孤芳自賞。![/images/emoticon/emoticon25.gif](/images/emoticon/emoticon25.gif)
+在我的上一篇文章[Ruby套件carrierwave gem: (上) 在Rails實現圖片上傳功能](https://ithelp.ithome.com.tw/articles/10199035) ，上傳圖片功能已經完成啦！但是目前圖片僅能上傳在自己的本地資料夾內孤芳自賞。
 
-如果我們要把網站完整的功能部署到正式環境，讓其他網路使用者也可以一起上傳圖片，勢必需要一個圖片伺服器。目前最主流的Image Host之一算是AWS(Amazon Web Service)裡的S3（Simple Storage Service）了。
+如果我們要把網站完整的功能部署到正式環境，讓其他網路使用者也可以一起上傳圖片，勢必需要一個圖片伺服器。
+
+<!-- more -->
+
+重點摘要:
+* abstact
+{:toc}
+
+目前最主流的Image Host之一算是AWS(Amazon Web Service)裡的S3（Simple Storage Service）了。  
+  
 ![https://ithelp.ithome.com.tw/upload/images/20180906/20111177pIw3qpeKPn.png](https://ithelp.ithome.com.tw/upload/images/20180906/20111177pIw3qpeKPn.png)
 
 在這邊我們略過申請帳號的過程（需要綁信用卡號，但只要在一年內不超過特定用量就可免費。）
@@ -42,7 +55,7 @@ CarrierWave.configure do |config|
 [解決方案]
 這時候我們除了fog-aws，還要裝一個gem叫做[Figaro](https://github.com/laserlemon/figaro)以解決上述問題。Figaro會幫我們修改Rail的configuration檔，用環境變數`ENV`代替金鑰，並產生一個簡單的YAML檔。
 
-> YAML是一種寫法優雅，適合表達、編輯資料結構與各種設定檔的格式（注意：大小寫和TAB鍵敏感！）。YAML近一步了解: [Wiki](https://zh.wikipedia.org/wiki/YAML)|[簡書](https://www.jianshu.com/p/97222440cd08)
+> YAML是一種寫法優雅，適合表達、編輯資料結構與各種設定檔的格式（注意：大小寫和TAB鍵敏感！）。  Ref: [Wiki](https://zh.wikipedia.org/wiki/YAML)/[簡書](https://www.jianshu.com/p/97222440cd08)
 
 現在我們馬上來安裝gem:
 
@@ -117,7 +130,7 @@ Amazon S3的bucket（儲存桶）是類似雲端資料夾（~~~霧端資料夾?~
   
 ![https://ithelp.ithome.com.tw/upload/images/20180906/20111177cl6vWaB6ow.png](https://ithelp.ithome.com.tw/upload/images/20180906/20111177cl6vWaB6ow.png)
 
-### C.到專案修改application.yml
+# C.到專案修改application.yml
 
 我們用記事本打開熱騰騰剛打好的鑰匙Access Key！在剛剛figaro幫我們製作的`application.yml`，放入金鑰id和access key。
 
@@ -171,9 +184,10 @@ end
 
 後來我用關鍵字`Excon::Errors::SocketError Broken pipe (Errno::EPIPE)`參考了[這篇網誌](http://www.whatibroke.com/2013/04/27/exconerrorssocketerror-broken-pipe-errnoepipe-ruby-on-rails/)終於搞定！
 
-（跟Amazon S3相關功能的熟悉和隨之而來的bug讓我卡了兩天![/images/emoticon/emoticon14.gif](/images/emoticon/emoticon14.gif)）這篇文章的得來不易啊...。
+跟Amazon S3相關功能的熟悉和隨之而來的bug讓我卡了兩天!  
+這篇文章的得來不易啊...。
 
-# C. 修改carriewave的`uploader.rb`
+# E. 修改carriewave的`uploader.rb`
 
 去`app/uploaders/image_uploader.rb`，把`storage :file`加上註解，消去`storage :fog`的註解，讓carriewave知道，現在我們要把圖片要上傳到Amazon S3去。
 
@@ -188,7 +202,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 ```
 
-=大功告成！=
+=大功告成！=  
 試著用本機功能的上傳按鈕傳圖片，再點開圖片網址確認。
 這張照片已經放入Amazon S3的bucket囉！
 
@@ -198,7 +212,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   
 ![https://ithelp.ithome.com.tw/upload/images/20180906/20111177pj9sTL6bkv.png](https://ithelp.ithome.com.tw/upload/images/20180906/20111177pj9sTL6bkv.png)
 
-下一篇要講把上傳Amazon S3的新功能Deploy部署到Heroku上！
+下一篇要講把上傳Amazon S3的新功能Deploy部署到Heroku上！  
 
 我的Rails專案系列文章整理：
 

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day12 千變萬化的變數: class variable, class instance variable 與 instance variable &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day12 千變萬化的變數: class variable, class instance variable 與 instance variable</h3>
+  <span class="post-date">20 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 1008 words. </small> <br>
+  <br>
+  <p>第12天往細節探索去！昨天我們講到broc是有名字的區塊物件，可儲存變數；lambda是一種method方法，嚴格檢查參數數目，今天則要更深地討論變數。
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-12" id="markdown-toc-ruby經典面試題目-12">Ruby經典面試題目 #12</a>    <ul>
+      <li><a href="#實體變數-instance-variable" id="markdown-toc-實體變數-instance-variable">實體變數 instance variable</a></li>
+      <li><a href="#實體變數與存取器-accessors" id="markdown-toc-實體變數與存取器-accessors">實體變數與存取器 (Accessors)</a>        <ul>
+          <li><a href="#持續改良version1" id="markdown-toc-持續改良version1">持續改良:version1</a></li>
+          <li><a href="#持續改良version2" id="markdown-toc-持續改良version2">持續改良:version2</a></li>
+        </ul>
+      </li>
+      <li><a href="#類別變數-class-variable" id="markdown-toc-類別變數-class-variable">類別變數 class variable</a></li>
+      <li><a href="#類別實體變數-class-instance-variable" id="markdown-toc-類別實體變數-class-instance-variable">類別實體變數 class instance variable</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h1 id="ruby經典面試題目-12">Ruby經典面試題目 #12</h1>
+
+<ul>
+  <li>Ruby 的 類別變數與類別實體變數，與實體變數有何不同? What is difference between class variable, class instance variable and instance variable?</li>
+</ul>
+
+<p>我們曾在[第四天]時討論過類別方法和實體方法。</p>
+
+<p>還記得我下的這個結論：如果要將實體方法，運用在某個客製化的實體，就使用instance method；如果某個方法並不會和某個特定的實體變數綁在一起，就使用class method。</p>
+
+<h2 id="實體變數-instance-variable">實體變數 instance variable</h2>
+
+<p>實體變數是一個比較好理解的概念，來舉個例子吧：
+我想把每天跑步的好習慣<code class="highlighter-rouge">RunDaily</code>寫成class，為了維持好習慣，方法有兩個：早上跑<code class="highlighter-rouge">morning_run</code>或者晚上跑<code class="highlighter-rouge">evening_run</code>。今天是第12天<code class="highlighter-rouge">day12</code>了~如果想早上跑，會存實體變數5km，晚上跑則存10km。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">RunDaily</span>
+  <span class="k">def</span> <span class="nf">morning_run</span><span class="p">(</span><span class="n">km</span><span class="p">)</span>
+    <span class="vi">@mr</span> <span class="o">=</span> <span class="n">km</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">evening_run</span><span class="p">(</span><span class="n">km</span><span class="p">)</span>
+    <span class="vi">@er</span> <span class="o">=</span> <span class="n">km</span>
+  <span class="k">end</span>  
+<span class="k">end</span>
+
+<span class="n">day12</span> <span class="o">=</span> <span class="no">RunDaily</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">p</span> <span class="n">day12</span><span class="p">.</span><span class="nf">morning_run</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">day12</span>
+<span class="nb">p</span> <span class="n">day12</span><span class="p">.</span><span class="nf">evening_run</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">day12</span>
+</code></pre></div></div>
+
+<p>可以看到實體變數(instance variable)以＠開頭，不需要先在class開頭宣告。</p>
+<blockquote>
+  <p>Ruby的實體變數不是public，僅作用於於self指示的物件。除非明確提供其他方法，
+否則無法從物件以外變更或查看。<a href="https://guides.ruby.tw/ruby/instancevars.html">原文</a></p>
+</blockquote>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span>
+<span class="c1">#&lt;RunDaily:0x000055e64755a770 @mr=5&gt;</span>
+<span class="mi">10</span>
+<span class="c1">#&lt;RunDaily:0x000055e64755a770 @mr=5, @er=10&gt;</span>
+</code></pre></div></div>
+
+<p>從輸出結果看到<code class="highlighter-rouge">day12</code>這個物件的方法是<code class="highlighter-rouge">Rundaily</code>，動態地加入了兩個實體變數<code class="highlighter-rouge">mr</code>和<code class="highlighter-rouge">er</code>。</p>
+
+<h2 id="實體變數與存取器-accessors">實體變數與存取器 (Accessors)</h2>
+
+<p>物件的實體變數，就是物件的屬性(attribute)，同一個class的不同物件，其屬性也不同。</p>
+
+<p>假如我在明天第13天<code class="highlighter-rouge">Day13</code>遇到休假日，所以早上一口氣跑了21km：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">day13</span> <span class="o">=</span> <span class="no">RunDaily</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">p</span> <span class="n">day13</span><span class="p">.</span><span class="nf">morning_run</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">day13</span>
+</code></pre></div></div>
+
+<p>結果顯示此物件存在於不同的記憶體位置，而且變數也不同：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">21</span>
+<span class="c1">#&lt;RunDaily:0x0000561a9376e1d0 @mr=21&gt;</span>
+</code></pre></div></div>
+
+<p>能夠讀取這些變數的屬性是非常重要的，讓我們可以更方便的讀取這些不同的物件（因為，凡走過必留下痕跡！就像翻開日記一樣，我想知道每個特定的日子分別跑了幾公里?或者是每天鐵人賽的文章內容?）</p>
+
+<p>因為剛剛說過：</p>
+<blockquote>
+  <p>Ruby的實體變數不是public，僅作用於於self指示的物件。除非明確提供其他方法。</p>
+</blockquote>
+
+<p>所以，現在來<code class="highlighter-rouge">IronmanDairy</code>類別裡寫一個屬性存取器 (attribute accessors) 的公開方法，讓我們可以設定(<code class="highlighter-rouge">set_dairy</code>)、取得(<code class="highlighter-rouge">get_dairy</code>)昨天Day12的鐵人賽文章標題：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanDairy</span>
+  <span class="k">def</span> <span class="nf">set_dairy</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="c1">#write dairy</span>
+    <span class="vi">@title</span> <span class="o">=</span> <span class="n">title</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">get_dairy</span> <span class="c1">#read dairy</span>
+    <span class="vi">@title</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">day11</span> <span class="o">=</span> <span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">p</span> <span class="n">day11</span>
+
+<span class="n">day11</span><span class="p">.</span><span class="nf">set_dairy</span><span class="p">(</span><span class="s2">"Explain the difference between block, proc, lamdba."</span><span class="p">)</span>
+<span class="n">day11</span><span class="p">.</span><span class="nf">get_dairy</span>
+
+<span class="nb">p</span> <span class="n">day11</span>
+
+</code></pre></div></div>
+
+<p>日記<code class="highlighter-rouge">day11</code>物件被我們讀取出來了：結果顯示出記憶體位置，及<code class="highlighter-rouge">@title</code>實體變數：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#&lt;IronmanDairy:0x000055d4f44e2748&gt;</span>
+<span class="c1">#&lt;IronmanDairy:0x000055d4f44e2748 @title="Explain the difference between block, proc, lamdba."&gt;</span>
+</code></pre></div></div>
+
+<h3 id="持續改良version1">持續改良:version1</h3>
+
+<p><code class="highlighter-rouge">set_dairy</code>和<code class="highlighter-rouge">get_dairy</code>方法雖然讓我們易於了解屬性的寫入與讀取方式，但把細節拆解開來的程式碼卻顯得過於冗長。所以我們想看看有沒有更簡化的寫法（沒錯，只要仔細找一找手冊，Ruby裡通常都有的！）</p>
+
+<p>如果我們要寫新文章<code class="highlighter-rouge">day12</code>，可以用較簡單的方法寫入<code class="highlighter-rouge">title=</code>以及取得<code class="highlighter-rouge">title</code>想查看的文章標題，取代原本的<code class="highlighter-rouge">set_dairy</code>和<code class="highlighter-rouge">get_dairy</code>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanDairy</span>
+  <span class="k">def</span> <span class="nf">title</span><span class="o">=</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="c1">#write dairy</span>
+    <span class="vi">@title</span> <span class="o">=</span> <span class="n">title</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">title</span> <span class="c1">#read dairy</span>
+    <span class="vi">@title</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+
+<span class="n">day12</span> <span class="o">=</span> <span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">day12</span><span class="p">.</span><span class="nf">title</span> <span class="o">=</span> <span class="s2">"class variable, class instance variable and instance variable"</span>
+<span class="nb">p</span> <span class="n">day12</span>
+<span class="nb">p</span> <span class="n">day12</span><span class="p">.</span><span class="nf">title</span>
+</code></pre></div></div>
+
+<p>結果印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#&lt;IronmanDairy:0x00005648020c0828&gt;</span>
+<span class="c1">#&lt;IronmanDairy:0x00005648020c0828 @title="class variable, class instance variable and instance variable"&gt;</span>
+</code></pre></div></div>
+
+<p>很好！程式碼少了一些了。</p>
+
+<p>注意，這裡的<code class="highlighter-rouge">title=</code>也是一個實體方法，我們來用<code class="highlighter-rouge">.instance_methods</code>確認一下：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">instance_methods</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span> <span class="c1">#=&gt; [:title=, :title]</span>
+</code></pre></div></div>
+
+<h3 id="持續改良version2">持續改良:version2</h3>
+
+<p>有沒有發現上面的程式碼中，大量出現這個<code class="highlighter-rouge">@title</code>實體變數呢？那我們想要簡化一下，可以用<code class="highlighter-rouge">attr_accessor</code>方式改寫。假設我們要創一個Day13鐵人賽文章物件，直接把實體的屬性存取器<code class="highlighter-rouge">attr_accessor :title</code>，指定給symbol<code class="highlighter-rouge">:title</code>，加在類別的開頭即可：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanDairy</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:title</span>
+<span class="k">end</span>
+
+<span class="n">day13</span> <span class="o">=</span> <span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">p</span> <span class="n">day13</span> <span class="c1">#&lt;IronmanDairy:0x00005579aee8bc00&gt;</span>
+
+<span class="n">day13</span><span class="p">.</span><span class="nf">title</span> <span class="o">=</span> <span class="s2">"Still thinking..."</span>
+<span class="nb">p</span> <span class="n">day13</span> <span class="c1">#&lt;IronmanDairy:0x00005579aee8bc00 @title="Still thinking..."&gt;</span>
+
+<span class="nb">p</span> <span class="n">day13</span><span class="p">.</span><span class="nf">title</span> <span class="c1">#"Still thinking..."</span>
+
+<span class="nb">p</span> <span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">instance_methods</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span> <span class="c1">#[:title=, :title]</span>
+</code></pre></div></div>
+
+<p>從以上的三個舉例，是不是能夠對於實體變數有全方位的瞭解了呀？</p>
+
+<h2 id="類別變數-class-variable">類別變數 class variable</h2>
+
+<p>類別變數在類別開頭，用<code class="highlighter-rouge">@@</code>定義，它是個危險的東西，因為所有的子類別中對類別變數的改動，都會影響其他類別的變數。我們用「雞兔同籠」的例子，來算算不同的動物各有幾隻腳：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Animal</span>
+  <span class="vc">@@legs</span> <span class="o">=</span> <span class="kp">nil</span> <span class="c1">#先預設動物的腳為空值nil</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">legs</span>
+    <span class="vc">@@legs</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; nil</span>
+
+<span class="k">class</span> <span class="nc">Chicken</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="vc">@@legs</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">end</span>
+<span class="nb">p</span> <span class="no">Chicken</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 2</span>
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 2 變兩隻腳了！</span>
+
+<span class="k">class</span> <span class="nc">Rabbit</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="vc">@@legs</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Rabbit</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 4</span>
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 4，又變四隻腳了！</span>
+
+
+<span class="k">class</span> <span class="nc">Snake</span> <span class="o">&lt;</span> <span class="no">Animal</span> <span class="c1">#籠子裡加入一隻蛇</span>
+  <span class="vc">@@legs</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#蛇沒有腳！</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 0</span>
+<span class="nb">p</span> <span class="no">Snake</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 0</span>
+<span class="nb">p</span> <span class="no">Rabbit</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 0 糟糕，為什麼這次兔子沒有腳！~~被蛇吃掉了~~</span>
+</code></pre></div></div>
+
+<p>為了解決此問題，我們來研究Ruby的類別實體變數，看看是否有更好的做法。</p>
+
+<h2 id="類別實體變數-class-instance-variable">類別實體變數 class instance variable</h2>
+
+<p>我們在[Day1]中開宗明義地解釋物件導向語言的精髓：物件可以具有類別和實體變數。既然類別也是一種物件，那「類別物件」當然可以有「類別的實體變數」。我們繼續「蛇兔同籠」的例子，舉例出三種變數<del>大亂鬥</del>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Animal</span>
+  <span class="vc">@@legs</span> <span class="o">=</span> <span class="kp">nil</span> <span class="c1">#設定class variable</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">legs</span>
+    <span class="vc">@@legs</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">class_variables</span> <span class="c1"># 印出類別變數: @@legs</span>
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1">#類別變數:目前為空值 nil</span>
+
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">instance_variables</span> <span class="c1"># =&gt; [] 尚未設定實體變數，所以沒東西</span>
+
+<span class="k">class</span> <span class="nc">Animal</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:legs</span> <span class="c1"># 設定instance variables</span>
+  <span class="vi">@legs</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">instance_variables</span> <span class="c1"># =&gt; 現在能印出實體變數: @legs</span>
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1">#仍然是類別變數的空值 nil</span>
+
+<span class="k">class</span> <span class="nc">Animal</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span><span class="p">;</span> <span class="nb">attr_accessor</span> <span class="ss">:legs</span> <span class="k">end</span>
+  <span class="vi">@legs</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#class instance variables的設定法，先預設為1</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 1 #不是nil，不是0，而是1 (類別實體變數!)</span>
+
+<span class="k">class</span> <span class="nc">Rabbit</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="vi">@legs</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Rabbit</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 兔子4隻腳</span>
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 回到類別實體變數預設值1</span>
+
+
+<span class="k">class</span> <span class="nc">Snake</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="vi">@legs</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">end</span>
+<span class="nb">p</span> <span class="no">Snake</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 蛇 0隻腳</span>
+<span class="nb">p</span> <span class="no">Rabbit</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 兔子還是4隻腳! 太好了～沒有被吃掉</span>
+<span class="nb">p</span> <span class="no">Animal</span><span class="p">.</span><span class="nf">legs</span> <span class="c1"># =&gt; 回到類別實體變數預設值1</span>
+</code></pre></div></div>
+
+<p>以上的舉例實實在在地證明我在這本書<a href="https://books.google.com.au/books?id=YcmUCgAAQBAJ">Effective Ruby中文版-寫出良好Ruby程式的48個具體做法</a>Page 56查到的觀點：寧願用類別實體變數，也不要用類別變數。類別實體變數除了會打破類別及其子類別的共用關係（如同我們舉的例子中，動物的腳數目隨意被改變），也提供更多的封裝，讓類別定義層級、或從類別方法裡，唯一可存取的是類別實體變數。</p>
+
+<p>最後用比一比的表格來總結：）</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>類別變數class variable</th>
+      <th>類別實體變數 class instance variable</th>
+      <th>實體變數 instance variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@@類別變數</td>
+      <td>@類別實體變數</td>
+      <td>@實體變數</td>
+    </tr>
+    <tr>
+      <td>在類別開頭設定</td>
+      <td>可用attr_accessor的方式改寫</td>
+      <td>可用attr_accessor的方式改寫</td>
+    </tr>
+    <tr>
+      <td>可用在類別方法或實體方法</td>
+      <td>用在類別方法，不可用在實體方法</td>
+      <td>用在實體方法</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>===</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://coderwall.com/p/yycytw/ruby-on-rails-interview-questions">Ruby on Rails Interview questions</a></li>
+  <li><a href="https://guides.ruby.tw/ruby/instancevars.html">Ruby 使用手冊 - 實例變數 Instance variables</a></li>
+  <li><a href="https://guides.ruby.tw/ruby/accessors.html">Ruby 使用手冊 - 存取器 Accessors</a></li>
+  <li><a href="https://books.google.com.au/books?id=YcmUCgAAQBAJ">Effective Ruby中文版 - 寫出良好Ruby程式的48個具體做法(電子書)By Peter J. Jones</a></li>
+  <li><a href="https://kaochenlong.com/2015/03/21/attr_accessor/">Ruby 語法放大鏡之「attr_accessor 是幹嘛的?」</a></li>
+  <li><a href="https://ithelp.ithome.com.tw/articles/10160882">Ruby女孩(21)：來聽聽類別變數與類別實體變數的自白(?)</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

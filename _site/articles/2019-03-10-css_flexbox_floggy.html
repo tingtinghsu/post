@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day09] CSS: flexbox遊戲-青蛙攻略 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day09] CSS: flexbox遊戲-青蛙攻略</h3>
+  <span class="post-date">10 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/css">&nbsp;#css</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 877 words. </small> <br>
+  <br>
+  <p>css: flexbox 進階排版<br />
+<a href="https://flexboxfroggy.com/">flexbox floggy</a>是一款讓我們學習<code class="highlighter-rouge">flexbox</code>的遊戲，本篇將會解說遊戲攻略。
+<!-- more --></p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#justify-content" id="markdown-toc-justify-content">justify-content</a></li>
+  <li><a href="#align-items" id="markdown-toc-align-items">align-items</a></li>
+  <li><a href="#flex-direction" id="markdown-toc-flex-direction">flex-direction</a></li>
+  <li><a href="#order" id="markdown-toc-order">order</a></li>
+  <li><a href="#align-self" id="markdown-toc-align-self">align-self</a></li>
+  <li><a href="#flex-wrap" id="markdown-toc-flex-wrap">flex-wrap</a></li>
+  <li><a href="#align-content" id="markdown-toc-align-content">align-content</a></li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="justify-content">justify-content</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>請用justify-content屬性指引青蛙到右邊的荷葉上。這個屬性可以水平對齊元素，並且接受一下幾個參數:
+* flex-start: 元素和容器的左端對齊。
+* flex-end: 元素和容器的右端對齊。
+* center: 元素在容器裏居中。
+* space-between: 元素之間保持相等的距離。
+* space-around: 元素周圍保持相等的距離。
+</code></pre></div></div>
+
+<ol>
+  <li>justify-content: flex-end;會將青蛙移到結尾端(右邊)。</li>
+</ol>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.justify-content: center;會將青蛙移到中間。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>3.justify-content: space-around;分散對齊，每個元素有自己的空間。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-around</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>4.justify-content: space-between;分散對齊，兩邊的元素靠近邊界。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-between</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="align-items">align-items</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>現在用align-items來幫助青蛙們到池塘的底部。這個CSS屬性縱向對齊元素並且可選以下幾個值：
+
+flex-start: 元素與容器的頂部對齊。
+flex-end: 元素與容器的底部對齊。
+center: 元素縱向居中。
+baseline: 元素在容器的基線位置顯示。
+stretch: 元素被拉伸以填滿整個容器。
+</code></pre></div></div>
+
+<p>5.align-items: 對齊底部。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>6.justify-content / align-items 水平對齊 + 垂直對齊 = 置中對齊</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>7.align-items / justify-content 底部置中</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-around</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="flex-direction">flex-direction</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>青蛙們需要和他們的荷葉保持對應的順序。我們可以用flex-direction屬性。這個CSS屬性定義了元素在容器裏擺放的方向，並且接受這些值：
+
+row: 元素擺放的方向和文字方向一致。
+row-reverse: 元素擺放的方向和文字的方向相反。
+column: 元素從上放到下。
+column-reverse: 元素從下放到上。
+</code></pre></div></div>
+
+<p>8.元素的擺放和文字方向相反</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">row-reverse</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>9.元素的擺放和文字方向垂直</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>10.元素的擺放和文字方向相反，並靠結尾端（左）</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">row-reverse</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>11.元素的擺放和文字方向垂直，並靠結尾端（下）</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>12.元素的擺放和文字方向垂直，順序反轉，分散對齊且靠邊</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column-reverse</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-between</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>13.元素的擺放和文字方向相同，順序反轉，置中對齊且靠直欄的結尾端</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">row-reverse</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="order">order</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>有時候僅僅調轉列或行的方向是不夠的。在這些情況，我們可以設置單個元素的order屬性。元素的屬性默認值爲0，但是我們設置這個屬性爲正數或負數。
+
+用order來調整青蛙的順序。
+</code></pre></div></div>
+
+<p>14.黃色元素排最後</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.yellow</span> <span class="p">{</span>
+<span class="nl">order</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>15.紅色元素排最前</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.red</span> <span class="p">{</span>
+<span class="nl">order</span><span class="p">:</span> <span class="m">-1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="align-self">align-self</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>另一個你可以使用的控制單個元素的屬性是align-self。這個屬性接受和align-items一樣的那些值。
+</code></pre></div></div>
+
+<p>16.其中一個元素自己在直欄對齊</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.yellow</span> <span class="p">{</span>
+<span class="nl">align-self</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>17.其中一組同一屬性的元素排序後，再直欄對齊</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.yellow</span> <span class="p">{</span>
+<span class="nl">order</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="nl">align-self</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="flex-wrap">flex-wrap</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>這些青蛙都擠到一列了。用flex-wrap屬性把它們分散看看。這個屬性接受這些值：
+
+nowrap: 所有的元素都在一行。
+wrap: 元素自動換成多行。
+wrap-reverse: 元素自動換成逆序的多行。
+</code></pre></div></div>
+
+<p>18.若太擠，自動換行</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>19.先換方向成直欄，再自動換行</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>#flex-flow</p>
+
+<p>flex-flow = flex-direction + flex-wrap</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flex-direction和flex-wrap兩個屬性經常會一起使用，所以有縮寫屬性flex-flow。這個縮寫屬性接受兩個屬性的值，兩個值中間以空格隔開。
+
+舉個例子，你可以用flex-flow: row wrap去設置列並自動換行。
+</code></pre></div></div>
+
+<p>20.flex-flow 換方向成直欄 + 自動換行</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-flow</span><span class="p">:</span> <span class="n">column</span> <span class="n">wrap</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="align-content">align-content</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>青蛙們在池塘裏到處都是，然而荷葉都在頂部。你可以使用align-content來決定行與行之間隔多遠。這個屬性接受這些值：
+
+flex-start: 多行都集中在頂部。
+flex-end: 多行都集中在底部。
+center: 多行居中。
+space-between: 行與行之間保持相等距離。
+space-around: 每行的周圍保持相等距離。
+stretch: 每一行都被拉伸以填滿容器。
+
+align-content決定行之間的間隔，而align-items決定元素整體在容器的什麼位置。只有一行的時候align-content沒有任何效果。
+</code></pre></div></div>
+
+<p>21.讓多行靠向頂部</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="p">;</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="n">flex-start</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>22.讓多行靠向底部</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="p">;</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>23.元素方向直欄，元素順序相反，多行置中</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#pond</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column-reverse</span><span class="p">;</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bring the frogs home one last time by using the CSS properties you've learned:
+
+justify-content
+align-items
+flex-direction
+order
+align-self
+flex-wrap
+flex-flow
+align-content
+</code></pre></div></div>
+
+<p>24.flex-wrap: warp-reverse; 元素反過來換行</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">flex-wrap</span><span class="o">:</span> <span class="nt">warp-reverse</span><span class="o">;</span>
+<span class="nt">flex-direction</span><span class="o">:</span> <span class="nt">column-reverse</span><span class="o">;</span>
+<span class="nt">justify-content</span><span class="o">:</span> <span class="nt">center</span><span class="o">;</span>
+<span class="nt">align-content</span><span class="o">:</span> <span class="nt">space-between</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p>flexbox 進階排版筆記
+https://hackmd.io/TsygxXfBR4i9PnV8aS5KvA?view
+flexbox 進階排版範例
+https://codepen.io/tingtinghsu/full/EMmNxK</p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

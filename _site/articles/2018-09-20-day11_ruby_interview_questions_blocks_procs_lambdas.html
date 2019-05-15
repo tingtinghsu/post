@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day11 Ruby 的 block, proc, lamdba方法比較 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day11 Ruby 的 block, proc, lamdba方法比較</h3>
+  <span class="post-date">20 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 1450 words. </small> <br>
+  <br>
+  <p>第11天開始，要更深入Ruby的精髓。來聊聊Ruby的 block, proc 與 lamdba！
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-11" id="markdown-toc-ruby經典面試題目-11">Ruby經典面試題目 #11</a>    <ul>
+      <li><a href="#block-程式碼區塊" id="markdown-toc-block-程式碼區塊">block 程式碼區塊</a>        <ul>
+          <li><a href="#block-doend" id="markdown-toc-block-doend">block: do…end</a></li>
+          <li><a href="#block-" id="markdown-toc-block-">block: {}</a></li>
+          <li><a href="#block-yield" id="markdown-toc-block-yield">block: yield</a></li>
+        </ul>
+      </li>
+      <li><a href="#proc-程序物件" id="markdown-toc-proc-程序物件">Proc 程序物件</a>        <ul>
+          <li><a href="#proc-的類別方法" id="markdown-toc-proc-的類別方法">Proc 的類別方法</a></li>
+          <li><a href="#proc-的實體方法" id="markdown-toc-proc-的實體方法">Proc 的實體方法</a></li>
+        </ul>
+      </li>
+      <li><a href="#lambda-匿名函數" id="markdown-toc-lambda-匿名函數">lambda 匿名函數</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-11">Ruby經典面試題目 #11</h1>
+
+<ul>
+  <li>Ruby 的 <code class="highlighter-rouge">block</code>, <code class="highlighter-rouge">proc</code>, <code class="highlighter-rouge">lamdba</code>方法比較? What’s difference between blocks, procs and lambdas?</li>
+</ul>
+
+<h2 id="block-程式碼區塊">block 程式碼區塊</h2>
+
+<p>程式碼區塊是用 <code class="highlighter-rouge">do... end</code>圍起來，圍出特定一個區域、放程式碼的地方。
+就好像跑馬拉松一樣，道路上會進行交通管制，把參賽者的跑道圍起來。</p>
+
+<p><code class="highlighter-rouge">do... end</code>的形式常常使用在<code class="highlighter-rouge">陣列</code>和<code class="highlighter-rouge">迴圈</code>裡，把<code class="highlighter-rouge">陣列</code>想成參賽者的列表，<code class="highlighter-rouge">迴圈</code>想成跑道，每個參賽者（陣列內的元素）都要一個一個進入跑道（迴圈），是不是就很好理解了呢?</p>
+
+<h3 id="block-doend">block: do…end</h3>
+
+<p>我們來用<code class="highlighter-rouge">do... end</code>圍出<code class="highlighter-rouge">block</code>。昨天提到ruby invoke method的階層有五層：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">find_method</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Class"</span><span class="p">,</span><span class="s2">"Module"</span><span class="p">,</span><span class="s2">"Object"</span><span class="p">,</span><span class="s2">"Kernel"</span><span class="p">,</span><span class="s2">"BasicObject"</span><span class="p">]</span>
+
+<span class="n">find_method</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">find_method</span><span class="o">|</span>
+  <span class="nb">p</span> <span class="n">find_method</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>結果顯示為：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Class</span>
+<span class="no">Module</span>
+<span class="no">Object</span>
+<span class="no">Kernel</span>
+<span class="no">BasicObject</span>
+</code></pre></div></div>
+
+<h3 id="block-">block: {}</h3>
+
+<p>假如某個特定參賽者選手如我，每年都一次馬拉松，而2018年即將跑第3次啦！我可以用大括號<code class="highlighter-rouge">{}</code>印出如下：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span><span class="nb">p</span> <span class="s2">"I love running 42K marathon!"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>因為很重要所以喊3次，這個大括號<code class="highlighter-rouge">{}</code>圍出的區塊，忠實地印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"I love running 42K marathon!"</span>
+<span class="s2">"I love running 42K marathon!"</span>
+<span class="s2">"I love running 42K marathon!"</span>
+</code></pre></div></div>
+
+<p>有沒有注意到，不管是<code class="highlighter-rouge">do... end</code>，還是<code class="highlighter-rouge">{}</code>，前面都跟著<code class="highlighter-rouge">method</code>呢?
+<code class="highlighter-rouge">do... end</code>前有<a href="http://ruby-doc.org/core-2.5.1/Array.html#method-i-each">.each</a>這個Array裡的方法；<code class="highlighter-rouge">{}</code>前有<a href="http://ruby-doc.org/core-2.5.1/Integer.html#method-i-times">.times</a>這個屬於Integer的方法。</p>
+
+<p>所以，重點出現：<em>block不是物件</em>！必須跟在其他的方法或物件之後。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span><span class="nb">p</span> <span class="s2">"block is not Object!!!"</span><span class="p">}</span> <span class="c1">#很重要所以說3次</span>
+</code></pre></div></div>
+
+<h3 id="block-yield">block: yield</h3>
+
+<p>人生就像馬拉松一樣漫漫長路。有的時候跑步跑累了，我們需要喝點水、休息喘口氣。那該如何用<code class="highlighter-rouge">block</code>表示呢?我們使用<code class="highlighter-rouge">yield</code>方法呼叫：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">keep_running</span>
+  <span class="nb">p</span> <span class="s2">"-start line-"</span>
+    <span class="k">yield</span> <span class="c1">#block</span>
+  <span class="nb">p</span> <span class="s2">"-finish line-"</span>  
+ <span class="k">end</span>
+
+ <span class="n">keep_running</span> <span class="p">{</span>
+  <span class="nb">p</span> <span class="s2">"drink water"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>結果顯示為：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span><span class="n">start</span> <span class="n">line</span><span class="o">-</span>
+<span class="n">drink</span> <span class="n">water</span>
+<span class="o">-</span><span class="n">finish</span> <span class="n">line</span><span class="o">-</span>
+</code></pre></div></div>
+
+<p>在ruby on rails專案裡，我們也很常在<code class="highlighter-rouge">erb</code>檔名下，發現這種利用<code class="highlighter-rouge">yield</code>方法，調用程式碼區塊的頁面:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"Content-Type"</span> <span class="na">content=</span><span class="s">"text/html; charset=utf-8"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">yield</span> <span class="err">%</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>其中<code class="highlighter-rouge">&lt;%= yield %&gt;</code>就是在html頁面代入<code class="highlighter-rouge">ruby</code>程式碼的區塊。關於<a href="https://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield">更多yield</a>說明，可以參考<a href="(https://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield)">Ruby on Rails Guide</a>.</p>
+
+<h2 id="proc-程序物件">Proc 程序物件</h2>
+
+<p>Proc是程序物件，跟block一樣可放入程式區塊。</p>
+
+<p>在Ruby API裡，說到：</p>
+<blockquote>
+  <p><a href="http://ruby-doc.org/core-2.4.0/Proc.html">Proc</a> objects are blocks of code that have been bound to a set of local variables.</p>
+</blockquote>
+
+<p>方剛我說明到block不是物件，因此如果我們遇到需要一次處理很多的block，或是多次使用一個block的情況時，與其重複寫code，不如把需要重複的部分寫成物件。</p>
+
+<p>我現在想進一步利用Proc放入程式判斷，計算在馬拉松賽事、半馬和全馬分別跑過幾公里。</p>
+
+<p>首先用<code class="highlighter-rouge">block</code>列出參賽紀錄:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">place</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"2012 太魯閣半馬"</span><span class="p">,</span><span class="s2">"2012 玉山半馬"</span><span class="p">,</span><span class="s2">"2013 萬金石半馬"</span><span class="p">,</span><span class="s2">"2013 雙溪半馬"</span><span class="p">,</span><span class="s2">"2013 台北市半馬"</span><span class="p">,</span><span class="s2">"2014 黃金海岸半馬"</span><span class="p">,</span><span class="s2">"2014 Perth半馬"</span><span class="p">,</span><span class="s2">"2016 Sydney全馬"</span><span class="p">,</span><span class="s2">"2017 Melbourne全馬"</span><span class="p">,</span><span class="s2">"2018 大堡礁全馬"</span><span class="p">]</span>
+
+<span class="n">place</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">place</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">place</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">block</code>顯示出，凡跑過必留下痕跡！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2012</span> <span class="err">太魯閣半馬</span>
+<span class="mi">2012</span> <span class="err">玉山半馬</span>
+<span class="mi">2013</span> <span class="err">萬金石半馬</span>
+<span class="mi">2013</span> <span class="err">雙溪半馬</span>
+<span class="mi">2013</span> <span class="err">台北市半馬</span>
+<span class="mi">2014</span> <span class="err">黃金海岸半馬</span>
+<span class="mi">2014</span> <span class="no">Perth</span><span class="err">半馬</span>
+<span class="mi">2016</span> <span class="no">Sydney</span><span class="err">全馬</span>
+<span class="mi">2017</span> <span class="no">Melbourne</span><span class="err">全馬</span>
+<span class="mi">2018</span> <span class="err">大堡礁全馬</span>
+</code></pre></div></div>
+
+<p>以上紀錄顯示，從2012-2018年，半馬(21KM)跑過7次，全馬(42K)跑3次。由於<code class="highlighter-rouge">block</code>無法代入參數，此時<code class="highlighter-rouge">Proc</code>就派上用場了！</p>
+
+<h3 id="proc-的類別方法">Proc 的類別方法</h3>
+
+<p>來寫我人生第一個使用Proc物件的跑步方法<code class="highlighter-rouge">proc_running</code>。
+這個類別方法(class method)跟一般的method寫法一樣，方法內用<code class="highlighter-rouge">.new</code>產生新的程序物件。
+我們方法外用<code class="highlighter-rouge">{}</code>大括弧圍出block，用<code class="highlighter-rouge">.call</code>方法呼叫程序物件<code class="highlighter-rouge">proc</code>本身：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">proc_running</span>
+  <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span>
+<span class="k">end</span>
+<span class="nb">proc</span> <span class="o">=</span> <span class="n">proc_running</span> <span class="p">{</span> <span class="s2">"I love running!"</span> <span class="p">}</span>
+<span class="nb">p</span> <span class="nb">proc</span><span class="p">.</span><span class="nf">call</span>   <span class="c1">#=&gt; "I love running"</span>
+</code></pre></div></div>
+
+<p>來看看<code class="highlighter-rouge">Proc</code>代入參數之後，可以做的事就變多囉，我現在想計算半馬(21KM)跑過7次，全馬(42K)跑3次，分別是幾公里：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">count_km</span><span class="p">(</span><span class="n">km</span><span class="p">)</span>
+  <span class="k">return</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">*</span><span class="n">km</span><span class="p">}</span>
+<span class="k">end</span>
+
+<span class="n">full_marathon</span> <span class="o">=</span> <span class="n">count_km</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1">#126</span>
+<span class="n">half_marathon</span> <span class="o">=</span> <span class="n">count_km</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="c1">#147</span>
+
+<span class="nb">p</span> <span class="s2">"I've run </span><span class="si">#{</span><span class="n">half_marathon</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="si">}</span><span class="s2"> Km in Half Marathon and </span><span class="si">#{</span><span class="n">full_marathon</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2"> Km in Marathon "</span>
+</code></pre></div></div>
+
+<p>還記得<code class="highlighter-rouge">#{}</code>可以幫我們插入字串嗎？（此方法會先利用<code class="highlighter-rouge">to_s</code>將傳入的Integer成String格式）
+所以計算答案揭曉：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"I've run 147 Km in Half Marathon and 126 Km in Marathon "</span>
+</code></pre></div></div>
+
+<h3 id="proc-的實體方法">Proc 的實體方法</h3>
+
+<p>Proc可以new出新的程序物件實體<code class="highlighter-rouge">km_proc</code>：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">km_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">km</span><span class="p">,</span> <span class="o">*</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="p">.</span><span class="nf">collect</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">*</span><span class="n">km</span> <span class="p">}</span> <span class="p">}</span>
+<span class="nb">p</span> <span class="n">km_proc</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1">#=&gt; [42, 126]</span>
+<span class="nb">p</span> <span class="n">km_proc</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>   <span class="c1">#=&gt; [21, 147]</span>
+</code></pre></div></div>
+
+<p>這樣我就可以把計算的跑步公里數，美美地用<a href="https://ruby-doc.org/core-2.2.0/Array.html#method-i-collect"><code class="highlighter-rouge">.collect</code></a>這個陣列方法<del>裱框</del>印出來！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">126</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">147</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>觀察剛剛的類別方法，我們發現<code class="highlighter-rouge">Proc</code>可以代入參數，也可以用return回傳參數，那我想要仿造文章前頭這段<code class="highlighter-rouge">block</code>程式碼概念:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">keep_running</span>
+  <span class="nb">p</span> <span class="s2">"-start line-"</span>
+    <span class="k">yield</span> <span class="c1">#block</span>
+  <span class="nb">p</span> <span class="s2">"-finish line-"</span>  
+ <span class="k">end</span>
+
+ <span class="n">keep_running</span> <span class="p">{</span>
+  <span class="nb">p</span> <span class="s2">"drink water"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>寫一個喝水<code class="highlighter-rouge">Proc</code>程式：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">proc_keep_running</span>
+  <span class="nb">p</span> <span class="s2">"-start line-"</span>
+    <span class="n">water_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">"drink water"</span> <span class="p">}</span>
+    <span class="n">water_proc</span><span class="p">.</span><span class="nf">call</span>
+  <span class="nb">p</span> <span class="s2">"-finish line-"</span>
+<span class="k">end</span>
+  <span class="nb">p</span> <span class="n">proc_keep_running</span>
+    <span class="c1"># Prints "-start line-" but not "-finish line-"</span>
+</code></pre></div></div>
+
+<p>結果印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span><span class="n">start</span> <span class="n">line</span><span class="o">-</span>
+<span class="n">drink</span> <span class="n">water</span>
+
+</code></pre></div></div>
+
+<p>疑？怎麼喝完水就打住，不繼續跑向終點<code class="highlighter-rouge">-finish line-</code>呢?
+我們發現了，在<code class="highlighter-rouge">proc</code>内使用<code class="highlighter-rouge">return</code>會立即返回，不再繼續執行後面程式。(所以，永遠不能在<code class="highlighter-rouge">Proc</code>內使用<code class="highlighter-rouge">return</code>，這樣跑馬拉松會無法抵達終點啊啊啊啊！)</p>
+
+<h2 id="lambda-匿名函數">lambda 匿名函數</h2>
+
+<p>身為工程師，問題代表著機會；出現問題就代表會有解決方案的出現，在Proc中有一個特別的用法叫<code class="highlighter-rouge">lambda</code>。創建方法有兩種指令:<code class="highlighter-rouge">lambda</code> or <code class="highlighter-rouge">-&gt;()</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lambda_running</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Run with lambda!"</span> <span class="p">}</span>
+<span class="n">lambda_running</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Run with lambda!"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>如果我們使用<code class="highlighter-rouge">puts</code>印出，會發現<code class="highlighter-rouge">lambda</code>是<code class="highlighter-rouge">Proc</code>的一種：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">lambda_running</span>
+<span class="c1">#&lt;Proc:0x000056043ddfd1e8@main.rb:11 (lambda)&gt;</span>
+</code></pre></div></div>
+
+<p>剛剛說到Proc方法內不能放return，我們來用程式碼比較proc與lambda回傳值：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">proc_run</span>
+  <span class="nb">proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+  <span class="nb">proc</span><span class="p">.</span><span class="nf">call</span>
+  <span class="nb">p</span> <span class="s2">"Run with Proc!"</span>
+<span class="k">end</span>
+<span class="n">proc_run</span> <span class="c1"># 跑不出來"Run with Proc"結果!</span>
+</code></pre></div></div>
+
+<p>但lambda可以：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">lambda_run</span>
+  <span class="n">lam</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+  <span class="n">lam</span><span class="p">.</span><span class="nf">call</span>
+  <span class="nb">p</span> <span class="s2">"Run with lambda!"</span>
+<span class="k">end</span>
+
+<span class="n">lambda_run</span> <span class="c1">#=&gt; "Run with lambda!"</span>
+</code></pre></div></div>
+
+<p>從下文說明，我們可以了解<code class="highlighter-rouge">Proc</code>只會回傳目前階層的內容，而不會像一般的方法以及<code class="highlighter-rouge">lambda</code>匿名方法一樣，整個走完方法裡面的該回傳的值。</p>
+
+<blockquote>
+  <p>The difference between procs and lambdas is how they react to a return statement. A lambda will return normally, like a regular method. But a proc will try to return from the current context.The reason is that you can’t return from the top-level context.<a href="http://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/">出處</a></p>
+</blockquote>
+
+<p>現在來用<code class="highlighter-rouge">lambda</code>的兩種調用寫法<code class="highlighter-rouge">lambda</code> or <code class="highlighter-rouge">-&gt;()</code>練習寫作程式碼，分別回傳半程馬拉松(hm)和全程馬拉松(fm)的公里數：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">half_proc</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span><span class="o">|</span><span class="n">hm</span><span class="p">,</span><span class="n">fm</span><span class="o">|</span> <span class="n">hm</span><span class="p">}</span>
+<span class="n">full_proc</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">hm</span><span class="p">,</span><span class="n">fm</span><span class="p">){</span><span class="n">fm</span><span class="p">}</span>
+<span class="nb">p</span> <span class="n">half_proc</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="c1">#21</span>
+<span class="nb">p</span> <span class="n">full_proc</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="c1">#42</span>
+</code></pre></div></div>
+
+<p>結果<code class="highlighter-rouge">half_proc.call</code>會回傳21，<code class="highlighter-rouge">full_proc.call</code>會回傳42。</p>
+
+<p>如果參數多放一個呢? <del>1.5個馬拉松</del></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">full_proc</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">63</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>會出現錯誤訊息:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main.rb:17:in <span class="sb">`</span>block <span class="k">in</span> &lt;main&gt;<span class="s1">': wrong number of arguments (given 3, expected 2) (ArgumentError)
+</span></code></pre></div></div>
+
+<p>這個原因在於<code class="highlighter-rouge">lambda</code>是種方法，，所以它會檢查參數個數是否匹配。
+來用程式舉例一下：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lambda_argument</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">}</span>
+<span class="nb">p</span> <span class="s2">"Lambda result: 21Km *2= </span><span class="si">#{</span><span class="n">lambda_argument</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="si">}</span><span class="s2">Km"</span>
+
+<span class="n">proc_argument</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">|</span> <span class="s2">"I don't care about how many arguments inside Proc!"</span> <span class="p">}</span>
+<span class="nb">p</span> <span class="s2">"Proc result: </span><span class="si">#{</span><span class="n">proc_argument</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">63</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>結果印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Lambda result: 21Km *2= 42Km"</span>
+
+<span class="s2">"Proc result: I don't care about how many arguments inside Proc!"</span>
+</code></pre></div></div>
+
+<p>超級比一比的表格又出現了：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>block程式區塊</th>
+      <th><a href="http://ruby-doc.org/core-2.4.0/Proc.html">Proc</a>程式區塊物件</th>
+      <th>lambda 匿名方法</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>不是物件</td>
+      <td>帶名字的區塊物件，可儲存變數</td>
+      <td>和Proc類似，但更加接近method方法</td>
+    </tr>
+    <tr>
+      <td>不是參數</td>
+      <td>可帶參數</td>
+      <td>嚴格檢查參數數目</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>在Proc裡<code class="highlighter-rouge">return</code>其他值，會離開此物件的方法</td>
+      <td>在lamba裡<code class="highlighter-rouge">return</code>其他值，會回來繼續執行完方法</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>最後的最後，我們用<code class="highlighter-rouge">lambda</code>來寫馬拉松喝水的方法吧！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">lambda_keep_running</span>
+  <span class="nb">p</span> <span class="s2">"-start line-"</span>
+    <span class="n">water_lambda</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">"drink water"</span> <span class="p">}</span>
+    <span class="nb">p</span> <span class="n">water_lambda</span><span class="p">.</span><span class="nf">call</span>
+  <span class="nb">p</span> <span class="s2">"-finish line-"</span>
+<span class="k">end</span>
+  <span class="n">lambda_keep_running</span>
+</code></pre></div></div>
+
+<p>結果印出：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span><span class="n">start</span> <span class="n">line</span><span class="o">-</span>
+<span class="n">drink</span> <span class="n">water</span>
+<span class="o">-</span><span class="n">finish</span> <span class="n">line</span><span class="o">-</span>
+</code></pre></div></div>
+
+<p>順利迎向終點finish line了！</p>
+
+<p>也祝大家的IT邦鐵人賽，都能順利完賽！！！：）</p>
+
+<p>===</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a></li>
+  <li><a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a></li>
+  <li><a href="https://railsbook.tw/chapters/07-ruby-basic-3.html">方法與程式碼區塊（block)</a></li>
+  <li><a href="http://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/">The Ultimate Guide to Blocks, Procs &amp; Lambdas</a></li>
+  <li><a href="https://my.oschina.net/jsk/blog/540371">Ruby中的Proc/lambda</a></li>
+  <li><a href="https://ruby-doc.com/core/index.html">Ruby-Core</a></li>
+  <li><a href="http://ruby-doc.org/core-2.5.1/doc/syntax/methods_rdoc.html">ruby-doc.org: Method</a></li>
+  <li><a href="http://ruby-doc.org/docs/keywords/1.9/Object.html#method-i-do">ruby-doc.org: Object Method: do</a></li>
+  <li><a href="http://ruby-doc.org/core-2.4.0/Proc.html">Procs</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

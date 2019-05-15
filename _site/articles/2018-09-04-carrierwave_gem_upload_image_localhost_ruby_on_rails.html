@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [RubyGems] carrierwave (1) 在Rails實現圖片上傳功能 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[RubyGems] carrierwave (1) 在Rails實現圖片上傳功能</h3>
+  <span class="post-date">04 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/rubygem">&nbsp;#rubygem</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 585 words. </small> <br>
+  <br>
+  <p><a href="https://github.com/carrierwaveuploader/carrierwave">carrierwave</a>是一款經典的圖片上傳套件。</p>
+
+<p>本篇的目標是先在本地端(development)的rails專案試成功gem。<br />
+中集會練習怎麼利用Amazone S3架設圖片上傳Host，<br />
+下集遠端(production)實作上傳。</p>
+
+<!-- more -->
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#a-在gemfile加入套件重啟rails-server" id="markdown-toc-a-在gemfile加入套件重啟rails-server">A. 在<code class="highlighter-rouge">gemfile</code>加入套件，重啟rails server：</a></li>
+  <li><a href="#b-rails-g新增image-uploader功能" id="markdown-toc-b-rails-g新增image-uploader功能">B. <code class="highlighter-rouge">rails g</code>新增Image uploader功能</a></li>
+  <li><a href="#c-建立資料庫上傳image所需欄位" id="markdown-toc-c-建立資料庫上傳image所需欄位">C. 建立資料庫上傳Image所需欄位</a></li>
+  <li><a href="#d-修改models讓資料庫準備好存取圖片的功能" id="markdown-toc-d-修改models讓資料庫準備好存取圖片的功能">D. 修改Models，讓資料庫準備好存取圖片的功能</a></li>
+  <li><a href="#e-修改views" id="markdown-toc-e-修改views">E. 修改Views</a></li>
+  <li><a href="#f-修改controllers" id="markdown-toc-f-修改controllers">F. 修改Controllers</a></li>
+</ul>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180904/20111177jA3W9YiK5l.png" alt="https://ithelp.ithome.com.tw/upload/images/20180904/20111177jA3W9YiK5l.png" /></p>
+
+<p>在閱讀任何Github上的README.md，有一點很重要的是知道因為環境設定的不同，必須漸漸了解哪些步驟可以跳過、哪些變數需要修改成符合自己專案性質的名稱，這點身為新手的我，將會靠練習活用各式各樣的gem來進步。：）</p>
+
+<p>這次我們會更動的檔案/資料夾如下：
+Rails的架構 | 說明
+—|—–
+Gemfile | 設定Rails應用程式使用了哪些Gems套件
+app |放Controllers、Models和Views檔案</p>
+
+<p>接下來就按造步驟來實作吧！</p>
+
+<h1 id="a-在gemfile加入套件重啟rails-server">A. 在<code class="highlighter-rouge">gemfile</code>加入套件，重啟rails server：</h1>
+
+<p>1.首先我們按照<a href="https://github.com/carrierwaveuploader/carrierwave">carrierwave</a>在githhub上說明檔的指示，前往<code class="highlighter-rouge">/專案名稱/gemfile</code>，在<code class="highlighter-rouge">gemfile</code>加入套件，新增程式碼：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'carrierwave'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>README.md告訴我們CarrierWave的版本需求：Rails 4.0 or higher and Ruby 2.0，我的ruby 2.4.2 Rails 5.1.6，所以沒有問題～</p>
+</blockquote>
+
+<p>2.每次新增任何新的Gem到Gemfile，就要在Terminal輸入<code class="highlighter-rouge">bundle install</code>處理相依性，然後<code class="highlighter-rouge">rails s</code>重啟伺服器。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>bundle <span class="nb">install
+</span>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>bundle info carrierwave
+  <span class="k">*</span> carrierwave <span class="o">(</span>1.2.3<span class="o">)</span>
+    Summary: Ruby file upload library
+    Homepage: https://github.com/carrierwaveuploader/carrierwave
+    Path: /Users/tingtinghsu/.rvm/gems/ruby-2.4.2/gems/carrierwave-1.2.3
+</code></pre></div></div>
+
+<h1 id="b-rails-g新增image-uploader功能">B. <code class="highlighter-rouge">rails g</code>新增Image uploader功能</h1>
+
+<p>接下來就可以看到carrierwave的厲害之處了，在此我需要將自己的餐廳(restaurants)資料庫建立新的圖片(image)欄位，所以把carrier的指令客製化成自己的專案。
+指令<code class="highlighter-rouge">rails g uploader Image</code>幫助我們在此路徑：<code class="highlighter-rouge">app/uploaders/image_uploader.rb</code>新增了檔案。
+打開<code class="highlighter-rouge">image_uploader.rb</code>看看裡面的類別寫法：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ImageUploader</span> <span class="o">&lt;</span> <span class="no">CarrierWave</span><span class="o">::</span><span class="no">Uploader</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">storage</span> <span class="ss">:file</span>
+  <span class="c1">#storage :fog</span>
+  <span class="c1"># Override the directory where uploaded files will be stored.</span>
+  <span class="c1"># def store_dir</span>
+    <span class="s2">"uploads/</span><span class="si">#{</span><span class="n">model</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">underscore</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">mounted_as</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">model</span><span class="p">.</span><span class="nf">id</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>這個部分指的是：
+如果我把儲存檔案的地方放在本地端(localhost)，就要把storage :file前的#註解拿掉
+相對的，想要把儲存檔案的地方放在遠端(Heroku)，把storage :fog前的#註解拿掉</p>
+</blockquote>
+
+<p>在本篇裡，CarrierWave會把我上傳的圖片將會放在<code class="highlighter-rouge">/public/uploads/restaurant/image</code>。</p>
+
+<h1 id="c-建立資料庫上傳image所需欄位">C. 建立資料庫上傳Image所需欄位</h1>
+
+<p>1.建立遷移檔(migration，修改資料庫結構)
+<code class="highlighter-rouge">rails g migration add_image_to_restaurants image:string</code>
+2.並在資料庫增加上傳圖片的欄位:
+<code class="highlighter-rouge">rake db:migrate</code>
+3.然後重啟伺服器：<code class="highlighter-rouge">rails s</code></p>
+
+<p>順利的在<code class="highlighter-rouge">db/migrate</code>跑出了<code class="highlighter-rouge">add_image_to_restaurants.rb</code>檔案。打開來瞧瞧：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AddImageToRestaurants</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">5.1</span><span class="p">]</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">add_column</span> <span class="ss">:restaurants</span><span class="p">,</span> <span class="ss">:image</span><span class="p">,</span> <span class="ss">:string</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h1 id="d-修改models讓資料庫準備好存取圖片的功能">D. 修改Models，讓資料庫準備好存取圖片的功能</h1>
+
+<p>接下來我們修改跟ActiveRecord有關的Models。mount Model裡面，這個名為uploader上傳功能小幫手，未來它會幫我們翻譯資料庫語言(SQL)跟資料庫要資料（餐廳圖片）。:</p>
+
+<p>Models: <code class="highlighter-rouge">app/models/restaurant.rb</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">mount_uploader</span> <span class="ss">:image</span><span class="p">,</span> <span class="no">ImageUploader</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>在<a href="https://rails.ruby.tw/active_record_basics.html">rails官網</a>提到：</p>
+<blockquote>
+  <p>Active Record 是MVC的M（Model）表現商業邏輯與資料的層級，負責新增與操作需要持久存在資料庫裡的資料。Active Record本身是ORM（Object Relational Mapping，物件關聯映射）系統的描述。</p>
+</blockquote>
+
+<h1 id="e-修改views">E. 修改Views</h1>
+
+<ol>
+  <li>資料庫的上傳功能已經準備好了，接下來到Views跟表單溝通，請讓表單能夠接受上傳的圖片。</li>
+</ol>
+
+<p>首先到<code class="highlighter-rouge">app/views/restaurants/_form.html.erb</code>，修改成可以上傳照片的form type(表單型態)。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="sx">%= form_with(model: restaurant, local: true, :html =</span><span class="o">&gt;</span> <span class="p">{</span> <span class="ss">multipart: </span><span class="kp">true</span> <span class="p">})</span> <span class="k">do</span> <span class="o">|</span><span class="n">form</span><span class="o">|</span> <span class="sx">%&gt;
+</span></code></pre></div></div>
+
+<p>我們來增加：「上傳圖片」欄位，讓使用者能在視覺上看得見新欄位，並修改上傳圖片的檔案(file)類型為<code class="highlighter-rouge">form.file_field</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">form</span><span class="err">.</span><span class="na">label</span> <span class="na">:image</span> <span class="err">%</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">form</span><span class="err">.</span><span class="na">file_field</span> <span class="na">:image</span><span class="err">,</span> <span class="na">id:</span> <span class="na">:restaurant_image</span><span class="err">,</span> <span class="na">class:</span> <span class="err">"</span><span class="na">form-control</span><span class="err">"</span> <span class="err">%</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>不同於其他純文字(text)欄位如地址、電話的<code class="highlighter-rouge">form.text_field</code>。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">form</span><span class="err">.</span><span class="na">label</span> <span class="na">:name</span> <span class="err">%</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">form</span><span class="err">.</span><span class="na">text_field</span> <span class="na">:name</span><span class="err">,</span> <span class="na">id:</span> <span class="na">:restaurant_name</span><span class="err">,</span> <span class="na">class:</span> <span class="err">"</span><span class="na">form-control</span><span class="err">"</span> <span class="err">%</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>2.告訴rails何時取得image。我們來到<code class="highlighter-rouge">app/views/restaurants/show.html.erb</code>，在餐廳資料前面加上程式碼：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"notice"</span><span class="nt">&gt;&lt;</span><span class="err">%=</span> <span class="na">notice</span> <span class="err">%</span><span class="nt">&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;</span><span class="err">%=</span> <span class="na">image_tag</span> <span class="err">@</span><span class="na">restaurant</span><span class="err">.</span><span class="na">image_url</span> <span class="na">if</span> <span class="err">@</span><span class="na">restaurant</span><span class="err">.</span><span class="na">image_url</span><span class="err">.</span><span class="na">present</span><span class="err">?</span> <span class="err">%</span><span class="nt">&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+</code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;strong&gt;</span>Name:<span class="nt">&lt;/strong&gt;</span>
+  <span class="nt">&lt;</span><span class="err">%=</span> <span class="err">@</span><span class="na">restaurant</span><span class="err">.</span><span class="na">name</span> <span class="err">%</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">image_tag</code>：Rails內建的Helper靜態輔助方法，可以讓我們建構HTML更為容易。<a href="https://ihower.tw/rails/actionview-helpers.html">參考這裡</a>
+<code class="highlighter-rouge">@restaurant.image_url</code>：顯示目前這筆餐廳資料的圖片位置。</p>
+
+<blockquote>
+  <p>[新手常見Bug！]檢查圖片為nil寫法：<code class="highlighter-rouge">if @restaurant.image_url.present?</code>。可以防止當某位使用者新增一筆餐廳資料、但沒有附上圖片的時候，show.html.erb這頁網頁直接當掉給你看…</p>
+</blockquote>
+
+<h1 id="f-修改controllers">F. 修改Controllers</h1>
+
+<p>最後，我們在Controllers: <code class="highlighter-rouge">app/controllers/restaurants.controller.rb</code>加上允許上傳至欄位的參數，告訴rails，新的image欄位是安全的。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">restaurant_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:restaurant</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:address</span><span class="p">,</span> <span class="ss">:phone</span><span class="p">,</span> <span class="ss">:website</span><span class="p">,</span> <span class="ss">:image</span><span class="p">)</span>
+    <span class="k">end</span>
+</code></pre></div></div>
+
+<p>**大功告成 **</p>
+
+<p>觀看結果：</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png" alt="https://ithelp.ithome.com.tw/upload/images/20180904/20111177bgD1sd8o0E.png" /></p>
+
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-01-24-rails_ruby_version_RVM">使用RVM安裝Ruby和Rails新版本</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-09-09-crrierwave_gem_resize_image_imagemagick_and_minimagick">[RubyGems] carrierwave (4) 使用Imagemagick修改圖片大小</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-09-08-upload_image_function_deploy_heroku">[RubyGems] carrierwave (3) Deploy 圖片上傳功能到 Heroku網站</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-09-05-carrierwave_gem_upload_image_amazon_s3_ruby_on_rails">[RubyGems] carrierwave (2) 利用Amazon S3 架設圖片伺服器</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day21 Ruby的true，false和nil &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day21 Ruby的true，false和nil</h3>
+  <span class="post-date">06 Oct 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 840 words. </small> <br>
+  <br>
+  <p>話說這個世界上有許多真假難分的東西…</p>
+
+<blockquote>
+  <p>假作真時真亦假，無為有處有還無——曹雪芹《紅樓夢》。</p>
+</blockquote>
+
+<p>如何用Ruby程式好好判斷呢？這就是今天的主題啦！
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-21" id="markdown-toc-ruby經典面試題目-21">Ruby經典面試題目 #21</a></li>
+  <li><a href="#true-truely" id="markdown-toc-true-truely">True: truely</a></li>
+  <li><a href="#false-falsey" id="markdown-toc-false-falsey">False: falsey</a></li>
+  <li><a href="#nil-falsey" id="markdown-toc-nil-falsey">Nil: falsey</a></li>
+  <li><a href="#真的假的-truthy_or_falsey" id="markdown-toc-真的假的-truthy_or_falsey">真的假的? truthy_or_falsey</a></li>
+  <li><a href="#nil-空值-與empty-string-空字串" id="markdown-toc-nil-空值-與empty-string-空字串">nil (空值) 與empty string (空字串)</a></li>
+  <li><a href="#真假結合布林值--or或--and-且與if" id="markdown-toc-真假結合布林值--or或--and-且與if">真，假，結合布林值 <code class="highlighter-rouge">||</code> (or,或) <code class="highlighter-rouge">&amp;&amp;</code> (and, 且)與<code class="highlighter-rouge">if</code></a></li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-21">Ruby經典面試題目 #21</h1>
+
+<ul>
+  <li>解釋Ruby裡的<code class="highlighter-rouge">True</code>, <code class="highlighter-rouge">False</code>與<code class="highlighter-rouge">Nil</code>?<br />
+Explan True and False vs. “Truthy” and “Falsey / Falsy” in Ruby?</li>
+</ul>
+
+<p>老實說這題我拖了好久，因為相關的面試題目特別多，一直在構思怎麼整理、寫成文章會比較有架構，也希望自己的產出作品也可以讓其他Ruby新手同學們比較容易了解，所以…不知不覺就到了最後10天了～～（遮臉）</p>
+
+<p>先講結論:</p>
+
+<ul>
+  <li>(1) <code class="highlighter-rouge">true</code>物件，代表為<code class="highlighter-rouge">真</code>。True is truthy.</li>
+  <li>(2) <code class="highlighter-rouge">false</code>物件，代表為<code class="highlighter-rouge">假</code>。False is falsey.</li>
+  <li>(3) <code class="highlighter-rouge">nil</code>物件代表<code class="highlighter-rouge">沒有</code>的意思。 Nil is falsey. The object Nil represents “nothing”.</li>
+</ul>
+
+<p>來列張表格：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>超級比一比</th>
+      <th>意思</th>
+      <th>舉例</th>
+      <th>Truthy / Falsey</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">true</code>物件</td>
+      <td><code class="highlighter-rouge">真</code></td>
+      <td>0, 1, “”,[]<code class="highlighter-rouge">陣列</code>, {}<code class="highlighter-rouge">區塊</code>, [1,2,3]</td>
+      <td>Truthy</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">false</code>物件</td>
+      <td><code class="highlighter-rouge">假</code></td>
+      <td>1+1==3</td>
+      <td>Falsey</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nil</code>物件</td>
+      <td><code class="highlighter-rouge">沒有</code></td>
+      <td>nil, ()</td>
+      <td>Falsey</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="true-truely">True: truely</h1>
+
+<p>先用Ruby程式碼來看看 <code class="highlighter-rouge">0</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="s2">"0 is truthy"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"0 is falsey"</span>
+<span class="k">end</span>
+<span class="c1"># Output: 0 is truthy</span>
+</code></pre></div></div>
+
+<p>想起昨天的鐵人賽，最後我們在<code class="highlighter-rouge">enumerator</code>和<code class="highlighter-rouge">yield</code>的例子中用溫度來舉例，在冬天時溫度可能為零度，甚至零下(minus degree)。</p>
+
+<p>大家可以把<code class="highlighter-rouge">0</code>想成真實世界中的氣溫攝氏0度，這是的確是一個確實存在的值，所以單然是<code class="highlighter-rouge">true</code>囉！</p>
+
+<h1 id="false-falsey">False: falsey</h1>
+
+<p>再來，我們用Ruby驗證一下幼稚園學過的<code class="highlighter-rouge">1+1=2</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"1+1==3 is truthy"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"1+1==3 is falsey"</span>
+<span class="k">end</span>
+<span class="c1"># Output: 1+1==3 is falsey</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">!=</span><span class="mi">2</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"1+1!=2 is truthy"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"1+1!=2 is falsey"</span>
+<span class="k">end</span>
+<span class="c1"># Output: 1+1!=2 is falsey</span>
+</code></pre></div></div>
+
+<p>果然，<code class="highlighter-rouge">1+1</code>只會等於<code class="highlighter-rouge">2</code>。</p>
+
+<p><code class="highlighter-rouge">1+1不等於2</code>，這句話是假的。（<del>聽起來好像在研究哲學問題啊(?!)</del>）因此我們可以得出結論<code class="highlighter-rouge">false is falsey</code>。</p>
+
+<h1 id="nil-falsey">Nil: falsey</h1>
+
+<p>關於<code class="highlighter-rouge">nil</code>，我把它比喻為<code class="highlighter-rouge">錢包裡沒有錢</code>～錢包沒有錢當然是假的～～！！！是假的！！！<strong>當然要催眠自己的錢包裡很有錢(挺)</strong></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="kp">nil</span>
+  <span class="nb">puts</span> <span class="s2">"nil is truthy"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"nil is falsey"</span>
+<span class="k">end</span>
+<span class="c1"># Output: nil is falsey</span>
+</code></pre></div></div>
+
+<h1 id="真的假的-truthy_or_falsey">真的假的? truthy_or_falsey</h1>
+
+<p>如果我們每次想要判斷一次<code class="highlighter-rouge">某物件是否為真</code>，都要寫一次<code class="highlighter-rouge">if...else end</code>，未免也太累了…。因此最好的方法，就是用<code class="highlighter-rouge">def</code>寫一個方法！（好像在繞口令）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">truthy_or_falsey</span> <span class="n">something</span>
+<span class="c1">#此方法會傳入something參數(省略小括號)</span>
+  <span class="k">if</span> <span class="n">something</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">something</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2"> is truthy"</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">something</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2"> is falsey"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="p">[</span><span class="kp">true</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="no">Object</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="mi">3</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">],(),[],{}].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+  <span class="n">truthy_or_falsey</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kp">true</span> <span class="n">is</span> <span class="n">truthy</span>
+<span class="kp">false</span> <span class="n">is</span> <span class="n">falsey</span> <span class="c1">#</span>
+<span class="kp">nil</span> <span class="n">is</span> <span class="n">falsey</span> <span class="c1">#</span>
+<span class="no">Object</span> <span class="n">is</span> <span class="n">truthy</span> <span class="c1">#物件為真</span>
+<span class="mi">0</span> <span class="n">is</span> <span class="n">truthy</span>
+<span class="mi">1</span> <span class="n">is</span> <span class="n">truthy</span>
+<span class="kp">false</span> <span class="n">is</span> <span class="n">falsey</span> <span class="c1">#1+1==3，為假</span>
+<span class="s2">""</span> <span class="n">is</span> <span class="n">truthy</span> <span class="c1">#空字串仍是字串，為真</span>
+<span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">]</span> <span class="n">is</span> <span class="n">truthy</span> <span class="c1">#空陣列仍是陣列，為真</span>
+<span class="kp">nil</span> <span class="n">is</span> <span class="n">falsey</span> <span class="c1">#():未代入任何參數的小括號為nil</span>
+<span class="p">[]</span> <span class="n">is</span> <span class="n">truthy</span> <span class="c1">#Array</span>
+<span class="p">{}</span> <span class="n">is</span> <span class="n">truthy</span> <span class="c1">#Block</span>
+</code></pre></div></div>
+
+<h1 id="nil-空值-與empty-string-空字串">nil (空值) 與empty string (空字串)</h1>
+
+<p><code class="highlighter-rouge">nil</code>空值可以用<code class="highlighter-rouge">.to_s</code>方法轉換成<code class="highlighter-rouge">empty string ""</code>空字串。</p>
+
+<p>我們先設定<code class="highlighter-rouge">xfactor</code>為空值:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">xfactor</span> <span class="o">=</span> <span class="kp">nil</span>
+
+<span class="nb">print</span> <span class="s2">"xfactor : "</span>
+<span class="nb">puts</span> <span class="n">xfactor</span> <span class="o">==</span><span class="s2">""</span> <span class="c1"># =&gt; false. a is nil</span>
+<span class="nb">print</span> <span class="s2">"xfactor to string : "</span>
+<span class="nb">puts</span> <span class="n">xfactor</span><span class="p">.</span><span class="nf">to_s</span> <span class="o">==</span><span class="s2">""</span> <span class="c1"># =&gt; true. empty string</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">xfactor</span> <span class="p">:</span> <span class="kp">false</span>
+<span class="n">xfactor</span> <span class="n">to</span> <span class="n">string</span> <span class="p">:</span> <span class="kp">true</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">nil</code>轉成<code class="highlighter-rouge">字串</code>之後，就變成物件了，所以為真：）</p>
+
+<h1 id="真假結合布林值--or或--and-且與if">真，假，結合布林值 <code class="highlighter-rouge">||</code> (or,或) <code class="highlighter-rouge">&amp;&amp;</code> (and, 且)與<code class="highlighter-rouge">if</code></h1>
+
+<p>如果有兩條運算式，一條是真的，一條是假的，再用<code class="highlighter-rouge">|| or</code>連起來，結果仍為真（只需滿足<code class="highlighter-rouge">其中之一為真</code>的條件）</p>
+
+<p><code class="highlighter-rouge">真</code>或<code class="highlighter-rouge">假</code>共存，取其一為<code class="highlighter-rouge">真</code>=&gt; 結果就可為<code class="highlighter-rouge">真</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">!=</span><span class="mi">2</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"it is truthy"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"it is falsey"</span>
+<span class="k">end</span> <span class="c1">#it is truthy! One of it is true.</span>
+</code></pre></div></div>
+
+<p>反之，用<code class="highlighter-rouge">&amp;&amp; and</code>全部連起來，全部都假，才為假。</p>
+
+<p><code class="highlighter-rouge">假</code>且<code class="highlighter-rouge">假</code>=&gt; 結果為<code class="highlighter-rouge">假</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">!=</span><span class="mi">2</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"it is truthy"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"it is falsey"</span>
+<span class="k">end</span> <span class="c1">#it is falsey! Both are false.</span>
+</code></pre></div></div>
+
+<p>最後，來列兩個<code class="highlighter-rouge">或且</code>九宮格比較一下：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>[<code class="highlighter-rouge">or</code> . <code class="highlighter-rouge">||</code> . <code class="highlighter-rouge">或</code>]</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+    <tr>
+      <th><code class="highlighter-rouge">||</code></th>
+      <th>true</th>
+      <th>false</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>true</td>
+      <td>true</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>false</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[<code class="highlighter-rouge">and</code> . <code class="highlighter-rouge">&amp;&amp;</code> . <code class="highlighter-rouge">且</code>]</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="highlighter-rouge">&amp;&amp;</code></th>
+      <th>true</th>
+      <th>false</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>true</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>false</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>我相信實務上有更多複雜的真假判斷句子，不過不用擔心！只要我們在每一天都能穩健地做好基礎打底工作，未來就不怕以假亂真了！：Ｐ</p>
+
+<p>Ref:</p>
+
+<ul>
+  <li>
+    <p><a href="https://stackoverflow.com/questions/34594477/ruby-true-false-or-nil">Ruby true, false, or nil</a></p>
+  </li>
+  <li>
+    <p><a href="https://gist.github.com/jfarmer/2647362">true and false vs. “truthy” and “falsey” (or “falsy”) in Ruby, Python, and JavaScript</a></p>
+  </li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

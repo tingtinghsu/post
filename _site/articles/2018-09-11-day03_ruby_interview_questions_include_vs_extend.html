@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day03 Module模組: include與extend &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day03 Module模組: include與extend</h3>
+  <span class="post-date">11 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 474 words. </small> <br>
+  <br>
+  <p>在第一天裡，我們很激昂地用Ruby的<code class="highlighter-rouge">類別</code>、<code class="highlighter-rouge">物件</code>、<code class="highlighter-rouge">方法</code>，寫了開賽宣言！
+在第二天裡，我們比較了方法與模組，比的過程中，發現模組多了包含(inclusion)與延伸(extension)。</p>
+
+<!-- more -->
+
+<table>
+  <thead>
+    <tr>
+      <th>超級比一比</th>
+      <th>類別 Class</th>
+      <th>模組 Module</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>父類別 superclass</td>
+      <td>模組 Module</td>
+      <td>物件 Object</td>
+    </tr>
+    <tr>
+      <td>繼承 inheritance</td>
+      <td><em>可繼承</em></td>
+      <td>不可繼承</td>
+    </tr>
+    <tr>
+      <td>包含 inclusion</td>
+      <td>不可被包含</td>
+      <td>*可被包含**</td>
+    </tr>
+    <tr>
+      <td>延伸 extension</td>
+      <td>不可延伸</td>
+      <td>*可被延伸**</td>
+    </tr>
+    <tr>
+      <td>實例化 instantiation</td>
+      <td>可被實例化(instantiated)</td>
+      <td>不可被實例化</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>所以在第三天的文章裡，進一步研究module中的inclusion和extension是必須的！</p>
+
+<hr />
+
+<h1 id="ruby經典面試題目-03">Ruby經典面試題目 #03</h1>
+
+<ul>
+  <li>包含與延伸有什麼不同?<br />
+What’s the Difference Between Include and Extend?</li>
+</ul>
+
+<p>還記得我們昨天舉的例子：網路圖書館（模組）有很多知識（方法）讓我們取用（include），讓你與我都能夠突破先天(繼承)的限制，變成更加聰明靈活的IT人。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Library</span>
+  <span class="k">def</span> <span class="nf">IThelp</span>
+    <span class="nb">p</span> <span class="s2">"I'm learning from others' IT articles on IThelp Website!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">EveryoneLearnsRuby</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+  <span class="kp">include</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="no">Ting</span> <span class="o">=</span> <span class="no">EveryoneLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Ting"</span><span class="p">)</span>
+<span class="no">Ting</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="no">You</span> <span class="o">=</span> <span class="no">EveryoneLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"You"</span><span class="p">)</span>
+<span class="no">You</span><span class="o">.</span> <span class="no">IThlep</span>
+</code></pre></div></div>
+
+<p>當然，使用類別(class)繼承也有它的好處，</p>
+
+<p>例如：在已有的功能基礎上，再追加擴展本身已有功能。
+（龍生龍、鳳生鳳；老鼠生的兒子會打洞！）</p>
+
+<p>或是以相同名稱的方法，重新定義，產生不同的效果。
+（王老先生有塊地，<del>那王小弟長大後可以把王老先生的那塊地拿去蓋民宿</del>。）</p>
+
+<p>但模組(module)的include就像開外掛一樣，讓我們可以在這個星球上學會更多技能。</p>
+
+<p>為了比較include與extend，我們把圖書館模組來稍加改寫：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Library</span>
+  <span class="k">def</span> <span class="nf">IThelp</span>
+    <span class="nb">p</span> <span class="s2">"IThelp helps me!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">NewbieLearnsRuby</span>
+  <span class="kp">include</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="no">NewbieLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1">#IThelp helps me!</span>
+
+<span class="no">NewbieLearnsRuby</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1">#NoMethodError</span>
+</code></pre></div></div>
+
+<p>如果我們把<code class="highlighter-rouge">NewbieLearnsRuby.new.IThelp</code>誤寫成<code class="highlighter-rouge">NewbieLearnsRuby.IThelp</code>，就會出現錯誤。</p>
+<blockquote>
+  <p>undefined method `IThelp’ for NewbieLearnsRuby:Class (NoMethodError)</p>
+</blockquote>
+
+<p>奇怪，為什麼會這樣呢？</p>
+
+<p>我們回到改寫前的圖書館例子：我先宣告(new)一個新物件You，
+讓「You」這個變數名字指向<code class="highlighter-rouge">EveryoneLearnsRuby.new("You")</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">You</span> <span class="o">=</span> <span class="no">EveryoneLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"You"</span><span class="p">)</span>
+<span class="no">You</span><span class="o">.</span><span class="no">IThlep</span>
+</code></pre></div></div>
+
+<p>所以剛剛的<code class="highlighter-rouge">NewbieLearnsRuby.new.IThelp</code>其實是以下的簡化：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">You</span> <span class="o">=</span> <span class="no">NewbieLearnsRuby</span><span class="p">.</span><span class="nf">new</span>
+<span class="no">You</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># [NewbieLearnsRuby.new].IThelp [中括號內的變數就是You!]</span>
+</code></pre></div></div>
+
+<p>這就是我們為什麼不能漏掉<code class="highlighter-rouge">.new</code>的原因。</p>
+
+<p>那，如果改寫成extend的程式碼，會是怎樣的光景呢？</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Library</span>
+  <span class="k">def</span> <span class="nf">IThelp</span>
+    <span class="nb">p</span> <span class="s2">"IThelp helps me!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">NewbieLearnsRuby</span>
+  <span class="kp">include</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">ExtendRuby</span>
+  <span class="kp">extend</span> <span class="no">Library</span>
+<span class="k">end</span>
+
+<span class="no">NewbieLearnsRuby</span><span class="p">.</span><span class="nf">new</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># IThelp helps me!</span>
+
+<span class="no">ExtendRuby</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># IThelp helps me!</span>
+</code></pre></div></div>
+
+<p>由以上可知，<code class="highlighter-rouge">include</code>代表Newbie類別學Ruby時需要new一個新的物件實體，然後才能使用方法。
+但<code class="highlighter-rouge">extend</code>不用，在類別中使用它可以讓我們直接把方法拿過來用。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ExtendRuby</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># IThelp helps me!</span>
+
+<span class="no">ExtendRuby</span><span class="p">.</span><span class="nf">new</span><span class="o">.</span><span class="no">IThelp</span>
+<span class="c1"># NoMethodError</span>
+</code></pre></div></div>
+
+<p>同樣的，想進一步了解為什麼輸入<code class="highlighter-rouge">ExtendRuby.new.IThelp</code>也是<code class="highlighter-rouge">NoMethodError</code>。接下來我們要拿關鍵字 <code class="highlighter-rouge">the difference between include and extend in ruby</code>去請教Google大神：</p>
+
+<blockquote>
+  <p>Now that we know the difference between an instance method and a class method, let’s cover the difference between include and extend in regards to modules. Include is for adding methods to an instance of a class and extend is for adding class methods. <a href="http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/">出處</a></p>
+</blockquote>
+
+<p>為了抽絲剝繭這段話的含義，這裡的<code class="highlighter-rouge">實體方法instance method</code>和<code class="highlighter-rouge">類別方法class method</code>將會成為我們下一篇文章的重點囉！</p>
+
+<h1 id="第三天感想">第三天感想</h1>
+
+<p>寫文章真的很有趣！當我寫出<code class="highlighter-rouge">NewbieLearnsRuby</code>這種名稱的class，就彷彿自己像寫一本武俠小說一樣，盡情地創造準備開始練功的新人物、新主角，。</p>
+
+<p>身為新手工程師，螢幕是我們的畫布～鍵盤上的各個中英文字、數值、符號就是我們的顏料，
+享受寫程式 + 寫文章的過程，願我們都可以在人生畫布上，揮灑、創造自己的新世界！</p>
+
+<p><img src="https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/IThelps.png" alt="https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/IThelps.png" /></p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a></li>
+  <li><a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a></li>
+  <li><a href="http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/">Include vs Extend in Ruby</a></li>
+  <li><a href="https://stackoverflow.com/questions/156362/what-is-the-difference-between-include-and-extend-in-ruby">What is the difference between include and extend in Ruby?</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Rails的 MVC 架構: 淺談 model 和 controller &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Rails的 MVC 架構: 淺談 model 和 controller</h3>
+  <span class="post-date">14 Jan 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/rails">&nbsp;#rails</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 1042 words. </small> <br>
+  <br>
+  <p>進入rails，最重要的是了解MVC架構(Model-View-Controller)。限於篇幅的關係，今天先簡單講解Controler和Model.</p>
+
+<!-- more -->
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#controller" id="markdown-toc-controller">Controller</a>    <ul>
+      <li><a href="#新增route-範例" id="markdown-toc-新增route-範例">新增Route 範例</a></li>
+      <li><a href="#controller-程式範例" id="markdown-toc-controller-程式範例">Controller 程式範例</a></li>
+    </ul>
+  </li>
+  <li><a href="#model" id="markdown-toc-model">Model</a>    <ul>
+      <li><a href="#model-範例" id="markdown-toc-model-範例">Model 範例</a></li>
+      <li><a href="#model-及對應資料表" id="markdown-toc-model-及對應資料表">Model 及對應資料表</a></li>
+      <li><a href="#新增-model--rails-g-model" id="markdown-toc-新增-model--rails-g-model">新增 Model : <code class="highlighter-rouge">rails g model</code></a></li>
+      <li><a href="#產生資料表-rake-dbmigrate" id="markdown-toc-產生資料表-rake-dbmigrate">產生資料表: <code class="highlighter-rouge">rake db:migrate</code></a></li>
+      <li><a href="#model-操作-透過orm-object-relational-mapping" id="markdown-toc-model-操作-透過orm-object-relational-mapping">Model 操作: 透過ORM (Object Relational Mapping)</a>        <ul>
+          <li><a href="#打開console-rails-console" id="markdown-toc-打開console-rails-console">打開console: <code class="highlighter-rouge">rails console</code></a></li>
+          <li><a href="#建立資料-console裡輸入crud命令" id="markdown-toc-建立資料-console裡輸入crud命令">建立資料: Console裡輸入CRUD命令</a>            <ul>
+              <li><a href="#create-新增" id="markdown-toc-create-新增">Create 新增</a></li>
+              <li><a href="#read-讀取-find" id="markdown-toc-read-讀取-find">Read 讀取: <code class="highlighter-rouge">.find()</code></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="controller">Controller</h1>
+
+<p>當Route解析網址後，會將任務轉給指定的Controller(如圖中的1)。Controller根據任務需求與View互動(如圖中的8.9)，或是透過Model取出database裡的資料(如圖中的4.7)。</p>
+
+<p><img src="https://github.com/tingtinghsu/blog/blob/gh-pages/public/img/MVC.png?raw=true" alt="https://github.com/tingtinghsu/blog/blob/gh-pages/public/img/MVC.png?raw=true" /></p>
+
+<p><a href="https://railsbook.tw/chapters/10-mvc.html">圖片來自龍哥的文章 : Model、View、Controller 三分天下</a></p>
+
+<h2 id="新增route-範例">新增Route 範例</h2>
+
+<p>Controller的命名與Route使用resources（複數）或resource（單數）有關。</p>
+
+<p>在以下餐廳範例的route檔案裡，我們看到<code class="highlighter-rouge">resources :restaurants</code>使用複數。
+若沒有特別指定resources的controller參數，預設的對應controller就是<code class="highlighter-rouge">RestaurantsController</code>.</p>
+
+<p><code class="highlighter-rouge">Routes路徑：/config/routes.rb</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:restaurants</span>
+  <span class="n">root</span> <span class="s1">'restaurants#index'</span>
+  <span class="n">get</span> <span class="s1">'pages/about'</span>
+  <span class="n">get</span> <span class="s2">"/contact_us"</span><span class="p">,</span> <span class="n">to</span> <span class="s2">"pages#contact"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>
+在<code class="highlighter-rouge">  get "/contact_us", to "pages#contact"</code>中，若使用者輸入<code class="highlighter-rouge">餐廳網站/contact_us</code>時，Route路由會交給PagesController的contact方法處理這個請求。</p>
+
+<h2 id="controller-程式範例">Controller 程式範例</h2>
+
+<p>Controller資料夾下的檔名以<code class="highlighter-rouge">複數</code>命名；<br />
+class類別名稱<code class="highlighter-rouge">大寫</code>、<code class="highlighter-rouge">複數</code>。</p>
+
+<p><code class="highlighter-rouge">路徑：/app/controllers/clients_controller.rb</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ClientsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">路徑：/app/controllers/orders_controller.rb</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">OrdersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h1 id="model">Model</h1>
+
+<p>Model是在資料表上的抽象類別，可以和實體的資料表溝通。(如圖中的5.6)</p>
+
+<p><img src="https://github.com/tingtinghsu/blog/blob/gh-pages/public/img/MVC.png?raw=true" alt="https://github.com/tingtinghsu/blog/blob/gh-pages/public/img/MVC.png?raw=true" /></p>
+
+<p>Model資料夾下的檔名以<code class="highlighter-rouge">單數</code>命名；eg. <code class="highlighter-rouge">client.rb</code><br />
+class類別名稱<code class="highlighter-rouge">大寫</code>、<code class="highlighter-rouge">單數</code>。eg. <code class="highlighter-rouge">class Client</code></p>
+
+<h2 id="model-範例">Model 範例</h2>
+
+<p>在這裡，我們以兩個Model<code class="highlighter-rouge">Client</code>客戶和<code class="highlighter-rouge">Order</code>訂單舉例。<br />
+一個<code class="highlighter-rouge">客戶</code>可能下了很多<code class="highlighter-rouge">(has_many)</code>的<code class="highlighter-rouge">訂單</code>；<br />
+而每一筆<code class="highlighter-rouge">訂單</code>都屬於<code class="highlighter-rouge">(belong_to)</code>某一位<code class="highlighter-rouge">客戶</code>。</p>
+
+<p><code class="highlighter-rouge">路徑: /app/models/client.rb</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Client</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:orders</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>客戶:訂單 = 一對多的關聯。</p>
+
+<p>當加上<code class="highlighter-rouge">has_many :orders</code> 後，<br />
+<code class="highlighter-rouge">User Model</code>會多了幾個好用的方法：</p>
+
+<ol>
+  <li>多了<code class="highlighter-rouge">order</code>與<code class="highlighter-rouge">order=</code>可以取用及設定<code class="highlighter-rouge">Order</code></li>
+  <li>多了<code class="highlighter-rouge">build_order</code>與<code class="highlighter-rouge">create_order</code>來建立<code class="highlighter-rouge">Order</code>資料。</li>
+</ol>
+
+<p><code class="highlighter-rouge">/app/models/order.rb</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:client</span>
+
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="model-及對應資料表">Model 及對應資料表</h2>
+
+<p>對應到資料表名稱而言，資料表命名通常預設是<code class="highlighter-rouge">小寫</code>、<code class="highlighter-rouge">複數</code>，並使用<code class="highlighter-rouge">底線</code>分隔。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model 名稱</th>
+      <th>Datasheet名稱</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Client</td>
+      <td>clients</td>
+    </tr>
+    <tr>
+      <td>Order</td>
+      <td>orders</td>
+    </tr>
+    <tr>
+      <td>OrderItem</td>
+      <td>order_item</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>注意：當某個Model不一定對應到一個資料表，和資料表就沒有任何關係。</p>
+
+<h2 id="新增-model--rails-g-model">新增 Model : <code class="highlighter-rouge">rails g model</code></h2>
+
+<p><em>1. Rails產生Client Model</em></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rails g model Client name email phone
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>column 欄位</th>
+      <th>資料型態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>phone</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeAir:demo2.5 tingtinghsu<span class="nv">$ </span>rails g model Client name email phone
+Running via Spring preloader <span class="k">in </span>process 85647
+      invoke  active_record
+      create    db/migrate/20190122023406_create_clients.rb
+      create    app/models/client.rb
+      invoke    test_unit
+      create      <span class="nb">test</span>/models/client_test.rb
+      create      <span class="nb">test</span>/fixtures/clients.yml
+</code></pre></div></div>
+
+<p><em>2. Model名稱：Order</em></p>
+
+<p><em>2. Rails產生Order Model</em></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rails g model Order price address orderdate shipdate client_id
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>column 欄位</th>
+      <th>Data型態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>price</td>
+      <td>integer</td>
+    </tr>
+    <tr>
+      <td>address</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>orderdate</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>shipdate</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>client_id</td>
+      <td>string (Foreign Key)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="產生資料表-rake-dbmigrate">產生資料表: <code class="highlighter-rouge">rake db:migrate</code></h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeAir:demo2.5 tingtinghsu<span class="nv">$ </span>rake db:migrate
+<span class="o">==</span> 20190121090619 CreateUsers: migrating <span class="o">======================================</span>
+<span class="nt">--</span> create_table<span class="o">(</span>:clients<span class="o">)</span>
+   -&gt; 0.0017s
+<span class="o">==</span> 20190121090619 CreateUsers: migrated <span class="o">(</span>0.0018s<span class="o">)</span> <span class="o">=============================</span>
+</code></pre></div></div>
+<h2 id="model-操作-透過orm-object-relational-mapping">Model 操作: 透過ORM (Object Relational Mapping)</h2>
+
+<p>「物件關聯映射」是一種透過操作<code class="highlighter-rouge">物件</code>來操作<code class="highlighter-rouge">關聯資料庫</code>的方式。</p>
+
+<h3 id="打開console-rails-console">打開console: <code class="highlighter-rouge">rails console</code></h3>
+
+<p>我們可以在rails環境裡打開console，我目前的環境是<code class="highlighter-rouge">Rails 5.2.2</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeAir:demo2.5 tingtinghsu<span class="nv">$ </span>rails console
+Running via Spring preloader <span class="k">in </span>process 83464
+Loading development environment <span class="o">(</span>Rails 5.2.2<span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="建立資料-console裡輸入crud命令">建立資料: Console裡輸入CRUD命令</h3>
+
+<p><code class="highlighter-rouge">CRUD</code>代表的是<code class="highlighter-rouge">Create新增</code>, <code class="highlighter-rouge">Read讀取</code>，<code class="highlighter-rouge">Update更新</code>，<code class="highlighter-rouge">Delete刪除</code></p>
+
+<h4 id="create-新增">Create 新增</h4>
+
+<p>假設我們要在客戶資料表<code class="highlighter-rouge">clients</code>新增一筆<code class="highlighter-rouge">業務超市</code>的資料，並存入資料表，有兩種方法</p>
+
+<ol>
+  <li><code class="highlighter-rouge">.new</code> + <code class="highlighter-rouge">.save</code></li>
+</ol>
+
+<p><code class="highlighter-rouge">merchant = Client.new</code>:<br />
+使用Client model new出新物件，並放入名為merchant的變數內。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">00</span><span class="mi">8</span> <span class="o">&gt;</span> <span class="n">merchant</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"gyomusuper"</span><span class="p">,</span> <span class="ss">email: </span><span class="s2">"hi@gyomusuper.jp"</span><span class="p">)</span>  
+
+<span class="o">=&gt;</span> <span class="c1">#&lt;Client id: nil, name: "gyomusuper", email: "hi@gyomusuper.jp", phone: nil, created_at: nil, updated_at: nil&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Client.save</code>:<br />
+存入clients資料表內。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">00</span><span class="mi">9</span> <span class="o">&gt;</span> <span class="n">merchant</span><span class="p">.</span><span class="nf">save</span>
+ 
+ <span class="p">(</span><span class="mf">1.5</span><span class="n">ms</span><span class="p">)</span>  <span class="k">begin</span> <span class="n">transaction</span>  
+ 
+  <span class="no">Client</span> <span class="no">Create</span> <span class="p">(</span><span class="mf">3.8</span><span class="n">ms</span><span class="p">)</span>  <span class="no">INSERT</span> <span class="no">INTO</span> <span class="s2">"clients"</span> <span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">,</span> <span class="s2">"created_at"</span><span class="p">,</span> <span class="s2">"updated_at"</span><span class="p">)</span> <span class="no">VALUES</span> <span class="p">(</span><span class="sc">?,</span> <span class="p">?,</span> <span class="sc">?,</span> <span class="p">?)</span>  <span class="p">[[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"gyomusuper"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"email"</span><span class="p">,</span> <span class="s2">"hi@gyomusuper.jp"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"created_at"</span><span class="p">,</span> <span class="s2">"2019-01-25 09:13:54.365848"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"updated_at"</span><span class="p">,</span> <span class="s2">"2019-01-25 09:13:54.365848"</span><span class="p">]]</span>
+
+   <span class="p">(</span><span class="mf">2.1</span><span class="n">ms</span><span class="p">)</span>  <span class="n">commit</span> <span class="n">transaction</span>
+</code></pre></div></div>
+
+<ol>
+  <li>直接<code class="highlighter-rouge">.create</code>: 若我們輸入的資料欄位沒有太多資料需要填寫，直接存入的方法可節省步驟。。</li>
+</ol>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">01</span><span class="mi">8</span> <span class="o">&gt;</span> <span class="no">Client</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"lawson"</span><span class="p">,</span> <span class="ss">email: </span><span class="s2">"hi@lawson.jp"</span><span class="p">)</span>
+
+   <span class="p">(</span><span class="mf">11.8</span><span class="n">ms</span><span class="p">)</span>  <span class="k">begin</span> <span class="n">transaction</span>
+  <span class="no">Client</span> <span class="no">Create</span> <span class="p">(</span><span class="mf">7.0</span><span class="n">ms</span><span class="p">)</span>  <span class="no">INSERT</span> <span class="no">INTO</span> <span class="s2">"clients"</span> <span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">,</span> <span class="s2">"created_at"</span><span class="p">,</span> <span class="s2">"updated_at"</span><span class="p">)</span> <span class="no">VALUES</span> <span class="p">(</span><span class="sc">?,</span> <span class="p">?,</span> <span class="sc">?,</span> <span class="p">?)</span>  <span class="p">[[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"lawson"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"email"</span><span class="p">,</span> <span class="s2">"hi@lawson.jp"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"created_at"</span><span class="p">,</span> <span class="s2">"2019-01-25 09:30:03.039573"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"updated_at"</span><span class="p">,</span> <span class="s2">"2019-01-25 09:30:03.039573"</span><span class="p">]]</span>
+   <span class="p">(</span><span class="mf">2.0</span><span class="n">ms</span><span class="p">)</span>  <span class="n">commit</span> <span class="n">transaction</span>
+
+<span class="o">=&gt;</span> <span class="c1">#&lt;Client id: 3, name: "lawson", email: "hi@lawson.jp", phone: nil, created_at: "2019-01-25 09:30:03", updated_at: "2019-01-25 09:30:03"&gt;</span>
+</code></pre></div></div>
+<h4 id="read-讀取-find">Read 讀取: <code class="highlighter-rouge">.find()</code></h4>
+
+<p>例如：我們現在在console裡輸入尋找clients資料表裡的第一筆資料，指令為<code class="highlighter-rouge">Client.find(1)</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">021</span> <span class="o">&gt;</span> <span class="no">Client</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="no">Client</span> <span class="no">Load</span> <span class="p">(</span><span class="mf">10.7</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span>  <span class="s2">"clients"</span><span class="p">.</span><span class="nf">*</span> <span class="no">FROM</span> <span class="s2">"clients"</span> <span class="no">WHERE</span> <span class="s2">"clients"</span><span class="o">.</span><span class="s2">"id"</span> <span class="o">=</span> <span class="p">?</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="p">[[</span><span class="s2">"id"</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">"LIMIT"</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+
+<span class="o">=&gt;</span> <span class="c1">#&lt;Client id: 1, name: "LIFE Supermarket", email: "hi@lifecorp.jp", phone: "03-3470-3484", created_at: "2019-01-22 08:26:58", updated_at: "2019-01-22 08:26:58"&gt;</span>
+</code></pre></div></div>
+
+<p>當我們寫</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Client</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>其SQL語法 =</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">SELECT</span> <span class="o">*</span> <span class="no">FROM</span> <span class="n">clients</span> <span class="no">WHERE</span> <span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="nf">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="no">LIMIT</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>和SQL語法相比，是不是節省了相當多的程式碼呢？</p>
+
+<hr />
+
+<p>Ref:</p>
+<ul>
+  <li><a href="https://books.google.com.au/books?id=AVE6DwAAQBAJ">為你自己學 Ruby on Rails(電子書)</a></li>
+  <li><a href="https://guides.rubyonrails.org/active_record_querying.html">Active Record Query Interface</a></li>
+  <li><a href="http://railscasts.com/episodes/4-move-find-into-model">Move Find into Model</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-01-24-rails_ruby_version_RVM">使用RVM安裝Ruby和Rails新版本</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-01-17-rails_instance_variable_performance">使用實體變數instance variable增進rails效能</a><br>
+        
+          
+        
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-23-day25_ruby_interview_questions_rails_exists_present">Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-08-21-install_ruby_rails_on_MacOS">Ruby on Rails練習 - MacOS安裝篇</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

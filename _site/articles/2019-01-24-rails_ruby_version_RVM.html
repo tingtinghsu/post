@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      使用RVM安裝Ruby和Rails新版本 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">使用RVM安裝Ruby和Rails新版本</h3>
+  <span class="post-date">24 Jan 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/rails">&nbsp;#rails</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/rubygem">&nbsp;#rubygem</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 2154 words. </small> <br>
+  <br>
+  <p>2019年度計畫就是要將Rails摸熟！本週練習<a href="">MVC相關語法</a>時，遇到<code class="highlighter-rouge">rails g model</code>指令出現錯誤。研讀錯誤訊息後推測為ruby和rails版本需要更新。此篇將更新過程記錄下來供貓貓及網友們參考。</p>
+
+<!-- more -->
+
+<hr />
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#問題1-rails-g-model出現錯誤訊息" id="markdown-toc-問題1-rails-g-model出現錯誤訊息">問題1: <code class="highlighter-rouge">rails g model</code>出現錯誤訊息</a></li>
+  <li><a href="#問題2-bundle-install無法安裝套件" id="markdown-toc-問題2-bundle-install無法安裝套件">問題2: <code class="highlighter-rouge">bundle install</code>無法安裝套件</a></li>
+  <li><a href="#安裝ruby" id="markdown-toc-安裝ruby">安裝Ruby</a>    <ul>
+      <li><a href="#step1-列出目前已有版本-rvm-list-known" id="markdown-toc-step1-列出目前已有版本-rvm-list-known">Step1. 列出目前已有版本 <code class="highlighter-rouge">rvm list known</code></a></li>
+      <li><a href="#step2-rvm指令安裝-rvm-install-ruby-252" id="markdown-toc-step2-rvm指令安裝-rvm-install-ruby-252">Step2. RVM指令安裝 <code class="highlighter-rouge">rvm install ruby-2.5.2</code></a></li>
+      <li><a href="#用指令設定ruby預設切換要使用的版本-ruby---default-use-252" id="markdown-toc-用指令設定ruby預設切換要使用的版本-ruby---default-use-252">用指令設定ruby預設/切換要使用的版本 <code class="highlighter-rouge">ruby --default use 2.5.2</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#安裝rails" id="markdown-toc-安裝rails">安裝Rails</a>    <ul>
+      <li><a href="#列目前ruby版本下的套件-gem-list" id="markdown-toc-列目前ruby版本下的套件-gem-list">列目前ruby版本下的套件 <code class="highlighter-rouge">gem list</code></a></li>
+      <li><a href="#使用套件安裝rails-gem-install-rails" id="markdown-toc-使用套件安裝rails-gem-install-rails">使用套件安裝rails: <code class="highlighter-rouge">gem install rails</code></a></li>
+      <li><a href="#移動到專案資料夾內產生model-rails-g-model" id="markdown-toc-移動到專案資料夾內產生model-rails-g-model">移動到專案資料夾內產生model: <code class="highlighter-rouge">rails g model</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<p>在更新版本之前，我的ruby版本為<code class="highlighter-rouge">ruby 2.4.2</code>，Rails為<code class="highlighter-rouge">Rails 5.1.4</code>。</p>
+
+<p>2017年11月</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">ruby</span> <span class="mf">2.4</span><span class="o">.</span><span class="mi">2</span><span class="n">p198</span> <span class="p">(</span><span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">14</span> <span class="n">revision</span> <span class="mi">59899</span><span class="p">)</span> <span class="p">[</span><span class="n">x86_64</span><span class="o">-</span><span class="n">darwin17</span><span class="p">]</span>
+<span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">gem</span> <span class="o">-</span><span class="n">v</span>
+<span class="mf">2.6</span><span class="o">.</span><span class="mi">14</span>
+<span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">rails</span> <span class="o">-</span><span class="n">v</span>
+<span class="no">Rails</span> <span class="mf">5.1</span><span class="o">.</span><span class="mi">4</span>
+</code></pre></div></div>
+
+<p>更新完後的時間2019年1月(MacOS版本 Mojave10.14.2)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">ruby</span> <span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span><span class="n">p104</span> <span class="p">(</span><span class="mi">2018</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">18</span> <span class="n">revision</span> <span class="mi">65133</span><span class="p">)</span> <span class="p">[</span><span class="n">x86_64</span><span class="o">-</span><span class="n">darwin18</span><span class="p">]</span>
+<span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">gem</span> <span class="o">-</span><span class="n">v</span>
+<span class="mf">2.7</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">rails</span> <span class="o">-</span><span class="n">v</span>
+<span class="no">Rails</span> <span class="mf">5.2</span><span class="o">.</span><span class="mi">2</span>
+</code></pre></div></div>
+
+<p>至於為何決定要更新呢？主要出現以下兩個問題：</p>
+
+<h1 id="問題1-rails-g-model出現錯誤訊息">問題1: <code class="highlighter-rouge">rails g model</code>出現錯誤訊息</h1>
+
+<p>無法使用rails指令產生Model的原因，可能是跟<code class="highlighter-rouge">git_proxy.rb</code>這個檔案有關。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nf">/</span><span class="no">Users</span><span class="o">/</span><span class="p">.</span><span class="nf">rvm</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">bundler</span><span class="o">-</span><span class="mf">1.16</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">bundler</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">git_proxy</span><span class="p">.</span><span class="nf">rb</span><span class="p">:</span><span class="mi">235</span><span class="ss">:in</span> <span class="sb">`allowed_in_path': The git source git://github.com/rails/rails.git is not yet checked out. Please run `</span><span class="n">bundle</span> <span class="n">install</span><span class="sb">` before trying to start your application (Bundler::GitError)
+</span></code></pre></div></div>
+
+<p>於是決定根據提示，使用<code class="highlighter-rouge">bundle install</code>。</p>
+
+<h1 id="問題2-bundle-install無法安裝套件">問題2: <code class="highlighter-rouge">bundle install</code>無法安裝套件</h1>
+
+<p>當我在專案內使用<code class="highlighter-rouge">bundle install</code>指令時，又出現錯誤訊息如下：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching git://github.com/rails/rails.git
+Fetching gem metadata from http://rubygems.org/.........
+Resolving dependencies...
+activesupport-6.0.0.beta1 requires ruby version <span class="o">&gt;=</span> 2.5.0, which is incompatible with the current version, ruby
+2.4.2p198
+</code></pre></div></div>
+
+<p>ruby2.4.2為當時的最大版本，但我的gem的<code class="highlighter-rouge">activesupport-6.0.0.beta1</code>需要<code class="highlighter-rouge">ruby version &gt;= 2.5.0</code>。於是在下一步將使用RVM更新ruby。</p>
+
+<h1 id="安裝ruby">安裝Ruby</h1>
+
+<h2 id="step1-列出目前已有版本-rvm-list-known">Step1. 列出目前已有版本 <code class="highlighter-rouge">rvm list known</code></h2>
+
+<p>RVM的全稱是<a href="https://kaochenlong.com/2011/11/16/rvm/">Ruby enVironment(Version) Manager</a>，意為Ruby版本管理，讓我們在主機裡裝上各版本的ruby，因為不同的專案可能會使用不同版本的ruby。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeAir</span><span class="ss">:demo</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">rvm</span> <span class="n">list</span> <span class="n">known</span>
+<span class="c1"># MRI Rubies</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">6</span><span class="p">[</span><span class="o">-</span><span class="n">p420</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">7</span><span class="p">[</span><span class="o">-</span><span class="n">head</span><span class="p">]</span> <span class="c1"># security released on head</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">1</span><span class="p">[</span><span class="o">-</span><span class="n">p431</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">2</span><span class="p">[</span><span class="o">-</span><span class="n">p330</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">3</span><span class="p">[</span><span class="o">-</span><span class="n">p551</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">0</span><span class="p">[</span><span class="o">-</span><span class="n">p648</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">2.1</span><span class="p">[</span><span class="o">.</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">2.2</span><span class="p">[</span><span class="o">.</span><span class="mi">7</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">2.3</span><span class="p">[</span><span class="o">.</span><span class="mi">4</span><span class="p">]</span>
+<span class="p">[</span><span class="n">ruby</span><span class="o">-</span><span class="p">]</span><span class="mf">2.4</span><span class="p">[</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ruby</span><span class="o">-</span><span class="n">head</span>
+
+<span class="c1"># for forks use: rvm install ruby-head-&lt;name&gt; --url https://github.com/github/ruby.git --branch 2.2</span>
+</code></pre></div></div>
+
+<p>除了<code class="highlighter-rouge">MRI Rubies</code>是Ruby創辦人<code class="highlighter-rouge">Matz' Ruby Implementation</code>，<code class="highlighter-rouge">rvm list known</code>還會列出我的MacBook其他的Ruby種類，像是<code class="highlighter-rouge">JRuby</code>(jruby-1.6[.8]),給# Mac OS X Snow Leopard或更新的作業系統使用的<code class="highlighter-rouge">MacRuby</code>(macruby-0.10)，Ruby的另一個虛擬機<code class="highlighter-rouge">Rubinius</code>等。</p>
+
+<h2 id="step2-rvm指令安裝-rvm-install-ruby-252">Step2. RVM指令安裝 <code class="highlighter-rouge">rvm install ruby-2.5.2</code></h2>
+
+<p>Homebrew是一個可以在MacOS環境下，用指令安裝軟體的套件管理系統(software package management system)。我按照提示，利用<code class="highlighter-rouge">sudo chown -R $(whoami) /usr/local/sbin</code>把檔案夾改成可寫入。
+接著又出現Homebrew的錯誤訊息：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Checking</span> <span class="n">requirements</span> <span class="k">for</span> <span class="n">osx</span><span class="o">.</span>
+<span class="no">Updating</span> <span class="no">Homebrew</span><span class="o">...</span>
+<span class="o">==&gt;</span> <span class="no">Auto</span><span class="o">-</span><span class="n">updated</span> <span class="no">Homebrew</span><span class="o">!</span>
+<span class="no">Updated</span> <span class="mi">3</span> <span class="n">taps</span> <span class="p">(</span><span class="n">heroku</span><span class="o">/</span><span class="n">brew</span><span class="p">,</span> <span class="n">homebrew</span><span class="o">/</span><span class="n">core</span> <span class="n">and</span> <span class="n">homebrew</span><span class="o">/</span><span class="n">services</span><span class="p">)</span><span class="o">.</span>
+
+<span class="no">Error</span><span class="p">:</span> <span class="no">Could</span> <span class="n">not</span> <span class="ss">link:
+</span><span class="sr">/usr/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">man</span><span class="o">/</span><span class="n">man1</span><span class="o">/</span><span class="n">brew</span><span class="o">.</span><span class="mi">1</span>
+
+<span class="no">Please</span> <span class="n">delete</span> <span class="n">these</span> <span class="n">paths</span> <span class="n">and</span> <span class="n">run</span> <span class="sb">`brew update`</span><span class="o">.</span>
+<span class="no">Error</span><span class="p">:</span> <span class="no">Could</span> <span class="n">not</span> <span class="ss">link:
+</span><span class="sr">/usr/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">homebrew</span>
+
+<span class="no">Please</span> <span class="n">delete</span> <span class="n">these</span> <span class="n">paths</span> <span class="n">and</span> <span class="n">run</span> <span class="sb">`brew update`</span><span class="o">.</span>
+<span class="no">Error</span><span class="p">:</span> <span class="no">The</span> <span class="n">following</span> <span class="n">directories</span> <span class="n">are</span> <span class="n">not</span> <span class="n">writable</span> <span class="n">by</span> <span class="n">your</span> <span class="ss">user:
+</span><span class="sr">/usr/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span>
+
+<span class="no">You</span> <span class="n">should</span> <span class="n">change</span> <span class="n">the</span> <span class="n">ownership</span> <span class="n">of</span> <span class="n">these</span> <span class="n">directories</span> <span class="n">to</span> <span class="n">your</span> <span class="n">user</span><span class="p">.</span>
+  <span class="nf">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="no">R</span> <span class="err">$</span><span class="p">(</span><span class="n">whoami</span><span class="p">)</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span>
+<span class="no">Requirements</span> <span class="n">installation</span> <span class="n">failed</span> <span class="n">with</span> <span class="ss">status: </span><span class="mi">1</span><span class="o">.</span>
+</code></pre></div></div>
+
+<p>Homebrew的錯誤訊息解除後，ruby2.5.0仍一直裝不成功，決定裝ruby2.5.2版本。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span> <span class="n">tingdeAir</span><span class="ss">:demo</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">rvm</span> <span class="n">install</span> <span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span>
+<span class="no">Warning</span><span class="p">,</span> <span class="n">new</span> <span class="n">version</span> <span class="n">of</span> <span class="n">rvm</span> <span class="n">available</span> <span class="s1">'1.29.7-next'</span><span class="p">,</span> <span class="n">you</span> <span class="n">are</span> <span class="n">using</span> <span class="n">older</span> <span class="n">version</span> <span class="s1">'1.29.3'</span><span class="o">.</span>
+<span class="no">You</span> <span class="n">can</span> <span class="n">disable</span> <span class="n">this</span> <span class="n">warning</span> <span class="ss">with:    </span><span class="n">echo</span> <span class="n">rvm_autoupdate_flag</span><span class="o">=</span><span class="mi">0</span> <span class="o">&gt;&gt;</span> <span class="o">~</span><span class="sr">/.rvmrc
+You can enable  auto-update  with:    echo rvm_autoupdate_flag=2 &gt;&gt; ~/</span><span class="p">.</span><span class="nf">rvmrc</span>
+<span class="no">Searching</span> <span class="k">for</span> <span class="n">binary</span> <span class="n">rubies</span><span class="p">,</span> <span class="n">this</span> <span class="n">might</span> <span class="n">take</span> <span class="n">some</span> <span class="n">time</span><span class="o">.</span>
+<span class="no">No</span> <span class="n">binary</span> <span class="n">rubies</span> <span class="n">available</span> <span class="ss">for: </span><span class="n">osx</span><span class="o">/</span><span class="mf">10.14</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span>
+<span class="no">Continuing</span> <span class="n">with</span> <span class="n">compilation</span><span class="o">.</span> <span class="no">Please</span> <span class="n">read</span> <span class="s1">'rvm help mount'</span> <span class="n">to</span> <span class="n">get</span> <span class="n">more</span> <span class="n">information</span> <span class="n">on</span> <span class="n">binary</span> <span class="n">rubies</span><span class="o">.</span>
+<span class="no">Checking</span> <span class="n">requirements</span> <span class="k">for</span> <span class="n">osx</span><span class="o">.</span>
+<span class="no">Updating</span> <span class="no">Homebrew</span><span class="o">...</span>
+<span class="o">==&gt;</span> <span class="no">Upgrading</span> <span class="mi">5</span> <span class="n">outdated</span> <span class="ss">packages:
+</span><span class="n">automake</span> <span class="mf">1.15</span><span class="o">.</span><span class="mi">1</span> <span class="o">-&gt;</span> <span class="mf">1.16</span><span class="o">.</span><span class="mi">1_1</span><span class="p">,</span> <span class="n">coreutils</span> <span class="mf">8.28</span><span class="n">_1</span> <span class="o">-&gt;</span> <span class="mf">8.30</span><span class="p">,</span> <span class="n">libyaml</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">7</span> <span class="o">-&gt;</span> <span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">openssl</span><span class="err">@</span><span class="mf">1.1</span> <span class="mf">1.1</span><span class="o">.</span><span class="mi">0</span><span class="n">g</span> <span class="o">-&gt;</span> <span class="mf">1.1</span><span class="o">.</span><span class="mi">1</span><span class="n">a</span><span class="p">,</span> <span class="n">readline7</span><span class="o">.</span><span class="mf">0.3</span><span class="n">_1</span> <span class="o">-&gt;</span> <span class="mf">8.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="o">==&gt;</span> <span class="no">Upgrading</span> <span class="n">openssl</span><span class="err">@</span><span class="mf">1.1</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="o">-</span> <span class="no">Installing</span> <span class="no">Ruby</span> <span class="n">from</span> <span class="n">source</span> <span class="ss">to: </span><span class="sr">/Users/</span><span class="n">tingtinghsu</span><span class="o">/</span><span class="p">.</span><span class="nf">rvm</span><span class="o">/</span><span class="n">rubies</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="n">this</span> <span class="n">may</span> <span class="n">take</span> <span class="n">a</span> <span class="k">while</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">your</span> <span class="n">cpu</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">...</span>
+<span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="o">-</span> <span class="c1">#downloading ruby-2.5.2, this may take a while depending on your connection...</span>
+  <span class="sx">% Total </span>   <span class="o">%</span> <span class="no">Received</span> <span class="o">%</span> <span class="no">Xferd</span>  <span class="no">Average</span> <span class="no">Speed</span>   <span class="no">Time</span>    <span class="no">Time</span>     <span class="no">Time</span>  <span class="no">Current</span>
+                                 <span class="no">Dload</span>  <span class="no">Upload</span>   <span class="no">Total</span>   <span class="no">Spent</span>    <span class="no">Left</span>  <span class="no">Speed</span>
+<span class="mi">100</span> <span class="mf">12.9</span><span class="no">M</span>  <span class="mi">100</span> <span class="mf">12.9</span><span class="no">M</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">1841</span><span class="n">k</span>      <span class="mi">0</span>  <span class="mi">0</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">07</span>  <span class="mi">0</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">07</span> <span class="o">--</span><span class="p">:</span><span class="o">--</span><span class="p">:</span><span class="o">--</span> <span class="mi">2484</span><span class="n">k</span>
+<span class="no">No</span> <span class="n">checksum</span> <span class="k">for</span> <span class="n">downloaded</span> <span class="n">archive</span><span class="p">,</span> <span class="n">recording</span> <span class="n">checksum</span> <span class="k">in</span> <span class="n">user</span> <span class="n">configuration</span><span class="p">.</span>
+<span class="nf">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="o">-</span> <span class="c1">#extracting ruby-2.5.2 to /Users/tingtinghsu/.rvm/src/ruby-2.5.2....</span>
+<span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="o">-</span> <span class="c1">#configuring...................................................................</span>
+<span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="o">-</span> <span class="c1">#post-configuration.</span>
+<span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span> <span class="o">-</span> <span class="c1">#compiling........ </span>
+</code></pre></div></div>
+
+<p>Ruby 2.5.2終於成功安裝了！</p>
+
+<h2 id="用指令設定ruby預設切換要使用的版本-ruby---default-use-252">用指令設定ruby預設/切換要使用的版本 <code class="highlighter-rouge">ruby --default use 2.5.2</code></h2>
+
+<p>未來我們在進入不同的專案裡，可以用指令<code class="highlighter-rouge">ruby use x.x.x</code>設定ruby切換要使用的版本。如果打算將新版本預設作為一開機就使用的ruby版本號，加上<code class="highlighter-rouge">--default</code>。輸入<code class="highlighter-rouge">rvm info</code>可以查詢更多訊息。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">rvm</span> <span class="n">use</span> <span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span>
+<span class="no">Using</span> <span class="sr">/Users/</span><span class="n">tingtinghsu</span><span class="o">/</span><span class="p">.</span><span class="nf">rvm</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span>
+
+<span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">which</span> <span class="n">ruby</span>
+<span class="sr">/Users/</span><span class="n">tingtinghsu</span><span class="o">/</span><span class="p">.</span><span class="nf">rvm</span><span class="o">/</span><span class="n">rubies</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">ruby</span>
+
+<span class="n">tingdeAir</span><span class="ss">:~</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">rvm</span> <span class="n">info</span>
+<span class="ss">rvm:
+    version:      </span><span class="s2">"1.29.3 (latest)"</span>
+    <span class="ss">path:         </span><span class="s2">"/Users/tingtinghsu/.rvm"</span>
+  <span class="ss">ruby:
+    interpreter:  </span><span class="s2">"ruby"</span>
+    <span class="ss">version:      </span><span class="s2">"2.5.2p104"</span>
+    <span class="ss">date:         </span><span class="s2">"2018-10-18"</span>
+    <span class="ss">platform:     </span><span class="s2">"x86_64-darwin18"</span>
+    <span class="ss">patchlevel:   </span><span class="s2">"2018-10-18 revision 65133"</span>
+    <span class="ss">full_version: </span><span class="s2">"ruby 2.5.2p104 (2018-10-18 revision 65133) [x86_64-darwin18]"</span>
+
+  <span class="ss">homes:
+    gem:          </span><span class="s2">"/Users/tingtinghsu/.rvm/gems/ruby-2.5.2"</span>   <span class="c1">#指令rvm use的路徑ruby-2.5.2，正在使用中</span>
+    <span class="ss">ruby:         </span><span class="s2">"/Users/tingtinghsu/.rvm/rubies/ruby-2.5.2"</span> <span class="c1">#指令which ruby的路徑</span>
+
+  <span class="ss">binaries:
+    ruby:         </span><span class="s2">"/Users/tingtinghsu/.rvm/rubies/ruby-2.5.2/bin/ruby"</span>
+    <span class="ss">irb:          </span><span class="s2">"/Users/tingtinghsu/.rvm/rubies/ruby-2.5.2/bin/irb"</span>
+    <span class="ss">gem:          </span><span class="s2">"/Users/tingtinghsu/.rvm/rubies/ruby-2.5.2/bin/gem"</span>
+    <span class="ss">rake:         </span><span class="s2">"/Users/tingtinghsu/.rvm/gems/ruby-2.5.2/bin/rake"</span>
+
+</code></pre></div></div>
+
+<h1 id="安裝rails">安裝Rails</h1>
+
+<p>由於我有多個版本的Ruby，在RVM的管理方式是讓不同ruby的gem分別獨立開來，現在新的<code class="highlighter-rouge">ruby-2.5.2</code>下目前尚未安裝rails。</p>
+
+<h2 id="列目前ruby版本下的套件-gem-list">列目前ruby版本下的套件 <code class="highlighter-rouge">gem list</code></h2>
+
+<p>現在與我們最相關的是<code class="highlighter-rouge">rubygems-bundler (1.4.5)</code>
+和<code class="highlighter-rouge">rvm (1.11.3.9)</code>，rails還沒有在裡面。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">gem</span> <span class="n">list</span>
+
+<span class="o">***</span> <span class="no">LOCAL</span> <span class="no">GEMS</span> <span class="o">***</span>
+
+<span class="n">bigdecimal</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.3</span><span class="o">.</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">bundler</span><span class="o">-</span><span class="n">unload</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">cmath</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">csv</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">date</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dbm</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">did_you_mean</span> <span class="p">(</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">etc</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">executable</span><span class="o">-</span><span class="n">hooks</span> <span class="p">(</span><span class="mf">1.6</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fcntl</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fiddle</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fileutils</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">gem</span><span class="o">-</span><span class="n">wrappers</span> <span class="p">(</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">io</span><span class="o">-</span><span class="n">console</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">0.4</span><span class="o">.</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ipaddr</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.2</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">json</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">2.1</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">minitest</span> <span class="p">(</span><span class="mf">5.10</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">net</span><span class="o">-</span><span class="n">telnet</span> <span class="p">(</span><span class="mf">0.1</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">openssl</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">2.1</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">power_assert</span> <span class="p">(</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">psych</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">3.0</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rake</span> <span class="p">(</span><span class="mf">12.3</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">rdoc</span> <span class="p">(</span><span class="mf">6.1</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="ss">default: </span><span class="mf">6.0</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rubygems</span><span class="o">-</span><span class="n">bundler</span> <span class="p">(</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">rvm</span> <span class="p">(</span><span class="mf">1.11</span><span class="o">.</span><span class="mf">3.9</span><span class="p">)</span>
+<span class="n">scanf</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sdbm</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">stringio</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">strscan</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">test</span><span class="o">-</span><span class="n">unit</span> <span class="p">(</span><span class="mf">3.2</span><span class="o">.</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">webrick</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.4</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">xmlrpc</span> <span class="p">(</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">zlib</span> <span class="p">(</span><span class="ss">default: </span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="使用套件安裝rails-gem-install-rails">使用套件安裝rails: <code class="highlighter-rouge">gem install rails</code></h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeAir</span><span class="ss">:projects</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">rails</span>
+<span class="no">Fetching</span><span class="p">:</span> <span class="n">concurrent</span><span class="o">-</span><span class="n">ruby</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">4</span><span class="p">.</span><span class="nf">gem</span> <span class="p">(</span><span class="mi">100</span><span class="o">%</span><span class="p">)</span>
+<span class="no">Successfully</span> <span class="n">installed</span> <span class="n">concurrent</span><span class="o">-</span><span class="n">ruby</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">4</span>
+<span class="no">Fetching</span><span class="p">:</span> <span class="n">i18n</span><span class="o">-</span><span class="mf">1.5</span><span class="o">.</span><span class="mi">2</span><span class="p">.</span><span class="nf">gem</span> <span class="p">(</span><span class="mi">100</span><span class="o">%</span><span class="p">)</span>
+
+<span class="no">HEADS</span> <span class="no">UP</span><span class="o">!</span> <span class="n">i18n</span> <span class="mf">1.1</span> <span class="n">changed</span> <span class="n">fallbacks</span> <span class="n">to</span> <span class="n">exclude</span> <span class="n">default</span> <span class="n">locale</span><span class="o">.</span>
+<span class="no">But</span> <span class="n">that</span> <span class="n">may</span> <span class="k">break</span> <span class="n">your</span> <span class="n">application</span><span class="o">.</span>
+
+<span class="no">Please</span> <span class="n">check</span> <span class="n">your</span> <span class="no">Rails</span> <span class="n">app</span> <span class="k">for</span> <span class="s1">'config.i18n.fallbacks = true'</span><span class="o">.</span>
+<span class="no">If</span> <span class="n">you</span><span class="s1">'re using I18n (&gt;= 1.1.0) and Rails (&lt; 5.2.2), this should be
+'</span><span class="n">config</span><span class="p">.</span><span class="nf">i18n</span><span class="p">.</span><span class="nf">fallbacks</span> <span class="o">=</span> <span class="p">[</span><span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span><span class="p">]</span><span class="err">'</span><span class="o">.</span>
+<span class="no">If</span> <span class="n">not</span><span class="p">,</span> <span class="n">fallbacks</span> <span class="n">will</span> <span class="n">be</span> <span class="n">broken</span> <span class="k">in</span> <span class="n">your</span> <span class="n">app</span> <span class="n">by</span> <span class="no">I18n</span> <span class="mf">1.1</span><span class="p">.</span><span class="nf">x</span><span class="o">.</span>
+
+<span class="no">For</span> <span class="n">more</span> <span class="n">info</span> <span class="ss">see:
+</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">svenfuchs</span><span class="o">/</span><span class="n">i18n</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">tag</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mf">1.0</span>
+<span class="mi">39</span> <span class="n">gems</span> <span class="n">installed</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<p>總算安裝Rails完了！根據以上的提示訊息，確認一下Rails版本是否&gt;=5.2.2</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">tingdeAir</span><span class="ss">:projects</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">rails</span> <span class="o">-</span><span class="n">v</span>
+<span class="no">Rails</span> <span class="mf">5.2</span><span class="o">.</span><span class="mi">2</span>
+</code></pre></div></div>
+
+<h2 id="移動到專案資料夾內產生model-rails-g-model">移動到專案資料夾內產生model: <code class="highlighter-rouge">rails g model</code></h2>
+
+<p>問題總算順利解決了！:)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeAir</span><span class="ss">:projects</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">cd</span> <span class="n">demo2</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span>
+<span class="n">tingdeAir</span><span class="ss">:demo2</span><span class="o">.</span><span class="mi">5</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">rails</span> <span class="n">g</span> <span class="n">model</span> <span class="no">User</span> <span class="nb">name</span> <span class="n">email</span> <span class="n">tel</span>
+<span class="no">Running</span> <span class="n">via</span> <span class="no">Spring</span> <span class="n">preloader</span> <span class="k">in</span> <span class="n">process</span> <span class="mi">82946</span>
+      <span class="n">invoke</span>  <span class="n">active_record</span>
+      <span class="n">create</span>    <span class="n">db</span><span class="o">/</span><span class="n">migrate</span><span class="o">/</span><span class="mi">20190121090619</span><span class="n">_create_users</span><span class="p">.</span><span class="nf">rb</span>
+      <span class="n">create</span>    <span class="n">app</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">user</span><span class="p">.</span><span class="nf">rb</span>
+      <span class="n">invoke</span>    <span class="n">test_unit</span>
+      <span class="n">create</span>      <span class="nb">test</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">user_test</span><span class="p">.</span><span class="nf">rb</span>
+      <span class="n">create</span>      <span class="nb">test</span><span class="o">/</span><span class="n">fixtures</span><span class="o">/</span><span class="n">users</span><span class="p">.</span><span class="nf">yml</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://rvm.io/">RVM.io</a></li>
+  <li><a href="https://tingtinghsu.github.io/blog/articles/2018-08-21-install_ruby_rails_on_MacOS">Ruby on Rails練習 - MacOS安裝篇</a></li>
+  <li><a href="https://zoneless.weebly.com/blog/install-ruby-on-mac-with-rvm">在Mac上用rvm安裝ruby</a></li>
+  <li><a href="https://kaochenlong.com/2011/11/16/rvm/">RVM - Ruby enVironment(Version) Manager</a></li>
+  <li><a href="https://bundler.io/v1.17/guides/updating_gems.html">How to update gems with Bundler</a></li>
+  <li><a href="https://stackoverflow.com/questions/9212116/rails-could-not-find-railties">Rails: Could not find railties</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-01-17-rails_instance_variable_performance">使用實體變數instance variable增進rails效能</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-01-14-rails_MVC_model_view_controller">Rails的 MVC 架構: 淺談 model 和 controller</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-23-day25_ruby_interview_questions_rails_exists_present">Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-08-21-install_ruby_rails_on_MacOS">Ruby on Rails練習 - MacOS安裝篇</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

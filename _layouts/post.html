@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">{{ page.title }}</h3>
+  <span class="post-date">{{ page.date | date_to_string }}</span>
+  <div class="tags">
+      {% assign sortedTags = page.tags | sort %}
+      <small>Tags: </small>
+      {% for tag in sortedTags %}
+        <span class="tag">
+          <small> <a href="{{ site.baseurl }}/tag/{{ tag }}">&nbsp;#{{ tag }}</a></small>
+        </span>&nbsp;
+      {% endfor %}
+      <br>
+    </div>
+  <small> Total : {{ page.content | number_of_words }} words. </small> <br>
+  <br>
+  {{ content }}
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      {% assign firstTag = page.tags | first %}
+      {% assign relatedCount = 0 %}
+      {% for related in site.tags[firstTag] %}
+        {% unless page.permalink == related.permalink %}
+        {% assign relatedCount = relatedCount | plus: 1 %}
+        <a href="{{ site.baseurl }}{{related.permalink}}">{{ related.title }}</a><br>
+        {% endunless %}
+          
+        {% if relatedCount == 4 %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+

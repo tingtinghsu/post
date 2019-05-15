@@ -1,18 +1,28 @@
 ---
+title:  "Ruby面試精選30題 - Day11 Ruby 的 block, proc, lamdba方法比較"
+preview: "Ruby interview question: What’s difference between blocks, procs and lambdas?"
+permalink: "/articles/2018-09-20-day11_ruby_interview_questions_blocks_procs_lambdas"
+date:   2018-09-20 11:57:00
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day11 Ruby 的 block, proc, lamdba方法比較 "
-date:   2018-09-20 11:57:00 +1000
-categories: ruby interview
+tags: 
+  - "interview"
+comments: true
 ---
-前情提要:
 
-第11天開始，要更深入Ruby的精髓！
+第11天開始，要更深入Ruby的精髓。來聊聊Ruby的 block, proc 與 lamdba！
+<!-- more -->
+
+---
+
+重點摘要:
+* abstact
+{:toc}
 
 ---
 
 # Ruby經典面試題目 #11
 
-`Ruby 的 block, proc, lamdba方法比較? What’s difference between blocks, procs and lambdas?`
+* Ruby 的 `block`, `proc`, `lamdba`方法比較? What’s difference between blocks, procs and lambdas?
 
 ## block 程式碼區塊
 

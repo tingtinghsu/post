@@ -1,26 +1,34 @@
 ---
 layout: page
-title: About
-permalink: /about
+title: About Ting Ting
 ---
 
-<p>Believe it and act as if it were impossible to fail!</p>
+![My Bio](https://avatars2.githubusercontent.com/u/15205080?s=460&v=1){: width="200px" height="200px"}
 
-深信不疑的去做吧！彷彿不會失敗一樣。
+A Taiwanese traveler / developer currently based in Osaka, Japan.
 
-Hi there I'm Ting Ting from Taiwan :)
+旅行年表：
 
->[My Wordpress Blog : TingTingTour](https://tingtingtour.wordpress.com/)
+年份 | 國家
+---- | -----
+2013 | 新加坡
+ | 紐西蘭
+ | 澳洲
+2015 | 印尼 峇里島
+ | 紐西蘭
+ | [歐洲](https://tingtingtour.wordpress.com/category/tings-travel-stories/europe-adventure/)
+ | - 法國
+ | - 英國
+ | - 愛爾蘭
+ | - 德國
+ | - 荷蘭
+ | - 比利時
+2016 | 日本
+ | 越南
+2015 - 2018 | [澳洲・Sydney](https://tingtingtour.wordpress.com/category/tings-travel-stories/learn-something-new/)
+2018 - 2019 | [日本・Osaka](https://tingtingtour.wordpress.com/category/tings-travel-stories/japan-journal/)
 
->[我的IT邦文章](https://ithelp.ithome.com.tw/users/20111177/articles)
+Believe it and act as if it were impossible to fail!  
+`深信不疑地去行動吧，彷彿不會失敗一樣！`
 
->[我的REPL.IT](https://repl.it/@hsutingting/UrbanFoolhardySpyware)
-
->[Ruby TW使用手冊](https://guides.ruby.tw/ruby/index.html)
-
->[Ruby-doc.org](http://ruby-doc.org/core-2.5.1/)
-
->[RubyonRails.org](https://api.rubyonrails.org/)
-
->[TingsRailsDemo](http://tingsrailsdemo.herokuapp.com/)
-
+[home](<./>)

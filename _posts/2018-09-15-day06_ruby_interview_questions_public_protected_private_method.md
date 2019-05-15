@@ -1,20 +1,26 @@
 ---
+title:  "Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protected, Private"
+preview: "Ruby interview question: What does self mean?"
+permalink: "/articles/2018-09-15-day06_ruby_interview_questions_public_protected_private_method"
+date:   2018-09-15 14:50:00
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day06 Ruby三種存取限制Public, Protected, Private"
-date:   2018-09-15 14:50:00 +1000
-categories: ruby interview
+tags: 
+  - "interview"
+comments: true
 ---
-前情提要:
 
 在第五天的最後，我們提到了一句話"相同的class的實體也無法使用別人的singleton method"。
 
 在今天，我們把焦點放在Ruby的method, 繼續了解存取限制:)
 
+<!-- more -->
+
 ---
 
 # Ruby經典面試題目 #06
 
-`說明Ruby的三種存取限制。 3 levels of access control for Ruby methods.`
+* 說明Ruby的三種存取限制。  
+3 levels of access control for Ruby methods.
 
 讓我們用程式碼分別描述三種存取：`Public`, `Protected`, `Private`:
 

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day07 Symbol符號與String字串比較 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day07 Symbol符號與String字串比較</h3>
+  <span class="post-date">15 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 546 words. </small> <br>
+  <br>
+  <p>在第六天我們透過程式碼練習<code class="highlighter-rouge">public</code>，<code class="highlighter-rouge">protected</code>和<code class="highlighter-rouge">private</code>method時，發現冒號在前面的參數，<code class="highlighter-rouge">:mydraft</code>，<code class="highlighter-rouge">:myspace</code>，這些就是符號<code class="highlighter-rouge">Symbol</code>。在今天我們就來解釋<code class="highlighter-rouge">Symbol</code>吧。</p>
+
+<!-- more -->
+
+<hr />
+
+<h1 id="ruby經典面試題目-07">Ruby經典面試題目 #07</h1>
+
+<ul>
+  <li>符號和字串有什麼不同?<br />
+What’s difference between symbol and string?</li>
+</ul>
+
+<p>還記得我在之前IT邦文章在Ruby on Rails專案例子中研究ruby的gem套件時，我發現這兩者寫法的功能是一樣的:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:image_directory</span> <span class="o">=&gt;</span> <span class="s1">'tingsimage'</span>  
+</code></pre></div></div>
+
+<p>功能跟下者一樣:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">image_directory: </span><span class="s1">'tingsimage'</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">:冒號在前面</code>，意思是符號</p>
+
+<p><code class="highlighter-rouge">冒號在後面:</code>，意思是給值</p>
+
+<p>當時的發現，也是造就本篇文章想進一步探討<del>跑來跑去的小淘氣</del>冒號的原因。</p>
+
+<p>我們來用程式碼實驗看看：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingsmessage</span> <span class="o">=</span> <span class="s2">"This is my 7th article!"</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">tingsmessage</code> 這個<code class="highlighter-rouge">變數</code>，指向 “This is my 7th article!” 這個<code class="highlighter-rouge">字串物件</code>，變數的用意，就是讓我的字串物件可以隨時做調整。（明天我的message跑馬燈就會換成第八天的招呼囉！）</p>
+
+<p>如果我們把它變成:<code class="highlighter-rouge">:tingsmessage</code>的符號呢?</p>
+
+<p>它就會變成<code class="highlighter-rouge">Symbol類別</code>下的<code class="highlighter-rouge">物件實體</code>，名字叫做<code class="highlighter-rouge">tingsmessage</code>。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>比一比</th>
+      <th>符號 symbol</th>
+      <th>字串 string</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>意思</td>
+      <td>有名字的<code class="highlighter-rouge">符號物件</code></td>
+      <td>指向<code class="highlighter-rouge">字串物件</code>的變數</td>
+    </tr>
+    <tr>
+      <td>可不可變</td>
+      <td>不可變 immutable</td>
+      <td>可變 mutable</td>
+    </tr>
+    <tr>
+      <td>修改陣列</td>
+      <td>不可使用<code class="highlighter-rouge">[]=</code>方法</td>
+      <td>可使用<code class="highlighter-rouge">[]=</code>方法修改字串</td>
+    </tr>
+    <tr>
+      <td>陣列方法</td>
+      <td>可使用[] 取得陣列內的字元</td>
+      <td>可使用[] 取得陣列內的字元</td>
+    </tr>
+    <tr>
+      <td>字元方法</td>
+      <td>可使用.length .upcase .downcase</td>
+      <td>可使用.l.length .upcase .downcase</td>
+    </tr>
+    <tr>
+      <td>符號與字串轉換</td>
+      <td>符號轉字串<code class="highlighter-rouge">.to_s</code></td>
+      <td>字串轉符號<code class="highlighter-rouge">.to_sym</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>來用程式碼實作：</p>
+
+<p><code class="highlighter-rouge">:tingsmessage</code>這個符號的名字有12個字元，名字的第1個字母是t(陣列位置[0]代表第1個)，第2個字母是i…以此類推:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="ss">:tingsmessage</span><span class="p">.</span><span class="nf">length</span> <span class="c1">#12</span>
+<span class="nb">p</span> <span class="ss">:tingsmessage</span><span class="p">.</span><span class="nf">upcase</span> <span class="c1">#TINGSMESSAGE</span>
+<span class="nb">p</span> <span class="ss">:tingsmessage</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#t</span>
+<span class="nb">p</span> <span class="ss">:tingsmessage</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#i</span>
+</code></pre></div></div>
+
+<p>而<code class="highlighter-rouge">tingsmessage</code>這個每天都會變來變去的變數，所指向的字串，一共有23個字元:（不信你數數看!）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingsmessage</span> <span class="o">=</span> <span class="s2">"This is my 7th article!"</span>
+<span class="nb">p</span> <span class="n">tingsmessage</span><span class="p">.</span><span class="nf">length</span> <span class="c1">#23</span>
+<span class="nb">p</span> <span class="n">tingsmessage</span><span class="p">.</span><span class="nf">upcase</span> <span class="c1">#THIS IS MY 7TH ARTICLE!</span>
+<span class="nb">p</span> <span class="n">tingsmessage</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#t</span>
+<span class="nb">p</span> <span class="n">tingsmessage</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#h</span>
+</code></pre></div></div>
+
+<p>身為變數的好處就是可以任意修改。我們來試試改字母：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingsmessage</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Z"</span>
+<span class="nb">p</span> <span class="n">tingsmessage</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Z</span>
+<span class="nb">p</span> <span class="n">tingsmessage</span> <span class="c1">#TZis is my 7th article!</span>
+</code></pre></div></div>
+
+<p>然而符號呢？</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:tingsmessage</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="s2">"Z"</span>
+<span class="c1">#undefined method `[]=' for :tingsmessage:Symbol (NoMethodError)</span>
+</code></pre></div></div>
+
+<p>符號會找不到<code class="highlighter-rouge">[]=</code>方法修改字串。你可以想像，符號就如同我們在護照上的名字，是不能修改的。（因為已經被定義在國際間海關通用的資料庫了。）</p>
+
+<p>符號的好處是專一，它被寫在程式裡固定的記憶體位置，所以提取效能較高。我們可以用<code class="highlighter-rouge">object_id</code>的方法來實驗：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="mi">3</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+    <span class="nb">p</span> <span class="ss">:tingsmessage</span><span class="p">.</span><span class="nf">object_id</span>
+  <span class="k">end</span>
+
+</code></pre></div></div>
+
+<p>印出結果：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1041308
+1041308
+1041308
+</code></pre></div></div>
+
+<p>而變來變去的變數每次都在記憶體裡面，搬家到不同位置:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="mi">3</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+    <span class="nb">p</span> <span class="s2">"tingsmessage"</span><span class="p">.</span><span class="nf">object_id</span>
+  <span class="k">end</span>
+</code></pre></div></div>
+
+<p>印出結果：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>46936214509440
+46936214509260
+46936214509180
+</code></pre></div></div>
+
+<p>在前述比較表，符號和字串之間可以互相轉換的。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="ss">:tingsmessage</span> <span class="c1"># :tingsmessage</span>
+<span class="nb">p</span> <span class="ss">:tingsmessage</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1"># tingsmessage 前面的冒號已經不見了！</span>
+
+<span class="nb">p</span> <span class="n">tingsmessage</span> <span class="c1"># TZis is my 7th article!</span>
+<span class="nb">p</span> <span class="n">tingsmessage</span><span class="p">.</span><span class="nf">to_sym</span> <span class="c1"># :TZis is my 7th article! 前面多一個冒號</span>
+</code></pre></div></div>
+
+<h1 id="何時使用符號symbol">何時使用符號Symbol</h1>
+
+<p>需要效能較高地傳遞參數時，例如在之前我們使用rails建立專案，餐廳名字、電話等…，這些資料庫欄位的名稱是固定不變的：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">restaurant_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:restaurant</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:address</span><span class="p">,</span> <span class="ss">:phone</span><span class="p">,</span> <span class="ss">:website</span><span class="p">,</span> <span class="ss">:image</span><span class="p">)</span>
+    <span class="k">end</span>
+</code></pre></div></div>
+
+<p>回到文初一開頭，我終於明白，</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="ss">:image_directory</span> <span class="o">=&gt;</span> <span class="s1">'tingsimage'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>其實是符號Symbol用在Hash（外圍被大括弧<code class="highlighter-rouge">{}</code>包著）裡，是變數給值<code class="highlighter-rouge">=&gt;</code>的意思。</p>
+
+<p>今天超級比一比，就到這裏結束啦！</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>比一比</th>
+      <th>符號 symbol</th>
+      <th>字串 string</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>意思</td>
+      <td>有名字的<code class="highlighter-rouge">符號物件</code></td>
+      <td>指向<code class="highlighter-rouge">字串物件</code>的變數</td>
+    </tr>
+    <tr>
+      <td>可不可變</td>
+      <td>不可變 immutable</td>
+      <td>可變 mutable</td>
+    </tr>
+    <tr>
+      <td>修改陣列</td>
+      <td>不可使用<code class="highlighter-rouge">[]=</code>方法</td>
+      <td>可使用<code class="highlighter-rouge">[]=</code>方法修改字串</td>
+    </tr>
+    <tr>
+      <td>陣列方法</td>
+      <td>可使用[] 取得陣列內的字元</td>
+      <td>可使用[] 取得陣列內的字元</td>
+    </tr>
+    <tr>
+      <td>字元方法</td>
+      <td>可使用.length .upcase .downcase</td>
+      <td>可使用.l.length .upcase .downcase</td>
+    </tr>
+    <tr>
+      <td>符號與字串轉換</td>
+      <td>符號轉字串<code class="highlighter-rouge">.to_s</code></td>
+      <td>字串轉符號<code class="highlighter-rouge">.to_sym</code></td>
+    </tr>
+    <tr>
+      <td>常用時機</td>
+      <td>用於不需改變值的情況，如Hash的key與value</td>
+      <td>需要使用字串才有的方法(如:修改功能)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>===</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a></li>
+  <li><a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a></li>
+  <li><a href="https://railsbook.tw/chapters/06-ruby-basic-2.html#symbol_class">數字、字串、陣列、範圍、雜湊、符號</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

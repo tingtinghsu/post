@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day18 Ruby裡的多行字串 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day18 Ruby裡的多行字串</h3>
+  <span class="post-date">02 Oct 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 679 words. </small> <br>
+  <br>
+  <p>以Ruby表達多行字串是很容易的，現在立馬來試試看吧！
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-18" id="markdown-toc-ruby經典面試題目-18">Ruby經典面試題目 #18</a>    <ul>
+      <li><a href="#puts多行字串" id="markdown-toc-puts多行字串"><code class="highlighter-rouge">puts</code>多行字串</a></li>
+      <li><a href="#多行字串" id="markdown-toc-多行字串"><code class="highlighter-rouge">%{}</code>多行字串</a></li>
+      <li><a href="#q與q多行字串" id="markdown-toc-q與q多行字串"><code class="highlighter-rouge">%Q{}</code>與<code class="highlighter-rouge">%q{}</code>多行字串</a></li>
+      <li><a href="#eof多行字串" id="markdown-toc-eof多行字串"><code class="highlighter-rouge">&lt;&lt;EOF</code>多行字串</a></li>
+      <li><a href="#-eof多行字串提供縮排功能" id="markdown-toc--eof多行字串提供縮排功能"><code class="highlighter-rouge">&lt;&lt;-EOF</code>多行字串，提供縮排功能</a></li>
+      <li><a href="#後的字串當作變數" id="markdown-toc-後的字串當作變數"><code class="highlighter-rouge">&lt;&lt;</code>後的字串當作變數</a></li>
+      <li><a href="#string與method合併使用" id="markdown-toc-string與method合併使用"><code class="highlighter-rouge">&lt;&lt;String</code>與Method合併使用</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-18">Ruby經典面試題目 #18</h1>
+
+<ul>
+  <li>如何在Ruby寫下多行字串?<br />
+How to write multiline string in Ruby?</li>
+</ul>
+
+<h2 id="puts多行字串"><code class="highlighter-rouge">puts</code>多行字串</h2>
+
+<p>Ruby最常見的方法<code class="highlighter-rouge">puts</code>加上空行(Enter健)即可實現換行。來用換行功能吟詩作對一下：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"
+那  
+達達的馬蹄聲
+是個
+美麗的錯誤"</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">multiline</span><span class="p">.</span><span class="nf">rb</span>
+
+<span class="err">那</span>
+<span class="err">達達的馬蹄聲</span>
+<span class="err">是個</span>
+<span class="err">美麗的錯誤</span>
+</code></pre></div></div>
+
+<p>嗯嗯恩～好詩！好詩！</p>
+
+<h2 id="多行字串"><code class="highlighter-rouge">%{}</code>多行字串</h2>
+
+<p>百分比+大括號符號組合也有相同的多行/斷行功能，而且比單單純純的<code class="highlighter-rouge">puts</code>多了一個好處，就是可以代入變數：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">year</span> <span class="o">=</span> <span class="mi">1954</span>
+
+<span class="nb">puts</span> <span class="sx">%{鄭愁予
+  "錯誤"
+寫於#{year}年}</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">鄭愁予</span>
+  <span class="s2">"錯誤"</span>
+<span class="err">寫於</span><span class="mi">1954</span><span class="err">年</span>
+</code></pre></div></div>
+
+<h2 id="q與q多行字串"><code class="highlighter-rouge">%Q{}</code>與<code class="highlighter-rouge">%q{}</code>多行字串</h2>
+
+<p>我們通常會在<code class="highlighter-rouge">%{}</code>中間加入一個大寫Q，變成<code class="highlighter-rouge">%Q{}</code>，作用和<code class="highlighter-rouge">%{}</code>是一樣的：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">year</span> <span class="o">=</span> <span class="mi">1954</span>
+
+<span class="nb">puts</span> <span class="sx">%Q{鄭愁予
+  "錯誤"
+寫於</span><span class="si">#{</span><span class="n">year</span><span class="si">}</span><span class="sx">年}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">%Q</code>和<code class="highlighter-rouge">%{}</code>都可以幫我們處理跳脫字元、特殊符號如#、單引號、雙引號的問題。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="sx">%Q[ 大寫Q + 中括弧:
+  鄭愁予
+  "錯誤"
+寫於</span><span class="si">#{</span><span class="n">year</span><span class="si">}</span><span class="sx">年。It's a masterpiece!]</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="err">大寫</span><span class="no">Q</span> <span class="o">+</span> <span class="err">中括弧</span><span class="p">:</span>
+  <span class="err">鄭愁予</span>
+  <span class="s2">"錯誤"</span>
+<span class="err">寫於</span><span class="mi">1954</span><span class="err">年。</span><span class="no">It</span><span class="err">'</span><span class="n">s</span> <span class="n">a</span> <span class="n">masterpiece!</span>
+</code></pre></div></div>
+
+<p>包夾符號其實也可以任意使用大括弧<code class="highlighter-rouge">{}</code>、中括弧<code class="highlighter-rouge">[]</code>，或小括弧<code class="highlighter-rouge">()</code>。（不過慣例上還是<code class="highlighter-rouge">{}</code>較常用呢！）</p>
+
+<p>換成小寫的<code class="highlighter-rouge">%q</code>試試：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="sx">%q(小寫q + 小括弧:
+  鄭愁予
+  '錯誤'
+寫於#{year}年。It's a masterpiece!)</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">小寫</span><span class="n">q</span><span class="o">+</span> <span class="err">小括弧</span><span class="p">:</span>
+  <span class="err">鄭愁予</span>
+  <span class="s1">'錯誤'</span>
+<span class="err">寫於</span><span class="c1">#{year}年。It's a masterpiece!</span>
+</code></pre></div></div>
+
+<p>使用<code class="highlighter-rouge">%q</code>時，代表年份的變數<code class="highlighter-rouge">#{year}</code>無法被識別。</p>
+
+<h2 id="eof多行字串"><code class="highlighter-rouge">&lt;&lt;EOF</code>多行字串</h2>
+
+<p>還記得我們在[昨天]的文章用<code class="highlighter-rouge">&lt;&lt;</code>將變數的值改變嗎?</p>
+
+<p>如果要把這段詩句寫成一個<code class="highlighter-rouge">print_poet</code>方法，我們可以在<code class="highlighter-rouge">puts</code>後面加上 <code class="highlighter-rouge">&lt;&lt;EOF</code>以及<code class="highlighter-rouge">EOF</code>做結尾:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_poet</span>
+<span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+  那  
+    達達的馬蹄聲
+  是個
+    美麗的錯誤
+</span><span class="no">EOF</span>
+<span class="k">end</span>
+
+<span class="n">print_poet</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">EOF (End of File)</code>是<code class="highlighter-rouge">ruby</code>從<code class="highlighter-rouge">c語言</code>引進的概念，</p>
+
+<blockquote>
+  <p>第一個<code class="highlighter-rouge">&lt;&lt;EOF</code>：表示把內容當作標準輸入程式<code class="highlighter-rouge">stdin (Standard Input)</code></p>
+</blockquote>
+
+<blockquote>
+  <p>第二個<code class="highlighter-rouge">EOF</code>：表示自己定義的”文字流”（stream）的終止。在以上的例子中，我的文字流是一首詩。</p>
+</blockquote>
+
+<p>結果顯示:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">multiline</span><span class="p">.</span><span class="nf">rb</span>
+  <span class="err">那</span>
+    <span class="err">達達的馬蹄聲</span>
+  <span class="err">是個</span>
+    <span class="err">美麗的錯誤</span>
+</code></pre></div></div>
+
+<p>我們如果希望<code class="highlighter-rouge">def...end方法</code>內的程式碼也能符合縮排原則，那就來實驗看看將<code class="highlighter-rouge">puts &lt;&lt;EOF</code>前加上縮排，能不能執行：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_poet</span>
+  <span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span> <span class="c1"># syntax error, unexpected end-of-input</span><span class="sh">
+    那  
+      達達的馬蹄聲
+    是個
+      美麗的錯誤
+  EOF
+end
+
+print_poet #can't find string "EOF" anywhere before EOF
+</span></code></pre></div></div>
+
+<p>燈等！在程式的第二行出現了語法錯誤<code class="highlighter-rouge">unexpected end-of-input</code>。</p>
+
+<h2 id="-eof多行字串提供縮排功能"><code class="highlighter-rouge">&lt;&lt;-EOF</code>多行字串，提供縮排功能</h2>
+
+<p>解法很簡單，如果我們要考慮縮排情形的話，在<code class="highlighter-rouge">EOF</code>年多加上<code class="highlighter-rouge">-</code>減號就行了：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_poet</span>
+  <span class="nb">puts</span> <span class="o">&lt;&lt;-</span><span class="no">EOF</span><span class="sh">
+    那  
+      達達的馬蹄聲
+    是個
+      美麗的錯誤
+</span><span class="no">  EOF</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="後的字串當作變數"><code class="highlighter-rouge">&lt;&lt;</code>後的字串當作變數</h2>
+
+<p><code class="highlighter-rouge">&lt;&lt;</code>後面的大寫字串，也可以用比較好理解的變數名稱（不一定要用EOF）；</p>
+
+<p>可以進一步用<code class="highlighter-rouge">*</code>做運算:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">TimesThree</span> <span class="o">*</span> <span class="mi">3</span><span class="sh">
+很重要所以說3次!
+</span><span class="no">TimesThree</span>
+</code></pre></div></div>
+
+<p>Ruby很有趣吧!</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">很重要所以說</span><span class="mi">3</span><span class="err">次</span><span class="o">!</span>
+<span class="err">很重要所以說</span><span class="mi">3</span><span class="err">次</span><span class="o">!</span>
+<span class="err">很重要所以說</span><span class="mi">3</span><span class="err">次</span><span class="o">!</span>
+</code></pre></div></div>
+
+<p>或是用<code class="highlighter-rouge">+</code>串接：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">LineOne</span> <span class="o">+</span> <span class="o">&lt;&lt;</span><span class="no">LineTwo</span><span class="sh">
+那 達達的馬蹄聲
+</span><span class="no">LineOne</span><span class="sh">
+是個 美麗的錯誤
+</span><span class="no">LineTwo</span>
+</code></pre></div></div>
+
+<p>結果把兩行詩加在一起了：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">那</span> <span class="err">達達的馬蹄聲</span>
+<span class="err">是個</span> <span class="err">美麗的錯誤</span>
+</code></pre></div></div>
+
+<h2 id="string與method合併使用"><code class="highlighter-rouge">&lt;&lt;String</code>與Method合併使用</h2>
+
+<p>文章最後，我們來實現<code class="highlighter-rouge">多行字串</code>與<code class="highlighter-rouge">方法</code>的結合吧！而且這次要代入2個參數進去：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">ironman_log</span> <span class="p">(</span><span class="n">integer</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"第</span><span class="si">#{</span><span class="n">integer</span><span class="si">}</span><span class="s2">天主題: </span><span class="si">#{</span><span class="n">string</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="n">ironman_log</span> <span class="mi">18</span><span class="p">,</span> <span class="s2">"multiline"</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">ironman_log</code>方法幫我們hightlight今天這篇文章的重點。</p>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">第</span><span class="mi">18</span><span class="err">天主題</span><span class="p">:</span> <span class="n">multiline</span>
+</code></pre></div></div>
+
+<p>那，<code class="highlighter-rouge">string</code>變數可不可以代入<code class="highlighter-rouge">多行字串</code>呢?</p>
+
+<p>當然可以～～
+<code class="highlighter-rouge">多行字串</code>也是<code class="highlighter-rouge">字串</code>呀！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ironman_log</span> <span class="mi">18</span><span class="p">,</span> <span class="o">&lt;&lt;</span><span class="no">POET</span><span class="sh">
+
+那
+  達達的馬蹄聲
+  是個
+  美麗的錯誤
+我
+  不是詩人
+  是個新手工程師
+:)  
+</span><span class="no">POET</span>
+</code></pre></div></div>
+
+<p>我不是詩人，是個工程師：）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tingdeMacBook</span><span class="o">-</span><span class="no">Air</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">multiline</span><span class="p">.</span><span class="nf">rb</span>
+<span class="err">第</span><span class="mi">18</span><span class="err">天主題</span><span class="p">:</span>
+<span class="err">那</span>
+  <span class="err">達達的馬蹄聲</span>
+  <span class="err">是個</span>
+  <span class="err">美麗的錯誤</span>
+<span class="err">我</span>
+  <span class="err">不是詩人</span>
+  <span class="err">是個新手工程師</span>
+<span class="p">:)</span>
+</code></pre></div></div>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://www.javatpoint.com/ruby-strings">Ruby Strings : multiline</a></li>
+  <li><a href="http://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/syntax.html#here_doc">Ruby Strings</a></li>
+  <li><a href="https://stackoverflow.com/questions/2337510/ruby-can-i-write-multi-line-string-with-no-concatenation">Ruby: Can I write multi-line string with no concatenation?</a></li>
+  <li><a href="http://emn178.pixnet.net/blog/post/110782417-ruby%E6%95%99%E5%AD%B8---%E5%AD%97%E4%B8%B2%28string%29">Ruby教學 - 字串(String)</a></li>
+  <li><a href="https://ruby-china.org/topics/25983">Ruby 多行字符串 heredoc</a></li>
+  <li><a href="http://www.linuxfly.org/post/146/">使用cat命令和EOF標示輸出多行文件</a></li>
+</ul>
+
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

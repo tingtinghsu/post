@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day22] JS: javascript jQuery &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day22] JS: javascript jQuery</h3>
+  <span class="post-date">24 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 189 words. </small> <br>
+  <br>
+  <p>javascript的library<code class="highlighter-rouge">函式庫</code>，最有名的是<code class="highlighter-rouge">jQuery</code>，能夠讓語法變得直覺、容易撰寫。
+<!-- more --></p>
+
+<p>javascript有許多不同的library，
+(甚至還有惡作劇的vanilla JS。XD)<br />
+[香草JS](http://vanilla-js.com/）</p>
+
+<p>現在我們來花2分鐘瞧瞧怎麼使用jQuery吧～之後的練習都會使用jQuery的語法！</p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#使用jquery" id="markdown-toc-使用jquery">使用jQuery</a>    <ul>
+      <li><a href="#在vscode引入" id="markdown-toc-在vscode引入">在vscode引入</a></li>
+      <li><a href="#在jsbin引入" id="markdown-toc-在jsbin引入">在jsbin引入</a></li>
+    </ul>
+  </li>
+  <li><a href="#jquery-與-javascript-寫法比較" id="markdown-toc-jquery-與-javascript-寫法比較">jQuery 與 javascript 寫法比較</a>    <ul>
+      <li><a href="#jquery--代表dom元素" id="markdown-toc-jquery--代表dom元素">jQuery <code class="highlighter-rouge">$</code> 代表DOM元素</a></li>
+      <li><a href="#javascript" id="markdown-toc-javascript">javascript</a></li>
+    </ul>
+  </li>
+  <li><a href="#更多方便的jquery套件" id="markdown-toc-更多方便的jquery套件">更多方便的jQuery套件</a></li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="使用jquery">使用jQuery</h1>
+
+<h2 id="在vscode引入">在vscode引入</h2>
+<p>https://jquery.com/download/
+https://code.jquery.com/jquery-migrate-1.4.1.min.js</p>
+
+<p>html</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+     <span class="nt">&lt;script 
+     </span><span class="na">src=</span><span class="s">"script/jquery-migrate-1.4.1.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span> 
+</code></pre></div></div>
+
+<h2 id="在jsbin引入">在jsbin引入</h2>
+
+<p>https://jsbin.com/
+左上角<code class="highlighter-rouge">add library</code> -&gt; 選擇jQuery版本</p>
+
+<p>html</p>
+
+<pre><code class="language-htmlmixed">&lt;body&gt;
+  &lt;a href="#" class="zone"&gt;Hello Zone&lt;/a&gt;
+  &lt;script
+  src="https://code.jquery.com/jquery-3.1.0.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<h1 id="jquery-與-javascript-寫法比較">jQuery 與 javascript 寫法比較</h1>
+
+<ol>
+  <li>jQuery讓HTML元素的操作變得更簡單</li>
+</ol>
+
+<h2 id="jquery--代表dom元素">jQuery <code class="highlighter-rouge">$</code> 代表DOM元素</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'.zone'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'jQuery'</span><span class="p">)</span> 
+<span class="c1">//取class為zone在html的值，改成別的值</span>
+</code></pre></div></div>
+
+<h2 id="javascript">javascript</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.zone'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'javascript'</span><span class="p">;</span>  
+<span class="c1">//用js去控制html</span>
+</code></pre></div></div>
+
+<ol>
+  <li>jQuery可以等DOM元素準備好再做下一個動作</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"出發吧！"</span><span class="p">;)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h1 id="更多方便的jquery套件">更多方便的jQuery套件</h1>
+
+<p><a href="https://jqueryui.com/datepicker/">日曆 datepicker</a><br />
+<a href="https://jqueryui.com/draggable/">拖拉 draggable</a></p>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/Mq1ks1dFRCyCXWLHJJxVOg?view">HackMD筆記</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-22-js_chrome_console">[Day20] JS: javascript 使用Chrome Console撰寫</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

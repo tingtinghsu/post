@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day20 Ruby的Enumerable列舉 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day20 Ruby的Enumerable列舉</h3>
+  <span class="post-date">05 Oct 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 828 words. </small> <br>
+  <br>
+  <p>30天挑戰已經進入2/3的里程盃了。可喜可賀，恭喜老爺，賀喜夫人！
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-20" id="markdown-toc-ruby經典面試題目-20">Ruby經典面試題目 #20</a></li>
+  <li><a href="#1-在陣列中移動traverse" id="markdown-toc-1-在陣列中移動traverse">1. 在陣列中移動(traverse)</a>    <ul>
+      <li><a href="#arrayeach" id="markdown-toc-arrayeach">Array#each</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-排序陣列中的元素sort" id="markdown-toc-2-排序陣列中的元素sort">2. 排序陣列中的元素(sort)</a>    <ul>
+      <li><a href="#arraysort" id="markdown-toc-arraysort">Array#sort</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-在陣列中搜尋search" id="markdown-toc-3-在陣列中搜尋search">3. 在陣列中搜尋(search)</a>    <ul>
+      <li><a href="#30-arrayfind_indexobject" id="markdown-toc-30-arrayfind_indexobject">3.0 Array#find_index(object)</a></li>
+      <li><a href="#31-arrayfirst" id="markdown-toc-31-arrayfirst">3.1 Array#first</a></li>
+      <li><a href="#當不能確定元素內值的完整資訊時" id="markdown-toc-當不能確定元素內值的完整資訊時">當不能確定元素內值的完整資訊時</a></li>
+      <li><a href="#32-arrayselect-加上string-methods" id="markdown-toc-32-arrayselect-加上string-methods">3.2 Array#select 加上String Methods</a>        <ul>
+          <li><a href="#321-stringinclude--字元符號" id="markdown-toc-321-stringinclude--字元符號">3.2.1 <code class="highlighter-rouge">String#include?</code> + <code class="highlighter-rouge">字元符號</code></a></li>
+          <li><a href="#322-stringmatch代入正規表達式" id="markdown-toc-322-stringmatch代入正規表達式">3.2.2 <code class="highlighter-rouge">String#match()</code>代入正規表達式</a></li>
+        </ul>
+      </li>
+      <li><a href="#33-arrayselect-搭配-stringregexp" id="markdown-toc-33-arrayselect-搭配-stringregexp">3.3 Array#select 搭配 String[/RegExp/]</a></li>
+      <li><a href="#34-arraygrepregexp-省略block" id="markdown-toc-34-arraygrepregexp-省略block">3.4 Array#grep(/RegExp/) :省略block</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-將陣列中的元素作轉換transform" id="markdown-toc-4-將陣列中的元素作轉換transform">4. 將陣列中的元素作轉換(transform)</a>    <ul>
+      <li><a href="#41-arraymap-不改寫陣列裡的值" id="markdown-toc-41-arraymap-不改寫陣列裡的值">4.1 Array#map 不改寫陣列裡的值</a></li>
+      <li><a href="#42-arraymap-改寫陣列裡的值" id="markdown-toc-42-arraymap-改寫陣列裡的值">4.2 Array#map! 改寫陣列裡的值</a></li>
+    </ul>
+  </li>
+  <li><a href="#番外篇-enumerable結合yield" id="markdown-toc-番外篇-enumerable結合yield">[番外篇] <code class="highlighter-rouge">enumerable</code>結合<code class="highlighter-rouge">yield</code></a></li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-20">Ruby經典面試題目 #20</h1>
+
+<ul>
+  <li>說明Ruby裡Enumerable的實用之處?<br />
+Why Is Enumerable So Useful?`</li>
+</ul>
+
+<p>列舉(Enumerables)實用之處在於，能夠幫我們方便地走過、搜尋、排序或轉換<code class="highlighter-rouge">集合</code>內的元素(traverse, , sort, search, and transform collections)。</p>
+
+<p>而集合(Collection)<del>跟斯斯一樣</del>有三種：<code class="highlighter-rouge">陣列Array</code>，<code class="highlighter-rouge">雜湊Hash</code>，<code class="highlighter-rouge">範圍Range</code>，在前19天練習經典題目時，我都剛好有碰到、並透過舉例了解如何使用～今天就以陣列為例，來進一步深入了解<code class="highlighter-rouge">列舉</code>的各項技能！</p>
+
+<h1 id="1-在陣列中移動traverse">1. 在陣列中移動(traverse)</h1>
+
+<h2 id="arrayeach">Array#each</h2>
+
+<p>[第14天]時我們曾經比較過<code class="highlighter-rouge">each</code>和 <code class="highlighter-rouge">map / collect</code>。延續昨天的舉例，我們來使用季節作為陣列元素：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">season</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Spring"</span><span class="p">,</span>
+<span class="s2">"Summer"</span><span class="p">,</span>
+<span class="s2">"Autumn"</span><span class="p">,</span>
+<span class="s2">"Winter"</span><span class="p">]</span>
+
+<span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">each</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#&lt;Enumerator: ["Spring", "Summer", "Autumn", "Winter"]:each&gt;</span>
+</code></pre></div></div>
+
+<p>看到了<code class="highlighter-rouge">Enumerator</code>這個字眼！</p>
+
+<h1 id="2-排序陣列中的元素sort">2. 排序陣列中的元素(sort)</h1>
+
+<h2 id="arraysort">Array#sort</h2>
+
+<p><code class="highlighter-rouge">.sort</code> 會幫我們按造字母順序重新排序</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">sort</span> <span class="c1">#["Autumn", "Spring", "Summer", "Winter"]</span>
+<span class="nb">p</span> <span class="n">season</span> <span class="c1">#["Spring", "Summer", "Autumn", "Winter"]</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">.sort!</code> 會幫我們按造字母順序重新排序。加了<code class="highlighter-rouge">!</code>驚嘆號的method通常是提醒我們要小心！注意！因為此方法會改寫原本物件裡的值。在這裡的陣列已經被新的排序改寫：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">sort!</span> <span class="c1">#["Autumn", "Spring", "Summer", "Winter"]</span>
+<span class="nb">p</span> <span class="n">season</span> <span class="c1">#["Autumn", "Spring", "Summer", "Winter"]</span>
+</code></pre></div></div>
+
+<p>(<code class="highlighter-rouge">.sort!</code>會造成氣候變遷～季節大亂啊…)</p>
+
+<h1 id="3-在陣列中搜尋search">3. 在陣列中搜尋(search)</h1>
+
+<p>Ruby提供許多語法幫我們完成搜尋任務。現在就來一一介紹吧！</p>
+
+<h2 id="30-arrayfind_indexobject">3.0 Array#find_index(object)</h2>
+
+<p>我們可以用<code class="highlighter-rouge">find_index</code>搜尋某個元素的index（索引值，從0開始）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">find_index</span><span class="p">(</span><span class="s2">"Summer"</span><span class="p">)</span> <span class="c1"># 印出index=1</span>
+</code></pre></div></div>
+
+<h2 id="31-arrayfirst">3.1 Array#first</h2>
+
+<p>搜尋陣列中的第1個元素，可以用<code class="highlighter-rouge">.first</code>方法：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">first</span> <span class="c1">#"Spring"</span>
+</code></pre></div></div>
+
+<h2 id="當不能確定元素內值的完整資訊時">當不能確定元素內值的完整資訊時</h2>
+
+<blockquote>
+  <p>Question: 我們想要搜尋出季節陣列裡，開頭是<code class="highlighter-rouge">S</code>的元素。此題怎解？</p>
+</blockquote>
+
+<h2 id="32-arrayselect-加上string-methods">3.2 Array#select 加上String Methods</h2>
+
+<p>在[第9天]時提過字串有許多的方法，這邊要介紹新的兩種: <code class="highlighter-rouge">.include?</code>與<code class="highlighter-rouge">match()</code></p>
+
+<h3 id="321-stringinclude--字元符號">3.2.1 <code class="highlighter-rouge">String#include?</code> + <code class="highlighter-rouge">字元符號</code></h3>
+
+<p>Ans: 陣列方法<code class="highlighter-rouge">.select</code>可以幫忙做挑選；而在Block<code class="highlighter-rouge">{}</code>裡面，用<code class="highlighter-rouge">String#include?</code>做條件判斷，像個過濾網一樣，找出包含大寫<code class="highlighter-rouge">'S'</code>開頭的元素：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="p">.</span><span class="nf">include?</span> <span class="s1">'S'</span><span class="p">}</span>
+<span class="c1"># ["Spring", "Summer"]</span>
+<span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="p">.</span><span class="nf">include?</span> <span class="s1">'t'</span><span class="p">}</span>
+<span class="c1"># ["Autumn", "Winter"]</span>
+</code></pre></div></div>
+
+<h3 id="322-stringmatch代入正規表達式">3.2.2 <code class="highlighter-rouge">String#match()</code>代入正規表達式</h3>
+
+<p>正規表達式（Regular Expression，常簡寫為<code class="highlighter-rouge">RegExp</code>、<code class="highlighter-rouge">regex</code>或<code class="highlighter-rouge">RE</code>）是被用來匹配字串String中，字元組合的模式。</p>
+
+<p>想像我們在用Google大神搜尋資料，最重要的就是輸入<code class="highlighter-rouge">關鍵字</code>了。有時候我們會在關鍵字加入<code class="highlighter-rouge">+</code>加號、<code class="highlighter-rouge">|</code> (OR)，或是用<code class="highlighter-rouge">-</code>減號剔除篩選字。正規表達具有類似的功能。</p>
+
+<p>同樣的，如果我們想要在進階搜尋的話，就必須使用到正規表達式。</p>
+
+<blockquote>
+  <p>Q2. 我們想要搜尋出季節陣列裡，第二個字母是<code class="highlighter-rouge">u</code>的元素。此題怎解？</p>
+</blockquote>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sr">/^*u/</span><span class="p">)}</span>
+<span class="c1"># ["Summer", "Autumn"]</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">/正規表達符號/</code>放在一組斜線<code class="highlighter-rouge">/</code>裡面，以上的例子，我們需要將<code class="highlighter-rouge">^</code>開頭的第一個字元設定為任意字元<code class="highlighter-rouge">*</code>，第二個字元為<code class="highlighter-rouge">u</code>(正規表達規則請見<a href="http://ruby-doc.org/core-2.4.2/Regexp.html">Ruby API說明</a>)。</p>
+
+<h2 id="33-arrayselect-搭配-stringregexp">3.3 Array#select 搭配 String[/RegExp/]</h2>
+
+<p>我們也可以省略String Method，直接在在<code class="highlighter-rouge">block</code>內用元素s[<code class="highlighter-rouge">/加入正規表達/</code>]來篩選符合條件的元素</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">select</span><span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="p">[</span><span class="sr">/^*u/</span><span class="p">]}</span>
+<span class="c1"># ["Summer", "Autumn"]</span>
+</code></pre></div></div>
+
+<h2 id="34-arraygrepregexp-省略block">3.4 Array#grep(/RegExp/) :省略block</h2>
+
+<p>同樣解法，且程式碼更少的簡便寫法：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">season</span><span class="p">.</span><span class="nf">grep</span><span class="p">(</span><span class="sr">/^sa/</span><span class="p">)</span>
+<span class="c1"># []</span>
+</code></pre></div></div>
+
+<p>更多的<code class="highlighter-rouge">.grep</code>用法看<a href="http://ruby-doc.org/core-2.0.0/Enumerable.html#method-i-grep">這裡</a></p>
+
+<h1 id="4-將陣列中的元素作轉換transform">4. 將陣列中的元素作轉換(transform)</h1>
+
+<p>在實務上，我們常常將集合內的值做轉換，套用到需要的場景，[第14天]時學過的 <code class="highlighter-rouge">.map</code>可以在此時派上用場。</p>
+
+<h2 id="41-arraymap-不改寫陣列裡的值">4.1 Array#map 不改寫陣列裡的值</h2>
+
+<p>北半球的天氣漸漸變冷，我來寫一個溫度陣列<code class="highlighter-rouge">temperature</code>，並用<code class="highlighter-rouge">.map</code>放入新的零下溫度陣列，但不影響到原本陣列裡的值 ：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">temperature</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">minus_temp</span> <span class="o">=</span> <span class="n">temperature</span><span class="p">.</span><span class="nf">map</span><span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="o">-</span><span class="n">i</span><span class="p">}</span>
+
+<span class="nb">p</span> <span class="n">temperature</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">", "</span><span class="p">)</span>   <span class="c1">#=&gt; "0, 1, 2, 3, 4, 5, 6, 7, 8, 9"</span>
+<span class="nb">p</span> <span class="n">minus_temp</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">", "</span><span class="p">)</span> <span class="c1">#=&gt; "0, -1, -2, -3, -4, -5, -6, -7, -8, -9"</span>
+</code></pre></div></div>
+
+<h2 id="42-arraymap-改寫陣列裡的值">4.2 Array#map! 改寫陣列裡的值</h2>
+
+<p>加了<code class="highlighter-rouge">!</code>驚嘆號的方法又出現了～大家應該可以猜到<code class="highlighter-rouge">.map!</code>會改變陣列值：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">temperature</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">temperature</span><span class="p">.</span><span class="nf">map!</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">-</span><span class="n">x</span><span class="p">}</span>  <span class="c1">#將"0, -1, -2, -3, -4, -5, -6, -7, -8, -9"與原陣列各個元素相加  </span>
+<span class="nb">p</span> <span class="n">temperature</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
+<span class="c1">#=&gt; =&gt; "0,0,0,0,0,0,0,0,0,0"</span>
+</code></pre></div></div>
+
+<p>全部變0度啦！</p>
+
+<h1 id="番外篇-enumerable結合yield">[番外篇] <code class="highlighter-rouge">enumerable</code>結合<code class="highlighter-rouge">yield</code></h1>
+
+<p>[昨天]講過<code class="highlighter-rouge">yield</code>的功用多多，今天來把它和列舉變數結合，再產生一次新火花～：）</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Winter</span> <span class="c1">#北半球冬天</span>
+  <span class="kp">include</span> <span class="no">Enumerable</span> <span class="c1">#包含Enumerable Module（否則會出現NomethodError）</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@month</span> <span class="o">=</span> <span class="sx">%w[ December January Fabruary]</span>  
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">each</span> <span class="c1"># 定義each方法(否則Winter.new.map 會出現 NoMethodError)</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="k">in</span> <span class="vi">@month</span> <span class="k">do</span>
+      <span class="k">yield</span> <span class="n">month</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="nb">p</span> <span class="no">Winter</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">mth</span><span class="o">|</span> <span class="n">mth</span><span class="p">.</span><span class="nf">upcase</span> <span class="p">}</span>
+<span class="c1"># 將月份改成大寫</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s2">"DECEMBER"</span><span class="p">,</span> <span class="s2">"JANUARY"</span><span class="p">,</span> <span class="s2">"FABRUARY"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>天氣轉涼了，大家要注意保暖唷：）</p>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="http://ruby-doc.org/core-2.4.2/Enumerable.html">ruby-doc.org : Enumerable</a></li>
+  <li><a href="https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby">ruby-doc.org : Regexp</a></li>
+  <li><a href="http://ruby.bastardsbook.com/chapters/enumerables/">Enumerables</a></li>
+  <li><a href="https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-i-745d561cfebf">The Enumerable module in Ruby: Part I</a></li>
+  <li><a href="https://medium.com/@farsi_mehdi/the-enumerable-module-in-ruby-part-ii-41f69b36360">The Enumerable module in Ruby: Part II</a></li>
+  <li><a href="https://stackoverflow.com/questions/3937431/how-to-search-an-array-in-ruby">How to search an array in Ruby?</a></li>
+  <li><a href="https://5xruby.tw/posts/learn-regular-expression/">動動手來學 Regular Expression 正規表達式</a></li>
+  <li><a href="https://stackoverflow.com/questions/17354864/ruby-filter-array-by-regex">Ruby: filter array by regex?</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

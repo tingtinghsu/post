@@ -1,0 +1,27 @@
+--- 
+layout: default
+---
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+
+<div class="blog list">
+  <div>Tag:<br><br> 
+  Tags  <span class="tag"><small>#{{ page.tag }}</small></span>
+  {% for post in site.tags[page.tag] %}
+    {{ page.title }}<br>
+  {% endfor %}
+
+  <small>{{ post.date | date: date_format }}</small>
+</div>
+
+
+
+

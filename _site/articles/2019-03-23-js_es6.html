@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day21] JS: javascript ES6 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day21] JS: javascript ES6</h3>
+  <span class="post-date">23 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 1830 words. </small> <br>
+  <br>
+  <p>我們在前面章節介紹過 javascript 版本，ES5(2009)和ES6(2015)是市面上比較常見的版本，而<code class="highlighter-rouge">ES6</code>的語法讓javascript功能變得更完整，值得我們花點時間學習。</p>
+
+<!-- more -->
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#let-變數" id="markdown-toc-let-變數">let 變數</a>    <ul>
+      <li><a href="#let-與var相比的好處" id="markdown-toc-let-與var相比的好處"><code class="highlighter-rouge">let</code> 與<code class="highlighter-rouge">var</code>相比的好處</a>        <ul>
+          <li><a href="#1-let" id="markdown-toc-1-let">1. let</a></li>
+          <li><a href="#2-var" id="markdown-toc-2-var">2. var</a></li>
+          <li><a href="#3-let和var同時使用變數會被全域的var決定" id="markdown-toc-3-let和var同時使用變數會被全域的var決定">3. <code class="highlighter-rouge">let</code>和<code class="highlighter-rouge">var</code>同時使用，變數會被全域的<code class="highlighter-rouge">var</code>決定</a></li>
+          <li><a href="#4-let與var不同之處變數的有效範圍不同" id="markdown-toc-4-let與var不同之處變數的有效範圍不同">4. <code class="highlighter-rouge">let</code>與<code class="highlighter-rouge">var</code>不同之處：變數的有效範圍不同</a></li>
+          <li><a href="#es6寫法" id="markdown-toc-es6寫法">ES6寫法</a></li>
+          <li><a href="#es5寫法" id="markdown-toc-es5寫法">ES5寫法</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#const-常數" id="markdown-toc-const-常數">const 常數</a></li>
+  <li><a href="#解構" id="markdown-toc-解構">解構</a>    <ul>
+      <li><a href="#es6-let--key-key---變數名稱" id="markdown-toc-es6-let--key-key---變數名稱">ES6 <code class="highlighter-rouge">let { key, key }</code> = <code class="highlighter-rouge">變數名稱</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#字串與變數的串接" id="markdown-toc-字串與變數的串接">字串與變數的串接</a>    <ul>
+      <li><a href="#es6-使用---圍住整體變數帶到字串裡" id="markdown-toc-es6-使用---圍住整體變數帶到字串裡">ES6 使用<code class="highlighter-rouge"> </code><code class="highlighter-rouge"> </code> 圍住整體，<code class="highlighter-rouge">${變數}</code>帶到字串裡</a></li>
+      <li><a href="#es5-使用-串接字串與變數" id="markdown-toc-es5-使用-串接字串與變數">ES5 使用<code class="highlighter-rouge">+</code> 串接字串與變數</a></li>
+    </ul>
+  </li>
+  <li><a href="#箭頭函式" id="markdown-toc-箭頭函式">箭頭函式</a>    <ul>
+      <li><a href="#es6-以箭頭代替函式function" id="markdown-toc-es6-以箭頭代替函式function">ES6 以箭頭<code class="highlighter-rouge">=&gt;</code>代替函式<code class="highlighter-rouge">function()</code></a></li>
+      <li><a href="#es5-函式function" id="markdown-toc-es5-函式function">ES5 函式<code class="highlighter-rouge">function()</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#陣列" id="markdown-toc-陣列">陣列</a>    <ul>
+      <li><a href="#es6-foreach" id="markdown-toc-es6-foreach">ES6 <code class="highlighter-rouge">forEach()</code></a></li>
+      <li><a href="#es5-for迴圈" id="markdown-toc-es5-for迴圈">ES5 <code class="highlighter-rouge">for迴圈</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#物件簡寫" id="markdown-toc-物件簡寫">物件簡寫</a>    <ul>
+      <li><a href="#es6-key與value名稱相同value可省略" id="markdown-toc-es6-key與value名稱相同value可省略">ES6 key與value名稱相同，value可省略</a></li>
+      <li><a href="#es5" id="markdown-toc-es5">ES5</a></li>
+    </ul>
+  </li>
+  <li><a href="#物件導向的寫法" id="markdown-toc-物件導向的寫法">物件導向的寫法</a>    <ul>
+      <li><a href="#es6-class-base" id="markdown-toc-es6-class-base">ES6 <code class="highlighter-rouge">class-base</code></a></li>
+      <li><a href="#es5-prototype-base" id="markdown-toc-es5-prototype-base">ES5 <code class="highlighter-rouge">prototype-base</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#其他es6常用語法" id="markdown-toc-其他es6常用語法">其他ES6常用語法</a></li>
+  <li><a href="#es6的瀏覽器支援程度" id="markdown-toc-es6的瀏覽器支援程度">ES6的瀏覽器支援程度</a></li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="let-變數">let 變數</h1>
+
+<p>在ES5，使用<code class="highlighter-rouge">var</code>宣告變數
+在ES6，使用<code class="highlighter-rouge">let</code>宣告變數</p>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//var name = "kitty"; //在ES5，用var宣告變數</span>
+<span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"kitty"</span><span class="p">;</span> <span class="c1">//在ES6，用let宣告變數</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"kitty"</span>
+undefined
+</code></pre></div></div>
+
+<h2 id="let-與var相比的好處"><code class="highlighter-rouge">let</code> 與<code class="highlighter-rouge">var</code>相比的好處</h2>
+
+<h3 id="1-let">1. let</h3>
+
+<ul>
+  <li>區域變數：被設成<code class="highlighter-rouge">let</code>的變數僅能作用在宣告的範圍裡面
+（如下圖例：為<code class="highlighter-rouge">迴圈</code>內部）</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">let</code>如果未事前先宣告，就會出現錯誤</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"error"</span>
+<span class="s2">"ReferenceError: i is not defined
+    at nororos.js:7:38
+    at https://static.jsbin.com/js/prod/runner-4.1.7.min.js:1:13924
+    at https://static.jsbin.com/js/prod/runner-4.1.7.min.js:1:10866"</span>
+</code></pre></div></div>
+
+<h3 id="2-var">2. var</h3>
+
+<p>為全域變數，商業邏輯出錯時不容易debug</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>等於</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>結果皆為:</p>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span>
+</code></pre></div></div>
+
+<h3 id="3-let和var同時使用變數會被全域的var決定">3. <code class="highlighter-rouge">let</code>和<code class="highlighter-rouge">var</code>同時使用，變數會被全域的<code class="highlighter-rouge">var</code>決定</h3>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">i</span><span class="p">;</span> <span class="c1">//全域</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">undefined</span> <span class="c1">//而不是3</span>
+</code></pre></div></div>
+
+<h3 id="4-let與var不同之處變數的有效範圍不同">4. <code class="highlighter-rouge">let</code>與<code class="highlighter-rouge">var</code>不同之處：變數的有效範圍不同</h3>
+
+<p>設定為<code class="highlighter-rouge">let</code>的變數，就算在迴圈內數值被改變，也只會作用在區域範圍內，不會影響到範圍外。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="mi">100</span> <span class="c1">//仍然是100</span>
+</code></pre></div></div>
+
+<p>設定為<code class="highlighter-rouge">var</code>的變數，在任何區域重新給值時，數值都會被改變</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="mi">3</span> <span class="c1">//100被改為3</span>
+</code></pre></div></div>
+
+<h3 id="es6寫法">ES6寫法</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="mi">10</span> <span class="c1">// 迴圈印5次hi，let變數仍為10</span>
+</code></pre></div></div>
+
+<h3 id="es5寫法">ES5寫法</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="s2">"hi"</span>
+<span class="mi">5</span> <span class="c1">// 迴圈印5次hi，var變數被改為5</span>
+</code></pre></div></div>
+
+<h1 id="const-常數">const 常數</h1>
+
+<p>常數不可被更改</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span> <span class="c1">//印出18</span>
+
+<span class="nx">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">//TypeError: 型別錯誤，不可指定變數值給常數</span>
+
+<span class="kd">const</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">//SyntaxError: 變數名稱已經被宣告過了</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">18</span>
+<span class="s2">"error"</span>
+<span class="s2">"TypeError: Assignment to constant variable.
+    at nororos.js:5:5
+    at https://static.jsbin.com/js/prod/runner-4.1.7.min.js:1:13924
+    at https://static.jsbin.com/js/prod/runner-4.1.7.min.js:1:10866"</span>
+
+<span class="s2">"error"</span>
+<span class="s2">"SyntaxError: Identifier 'age' has already been declared
+    at https://static.jsbin.com/js/prod/runner-4.1.7.min.js:1:13924
+    at https://static.jsbin.com/js/prod/runner-4.1.7.min.js:1:10866"</span>
+</code></pre></div></div>
+
+<h1 id="解構">解構</h1>
+
+<h2 id="es6-let--key-key---變數名稱">ES6 <code class="highlighter-rouge">let { key, key }</code> = <code class="highlighter-rouge">變數名稱</code></h2>
+
+<p>javascript</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'孫悟空'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="s1">'18'</span> <span class="p">};</span>
+<span class="kd">let</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">hero</span><span class="p">;</span> <span class="c1">// 從var指定為let變數</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"孫悟空"</span>
+<span class="s2">"18"</span>
+</code></pre></div></div>
+
+<h1 id="字串與變數的串接">字串與變數的串接</h1>
+
+<h2 id="es6-使用---圍住整體變數帶到字串裡">ES6 使用<code class="highlighter-rouge"> </code><code class="highlighter-rouge"> </code> 圍住整體，<code class="highlighter-rouge">${變數}</code>帶到字串裡</h2>
+
+<p>javascript</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"kitty"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hello, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">//"Hello, kitty"</span>
+</code></pre></div></div>
+
+<h2 id="es5-使用-串接字串與變數">ES5 使用<code class="highlighter-rouge">+</code> 串接字串與變數</h2>
+
+<p>javascript</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"kitty"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello, "</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span> <span class="c1">//"Hello, kitty"</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Hello, kitty"</span>
+</code></pre></div></div>
+
+<h1 id="箭頭函式">箭頭函式</h1>
+
+<p>e.g. 假設有一html語法如下：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">id=</span><span class="s">"zone"</span><span class="nt">&gt;</span>Hello Zone<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<h2 id="es6-以箭頭代替函式function">ES6 以箭頭<code class="highlighter-rouge">=&gt;</code>代替函式<code class="highlighter-rouge">function()</code></h2>
+
+<p>javascript</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.zone'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了!'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>function內的程式碼如果只有一行，可以連大括弧都省略</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.zone'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了!'</span><span class="p">););</span>
+</code></pre></div></div>
+
+<h2 id="es5-函式function">ES5 函式<code class="highlighter-rouge">function()</code></h2>
+
+<p>javascript</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.zone'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了!'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h1 id="陣列">陣列</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">friends</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Ross'</span><span class="p">,</span><span class="s1">'Joey'</span><span class="p">,</span><span class="s1">'Chandler'</span><span class="p">,</span><span class="s1">'Monica'</span><span class="p">,</span><span class="s1">'Phoebe'</span><span class="p">,</span><span class="s1">'Rachel'</span><span class="p">];</span>
+</code></pre></div></div>
+
+<h2 id="es6-foreach">ES6 <code class="highlighter-rouge">forEach()</code></h2>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">friends</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>用箭頭函數改寫:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">friends</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">x</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>fuction內的程式碼只有一行，所以可以省略大括弧，變得更精簡</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">friends</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h2 id="es5-for迴圈">ES5 <code class="highlighter-rouge">for迴圈</code></h2>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">friends</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friends</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Ross"</span>
+<span class="s2">"Joey"</span>
+<span class="s2">"Chandler"</span>
+<span class="s2">"Monica"</span>
+<span class="s2">"Phoebe"</span>
+<span class="s2">"Rachel"</span>
+</code></pre></div></div>
+
+<h1 id="物件簡寫">物件簡寫</h1>
+
+<h2 id="es6-key與value名稱相同value可省略">ES6 key與value名稱相同，value可省略</h2>
+<p>若物件的key與value的名稱設定相同，可只寫一次</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">profile</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">age</span><span class="p">){</span>
+
+	<span class="k">return</span> <span class="p">{</span>
+		<span class="nx">firstName</span><span class="p">,</span>
+		<span class="nx">lastName</span><span class="p">,</span>
+		<span class="nx">age</span><span class="p">,</span>
+		<span class="na">fullName</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nx">lastName</span> <span class="o">+</span> <span class="nx">firstName</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nx">profile</span><span class="p">(</span><span class="s1">'悟空'</span><span class="p">,</span> <span class="s1">'孫'</span><span class="p">,</span> <span class="mi">18</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span><span class="p">.</span><span class="nx">fullName</span><span class="p">());</span>
+</code></pre></div></div>
+
+<h2 id="es5">ES5</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">profile</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">age</span><span class="p">){</span>
+
+	<span class="k">return</span> <span class="p">{</span>
+		<span class="na">firstName</span><span class="p">:</span> <span class="nx">firstName</span><span class="p">,</span>
+		<span class="na">lastName</span><span class="p">:</span> <span class="nx">lastName</span><span class="p">,</span>
+		<span class="na">age</span><span class="p">:</span> <span class="nx">age</span><span class="p">,</span>
+		<span class="na">fullName</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nx">lastName</span> <span class="o">+</span> <span class="nx">firstName</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nx">profile</span><span class="p">(</span><span class="s1">'悟空'</span><span class="p">,</span> <span class="s1">'孫'</span><span class="p">,</span> <span class="mi">18</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span><span class="p">.</span><span class="nx">fullName</span><span class="p">());</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"孫悟空"</span>
+</code></pre></div></div>
+<h1 id="物件導向的寫法">物件導向的寫法</h1>
+
+<h2 id="es6-class-base">ES6 <code class="highlighter-rouge">class-base</code></h2>
+
+<p>類別裡面可寫<code class="highlighter-rouge">constructor</code>建構子和一般的function</p>
+
+<ul>
+  <li>這裡的class是<code class="highlighter-rouge">Syntax Sugar語法糖衣</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Pokemon</span> <span class="p">{</span>
+	<span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">skill</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">skill</span> <span class="o">=</span> <span class="nx">skill</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nx">attack</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'攻擊!'</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">pikachu</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pokemon</span><span class="p">(</span><span class="s1">'皮卡丘'</span><span class="p">,</span><span class="s1">'電'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pikachu</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pikachu</span><span class="p">.</span><span class="nx">attack</span><span class="p">());</span> <span class="c1">//"攻擊!" undefined</span>
+<span class="nx">pikachu</span><span class="p">.</span><span class="nx">attack</span><span class="p">();</span> <span class="c1">//"攻擊!"</span>
+
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>object Object] <span class="o">{</span>
+  name: <span class="s2">"皮卡丘"</span>,
+  skill: <span class="s2">"電"</span>
+<span class="o">}</span>
+
+<span class="s2">"攻擊!"</span>
+undefined
+<span class="s2">"攻擊!"</span>
+</code></pre></div></div>
+
+<h2 id="es5-prototype-base">ES5 <code class="highlighter-rouge">prototype-base</code></h2>
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Pokemon</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">skill</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">skill</span> <span class="o">=</span> <span class="nx">skill</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Pokemon</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">attack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">sound</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">).</span><span class="nx">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"攻擊吧！"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">"！使出"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">skill</span> <span class="o">+</span> <span class="s2">"～"</span> <span class="o">+</span> <span class="nx">sound</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">pikachu</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pokemon</span><span class="p">(</span><span class="s2">"皮卡丘"</span><span class="p">,</span> <span class="s2">"十萬伏特"</span><span class="p">);</span>
+<span class="nx">pikachu</span><span class="p">.</span><span class="nx">attack</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"攻擊吧！皮卡丘！使出十萬伏特～皮卡皮卡"</span>
+</code></pre></div></div>
+
+<h1 id="其他es6常用語法">其他ES6常用語法</h1>
+
+<ul>
+  <li>map</li>
+  <li>reduce</li>
+  <li>filter</li>
+  <li>some</li>
+  <li>find</li>
+  <li>every</li>
+</ul>
+
+<h1 id="es6的瀏覽器支援程度">ES6的瀏覽器支援程度</h1>
+
+<p>可用轉譯套件轉成較低版本的javascript</p>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/KmubHzvtSkanPKRlBwsrXg?view">HackMD筆記</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-22-js_chrome_console">[Day20] JS: javascript 使用Chrome Console撰寫</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

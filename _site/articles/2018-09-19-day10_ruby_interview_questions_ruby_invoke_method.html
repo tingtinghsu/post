@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day10 Ruby invoke method調用方法? &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day10 Ruby invoke method調用方法?</h3>
+  <span class="post-date">19 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 668 words. </small> <br>
+  <br>
+  <p>不知不覺到了第10天囉！</p>
+
+<p>鐵人賽進度1/3（挺胸！）接下來應該會進入學習的深水區，但是我會越戰越勇。路遙知馬力，日久見人心！🏃‍♀️
+<!-- more --></p>
+
+<hr />
+
+<h1 id="ruby經典面試題目-10">Ruby經典面試題目 #10</h1>
+
+<ul>
+  <li>Ruby如何引入方法?<br />
+Explain how Ruby looks up a method to invoke?</li>
+</ul>
+
+<p>每當不知從何下筆時，我的起手式是開始回顧之前的文章，盤點我已經走了多遠、以及基礎觀念到底掌握了多少：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>鐵人賽足跡</th>
+      <th>面試問題</th>
+      <th>我的總結</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Day 1</td>
+      <td>class</td>
+      <td>class建立物件實體，以method和資料互動</td>
+    </tr>
+    <tr>
+      <td>Day 2</td>
+      <td>class與 module</td>
+      <td>class可繼承，module不可繼承</td>
+    </tr>
+    <tr>
+      <td>Day 3</td>
+      <td>module</td>
+      <td>module裡的method可被include和extend</td>
+    </tr>
+    <tr>
+      <td>Day 4</td>
+      <td>instance method與class method</td>
+      <td>include用於instance method, extend用於class method</td>
+    </tr>
+    <tr>
+      <td>Day 5</td>
+      <td>self物件與singleton method</td>
+      <td>singleton method是singleton class的instence method</td>
+    </tr>
+    <tr>
+      <td>Day 6</td>
+      <td>public, protected, private method</td>
+      <td>在classs外無法取得protected或private method</td>
+    </tr>
+    <tr>
+      <td>Day 7</td>
+      <td>symbol與string</td>
+      <td><code class="highlighter-rouge">:符號</code> symbol class的物件實體，object_id相同 / <code class="highlighter-rouge">字串:</code> string變數指向字串物件，object_id不同</td>
+    </tr>
+    <tr>
+      <td>Day 8</td>
+      <td><code class="highlighter-rouge">concat</code> 與 <code class="highlighter-rouge">+=</code> method</td>
+      <td>以<code class="highlighter-rouge">concat</code>串接， object_id相同 / <code class="highlighter-rouge">+=</code> object_id不同</td>
+    </tr>
+    <tr>
+      <td>Day 9</td>
+      <td><code class="highlighter-rouge">||=</code> method</td>
+      <td>(or-equals)條件判斷 <code class="highlighter-rouge">a||=b</code>是 <code class="highlighter-rouge">a || a = b</code>縮寫，意思為條件運算式 <code class="highlighter-rouge">a ? a : a = b</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>洋洋灑灑地條列出這麼多方法之後，我們好奇的問，Ruby到底是怎麼尋找這些方法的呢？</p>
+
+<p>Ruby最先尋找的地方是物件的<code class="highlighter-rouge">eigenclass</code>（特徵類別，物件上層的隱藏類別)method會直接定義在裡面，如同<a href="https://tingtinghsu.github.io/ruby/rails/interview/junior/2018/09/14/day05_ruby_interview_questions_self_-singleton_method.htmln">Day 5</a>提到的singleton method(類別方法)。</p>
+
+<p>如果Ruby沒有辦法在物件的<code class="highlighter-rouge">eigenclass</code>找到，它會尋找此物件class所屬的上一層(ancestor)class、層層往上搜尋，深入到<a href="https://ruby-doc.org/core-2.5.1/Object.html">Object</a>、到<a href="https://ruby-doc.org/core-2.5.1/Kernel.html">Kernal</a>、最後去<a href="https://ruby-doc.org/core-2.5.1/BasicObject.html">BasicObject</a>搜尋method是否在裡面。</p>
+
+<p><img src="https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/class.png" alt="https://s3-ap-southeast-2.amazonaws.com/tingsrailsdemo/class.png" /> <a href="https://ruby-china.org/topics/33308">圖片來源</a></p>
+
+<p>如果都找不到Method的話呢？</p>
+
+<p>不用擔心，Ruby就像Google Map一樣給予提示，它會在內部搜尋另一個:<code class="highlighter-rouge">method_missing</code> method給這個物件的class，提供Ruby工程師解bug的線索：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">undefined</span> <span class="nb">method</span> <span class="sb">`某方法名稱' (NoMethodError)
+</span></code></pre></div></div>
+
+<p>這個線索我們並不陌生，因為我們已經有多次經驗了：</p>
+
+<p>在[Day 6]，無法使用class裡的方法<code class="highlighter-rouge">.protected</code>及<code class="highlighter-rouge">private</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">day6</span><span class="p">.</span><span class="nf">protected</span> <span class="c1">#=&gt; undefined method `protected' (NoMethodError)</span>
+<span class="n">day6</span><span class="p">.</span><span class="nf">private</span> <span class="c1">#=&gt; undefined method `private' (NoMethodError)</span>
+</code></pre></div></div>
+
+<p>在[Day 7]Symbol找不到方法<code class="highlighter-rouge">[]=</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:tingsmessage</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="s2">"Z"</span>
+<span class="c1">#undefined method `[]=' for :tingsmessage:Symbol (NoMethodError)</span>
+</code></pre></div></div>
+
+<p>我從<a href="https://ruby-doc.org/core-2.5.1/">https://ruby-doc.org/core-2.5.1/</a>列出我在前十篇文章所用到的實體方法(Public Instance Methods)，整理表格如下：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><a href="https://ruby-doc.org/core-2.5.1/Object.html">Object</a></th>
+      <th><a href="https://ruby-doc.org/core-2.5.1/Kernel.html">Kernal</a></th>
+      <th><a href="https://ruby-doc.org/core-2.5.1/BasicObject.html">BasicObject</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">class</code> →class</td>
+      <td><code class="highlighter-rouge">puts</code>(obj, …) → nil</td>
+      <td><code class="highlighter-rouge">object_id</code> →integer</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">extend</code>(module) →obj</td>
+      <td><code class="highlighter-rouge">String(arg)</code> → string</td>
+      <td><code class="highlighter-rouge">send</code>(symbol [, args…]) → obj</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">singleton_method</code>(sym) → method</td>
+      <td><code class="highlighter-rouge">Hash(arg)</code> → hash</td>
+      <td><code class="highlighter-rouge">new()</code><em>這個是Public Class Methods！</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>為了更清楚釐清自己的觀念，我決定用英文整理出這10天的學習紀錄：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>觀念</th>
+      <th>解釋</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://ruby-doc.org/core-2.5.1/Class.html">class</a></td>
+      <td>Classes in Ruby are first-class objects.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html">module</a></td>
+      <td>Modules serve two purposes in Ruby, namespacing and mix-in functionality.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods">class method</a></td>
+      <td>Class methods (methods on a module) may be called directly.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-Methods">instance method</a></td>
+      <td>Instance methods defined in a module are only callable when included.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.org/core-2.5.1/Module.html">include</a></td>
+      <td>when the module is included, istance methods appear as methods in a class. (module methods do not.)</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/Object.html#method-i-extend">extend</a></td>
+      <td>Adds to obj the instance methods from each module given as a parameter.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.org/core-2.5.1/doc/syntax/modules_and_classes_rdoc.html#label-self">self</a></td>
+      <td>Self refers to the object that defines the current scope. (it will change when it a different method or a new module) .</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/Object.html#method-i-singleton_method">singleton class</a></td>
+      <td>If object is nil, true, or false, it returns NilClass, TrueClass, or FalseClass. (<em>可以直接存取，而不需要實體化此類別的物件。</em>)</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/singletonmethods.html">singleton method</a></td>
+      <td>The behavior of an instance is determined by its class.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/Module.html#method-i-public">public method</a></td>
+      <td>With no arguments, sets the default visibility for subsequently defined methods to public. With arguments, sets the named methods to have public visibility.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/Module.html#method-i-protected">projected method</a></td>
+      <td>If a method has protected visibility, it is callable only where self of the context is the same as the method.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/Module.html#method-i-private">private method</a></td>
+      <td>With no arguments, sets the default visibility for subsequently defined methods to private. With arguments, sets the named methods to have private visibility.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/Symbol.html">symbol</a></td>
+      <td>Symbol objects represent names and some strings inside the Ruby interpreter.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/String.html">string</a></td>
+      <td>A String object holds and manipulates an arbitrary sequence of bytes</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/String.html#method-i-concat">concat</a> (string method)</td>
+      <td>Concatenates the given object(s) to str. If an object is an Integer, it is converted to a character before concatenation.</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/String.html#method-i-2B">+</a> (string method)</td>
+      <td>Concatenation — Returns a new String containing</td>
+    </tr>
+    <tr>
+      <td><a href="https://ruby-doc.com/core/String.html#method-i-2B">true<code class="highlighter-rouge">|</code></a> (TrueClass method)</td>
+      <td>Or—Returns true. As obj is an argument to a method call, it is always evaluated</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>感想：</p>
+
+<p>為了做Ruby如何invoke method的表格，我竟然把Ruby API的<a href="https://ruby-doc.org/core-2.5.1/Object.html">Object</a> ，<a href="https://ruby-doc.org/core-2.5.1/Kernel.html">Kernal</a> ，<a href="https://ruby-doc.org/core-2.5.1/BasicObject.html">BasicObject</a> 頁面翻閱了一遍，了解輸入的參數怎麼用、已經輸出的物件會是什麼形式。這是我過去從來沒想過自己可以做得到的事（感覺翻手冊是高手才看得懂的境界啊！）經過這10天成長收穫巨大！</p>
+
+<p>明天來繼續研究更多method!!!! :)</p>
+
+<p>===</p>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a></li>
+  <li><a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a></li>
+  <li><a href="https://ruby-doc.com/core/index.html">Ruby-Core</a></li>
+  <li><a href="https://groups.google.com/forum/#!topic/comp.lang.ruby/y1Maaqk_Q7c">Please explain nuances of ||=</a></li>
+  <li><a href="http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case">A short-circuit (||=) edge case</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

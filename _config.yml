@@ -1,40 +1,71 @@
-# Welcome to Jekyll!
+# Permalinks
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# Use of `relative_permalinks` ensures post links from the index work properly.
+# permalink:           pretty
+# relative_permalinks: true //Remove this line or it will deprecate the lastest version of Jekyll theme.
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Ting's Square.
-description: >- # this means to ignore newlines until "baseurl:"
-  Copyright Ting Ting Hsu
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: tingtingtour
-github_username:  tingtinghsu
+# Setup
+title:               Ting's Square
+tagline:             '程式寫作之路'
+description:         '@tingtingtour 2018-2019 My Ruby on Rails Project'
+url:                 https://github.com/tingtinghsu
+baseurl:             '/blog'
+excerpt_separator:  '<!-- more -->'
 
-# Build settings
+# About/contact
+author:
+  name:              Ting Ting Hsu
+  url:               https://tingtinghsu.github.io/blog/
+  email:             tingtinghsu.tw[at]gm
+
+# Handling reading
+encoding: "utf-8"
+
+# Custom vars
+version:             1.0.0
+plugins: [jekyll-paginate]
+paginate:           10
+paginate_path:      "page:num"
+
+# Social links
+github_username:      tingtinghsu
+twitter_username:     tingtingtour
+wordpress_username:   tingtingtour
+instagram_username:   tingtingtour
+
+# Conversation
 markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
+highligher: rouge
+excerpt_separator: "\n\n"
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Markdown processors
+kramdown:
+  toc_levels: 1..6
+  auto_ids:     true
+  footnote_nr:  1
+  input: GFM
+  entity_output: as_char
+  hard_wrap: false
+
+# Tag: generate pages for each tag where we can list posts
+collections:
+  tag:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: tag
+    values:
+      layout: "tag"
+
+# Comments:
+# comments :
+#   provider : disqus    # default
+#   disqus :
+#     short_name : tingtingtour    # disqus site name
+disqus:
+  shortname: tingtingtour
+#RSS settings
+rss: true

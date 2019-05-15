@@ -1,12 +1,23 @@
 ---
 layout: post
-title:  "活用套件carrierwave gem: (3)Deploy 圖片上傳功能到 Heroku網站"
-date:   2018-09-08 13:34:00 +1000
-categories: heroku rails gem
+title:  "[RubyGems] carrierwave (3) Deploy 圖片上傳功能到 Heroku網站"
+preview: "Deploy image-uploading function on Heroku server"
+permalink: "/articles/2018-09-08-upload_image_function_deploy_heroku"
+date: 2018-09-08 10:31:00
+layout: post
+tags: 
+  - "rubygem"
+  - "heroku"
+comments: true
 ---
-前情提要：
 
-身為Ruby新手村民，創造穩定且持續的學習步調很重要，我用的方法就是一週在IT邦寫三篇筆記，希望藉由把筆記和遇到的bug記錄下來的過程，能幫助到未來想用Ruby on Rails架站的新手。：）
+身為Ruby新手村民，創造穩定且持續的學習步調很重要，我用的方法就是一週寫三篇筆記，希望藉由寫筆記將遇到的bug記錄下來的過程，能幫助到未來想用Ruby on Rails架站的新手。：）
+
+<!-- more -->
+
+重點摘要:
+* abstact
+{:toc}
 
 話說我在這一天[[Ting's筆記Day4] 將Ruby on Rails專案部署到Heroku](https://ithelp.ithome.com.tw/articles/10199014)架好了站，並在此篇[[Ting's筆記Day7] 活用套件carrierwave gem: (2) 利用Amazon S3架設圖片伺服器](https://ithelp.ithome.com.tw/articles/10199103/edit)完成我的餐廳資料庫網站的圖片上傳功能。接著就要把功能發佈到Heroku啦！
 
@@ -38,7 +49,7 @@ storage :fog
 
 跟隨著[Figaro的關於Deployment的說明檔](https://github.com/laserlemon/figaro#deployment)指示，把Figaro gem加入Heroku。在ternimal輸入`figaro heroku:set -e production`，程式就會把金鑰資訊傳給我在heroku的正式環境。
 
-```bash
+```bash
 tingdeMacBook-Air:yelpdemo tingtinghsu$ figaro heroku:set -e production
 Setting aws_access_key_id, aws_secret_access_key, fog_directory and restarting ⬢ tingsrailsdemo... done, v7
 aws_access_key_id:     #秘密
@@ -87,7 +98,7 @@ To https://git.heroku.com/tingsrailsdemo.git
 
 我使用`run:detached`這個指令來解決此問題：`heroku run:detached rake db:migrate`
 
-```bash
+```bash
 tingdeMacBook-Air:yelpdemo tingtinghsu$ heroku run:detached rake db:migrate
 Running rake db:migrate on ⬢ tingsrailsdemo... done, run.2219 (Free)
 Run heroku logs --app tingsrailsdemo --dyno run.2219 to view the output.
@@ -99,7 +110,8 @@ Run heroku logs --app tingsrailsdemo --dyno run.2219 to view the output.
   
 ![https://ithelp.ithome.com.tw/upload/images/20180908/20111177zR1v7NGgyF.png](https://ithelp.ithome.com.tw/upload/images/20180908/20111177zR1v7NGgyF.png)
 
-系列文章
-[將Ruby on Rails專案部署到Heroku](https://ithelp.ithome.com.tw/articles/10199014) |
-[活用套件carrierwave gem: (1)在Rails實現圖片上傳功能](https://ithelp.ithome.com.tw/articles/10199035) |
-[活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器](https://ithelp.ithome.com.tw/articles/10199103)
+`carrierwave`全系列文章:  
+
+[活用套件carrierwave gem: (1)在Rails實現圖片上傳功能](https://ithelp.ithome.com.tw/articles/10199035)  
+[活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器](https://ithelp.ithome.com.tw/articles/10199103)  
+[將Ruby on Rails專案部署到Heroku](https://ithelp.ithome.com.tw/articles/10199014)  

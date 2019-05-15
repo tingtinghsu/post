@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day22 and 和 or 比較 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day22 and 和 or 比較</h3>
+  <span class="post-date">16 Oct 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 803 words. </small> <br>
+  <br>
+  <p><code class="highlighter-rouge">and</code> 和 <code class="highlighter-rouge">&amp;&amp;</code> 以及 <code class="highlighter-rouge">or</code> 和 <code class="highlighter-rouge">||</code> 的意思雖然一樣，但就像以前在數學課學過的<code class="highlighter-rouge">先乘除後加減</code>的概念一樣，程式中的運算子之間也具有優先順序之分。符號的<code class="highlighter-rouge">&amp;&amp;</code>, <code class="highlighter-rouge">||</code> 的優先權高於關鍵字<code class="highlighter-rouge">and</code>, <code class="highlighter-rouge">or</code>，請參考<a href="https://ruby-doc.com/core/doc/keywords_rdoc.html">Ruby API</a>。</p>
+
+<!-- more -->
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-22" id="markdown-toc-ruby經典面試題目-22">Ruby經典面試題目 #22</a></li>
+  <li><a href="#short-circuit-evaluation-最短路徑計算" id="markdown-toc-short-circuit-evaluation-最短路徑計算">short-circuit evaluation 最短路徑計算</a></li>
+  <li><a href="#使用---不要使用-and-or" id="markdown-toc-使用---不要使用-and-or">使用 <code class="highlighter-rouge">&amp;&amp;</code>, <code class="highlighter-rouge">||</code> ，不要使用 <code class="highlighter-rouge">and</code>, <code class="highlighter-rouge">or</code></a></li>
+  <li><a href="#-與-and--有初始值的情況下" id="markdown-toc--與-and--有初始值的情況下">&amp;&amp; 與 and : 有初始值的情況下</a></li>
+  <li><a href="#-的優先權高於-" id="markdown-toc--的優先權高於-">&amp;&amp; 的優先權高於 <code class="highlighter-rouge">=</code></a></li>
+  <li><a href="#and-的優先權低於-" id="markdown-toc-and-的優先權低於-"><code class="highlighter-rouge">and</code> 的優先權低於 <code class="highlighter-rouge">=</code></a></li>
+  <li><a href="#番外篇control-flow-modifiers" id="markdown-toc-番外篇control-flow-modifiers">番外篇：Control-flow modifiers</a>    <ul>
+      <li><a href="#and-和-or-的取代語法" id="markdown-toc-and-和-or-的取代語法">and 和 or 的取代語法</a>        <ul>
+          <li><a href="#and-關鍵字與if" id="markdown-toc-and-關鍵字與if"><code class="highlighter-rouge">and</code> 關鍵字與<code class="highlighter-rouge">if</code></a></li>
+          <li><a href="#or-關鍵字與unless" id="markdown-toc-or-關鍵字與unless"><code class="highlighter-rouge">or</code> 關鍵字與<code class="highlighter-rouge">unless</code></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-22">Ruby經典面試題目 #22</h1>
+
+<ul>
+  <li>[and], [or] 和 [&amp;&amp;], [||] 比較?<br />
+What is the difference between <code class="highlighter-rouge">[and]</code>,<code class="highlighter-rouge">[or]</code> and <code class="highlighter-rouge">[&amp;&amp;]</code>, <code class="highlighter-rouge">[||]</code> ?</li>
+</ul>
+
+<!-- more -->
+
+<p>基本上而言：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">and</code> 就是 <code class="highlighter-rouge">&amp;&amp;</code>（且）</li>
+  <li><code class="highlighter-rouge">or</code> 就是<code class="highlighter-rouge">||</code> （或）</li>
+</ul>
+
+<h1 id="short-circuit-evaluation-最短路徑計算">short-circuit evaluation 最短路徑計算</h1>
+
+<p>事有輕重緩急，資源要放在要緊的地方。要比較哪個運算式先處理之前，在此我們介紹一個概念：<code class="highlighter-rouge">short-circuit evaluation</code>(又稱：短路計算、捷徑計算、最小化計算)。</p>
+
+<p>當表達式的結果已經確定時，程式會節省資源，減少不必要的運算。不管是<code class="highlighter-rouge">&amp;&amp;</code>.<code class="highlighter-rouge">||</code>還是<code class="highlighter-rouge">and</code>.<code class="highlighter-rouge">or</code>，都會符合<code class="highlighter-rouge">最短路徑計算</code>原則。</p>
+
+<p>舉個例子來說：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="s2">"true"</span>  
+<span class="k">else</span>
+  <span class="nb">p</span> <span class="s2">"false"</span>
+<span class="k">end</span> <span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<p>在以上的例子裡，<code class="highlighter-rouge">&amp;&amp;</code>代表括弧內的條件判斷必須<code class="highlighter-rouge">全部為真</code>才成立。一開始我們指定<code class="highlighter-rouge">a = 0</code>，因此，在<code class="highlighter-rouge">if (a==1)</code>這個敘述為<code class="highlighter-rouge">false</code>的情況，<strong>我們不需要走完下一條判斷式<code class="highlighter-rouge">b%2 == 1 (b為奇數)</code></strong>，這就是「最短路徑計算」。</p>
+
+<h1 id="使用---不要使用-and-or">使用 <code class="highlighter-rouge">&amp;&amp;</code>, <code class="highlighter-rouge">||</code> ，不要使用 <code class="highlighter-rouge">and</code>, <code class="highlighter-rouge">or</code></h1>
+
+<p>根據<a href="https://github.com/rubocop-hq/ruby-style-guide">RuboCop Headquarters</a>的Ruby Style Guide：</p>
+<blockquote>
+  <p>The <code class="highlighter-rouge">and</code> and <code class="highlighter-rouge">or</code> keywords are banned. The minimal added readability is just not worth the high probability of introducing subtle bugs. For boolean expressions, always use <code class="highlighter-rouge">&amp;&amp;</code> and <code class="highlighter-rouge">||</code> instead.</p>
+</blockquote>
+
+<p>由於<code class="highlighter-rouge">優先權(precedence)</code>的問題，<code class="highlighter-rouge">and</code> and <code class="highlighter-rouge">or</code>是很容易出bug的：</p>
+
+<blockquote>
+  <p>… <code class="highlighter-rouge">and</code> even has lower precedence than <code class="highlighter-rouge">=</code>. <a href="https://stackoverflow.com/questions/1426826/difference-between-and-and-in-ruby">出處</a></p>
+</blockquote>
+
+<p>因此，再次強調，使用 <code class="highlighter-rouge">&amp;&amp;</code>, <code class="highlighter-rouge">||</code> ，不要使用 <code class="highlighter-rouge">and</code>, <code class="highlighter-rouge">or</code>。</p>
+
+<h1 id="-與-and--有初始值的情況下">&amp;&amp; 與 and : 有初始值的情況下</h1>
+
+<p><code class="highlighter-rouge">&amp;&amp;</code> 與 <code class="highlighter-rouge">and</code> 都是<code class="highlighter-rouge">且</code>的意思。</p>
+
+<p>我的鐵人賽日記<code class="highlighter-rouge">IronmanDairy</code> 來到第22天，且第22天是個偶數天，顯示為true.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">IronmanDairy</span> <span class="o">=</span> <span class="mi">22</span>
+
+<span class="nb">p</span> <span class="no">IronmanDairy</span> <span class="o">==</span> <span class="mi">22</span> <span class="o">&amp;&amp;</span> <span class="no">IronmanDairy</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="c1">#=&gt;true</span>
+</code></pre></div></div>
+
+<p>和</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">IronmanDairy</span> <span class="o">=</span> <span class="mi">22</span>
+
+<span class="nb">p</span> <span class="no">IronmanDairy</span> <span class="o">==</span> <span class="mi">22</span> <span class="n">and</span> <span class="no">IronmanDairy</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="c1">#=&gt;true</span>
+</code></pre></div></div>
+
+<p>結果相同。</p>
+
+<p>以上例子，我們明白到 <code class="highlighter-rouge">&amp;&amp;</code>和 <code class="highlighter-rouge">and</code> 可以確認一串條件判斷式，其中是否有<code class="highlighter-rouge">false</code>或<code class="highlighter-rouge">nil</code>的部分，<code class="highlighter-rouge">全部為true</code>的情況，才會通過條件判斷。</p>
+
+<h1 id="-的優先權高於-">&amp;&amp; 的優先權高於 <code class="highlighter-rouge">=</code></h1>
+
+<p>談到優先權，開車的朋友可以聯想到路權，直行車的權利大於轉彎車。 <code class="highlighter-rouge">&amp;&amp;</code> 就像直行車一樣：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="no">IronmanDairy</span> <span class="o">=</span> <span class="mi">22</span> <span class="o">&amp;&amp;</span> <span class="no">IronmanDairy</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="c1">#undefined method `%' for nil:NilClass (NoMethodError)</span>
+</code></pre></div></div>
+
+<p>我們可以理解到，上列程式會出現NoMethodError的原因是<code class="highlighter-rouge">&amp;&amp;</code>有較高的優先權，對Ruby來說，意思是：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="no">IronmanDairy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">22</span> <span class="o">&amp;&amp;</span> <span class="no">IronmanDairy</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p>由於<code class="highlighter-rouge">IronmanDairy</code>尚未初始化(uninitialized)，而讓<code class="highlighter-rouge">22 &amp;&amp; IronmanDairy</code> 為<code class="highlighter-rouge">NilClass</code>，然而NilClass 除以2是無意義的。</p>
+
+<p>如果我們把同一條件判斷式，加上適當的括弧：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="p">(</span><span class="no">IronmanDairy</span> <span class="o">=</span> <span class="mi">22</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="no">IronmanDairy</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+
+<p>就可以完成我們要達到的語義目的：</p>
+
+<p>給定鐵人賽日記<code class="highlighter-rouge">IronmanDairy</code>這個值為22，且22是個偶數，顯示為true.</p>
+
+<h1 id="and-的優先權低於-"><code class="highlighter-rouge">and</code> 的優先權低於 <code class="highlighter-rouge">=</code></h1>
+
+<p>而在上述案例，若 <code class="highlighter-rouge">&amp;&amp;</code> 改成 <code class="highlighter-rouge">and</code> 的意思，就天差地遠了：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="no">IronmanDairy</span> <span class="o">=</span> <span class="mi">22</span> <span class="n">and</span> <span class="no">IronmanDairy</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="c1">#=&gt; 22</span>
+
+<span class="nb">p</span> <span class="p">(</span><span class="no">IronmanDairy</span> <span class="o">=</span> <span class="mi">22</span><span class="p">)</span> <span class="n">and</span> <span class="p">(</span><span class="no">IronmanDairy</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">#=&gt; 22</span>
+</code></pre></div></div>
+
+<p>不管括弧是否存在，結果已經變成印出了<code class="highlighter-rouge">IronmanDairy指定的數值22</code>，而不是出現我們想判斷的布林值<code class="highlighter-rouge">true</code>，因為</p>
+
+<p><code class="highlighter-rouge">IronmanDairy = 22</code>的 <code class="highlighter-rouge">=</code> 比 <code class="highlighter-rouge">and</code> 的優先權還高。為了防止誤會大了，產生的bug又難以偵錯，請不要用<code class="highlighter-rouge">and</code>或<code class="highlighter-rouge">or</code>喔！</p>
+
+<h1 id="番外篇control-flow-modifiers">番外篇：Control-flow modifiers</h1>
+
+<h2 id="and-和-or-的取代語法">and 和 or 的取代語法</h2>
+
+<h3 id="and-關鍵字與if"><code class="highlighter-rouge">and</code> 關鍵字與<code class="highlighter-rouge">if</code></h3>
+
+<p>有的時候，我們點擊動態網站中的連結，會跳出<code class="highlighter-rouge">(showup)</code>意想不到的視窗<code class="highlighter-rouge">(suprise)</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">suprise</span> <span class="o">=</span> <span class="n">suprise</span><span class="p">.</span><span class="nf">showup</span> <span class="n">and</span> <span class="k">next</span>
+</code></pre></div></div>
+
+<p>寫法等同於<code class="highlighter-rouge">if</code>(如果跳出視窗，就進行下一步<code class="highlighter-rouge">next</code>):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">next</span> <span class="k">if</span> <span class="n">suprise</span> <span class="o">=</span> <span class="n">suprise</span><span class="p">.</span><span class="nf">showup</span>
+</code></pre></div></div>
+
+<p>如同把 <code class="highlighter-rouge">I am hungry and I eat an apple</code></p>
+
+<p>改寫為</p>
+
+<p><code class="highlighter-rouge">I wanna eat an apple if I am hungry!</code></p>
+
+<p>把<code class="highlighter-rouge">and</code>改<code class="highlighter-rouge">if</code>，這樣是不是比較類似英文語法的邏輯呢？：）</p>
+
+<h3 id="or-關鍵字與unless"><code class="highlighter-rouge">or</code> 關鍵字與<code class="highlighter-rouge">unless</code></h3>
+
+<p>而有的時候，我們點擊連結想連到某個頁面，會出現<code class="highlighter-rouge">錯誤訊息404:找不到此網頁</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">read_article</span><span class="p">()?</span> <span class="n">or</span> <span class="k">raise</span> <span class="s2">"Could not find this article!"</span>
+</code></pre></div></div>
+
+<p>我們可以寫成：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">raise</span> <span class="s2">"Could not find this article!"</span> <span class="k">unless</span> <span class="n">read_article</span><span class="p">()?</span>
+</code></pre></div></div>
+
+<p>如同把 <code class="highlighter-rouge">Do exercise, or you won't be healthy!</code></p>
+
+<p>改寫為</p>
+
+<p><code class="highlighter-rouge">You won't be healthy unless you do exercise!</code></p>
+
+<p>不過，<a href="https://github.com/airbnb/ruby">Airbnb</a>的Ruby Style Guide有提到，只有在簡單可寫成一行的情況再使用<code class="highlighter-rouge">if/unless</code>唷！</p>
+
+<blockquote>
+  <p>Modifier if/unless usage is okay when the body is simple, the condition is simple, and the whole thing fits on one line. Otherwise, avoid modifier if/unless. <a href="https://github.com/airbnb/ruby">link</a></p>
+</blockquote>
+
+<ul>
+  <li>
+    <p><a href="https://stackoverflow.com/questions/1426826/difference-between-and-and-in-ruby">Difference between “and” and &amp;&amp; in Ruby?</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/">Using “and” and “or” in Ruby</a></p>
+  </li>
+  <li>
+    <p><a href="https://stackoverflow.com/questions/1426826/difference-between-and-and-in-ruby">Difference between “and” and &amp;&amp; in Ruby?</a></p>
+  </li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day14] JS: javascript 函數 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day14] JS: javascript 函數</h3>
+  <span class="post-date">13 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 1390 words. </small> <br>
+  <br>
+  <p>javascript function 函數<br />
+<code class="highlighter-rouge">function</code>是可以重複利用的SOP，相同的功能寫成函數後就可以重複利用，讓程式碼更簡潔。
+<!-- more --></p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#1-function-重複利用的sop" id="markdown-toc-1-function-重複利用的sop">1. function: 重複利用的SOP</a>    <ul>
+      <li><a href="#跟客人打招呼" id="markdown-toc-跟客人打招呼">跟客人打招呼</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-function-內加上條件判斷" id="markdown-toc-2-function-內加上條件判斷">2. function 內加上條件判斷</a>    <ul>
+      <li><a href="#寫法1-呼叫多次函數" id="markdown-toc-寫法1-呼叫多次函數">寫法1. 呼叫多次函數</a></li>
+      <li><a href="#寫法2-換成使用者輸入的版本" id="markdown-toc-寫法2-換成使用者輸入的版本">寫法2. 換成使用者輸入的版本</a></li>
+      <li><a href="#寫法3-與true--false結合傳出參數" id="markdown-toc-寫法3-與true--false結合傳出參數">寫法3. 與true / false結合，傳出參數</a></li>
+      <li><a href="#寫法4-寫法3進化版-使用者輸入的版本" id="markdown-toc-寫法4-寫法3進化版-使用者輸入的版本">寫法4. 寫法3進化版: 使用者輸入的版本</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-function的-return回傳值" id="markdown-toc-3-function的-return回傳值">3. function的 return回傳值</a>    <ul>
+      <li><a href="#寫法5-簡潔的function定義方法" id="markdown-toc-寫法5-簡潔的function定義方法">寫法5. 簡潔的function定義方法</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-anonymous-function匿名函數" id="markdown-toc-4-anonymous-function匿名函數">4. anonymous function匿名函數</a>    <ul>
+      <li><a href="#寫法6-改為匿名函數" id="markdown-toc-寫法6-改為匿名函數">寫法6. 改為匿名函數</a></li>
+      <li><a href="#匿名與非匿名比較" id="markdown-toc-匿名與非匿名比較">匿名與非匿名比較</a></li>
+      <li><a href="#hoisting-變數提升" id="markdown-toc-hoisting-變數提升">Hoisting 變數提升</a></li>
+    </ul>
+  </li>
+  <li><a href="#hello-和-hello-的不同" id="markdown-toc-hello-和-hello-的不同">hello 和 hello() 的不同</a>    <ul>
+      <li><a href="#有回傳值的結果" id="markdown-toc-有回傳值的結果">有回傳值的結果</a></li>
+      <li><a href="#沒有回傳值的結果" id="markdown-toc-沒有回傳值的結果">沒有回傳值的結果</a></li>
+    </ul>
+  </li>
+  <li><a href="#bmi練習題使用funtion改寫" id="markdown-toc-bmi練習題使用funtion改寫">BMI練習題，使用funtion改寫</a></li>
+  <li><a href="#閏年練習題使用funtion改寫" id="markdown-toc-閏年練習題使用funtion改寫">閏年練習題，使用funtion改寫</a></li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="1-function-重複利用的sop">1. function: 重複利用的SOP</h1>
+
+<h2 id="跟客人打招呼">跟客人打招呼</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sayHelloTo</span><span class="p">(</span><span class="nx">customer</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hi! '</span> <span class="o">+</span> <span class="nx">customer</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">sayHelloTo</span><span class="p">(</span><span class="s1">'孫小美'</span><span class="p">);</span>
+<span class="nx">sayHelloTo</span><span class="p">(</span><span class="s1">'錢夫人'</span><span class="p">);</span>
+<span class="nx">sayHelloTo</span><span class="p">(</span><span class="s1">'阿土伯'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>輸出:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Hi! 孫小美"
+"Hi! 錢夫人"
+"Hi! 阿土伯"
+</code></pre></div></div>
+
+<p>fuction名字: sayHelloTo
+代入參數: customer
+function裡面：做的事<code class="highlighter-rouge">(跟客人打招呼)</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sayHelloTo</span><span class="p">(</span><span class="nx">customer</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hi! '</span> <span class="o">+</span> <span class="nx">customer</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>就算有SOP，仍必須主動做出<code class="highlighter-rouge">跟客人打招呼</code>這件事:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sayHelloTo</span><span class="p">(</span><span class="s1">'客人的名字'</span><span class="p">);</span>
+<span class="cm">/*執行定義好的function，並代入字串*/</span>
+</code></pre></div></div>
+
+<h1 id="2-function-內加上條件判斷">2. function 內加上條件判斷</h1>
+
+<p>eg. 檢查年齡</p>
+
+<h2 id="寫法1-呼叫多次函數">寫法1. 呼叫多次函數</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="o">+</span><span class="s1">'歲，可以喝酒了！'</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">else</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="o">+</span><span class="s1">'歲，好年輕呀！'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">isAdult</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span>
+<span class="nx">isAdult</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>輸出:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"17歲，好年輕呀！"
+"18歲，可以喝酒了！"
+</code></pre></div></div>
+
+<h2 id="寫法2-換成使用者輸入的版本">寫法2. 換成使用者輸入的版本</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'請輸入年齡'</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="o">+</span><span class="s1">'歲，可以喝酒～'</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">else</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="o">+</span><span class="s1">'歲，好年輕呀！'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>輸出</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"15歲，好年輕呀！"</span>
+<span class="s2">"33歲，可以喝酒～"</span>
+</code></pre></div></div>
+
+<h2 id="寫法3-與true--false結合傳出參數">寫法3. 與true / false結合，傳出參數</h2>
+
+<p>因為console.log功能不包含回傳（只負責印出內容，但是回傳值是<code class="highlighter-rouge">undefined</code>），
+所以我們寫一個<code class="highlighter-rouge">function</code>，用<code class="highlighter-rouge">true</code>明確的回傳結果。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*function + 包含true / false 條件判斷先寫好*/</span>
+<span class="kd">function</span> <span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*if true，條件判斷*/</span>
+<span class="kd">var</span> <span class="nx">yourAge</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">isAdult</span><span class="p">(</span><span class="nx">yourAge</span><span class="p">))</span> <span class="p">{</span> <span class="cm">/*如果為True*/</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">yourAge</span><span class="o">+</span><span class="s1">'歲，可以喝酒了！'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">yourAge</span><span class="o">+</span><span class="s1">'歲，好年輕呀！'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="寫法4-寫法3進化版-使用者輸入的版本">寫法4. 寫法3進化版: 使用者輸入的版本</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*function + 包含true / false 條件判斷先寫好*/</span>
+<span class="kd">function</span> <span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="p">;</span> 
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*if true，條件判斷*/</span>
+<span class="kd">var</span> <span class="nx">yourAge</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'請輸入你的年紀：'</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">isAdult</span><span class="p">(</span><span class="nx">yourAge</span><span class="p">))</span> <span class="p">{</span> <span class="cm">/*如果為True*/</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">yourAge</span><span class="o">+</span><span class="s1">'歲，可以喝酒了！'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">yourAge</span><span class="o">+</span><span class="s1">'歲，好年輕呀！'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="3-function的-return回傳值">3. function的 return回傳值</h1>
+
+<p>用console的方式，雖然能夠在螢幕上顯示出來，但沒有回傳值。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> console.log<span class="o">(</span><span class="sb">`</span>hi<span class="sb">`</span><span class="o">)</span>
+hi
+&lt; undefined
+
+<span class="o">&gt;</span> <span class="k">function </span>abc<span class="o">()</span> <span class="o">{</span> <span class="k">return </span>100 <span class="o">}</span>
+&lt; undefined
+<span class="o">&gt;</span> abc <span class="o">()</span>
+&lt; 100
+</code></pre></div></div>
+
+<h2 id="寫法5-簡潔的function定義方法">寫法5. 簡潔的function定義方法</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>等於</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="p">;</span> 
+	<span class="p">}</span> <span class="cm">/*true重複，多餘邏輯*/</span>
+	<span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>等於</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="4-anonymous-function匿名函數">4. anonymous function匿名函數</h1>
+
+<h2 id="寫法6-改為匿名函數">寫法6. 改為匿名函數</h2>
+
+<pre><code class="language-javascript=">function isAdult(age) {
+	return (age &gt;= 18);
+}
+</code></pre>
+
+<p>改為沒有名字的<code class="highlighter-rouge">anonymous function</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">isAdult</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="匿名與非匿名比較">匿名與非匿名比較</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">a1</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'a1'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">a2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'a2'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">a1</span><span class="p">();</span>
+<span class="nx">a2</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>輸出:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"a1"</span>
+<span class="s2">"a2"</span>
+</code></pre></div></div>
+
+<h2 id="hoisting-變數提升">Hoisting 變數提升</h2>
+
+<p>javascript會自動做變數提升，用var設定變數，
+在某些情況下會呼叫不到這個變數。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* var abc, a2;  java根據下面程式設定abc與a2變數*/</span>
+
+<span class="kd">function</span> <span class="nx">a1</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'a1'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">a2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'a2'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">a1</span><span class="p">();</span>
+<span class="nx">a2</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">abc</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<p>如果把<code class="highlighter-rouge">a1()</code>, <code class="highlighter-rouge">a2()</code> 提到前面:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">a1</span><span class="p">();</span>
+<span class="c1">// javascript會把變數提升 =&gt; var a2; // undefined</span>
+<span class="nx">a2</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">abc</span><span class="p">,</span> <span class="nx">a2</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">a1</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'a1'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">a2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'a2'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">abc</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>執行時會出現問題</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"a1"</span>
+<span class="s2">"error"</span>
+<span class="s2">"TypeError: a2 is not a function
+    at delobel.js:2:1
+    at https://static.jsbin.com/js/prod/runner-4.1.7.min.js:1:13924
+    at https://static.jsbin.com/js/prod/runner-4.1.7.min.js:1:10866"</span>
+
+</code></pre></div></div>
+
+<h1 id="hello-和-hello-的不同">hello 和 hello() 的不同</h1>
+
+<p>hello是function，
+hello()是執行函數的結果。</p>
+
+<h2 id="有回傳值的結果">有回傳值的結果</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kc">undefined</span>
+
+<span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);}</span>
+<span class="kc">undefined</span>
+<span class="o">&gt;</span> <span class="nx">hello</span><span class="p">()</span>
+<span class="nx">hi</span>                            <span class="nx">VM150</span><span class="p">:</span><span class="mi">1</span>
+
+<span class="kc">undefined</span>
+
+<span class="o">&gt;</span> <span class="nx">hello</span>
+<span class="err">ƒ</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);}</span>
+
+</code></pre></div></div>
+
+<h2 id="沒有回傳值的結果">沒有回傳值的結果</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello_return</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="mi">1</span><span class="p">};</span>
+<span class="kc">undefined</span>
+
+<span class="nx">hello_return</span><span class="p">();</span>
+<span class="mi">1</span>
+<span class="nx">hello_return</span><span class="p">;</span>
+<span class="err">ƒ</span> <span class="nx">hello_return</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="mi">1</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="bmi練習題使用funtion改寫">BMI練習題，使用funtion改寫</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bmiResult</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">//</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>解法:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bmiResult</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">bmi</span> <span class="o">=</span> <span class="nx">weight</span> <span class="o">/</span> <span class="p">(</span> <span class="nx">height</span> <span class="o">*</span> <span class="nx">height</span> <span class="p">)</span>
+	<span class="k">return</span> <span class="nx">bmi</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'請輸入你的身高(公尺)：'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">weight</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'請輸入你的體重(公斤)：'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">bmiResult</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">)</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="閏年練習題使用funtion改寫">閏年練習題，使用funtion改寫</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isLeapYear</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span> <span class="p">{</span>
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>解法:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isLeapYear</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(((</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">))</span> <span class="o">||</span> <span class="p">(</span><span class="nx">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)){</span>
+	<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+	<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'請輸入年份'</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">isLeapYear</span><span class="p">(</span><span class="nx">year</span><span class="p">))</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">year</span> <span class="o">+</span><span class="s1">'年是閏年'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">year</span> <span class="o">+</span><span class="s1">'年不是閏年'</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>輸出:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"1980年是閏年"</span>
+<span class="s2">"1990年不是閏年"</span>
+<span class="s2">"2000年是閏年"</span>
+</code></pre></div></div>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/nAM4U5BsSJ6acOLVG5_yhw?view">HackMD筆記</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

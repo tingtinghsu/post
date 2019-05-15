@@ -1,21 +1,33 @@
 ---
+title:  "Ruby面試精選30題 - Day26 Ruby的錯誤處理機制 Rescue"
+preview: "Ruby interview question: Explain Error Handling in Ruby."
+permalink: "/articles/2018-10-25-day26_ruby_interview_exception_handling_rescue"
+date:   2018-10-25 12:58:00
 layout: post
-title:  "30天修煉Ruby面試精選30題 - Day26 Ruby的錯誤處理機制 Rescue"
-date:   2018-10-26 12:58:00 +1000
-categories: ruby interview
+tags: 
+  - "interview"
+comments: true
 ---
 
-有一句話說得好，「不怕一萬，只怕萬一」，如何檢查程式上的錯誤是一件重要的議題。好的工程師會懂得防範於未來。現在我們就來用Ruby練習一下錯誤與例外處理吧！
+有一句話說得好，「不怕一萬，只怕萬一」，如何檢查程式上的錯誤是一件重要的議題。好的工程師會懂得防範於未來。現在我們就來用Ruby練習一下錯誤與例外處理吧！
+<!-- more -->
+
+---
+
+重點摘要:
+* abstact
+{:toc}
 
 ---
 
 # Ruby經典面試題目 #26
 
-`Day26 Ruby的錯誤處理機制 Rescue. Explain Error Handling in Ruby.`
+* Ruby的錯誤處理機制 Rescue.  
+Explain Error Handling in Ruby.`
 
 Ruby能以區隔的 (compartmentalized) 方式處理錯誤及例外的程式碼區塊，基本架構：
 
-* `begin`到`rescue`這段區間是程式可能會出錯的地方。
+* `begin`到`rescue`這段區間是程式可能會出錯的地方。
 
 * `rescue`到`end`是我們對於錯誤真正發生時的反應措施。
 
@@ -29,7 +41,7 @@ end
 
 # 舉例
 
-我們從小學的時候就學過，0不能當分母(denominator)。身為工程師，我們預期會有User不小心（或是故意）輸入了0在分母，因此在`rescue`段落，將0用全域變數`$!`把**最新的錯誤訊息**傳進來，並提醒使用者再輸入一次分母：
+我們從小學的時候就學過，0不能當分母(denominator)。身為工程師，我們預期會有User不小心（或是故意）輸入了0在分母，因此在`rescue`段落，將0用全域變數`$!`把**最新的錯誤訊息**傳進來，並提醒使用者再輸入一次分母：
 
 ```ruby
 begin
@@ -79,7 +91,7 @@ end
 
 現在總算看得懂了！
 
-Ref:
+Ref:
 
 * [Ruby Interview Questions](https://gist.github.com/kjvarga/ae0d9b3365122b1c2c74b9dd6a7d5226)
 * [Exception](http://ruby-doc.org/core-2.5.1/Exception.html)

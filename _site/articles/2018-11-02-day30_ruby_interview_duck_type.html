@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</h3>
+  <span class="post-date">02 Nov 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 457 words. </small> <br>
+  <br>
+  <p>完賽這天終於到來！寫IT文章原來是這麼有趣的事呢！經過這30天內持續的努力，我的心態變得更強壯：）
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-30" id="markdown-toc-ruby經典面試題目-30">Ruby經典面試題目 #30</a></li>
+  <li><a href="#duck-type-鴨子型別" id="markdown-toc-duck-type-鴨子型別">Duck Type 鴨子型別</a></li>
+  <li><a href="#什麼是型別-typing" id="markdown-toc-什麼是型別-typing">什麼是型別 (Typing)</a></li>
+  <li><a href="#動態型別-vs-靜態型別" id="markdown-toc-動態型別-vs-靜態型別">動態型別 vs 靜態型別</a></li>
+  <li><a href="#鴨子測試duck-test" id="markdown-toc-鴨子測試duck-test">鴨子測試（Duck Test）</a></li>
+  <li><a href="#完賽感言" id="markdown-toc-完賽感言">完賽感言</a></li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-30">Ruby經典面試題目 #30</h1>
+
+<ul>
+  <li>請解釋Ruby的鴨子型別<code class="highlighter-rouge">duck type</code>?<br />
+What is duck type?`</li>
+</ul>
+
+<h1 id="duck-type-鴨子型別">Duck Type 鴨子型別</h1>
+
+<blockquote>
+  <p>如果你看到一隻鳥走起來像鴨子；游泳起來像鴨子；叫起來也像鴨子；那麼這隻鳥就可以被稱為鴨子。</p>
+</blockquote>
+
+<p>參考發明Ruby的Yukihiro Matsumoto所寫的<a href="https://books.google.com.au/books?id=uYvpBgAAQBAJ&amp;pg=PA109&amp;lpg=PA109&amp;dq=ruby+鴨子型別">松本行弘談程式世界的未來(電子書)</a>：<strong>如果只關心物件具備的方法，而不用考慮一個物件究竟是哪個類別的實體，就是鴨子型別。</strong></p>
+
+<p><code class="highlighter-rouge">Duck type</code>是一種用來譬喻<code class="highlighter-rouge">動態型別語言(Dynamically Typed Language)</code>的設計風格。這種主要根據<code class="highlighter-rouge">特徵</code>判斷的哲學，可以提供強大的靈活性，實現運行時的<code class="highlighter-rouge">多型(polymorphism)</code>。</p>
+
+<p><img src="https://lh4.googleusercontent.com/1HfzXVrD9TYsd3WCtrcTX0g47T7rgYtQwMAi37v5M0rFdXbmtIQW5lgjVEgYg61LZQoIEKyy0KzR0ncdBtlclIO-ldapKUkhPNgBv9tnSnwMcT8XjYeczypMc236Gkhxgjm-slua" alt="黃色小鴨游高雄" /></p>
+
+<blockquote>
+  <p>If it walks like a duck and quacks like a duck, it must be a duck.</p>
+</blockquote>
+
+<h1 id="什麼是型別-typing">什麼是型別 (Typing)</h1>
+
+<p>大家應該都同意在這個世界上，<code class="highlighter-rouge">資源有限，慾望無窮</code>，如何將電腦的資源(位元組)做有效的利用，是良好程式設計師的功課。指定型別（指定ㄧ種資料型態給一組有用的位元資料），就是一種規劃資源的概念，</p>
+
+<p>回首過去30天來，我們在鐵人賽第一天Day1的參賽宣言，在Ruby世界裡，幾乎萬物都為物件(Object)。產生物件的過程，需要將某個<code class="highlighter-rouge">型別</code>(Type)<code class="highlighter-rouge">實體化</code>（instantize）。</p>
+
+<p>記得我們當初將<code class="highlighter-rouge">實體化</code>的例子比喻為<code class="highlighter-rouge">生小孩</code>的過程！而像<a href="https://ithelp.ithome.com.tw/articles/10201484">Day11</a> <code class="highlighter-rouge">Ruby 的 block, proc, lamdba方法比較</code>，其中<code class="highlighter-rouge">lambda</code>就是由<code class="highlighter-rouge">Proc</code>建立的實體。</p>
+
+<h1 id="動態型別-vs-靜態型別">動態型別 vs 靜態型別</h1>
+
+<p>寫了30天的Ruby經典面試題鐵人賽，用各種例子舉下來，我們都可以體會到Ruby就是一種靈活到不行的動態型別語言，<code class="highlighter-rouge">Python</code>也是另一種很popular的動態型別語言。動態型別語言要在運行時，才對型別做判斷（是不是合法的）。</p>
+
+<p>相較之下，靜態型別語言(Statically Typed Language)如<code class="highlighter-rouge">c</code>, <code class="highlighter-rouge">c++</code>, <code class="highlighter-rouge">c##</code>, <code class="highlighter-rouge">Java</code>，在使用變數之前就必須宣告資料型別，因此類型結構較為嚴謹，方法方便調用，但缺點是可讀性沒有動態語言清晰明瞭。<code class="highlighter-rouge">靜態型別語言</code>在<code class="highlighter-rouge">編譯(compile)</code>階段，就會先進行型別判斷，如果想達到多型的效果，就需要使用<code class="highlighter-rouge">繼承</code>或<code class="highlighter-rouge">介面(interface)</code>這種<code class="highlighter-rouge">抽象型別(Abstract type)</code>。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>超級比一比</th>
+      <th>靜態型別語言</th>
+      <th>動態型別語言</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>程式語言</td>
+      <td><code class="highlighter-rouge">c++</code>, <code class="highlighter-rouge">bjective-C</code>, <code class="highlighter-rouge">Java</code>…</td>
+      <td><code class="highlighter-rouge">Ruby</code>, <code class="highlighter-rouge">Python</code>, <code class="highlighter-rouge">Javascript</code>…</td>
+    </tr>
+    <tr>
+      <td>何時宣告</td>
+      <td>在使用變數之前就必須宣告資料型別，讓變數具有資料儲存型別。</td>
+      <td>不需事先宣告變數的資料型別，就可以直接指定值</td>
+    </tr>
+    <tr>
+      <td>型別檢查(type check)</td>
+      <td>在<code class="highlighter-rouge">編譯(compile)</code>階段，就會先進行型別判斷</td>
+      <td>執行時判斷，一行行地將程式碼動態地<code class="highlighter-rouge">直譯(interpret)</code>為機器碼執行，速度較慢。</td>
+    </tr>
+    <tr>
+      <td>多型(polymorphism)</td>
+      <td><code class="highlighter-rouge">繼承</code>或<code class="highlighter-rouge">介面(interface)</code>的<code class="highlighter-rouge">抽象型別(Abstract type)</code></td>
+      <td>動態。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>まつもとゆきひろ(Matz先生)認為，<code class="highlighter-rouge">型別資訊</code>與<code class="highlighter-rouge">程式執行的本質</code>無關。而且在某些情況下，先設定好的型別也會造成制約。</p>
+
+<p>（以上圖例子來說，多了型別資訊的Java，不屬於演算法本身的程式碼占了行數更多呢！）</p>
+
+<h1 id="鴨子測試duck-test">鴨子測試（Duck Test）</h1>
+
+<p>Ruby在意的不是物件的身份是什麼，而在於他能不能做什麼。
+是不是鴨子，可以(是否滿足<code class="highlighter-rouge">is-a關係</code>)可以使用所謂的鴨子測試（Duck Test）進行判斷。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MarathonRunner</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">run</span>  <span class="c1">#same method name</span>
+    <span class="nb">puts</span> <span class="s2">"I love long-distance running!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Ironman</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">run</span> <span class="c1">#same method name</span>
+    <span class="nb">puts</span> <span class="s2">"I love running!"</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">swim</span>
+    <span class="nb">puts</span> <span class="s2">"I love swimming!"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">ride</span>
+    <span class="nb">puts</span> <span class="s2">"I love cycling!"</span>
+  <span class="k">end</span>  
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>我們在Ruby程式碼宣告了<code class="highlighter-rouge">Marathon Runner</code>,<code class="highlighter-rouge">Ironman</code>兩個類別，<code class="highlighter-rouge">Marathon Runner</code>和<code class="highlighter-rouge">Ironman</code>都有<code class="highlighter-rouge">run</code>方法，（馬拉松選手和鐵人三項選手都要跑步），但這兩個類別並非繼承關係。</p>
+
+<p>現在來建立第3個類別：<code class="highlighter-rouge">Winner</code>，並且創造一個<code class="highlighter-rouge">ITironman</code>方法，代入<code class="highlighter-rouge">name</code>參數，恭喜任何完成第30天IT邦鐵人賽挑戰選手們的成就！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Winner</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">ITironman</span> <span class="nb">name</span>
+    <span class="nb">name</span><span class="p">.</span><span class="nf">run</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">ting</span> <span class="o">=</span> <span class="no">MarathonRunner</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">bater</span> <span class="o">=</span> <span class="no">Ironman</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">winner</span> <span class="o">=</span> <span class="no">Winner</span><span class="p">.</span><span class="nf">new</span>
+
+<span class="n">winner</span><span class="o">.</span><span class="no">ITironman</span><span class="p">(</span><span class="n">ting</span><span class="p">)</span>
+<span class="n">winner</span><span class="o">.</span><span class="no">ITironman</span><span class="p">(</span><span class="n">bater</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vlan</span><span class="o">-</span><span class="mi">2644</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">108</span><span class="o">-</span><span class="mi">246</span><span class="ss">:Ironman</span> <span class="n">tingtinghsu</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">duck</span><span class="p">.</span><span class="nf">rb</span>
+<span class="no">I</span> <span class="n">love</span> <span class="n">long</span><span class="o">-</span><span class="n">distance</span> <span class="n">running!</span>
+<span class="no">I</span> <span class="n">love</span> <span class="n">running!</span>
+</code></pre></div></div>
+
+<p>鐵人賽就像是一場對<code class="highlighter-rouge">自己承諾想要進步更多</code>的長跑，恭喜完賽的鐵人們！</p>
+
+<h1 id="完賽感言">完賽感言</h1>
+
+<p>第30篇的面試經典題目選擇<code class="highlighter-rouge">鴨子型別</code>還蠻有意義的！我們在學習一項新的技能（例如<code class="highlighter-rouge">學習新的程式語言</code>），就像挑選用具、出門旅行一樣，必須選擇適合自己任務的工具，並知道自己為什麼做出這樣的選擇(Know your <code class="highlighter-rouge">WHY</code>)。如果以解決問題的角度來說，選擇的工具是什麼材質做的，可能並不是最重要的。</p>
+
+<p>整個10月份是我非常忙碌的月份（工作、完成國際講師課程認證、旅行、42Ｋ馬拉松完賽、潛水，參加英文演講比賽、去當其他英文演講比賽的評審），但我還是完成了IT鐵人賽！而且所寫的東西我以前完全不熟悉的<code class="highlighter-rouge">Ruby</code>。（鐵人賽前5天時有一種：<code class="highlighter-rouge">我常常看不懂自己在寫什麼</code>的感覺XDDD）</p>
+
+<p>不過，再怎麼忙，每天都還是平均抽空3小時寫文章，而且為了應付忙碌的生活，我提前準備，事先計劃做的十分充足（甚至用spreadsheet和trello專案管理鐵人賽），總總投入心血，值得驕傲！</p>
+
+<p>鐵人賽的完成並不是結束，而是個開始～。接下來我有三個計畫：</p>
+
+<ol>
+  <li>
+    <p>把鐵人賽文章修飾完成，改成英文版，放在我的個人blog。</p>
+  </li>
+  <li>
+    <p>所有Ruby程式碼整理後放到Github。</p>
+  </li>
+  <li>
+    <p>在IT邦寫一個新的系列<code class="highlighter-rouge">Rails經典面試題目30題</code></p>
+  </li>
+</ol>
+
+<p>在寫完這篇的三天後，我也要搬到有Matz先生的國度<code class="highlighter-rouge">Japan</code>去，繼續讓Ruby on Rails豐富我下一段的旅程！</p>
+
+<blockquote>
+  <p>我相信，只要是真心想完成一個目標，沒有事情是可以阻攔的！</p>
+</blockquote>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://books.google.com.au/books?id=uYvpBgAAQBAJ&amp;pg=PA109&amp;lpg=PA109&amp;dq=ruby+鴨子型別">松本行弘談程式世界的未來(電子書)</a></li>
+  <li><a href="http://www.codedata.com.tw/social-coding/understanding-typing-understanding-ruby/">【演講稿】Understanding Typing. Understanding Ruby.</a></li>
+  <li><a href="http://reader.roodo.com/sholfen/archives/8667217.html">Ruby語言的Duck Typing</a></li>
+  <li><a href="https://hk.saowen.com/a/68faaaa3a965bf21a6bd715fd4f6e41a14a9279d2c22e1854e4732b183909673">強弱類型、動靜態類型語言嚴格定義</a></li>
+  <li><a href="https://www.ithome.com.tw/node/73445">程式語言的特性本質（一）－靜態語言與動態語言的信任抉擇</a></li>
+  <li><a href="https://www.ithome.com.tw/node/45903">思考物件導向(1)物件導向與封裝</a></li>
+  <li><a href="https://medium.com/@totoroLiu/%E7%B7%A8%E8%AD%AF%E8%AA%9E%E8%A8%80-vs-%E7%9B%B4%E8%AD%AF%E8%AA%9E%E8%A8%80-5f34e6bae051">編譯語言 VS 直譯語言</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-30-day27_ruby_interview_hash_default_value">Ruby面試精選30題 - Day27 Ruby裡的Hash預設值</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day02] CSS: 常用語法 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day02] CSS: 常用語法</h3>
+  <span class="post-date">27 Feb 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/css">&nbsp;#css</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 542 words. </small> <br>
+  <br>
+  <p>CSS常用語法，包含<code class="highlighter-rouge">字體大小</code>，<code class="highlighter-rouge">字型</code>，<code class="highlighter-rouge">粗細</code>，<code class="highlighter-rouge">顏色</code>，<code class="highlighter-rouge">對齊</code>，<code class="highlighter-rouge">寬度與高度</code>等。
+<!-- more --></p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#1-字體大小" id="markdown-toc-1-字體大小">1. 字體大小</a>    <ul>
+      <li><a href="#px-pixels" id="markdown-toc-px-pixels"><code class="highlighter-rouge">px</code>: pixels</a></li>
+      <li><a href="#emelement根據上一層標籤倍數調整" id="markdown-toc-emelement根據上一層標籤倍數調整"><code class="highlighter-rouge">em</code>：element，根據上一層標籤倍數調整</a></li>
+      <li><a href="#remroot-element根據根標籤倍數調整" id="markdown-toc-remroot-element根據根標籤倍數調整"><code class="highlighter-rouge">rem</code>：root element，根據根標籤倍數調整</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-字型" id="markdown-toc-2-字型">2. 字型</a></li>
+  <li><a href="#3-粗細" id="markdown-toc-3-粗細">3. 粗細</a></li>
+  <li><a href="#4-對齊" id="markdown-toc-4-對齊">4. 對齊</a></li>
+  <li><a href="#5-顏色" id="markdown-toc-5-顏色">5. 顏色</a>    <ul>
+      <li><a href="#原理" id="markdown-toc-原理">原理</a></li>
+      <li><a href="#css顏色語法" id="markdown-toc-css顏色語法">css顏色語法</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-寬度與高度" id="markdown-toc-6-寬度與高度">6. 寬度與高度</a></li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="1-字體大小">1. 字體大小</h1>
+
+<h2 id="px-pixels"><code class="highlighter-rouge">px</code>: pixels</h2>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span> 
+  
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="emelement根據上一層標籤倍數調整"><code class="highlighter-rouge">em</code>：element，根據上一層標籤倍數調整</h2>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">article</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2em</span><span class="p">;</span> 
+  
+<span class="p">}</span>
+</code></pre></div></div>
+<p>原始html</p>
+<pre><code class="language-htmlembedded=">&lt;article&gt;
+  &lt;h2&gt;重點&lt;/h2&gt;
+  &lt;p&gt;大家一起來學日文&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&amp;copy; 版權所有，翻譯不究&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>此時<code class="highlighter-rouge">footer</code>內的<code class="highlighter-rouge">p</code>標籤，字體大小不會受影響。
+若要改變，必須在<code class="highlighter-rouge">css</code>加上<code class="highlighter-rouge">footer</code>設定：</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">footer</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+<p><code class="highlighter-rouge">footer</code>內的<code class="highlighter-rouge">p</code>標籤的字體大小才會跟著做倍數改變。</p>
+
+<h2 id="remroot-element根據根標籤倍數調整"><code class="highlighter-rouge">rem</code>：root element，根據根標籤倍數調整</h2>
+<p>需設定<code class="highlighter-rouge">html</code>標籤的<code class="highlighter-rouge">css</code></p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">html</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<pre><code class="language-css=">p {
+  font-size: 1.2rem;
+}
+</code></pre>
+<p>什麼單位比較好？選用相對單位的較好。
+符合RWD響應式開發。</p>
+
+<h1 id="2-字型">2. 字型</h1>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Courier New'</span><span class="p">,</span> <span class="n">Courier</span><span class="p">,</span> <span class="nb">monospace</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="3-粗細">3. 粗細</h1>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>  <span class="c">/*範圍100-900*/</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>  <span class="c">/*正常400*/</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>     <span class="c">/*粗體700*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h1 id="4-對齊">4. 對齊</h1>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>  <span class="c">/*置中對齊*/</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">justify</span><span class="p">;</span> <span class="c">/*分散對齊*/</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="5-顏色">5. 顏色</h1>
+
+<h2 id="原理">原理</h2>
+<p>16進位
+0, 1, 2, 3, 4, 5, 6, 7,
+8, 9, A, B, C, D, E, F,</p>
+
+<p>16進位  FF
+10進位 255 (16*16-1=255)</p>
+
+<p>RGB
+<code class="highlighter-rouge">#FF|00|00</code> Red
+<code class="highlighter-rouge">#00|FF|00</code> Green
+<code class="highlighter-rouge">#00|00|FF</code> Blue</p>
+
+<p><code class="highlighter-rouge">#FF|FF|00</code> Red + Green = Yellow</p>
+
+<h2 id="css顏色語法">css顏色語法</h2>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>             <span class="c">/*紅色*/</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#ff0000</span><span class="p">;</span>         <span class="c">/*紅色*/</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#f00</span><span class="p">;</span>            <span class="c">/*紅色，兩位數字相同的可以省略*/</span>  
+  
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#000000</span><span class="p">;</span>         <span class="c">/*白色*/</span>  
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>            <span class="c">/*白色，兩位數字相同的可以省略*/</span>  
+  
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#ffffff</span><span class="p">;</span>         <span class="c">/*黑色*/</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>            <span class="c">/*黑色，兩位數字相同的可以省略*/</span>  
+
+  <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>  <span class="c">/*紅色*/</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.7</span><span class="p">);</span> <span class="c">/*紅色+0.7alpha不透明度*/</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span>    <span class="c">/*設定背景色為黃色*/</span>
+<span class="p">}</span> 
+</code></pre></div></div>
+
+<h1 id="6-寬度與高度">6. 寬度與高度</h1>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>  <span class="c">/*範圍100-900*/</span>  
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span> <span class="c">/*置中對齊*/</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.5</span><span class="p">);</span> <span class="c">/*紅色 + 0.7的不透明度*/</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">pink</span><span class="p">;</span>
+  
+  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> <span class="c">/*隨瀏覽器自動調整大小*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>注意：不是所有元素都能設定寬度與高度。</p>
+
+<h1 id="相關連結">相關連結</h1>
+<p><a href="https://hackmd.io/ELSQzlWXRp238OBqsw3ttA?view">HackMD筆記</a><br />
+<a href="https://codepen.io/tingtinghsu/details/ZPbEGL">CodePen練習</a><br />
+<a href="../public/note/cssdemo/02-introduction.html">網頁作品</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

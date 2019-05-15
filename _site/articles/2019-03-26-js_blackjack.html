@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day24] JS: javascript blackjack game &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day24] JS: javascript blackjack game</h3>
+  <span class="post-date">26 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 4623 words. </small> <br>
+  <br>
+  <p>本篇會使用<code class="highlighter-rouge">jQuery</code> + <code class="highlighter-rouge">ES6</code>寫撲克牌小遊戲21點。一起來玩玩看吧！</p>
+
+<!-- more -->
+<p>&lt;<a href="../public/note/jsdemo/24-blackjack.html">點我進入網頁版完成品</a>&gt;</p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#前置作業-確定遊戲規則" id="markdown-toc-前置作業-確定遊戲規則">前置作業: 確定遊戲規則</a></li>
+  <li><a href="#遊戲點數試算" id="markdown-toc-遊戲點數試算">遊戲點數試算</a></li>
+  <li><a href="#single-responsibility-principle-srp" id="markdown-toc-single-responsibility-principle-srp">Single Responsibility Principle (SRP)</a></li>
+  <li><a href="#part-1-準備遊戲" id="markdown-toc-part-1-準備遊戲">Part 1. 準備遊戲</a>    <ul>
+      <li><a href="#a-初始化卡牌-initcards" id="markdown-toc-a-初始化卡牌-initcards">A. 初始化卡牌 <code class="highlighter-rouge">initCards()</code></a></li>
+      <li><a href="#b-初始化按鈕-initbuttons" id="markdown-toc-b-初始化按鈕-initbuttons">B. 初始化按鈕 <code class="highlighter-rouge">initButtons()</code></a></li>
+      <li><a href="#c-啟動遊戲-newgame" id="markdown-toc-c-啟動遊戲-newgame">C. 啟動遊戲 <code class="highlighter-rouge">newGame()</code></a></li>
+      <li><a href="#d-建立牌組-builddeck" id="markdown-toc-d-建立牌組-builddeck">D. 建立牌組 <code class="highlighter-rouge">buildDeck()</code></a></li>
+      <li><a href="#e-洗牌-shuffle" id="markdown-toc-e-洗牌-shuffle">E. 洗牌 <code class="highlighter-rouge">shuffle()</code></a></li>
+      <li><a href="#f-發牌給玩家-deal" id="markdown-toc-f-發牌給玩家-deal">F. 發牌給玩家 <code class="highlighter-rouge">deal()</code></a>        <ul>
+          <li><a href="#重點就算是簡單的一行程式碼也有包成函數的價值" id="markdown-toc-重點就算是簡單的一行程式碼也有包成函數的價值">重點：就算是簡單的一行程式碼，也有包成函數的價值!</a></li>
+        </ul>
+      </li>
+      <li><a href="#g-增加卡牌功能-class-card" id="markdown-toc-g-增加卡牌功能-class-card">G. 增加卡牌功能 <code class="highlighter-rouge">class Card{}</code></a></li>
+      <li><a href="#h-畫面顯示牌組-rendergametable" id="markdown-toc-h-畫面顯示牌組-rendergametable">H. 畫面顯示牌組 <code class="highlighter-rouge">renderGameTable()</code></a>        <ul>
+          <li><a href="#把某標籤的前一個標籤抓出來prev" id="markdown-toc-把某標籤的前一個標籤抓出來prev">把某標籤的前一個標籤抓出來<code class="highlighter-rouge">.prev()</code></a></li>
+        </ul>
+      </li>
+      <li><a href="#i-計算卡牌目前得分-calcpointdeck" id="markdown-toc-i-計算卡牌目前得分-calcpointdeck">I. 計算卡牌目前得分 <code class="highlighter-rouge">calcPoint(deck)</code></a></li>
+      <li><a href="#j-遊戲重置-resetgame" id="markdown-toc-j-遊戲重置-resetgame">J. 遊戲重置 <code class="highlighter-rouge">resetGame()</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#part-2-遊戲進行中" id="markdown-toc-part-2-遊戲進行中">Part 2. 遊戲進行中</a>    <ul>
+      <li><a href="#q-利用ingame-變數標示遊戲進行中" id="markdown-toc-q-利用ingame-變數標示遊戲進行中">Q. 利用<code class="highlighter-rouge">inGame</code> 變數，標示遊戲進行中</a></li>
+      <li><a href="#k-設定另外兩個按鈕屬性-attr" id="markdown-toc-k-設定另外兩個按鈕屬性-attr">K. 設定另外兩個按鈕屬性 <code class="highlighter-rouge">.attr()</code></a></li>
+      <li><a href="#l-遊戲結束的條件-任何一方21點" id="markdown-toc-l-遊戲結束的條件-任何一方21點">L. 遊戲結束的條件: 任何一方&gt;=21點</a></li>
+      <li><a href="#m-點數精算" id="markdown-toc-m-點數精算">M. 點數精算</a></li>
+      <li><a href="#n-莊家行動-dealerround" id="markdown-toc-n-莊家行動-dealerround">N. 莊家行動 <code class="highlighter-rouge">dealerRound()</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#part-3-遊戲結束判斷贏家" id="markdown-toc-part-3-遊戲結束判斷贏家">Part 3. 遊戲結束，判斷贏家</a></li>
+  <li><a href="#part-4-整理程式碼" id="markdown-toc-part-4-整理程式碼">Part 4. 整理程式碼</a></li>
+  <li><a href="#html--css-程式結構" id="markdown-toc-html--css-程式結構">HTML + CSS 程式結構</a></li>
+  <li><a href="#其他功能練習" id="markdown-toc-其他功能練習">其他功能練習</a></li>
+  <li><a href="#流程圖-flowchart" id="markdown-toc-流程圖-flowchart">流程圖 flowchart</a></li>
+  <li><a href="#附撲克牌遊戲所需素材" id="markdown-toc-附撲克牌遊戲所需素材">附：撲克牌遊戲所需素材</a></li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="前置作業-確定遊戲規則">前置作業: 確定遊戲規則</h1>
+
+<ul>
+  <li>發2張牌給玩家，發一張牌給莊家</li>
+  <li>玩家決定再拿牌(hit)或打住(stand)</li>
+  <li>玩家選擇stand後輪到莊家</li>
+  <li>玩家或莊家先達21點者贏</li>
+  <li>超過21點輸，遊戲結束</li>
+  <li>玩家如果跟莊家同點數，平手，遊戲結束</li>
+  <li>如果連發5張都還沒超過21點，也算是贏，遊戲結束</li>
+  <li>不論花色，1-10點代表牌面上數字，J, Q, K表示10點，A表示1或11點</li>
+</ul>
+
+<h1 id="遊戲點數試算">遊戲點數試算</h1>
+
+<ul>
+  <li>[3, J] = 3 + 10 = 13點</li>
+  <li>[A, 2, 3] = 11 + 2 + 3 = 16點</li>
+  <li>[6, 8, A] = 6 + 8 + 1(因為算11點就爆了) = 15點</li>
+  <li>[A + K] = 11 + 10 = 21點</li>
+</ul>
+
+<h1 id="single-responsibility-principle-srp">Single Responsibility Principle (SRP)</h1>
+
+<p>單一職責原則：一個函數只做一件事</p>
+
+<h1 id="part-1-準備遊戲">Part 1. 準備遊戲</h1>
+
+<h2 id="a-初始化卡牌-initcards">A. 初始化卡牌 <code class="highlighter-rouge">initCards()</code></h2>
+
+<p>0.啟動</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>1.為尚未翻開的牌面設計圖案</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span> <span class="p">{</span>
+    <span class="nx">initCards</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.抓html內的元素，換圖案</p>
+
+<ul>
+  <li>先把功能寫出來</li>
+</ul>
+
+<p>javascript版本</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//莊家牌</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="c1">// 抓所有div為card</span>
+  <span class="kd">let</span> <span class="nx">alldealerCards</span> <span class="o">=</span> 
+  <span class="nx">alldealerCards</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">card</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'㊎'</span><span class="p">;</span>
+  <span class="p">});</span>
+
+<span class="c1">//玩家牌</span>
+  <span class="kd">let</span> <span class="nx">allyourCards</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.yourCard'</span><span class="p">);</span>
+  <span class="nx">allyourCards</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">card</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'㊖'</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>獨立為function <code class="highlighter-rouge">initCards()</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 程式碼寫在這裡!</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">initCards</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">//把換牌面設計的功能獨立出來</span>
+<span class="kd">function</span> <span class="nx">initCards</span><span class="p">(){</span>
+    <span class="c1">// 抓所有div為card</span>
+    <span class="kd">let</span> <span class="nx">alldealerCards</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.dealerCard'</span><span class="p">);</span>
+    <span class="nx">alldealerCards</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">card</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'㊎'</span><span class="p">;</span>
+    <span class="p">});</span>
+  
+    <span class="kd">let</span> <span class="nx">allyourCards</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.yourCard'</span><span class="p">);</span>
+    <span class="nx">allyourCards</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">card</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'㊖'</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>把這段javascript版本註解掉，改寫成jQuery版本</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">alldealerCards</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.dealerCard'</span><span class="p">);</span>
+<span class="nx">alldealerCards</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">card</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'㊎'</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="nx">allyourCards</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.yourCard'</span><span class="p">);</span>
+<span class="nx">allyourCards</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">card</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'㊖'</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>jQuery版本</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'.card div'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'㊎'</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.yourCard'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'㊖'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>小結</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">initCards</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">initCards</span><span class="p">(){</span> 
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.dealerCard'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'㊎'</span><span class="p">);</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.yourCard'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'㊖'</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="b-初始化按鈕-initbuttons">B. 初始化按鈕 <code class="highlighter-rouge">initButtons()</code></h2>
+
+<p>1.html按鈕區的id: 寫在<code class="highlighter-rouge">action-new-game</code>裡：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"action"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"action-hit"</span> <span class="na">class=</span><span class="s">"action-button"</span> <span class="na">value=</span><span class="s">"Hit!"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"action-stand"</span> <span class="na">class=</span><span class="s">"action-button"</span> <span class="na">value=</span><span class="s">"Stand"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"action-new-game"</span> <span class="na">class=</span><span class="s">"action-button"</span> <span class="na">value=</span><span class="s">"New Game"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/footer&gt;</span>
+</code></pre></div></div>
+
+<p>2.<code class="highlighter-rouge">New Game</code>按鈕: addEventListener</p>
+
+<p>javascript</p>
+
+<ul>
+  <li>addEventListener聽<code class="highlighter-rouge">click</code>的動作，用<code class="highlighter-rouge">console.log</code>測試</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">initCards</span><span class="p">();</span>
+
+<span class="c1">// 綁定在New Game按鈕上面</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>初始化按鈕</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">initButtons</span><span class="p">();</span>
+</code></pre></div></div>
+
+<ul>
+  <li>寫成獨立的function <code class="highlighter-rouge">initButtons(){}</code>:</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">initCards</span><span class="p">();</span>
+  <span class="nx">initButtons</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">initButtons</span><span class="p">(){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>jQuery版本</p>
+
+<p>把這段javascript寫法</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<p>改寫為 jQuery寫法</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<p>再簡寫為箭頭函數<br />
+複習: <a href="https://hackmd.io/nAM4U5BsSJ6acOLVG5_yhw">js筆記：函數 function</a></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>小結</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">initCards</span><span class="p">();</span>
+  <span class="nx">initButtons</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// 把換牌面設計的功能獨立出來</span>
+<span class="kd">function</span> <span class="nx">initCards</span><span class="p">(){</span>
+<span class="c1">//  抓所有div為card  </span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.dealerCard'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'㊎'</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.yourCard'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'㊖'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 按完按鈕，重啟新牌局</span>
+<span class="kd">function</span> <span class="nx">initButtons</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="c-啟動遊戲-newgame">C. 啟動遊戲 <code class="highlighter-rouge">newGame()</code></h2>
+
+<p>1.<code class="highlighter-rouge">initButtons()</code> 串連到 <code class="highlighter-rouge">newGame()</code>
+寫出<code class="highlighter-rouge">newGame()</code>架構:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'new game'</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.讓<code class="highlighter-rouge">initButtons()</code>去呼叫</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">initButtons</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">newGame</span><span class="p">();</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>因為只有一行，可以省略大括弧:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">initButtons</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>小結</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">initCards</span><span class="p">();</span>
+  <span class="nx">initButtons</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// 把換牌面設計的功能獨立出來</span>
+<span class="kd">function</span> <span class="nx">initCards</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.dealerCard'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'㊎'</span><span class="p">);</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.yourCard'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'㊖'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 按完按鈕，重啟新牌局</span>
+<span class="kd">function</span> <span class="nx">initButtons</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'new game'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="d-建立牌組-builddeck">D. 建立牌組 <code class="highlighter-rouge">buildDeck()</code></h2>
+
+<p>開始和朋友玩撲克牌遊戲的條件：<strong>首先要有一副牌!!</strong></p>
+
+<p>1.4種花色，每一種花色有13張牌 = 52張牌
+=&gt; 兩層for迴圈</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">buildDeck</span><span class="p">(){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">suit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">suit</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">suit</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">number</span> <span class="o">&lt;=</span> <span class="mi">13</span><span class="p">;</span> <span class="nx">number</span><span class="o">++</span><span class="p">){</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.用物件導向OOP做出卡牌的模組</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//用OOP做卡牌</span>
+<span class="kd">class</span> <span class="nx">Card</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">suit</span><span class="p">,</span> <span class="nx">number</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">suit</span> <span class="o">=</span> <span class="nx">suit</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">number</span> <span class="o">=</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>3.完用模組做牌，迴圈內跑</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Card</span><span class="p">(</span><span class="nx">suit</span><span class="p">,</span> <span class="nx">number</span><span class="p">);</span> 
+
+</code></pre></div></div>
+
+<p>4.建立牌箱陣列（建了牌組之後，要有容器放牌）</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">deck</span><span class="p">[];</span>
+</code></pre></div></div>
+
+<p>5.迴圈內，把產生的物件用<code class="highlighter-rouge">push()</code>方法塞進陣列</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">deck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>6.在<code class="highlighter-rouge">newGame()</code>裡檢驗是否會回傳建立卡牌</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buildDeck</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>小結</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">buildDeck</span><span class="p">(){</span>
+  <span class="kd">let</span> <span class="nx">deck</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// 建立空陣列放牌</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">suit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">suit</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">suit</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">number</span> <span class="o">&lt;=</span> <span class="mi">13</span><span class="p">;</span> <span class="nx">number</span><span class="o">++</span><span class="p">){</span>
+        <span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Card</span><span class="p">(</span><span class="nx">suit</span><span class="p">,</span> <span class="nx">number</span><span class="p">);</span> <span class="c1">//做出52種牌組</span>
+        <span class="nx">deck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span> <span class="c1">//塞進去盒子</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">deck</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//用OOP做卡牌</span>
+<span class="kd">class</span> <span class="nx">Card</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">suit</span><span class="p">,</span> <span class="nx">number</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">suit</span> <span class="o">=</span> <span class="nx">suit</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">number</span> <span class="o">=</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buildDeck</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>console</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">0</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="mi">1</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="mi">2</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="mi">3</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">4</span> <span class="p">}</span>
+<span class="mi">4</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">5</span> <span class="p">}</span>
+<span class="mi">5</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">6</span> <span class="p">}</span>
+<span class="mi">6</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">7</span> <span class="p">}</span>
+<span class="mi">7</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">8</span> <span class="p">}</span>
+<span class="mi">8</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">9</span> <span class="p">}</span>
+<span class="p">...</span>
+<span class="mi">48</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span>
+<span class="mi">49</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">11</span> <span class="p">}</span>
+<span class="mi">50</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">12</span> <span class="p">}</span>
+<span class="mi">51</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">13</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="e-洗牌-shuffle">E. 洗牌 <code class="highlighter-rouge">shuffle()</code></h2>
+
+<p>javascript並沒有洗牌的功能
+google 關鍵字: javascript array shuffle</p>
+
+<p>1.尋找他人寫過的function</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 洗牌</span>
+<span class="c1">//https://gomakethings.com/how-to-shuffle-an-array-with-vanilla-js/</span>
+<span class="kd">var</span> <span class="nx">shuffle</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="kd">var</span> <span class="nx">currentIndex</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">temporaryValue</span><span class="p">,</span> <span class="nx">randomIndex</span><span class="p">;</span>
+
+	<span class="c1">// While there remain elements to shuffle...</span>
+	<span class="k">while</span> <span class="p">(</span><span class="mi">0</span> <span class="o">!==</span> <span class="nx">currentIndex</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// Pick a remaining element...</span>
+		<span class="nx">randomIndex</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">currentIndex</span><span class="p">);</span>
+		<span class="nx">currentIndex</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+
+		<span class="c1">// And swap it with the current element.</span>
+		<span class="nx">temporaryValue</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">currentIndex</span><span class="p">];</span>
+		<span class="nx">array</span><span class="p">[</span><span class="nx">currentIndex</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">randomIndex</span><span class="p">];</span>
+		<span class="nx">array</span><span class="p">[</span><span class="nx">randomIndex</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temporaryValue</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
+
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>2.把建好的牌組洗牌</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">shuffle</span> <span class="p">(</span> <span class="nx">buildDeck</span><span class="p">()</span> <span class="p">)</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>小結</li>
+</ul>
+
+<p>console內成功印出52張亂數牌</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">0</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">13</span> <span class="p">}</span>
+<span class="mi">1</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">13</span> <span class="p">}</span>
+<span class="mi">2</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="mi">3</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">13</span> <span class="p">}</span>
+<span class="mi">4</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">11</span> <span class="p">}</span>
+<span class="mi">5</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">12</span> <span class="p">}</span>
+<span class="mi">6</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">12</span> <span class="p">}</span>
+<span class="mi">7</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="mi">8</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">6</span> <span class="p">}</span>
+<span class="mi">9</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="mi">10</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">{</span> <span class="nl">suit</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">number</span><span class="p">:</span> <span class="mi">8</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="f-發牌給玩家-deal">F. 發牌給玩家 <code class="highlighter-rouge">deal()</code></h2>
+
+<h3 id="重點就算是簡單的一行程式碼也有包成函數的價值">重點：就算是簡單的一行程式碼，也有包成函數的價值!</h3>
+
+<p>1.啟動遊戲的時候，就有 <code class="highlighter-rouge">deck</code> = 那疊洗好的牌</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 3 啟動遊戲:</span>
+<span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//console.log(shuffle(buildDeck()));</span>
+  <span class="nx">deck</span> <span class="o">=</span> <span class="nx">shuffle</span><span class="p">(</span> <span class="nx">buildDeck</span><span class="p">()</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.按照順序發牌: 用<code class="highlighter-rouge">shift();</code>取得第一張牌</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 6 發牌:</span>
+<span class="kd">function</span> <span class="nx">deal</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">deck</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>3.定義莊家和玩家的牌組</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">yourDeck</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">let</span> <span class="nx">dealerDeck</span> <span class="o">=</span> <span class="p">[];</span>
+</code></pre></div></div>
+
+<p>4.從啟動遊戲的funciton發牌，push一張給玩家，一張給莊家，再一張給玩家</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 3 啟動遊戲:</span>
+<span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//console.log(shuffle(buildDeck()));</span>
+  <span class="nx">deck</span> <span class="o">=</span> <span class="nx">shuffle</span><span class="p">(</span><span class="nx">buildDeck</span><span class="p">());</span>
+  
+  <span class="nx">yourDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span>
+  <span class="nx">dealerDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span>
+  <span class="nx">yourDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="g-增加卡牌功能-class-card">G. 增加卡牌功能 <code class="highlighter-rouge">class Card{}</code></h2>
+
+<p>1.計算卡牌的點數 <code class="highlighter-rouge">cardPoint() {}</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">cardPoint</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">11</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">11</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">12</span><span class="p">:</span>
+      <span class="k">case</span> <span class="mi">13</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="nl">defult</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">number</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.呈現花色樣式</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">cardSuit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">suit</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'♠'</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'♥'</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'♦'</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'♣'</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="h-畫面顯示牌組-rendergametable">H. 畫面顯示牌組 <code class="highlighter-rouge">renderGameTable()</code></h2>
+
+<p>Show Hand吧！</p>
+
+<p>1.用jQuery把HTML值指定為成玩家抽到的牌，並顯示出來</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 8 在畫面看到發牌的樣子</span>
+<span class="kd">function</span> <span class="nx">renderGameTable</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//用迴圈的方式把已經抽到的牌翻出來</span>
+  <span class="nx">yourDeck</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">card</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">//把抓到的卡牌 0, 1, 2, 3, 4 用索引值[i]塞進去`.{i + 1}`</span>
+  <span class="kd">let</span> <span class="nx">theCard</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">`#yourCard</span><span class="p">${</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> 
+  <span class="c1">//兩層$, 內層放索引值，外層代表jQuery的取值方式</span>
+    <span class="nx">theCard</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">'A'</span><span class="p">);</span> <span class="c1">//測試</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.<code class="highlighter-rouge">cardShowNumber()</code>卡牌數字轉成A, J, Q, K</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">cardShowNumber</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+       <span class="k">return</span> <span class="s1">'A'</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">11</span><span class="p">:</span>
+       <span class="k">return</span> <span class="s1">'J'</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">12</span><span class="p">:</span>
+       <span class="k">return</span> <span class="s1">'Q'</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">13</span><span class="p">:</span>
+       <span class="k">return</span> <span class="s1">'K'</span><span class="p">;</span>
+      <span class="nl">defult</span><span class="p">:</span>
+       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">number</span><span class="p">;</span>  
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>3.秀出卡牌</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 8 在畫面看到發牌的樣子</span>
+<span class="kd">function</span> <span class="nx">renderGameTable</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//用迴圈的方式把已經抽到的牌翻出來</span>
+  <span class="nx">yourDeck</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">card</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">//把抓到的卡牌 0, 1, 2, 3, 4 用索引值[i]塞進去`.{i + 1}`</span>
+  <span class="kd">let</span> <span class="nx">theCard</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">`#yourCard</span><span class="p">${</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> 
+  <span class="c1">//兩層$, 內層放索引值，外層代表jQuery的取值方式</span>
+    <span class="nx">theCard</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">card</span><span class="p">.</span><span class="nx">cardShowNumber</span><span class="p">());</span>     
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>4.秀出花色</p>
+
+<p>如何把span的欄位抓出來?</p>
+
+<p><code class="highlighter-rouge">&lt;div class="card"&gt;&lt;span&gt;&lt;/span&gt;&lt;div class="yourCard" id="yourCard1"&gt;&lt;/div&gt;&lt;/div&gt;</code></p>
+
+<h3 id="把某標籤的前一個標籤抓出來prev">把某標籤的前一個標籤抓出來<code class="highlighter-rouge">.prev()</code></h3>
+
+<p>抓<code class="highlighter-rouge">&lt;div class="yourCard&gt;&lt;/div&gt;"</code>的前一個元素的寫法:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">theCard</span><span class="p">.</span><span class="nx">prev</span><span class="p">().</span><span class="nx">html</span><span class="p">(</span><span class="nx">card</span><span class="p">.</span><span class="nx">cardSuit</span><span class="p">())</span><span class="err">：</span>
+</code></pre></div></div>
+
+<p>莊家與玩家的牌組：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">renderGameTable</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//用迴圈的方式把已經抽到的牌翻出來</span>
+  <span class="nx">yourDeck</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">card</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">theCard</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">`#yourCard</span><span class="p">${</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> 
+    <span class="nx">theCard</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">card</span><span class="p">.</span><span class="nx">cardShowNumber</span><span class="p">());</span>
+    <span class="nx">theCard</span><span class="p">.</span><span class="nx">prev</span><span class="p">().</span><span class="nx">html</span><span class="p">(</span><span class="nx">card</span><span class="p">.</span><span class="nx">cardSuit</span><span class="p">());</span>
+  <span class="p">});</span>
+
+  <span class="nx">dealerDeck</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">card</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">theCard</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">`#dealerCard</span><span class="p">${</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> 
+      <span class="nx">theCard</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">card</span><span class="p">.</span><span class="nx">cardShowNumber</span><span class="p">());</span>
+      <span class="nx">theCard</span><span class="p">.</span><span class="nx">prev</span><span class="p">().</span><span class="nx">html</span><span class="p">(</span><span class="nx">card</span><span class="p">.</span><span class="nx">cardSuit</span><span class="p">());</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="i-計算卡牌目前得分-calcpointdeck">I. 計算卡牌目前得分 <code class="highlighter-rouge">calcPoint(deck)</code></h2>
+
+<p>1.迴圈算分數</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Part9 用迴圈算牌的分數</span>
+<span class="kd">function</span> <span class="nx">calcPoint</span><span class="p">(</span><span class="nx">deck</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nx">deck</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">point</span> <span class="o">+=</span> <span class="nx">card</span><span class="p">.</span><span class="nx">cardPoint</span><span class="p">();</span>
+  <span class="p">})</span>
+  <span class="k">return</span> <span class="nx">point</span><span class="p">;</span> <span class="c1">//記得要return分數回去</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.一開始大家都是0點</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">yourPoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">dearlerPoint</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p>3.呈現分數</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">renderGameTable</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">...</span>
+  <span class="nx">yourPoint</span> <span class="o">=</span> <span class="nx">calcPoint</span><span class="p">(</span><span class="nx">yourDeck</span><span class="p">);</span>
+  <span class="nx">dealerPoint</span> <span class="o">=</span> <span class="nx">calcPoint</span><span class="p">(</span><span class="nx">dealerDeck</span><span class="p">);</span>
+  
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.your-cards h1'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">`你 (</span><span class="p">${</span><span class="nx">yourPoint</span><span class="p">}</span><span class="s2">點) `</span><span class="p">);</span> 
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.dealer-cards h1'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">`莊家 (</span><span class="p">${</span><span class="nx">dealerPoint</span><span class="p">}</span><span class="s2">點) `</span><span class="p">);</span>  
+<span class="p">}</span>  
+</code></pre></div></div>
+
+<h2 id="j-遊戲重置-resetgame">J. 遊戲重置 <code class="highlighter-rouge">resetGame()</code></h2>
+
+<p>1.把所有變數歸零</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">resetGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">deck</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">yourDeck</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">dealerDeck</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">yourPoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">dearlerPoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>2.在啟動遊戲前先reset game</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 3 啟動遊戲:</span>
+<span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 初始化遊戲</span>
+  <span class="nx">resetGame</span><span class="p">();</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="part-2-遊戲進行中">Part 2. 遊戲進行中</h1>
+
+<h2 id="q-利用ingame-變數標示遊戲進行中">Q. 利用<code class="highlighter-rouge">inGame</code> 變數，標示遊戲進行中</h2>
+
+<p>1.inGame 布林值</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">inGame</span> <span class="o">=</span> <span class="kc">true</span> <span class="c1">//當new game按下去之後，處於遊戲狀態中</span>
+</code></pre></div></div>
+
+<p>2.在新牌局內，標示遊戲進行中</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">resetGame</span><span class="p">();</span>
+
+  <span class="nx">deck</span> <span class="o">=</span> <span class="nx">shuffle</span><span class="p">(</span><span class="nx">buildDeck</span><span class="p">());</span>
+  <span class="nx">yourDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span>
+  <span class="nx">dealerDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span>
+  <span class="nx">yourDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span>  
+
+  <span class="c1">//遊戲進行中</span>
+  <span class="nx">inGame</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+  <span class="c1">//把玩家和莊家的卡牌畫出來</span>
+  <span class="nx">renderGameTable</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="k-設定另外兩個按鈕屬性-attr">K. 設定另外兩個按鈕屬性 <code class="highlighter-rouge">.attr()</code></h2>
+
+<p>1.按下<code class="highlighter-rouge">New Game</code>按鈕，啟動另外兩顆按鈕功能</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="p">(</span><span class="nx">inGame</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-hit'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'disabled'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-stand'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'disabled'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-hit'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'disabled'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-stand'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'disabled'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>    
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>2.按鈕的打開與否，和inGame反向。</p>
+
+<p>以上<code class="highlighter-rouge">if-else</code>可以簡寫為:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-hit'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'disabled'</span><span class="p">,</span> <span class="o">!</span><span class="nx">inGame</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-stand'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'disabled'</span><span class="p">,</span> <span class="o">!</span><span class="nx">inGame</span><span class="p">);</span>  
+</code></pre></div></div>
+
+<p>3.initButton() 設定另外兩顆按鈕的event</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">initButtons</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#action-new-game'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="nx">newGame</span><span class="p">()</span> <span class="p">);</span>
+
+  <span class="c1">//玩家叫牌</span>
+  <span class="nx">$</span> <span class="p">(</span><span class="s1">'#action-hit'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">yourDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span> <span class="c1">//從deal()移動一張牌推進去陣列</span>
+    <span class="nx">renderGameTable</span><span class="p">();</span> <span class="c1">//再畫一次  </span>
+  <span class="p">});</span>
+
+  <span class="c1">//玩家停止叫牌，換莊家  </span>
+  <span class="nx">$</span> <span class="p">(</span><span class="s1">'#action-stand'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">dealerDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span> <span class="c1">//從deal()移動一張牌推進去陣列</span>
+    <span class="nx">renderGameTable</span><span class="p">();</span> <span class="c1">//再畫一次  </span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="l-遊戲結束的條件-任何一方21點">L. 遊戲結束的條件: 任何一方&gt;=21點</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//遊戲結束的條件</span>
+<span class="kd">function</span> <span class="nx">renderGameTable</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">...</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">yourPoint</span> <span class="o">&gt;=</span> <span class="mi">21</span> <span class="o">||</span> <span class="nx">dearlerPoint</span> <span class="o">&gt;=</span><span class="mi">21</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="nx">inGame</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">//hit &amp; stand按鈕關閉</span>
+  <span class="p">}</span>
+<span class="p">}</span>  
+</code></pre></div></div>
+
+<h2 id="m-點數精算">M. 點數精算</h2>
+
+<p>Ace牌可以等於1點或11點，調整<code class="highlighter-rouge">calc()</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">calcPoint</span><span class="p">(</span><span class="nx">deck</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nx">deck</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">point</span> <span class="o">+=</span> <span class="nx">card</span><span class="p">.</span><span class="nx">cardPoint</span><span class="p">();</span>
+  <span class="p">})</span>
+  <span class="c1">// M. 精算點數</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">point</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">deck</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">card</span><span class="p">.</span><span class="nx">cardShowNumber</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'A'</span><span class="p">){</span>
+        <span class="nx">point</span> <span class="o">-=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// A從11點變1點</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">point</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="n-莊家行動-dealerround">N. 莊家行動 <code class="highlighter-rouge">dealerRound()</code></h2>
+
+<p>1.先把流程用中文寫下來</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//1. 發牌</span>
+  <span class="c1">//2. 如果點數 &gt;= 玩家，結束，莊家贏</span>
+  <span class="c1">//3. 如果 &lt; 玩家，重複1</span>
+  <span class="c1">//4. &gt;21點，結束，玩家</span>
+</code></pre></div></div>
+
+<p>2.使用while迴圈判斷</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">dealerRound</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//whie: 不知道要做幾次, 無窮迴圈</span>
+    <span class="nx">dealerPoint</span> <span class="o">=</span> <span class="nx">calcPoint</span><span class="p">(</span><span class="nx">dealerDeck</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">dealerPoint</span> <span class="o">&lt;</span> <span class="nx">yourDeck</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">dealerDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span> 
+  <span class="p">}</span>
+  <span class="nx">inGame</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">//跳出後，結束遊戲</span>
+  <span class="nx">renderGameTable</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>3.以上由<code class="highlighter-rouge">dealerRound()</code>在<code class="highlighter-rouge">stand</code>的button區塊呼叫</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">initButtons</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">...</span>
+  <span class="nx">$</span> <span class="p">(</span><span class="s1">'#action-stand'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="nx">evt</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">dealerDeck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">deal</span><span class="p">());</span> <span class="c1">//再從deal()移動一張牌推進去陣列</span>
+    <span class="c1">//renderGameTable(); </span>
+    <span class="c1">//因為dealerRound已經再畫一次，此行註解掉</span>
+    <span class="nx">dealerRound</span><span class="p">();</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="part-3-遊戲結束判斷贏家">Part 3. 遊戲結束，判斷贏家</h1>
+
+<p>1.設定贏家變數</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">winner</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 0: 未定, 1: 玩家贏 2: 莊家贏 3: 平手</span>
+</code></pre></div></div>
+
+<p>2.贏家重置</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">resetGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">deck</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">yourDeck</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">dealerDeck</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">yourPoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">dearlerPoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+  <span class="nx">winner</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//不要忘記這段!</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>3.畫牌桌的時候，就把誰贏誰輸顯示出來</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">renderGameTable</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">...</span>
+  <span class="k">switch</span><span class="p">(</span><span class="kc">true</span><span class="p">){</span>
+    <span class="c1">// 0. 比點數大小</span>
+    <span class="k">case</span> <span class="nx">dealerPoint</span> <span class="o">&gt;</span> <span class="nx">yourPoint</span><span class="p">:</span>
+      <span class="nx">winner</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+
+    <span class="c1">// 1. 如果玩家21點，玩家贏</span>
+    <span class="k">case</span> <span class="nx">yourPoint</span> <span class="o">==</span> <span class="mi">21</span><span class="p">:</span>
+      <span class="nx">winner</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nx">dearlerPoint</span> <span class="o">==</span> <span class="mi">21</span><span class="p">:</span>
+      <span class="nx">winner</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>      
+    
+    <span class="c1">// 2. 如果玩家點數爆</span>
+    <span class="k">case</span> <span class="nx">yourPoint</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">:</span>
+      <span class="nx">winner</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    
+    <span class="c1">// 3. 如果莊家點數爆</span>
+    <span class="k">case</span> <span class="nx">dealerPoint</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">:</span>
+      <span class="nx">winner</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    
+    <span class="c1">// 4. 平手</span>
+    <span class="k">case</span> <span class="nx">yourPoint</span> <span class="o">==</span> <span class="nx">dealerPoint</span><span class="p">:</span>
+      <span class="nx">winner</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+      
+    <span class="c1">// 5. 最後再用莊家的點來比點數</span>
+    <span class="k">case</span> <span class="nx">dealerPoint</span> <span class="o">&gt;</span> <span class="nx">yourPoint</span><span class="p">:</span>
+      <span class="nx">winner</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>        
+
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="nx">winner</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>  
+</code></pre></div></div>
+
+<ol>
+  <li>蓋勝利章</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">switch</span><span class="p">(</span><span class="nx">winner</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">'.your-cards'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'win'</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">'.dealer-cards'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'win'</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span> 
+    
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span> <span class="c1">//平手</span>
+      <span class="k">break</span><span class="p">;</span>
+
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="part-4-整理程式碼">Part 4. 整理程式碼</h1>
+
+<p>O. 將<code class="highlighter-rouge">renderGameTable()</code>拆成小功能</p>
+
+<pre><code class="language-javascript=">  checkWinner();
+  showWinStamp();
+</code></pre>
+
+<h1 id="html--css-程式結構">HTML + CSS 程式結構</h1>
+
+<p>html<br />
+抽到的牌會放在<code class="highlighter-rouge">&lt;span&gt;&lt;/span&gt;</code>區塊</p>
+
+<p>莊家牌組</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"dealer-cards zone"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>莊家<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"deck"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dealerCard"</span> <span class="na">id=</span><span class="s">"dealerCard1"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dealerCard"</span> <span class="na">id=</span><span class="s">"dealerCard2"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dealerCard"</span> <span class="na">id=</span><span class="s">"dealerCard3"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dealerCard"</span> <span class="na">id=</span><span class="s">"dealerCard4"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dealerCard"</span> <span class="na">id=</span><span class="s">"dealerCard5"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div></div>
+
+<p>玩家牌組</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"your-cards zone"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>你<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"deck"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"yourCard"</span> <span class="na">id=</span><span class="s">"yourCard1"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"yourCard"</span> <span class="na">id=</span><span class="s">"yourCard2"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"yourCard"</span> <span class="na">id=</span><span class="s">"yourCard3"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"yourCard"</span> <span class="na">id=</span><span class="s">"yourCard4"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;div</span> <span class="na">class=</span><span class="s">"yourCard"</span> <span class="na">id=</span><span class="s">"yourCard5"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div></div>
+
+<p>按鈕區</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"action"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"action-hit"</span> <span class="na">class=</span><span class="s">"action-button"</span> <span class="na">value=</span><span class="s">"Hit!"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"action-stand"</span> <span class="na">class=</span><span class="s">"action-button"</span> <span class="na">value=</span><span class="s">"Stand"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"action-new-game"</span> <span class="na">class=</span><span class="s">"action-button"</span> <span class="na">value=</span><span class="s">"New Game"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/footer&gt;</span>
+</code></pre></div></div>
+
+<p>CSS</p>
+
+<p>分散對齊</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.deck</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-around</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>勝利效果</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span><span class="nd">::after</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">5px</span> <span class="m">#d00</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#d00</span><span class="p">;</span>
+  <span class="nl">content</span><span class="p">:</span> <span class="s2">'勝'</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">80px</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="n">all</span> <span class="m">0.3s</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span> <span class="m">0.04</span><span class="p">,</span> <span class="m">0.98</span><span class="p">,</span> <span class="m">0.336</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.win</span> <span class="nt">h1</span><span class="nd">::after</span> <span class="p">{</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">.85</span><span class="p">;</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">-15deg</span><span class="p">)</span> <span class="n">scale</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="其他功能練習">其他功能練習</h1>
+
+<ol>
+  <li>新增一個Deck類別，讓Deck可以自行計算分數</li>
+  <li>bug: 避免起始的時候直接輸掉</li>
+</ol>
+
+<h1 id="流程圖-flowchart">流程圖 flowchart</h1>
+
+<p>利用Scalable Vector Graphics (SVG) 可縮放式向量圖檔製作流程圖。</p>
+
+<p>JS Code Flowchart<br />
+https://github.com/Bogdan-Lyashenko/js-code-to-svg-flowchart<br />
+JS Code Flowchart Demo<br />
+https://bogdan-lyashenko.github.io/js-code-to-svg-flowchart/docs/live-editor/</p>
+
+<h1 id="附撲克牌遊戲所需素材">附：撲克牌遊戲所需素材</h1>
+
+<p>撲克牌花色：<br />
+♠♥♣♦<br />
+圈圈字：<br />
+㊀㊁㊂㊃㊄㊅㊆㊇㊈㊉㊊㊋㊌㊍㊎㊏㊐㊑㊒㊓㊔㊕㊖㊗㊘㊙㊚㊛㊜㊝㊞㊟㊠㊡㊢㊣㊤㊥㊦㊧㊨㊩㊫㊬㊭㊮㊯㊰</p>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/b0Bfp09RRZidfpoF3Ad9Mg?view">HackMD筆記</a><br />
+<a href="https://codepen.io/tingtinghsu/full/ZZQewG">CodePen練習</a><br />
+<a href="../public/note/jsdemo/24-blackjack.html">網頁版完成品</a><br />
+<a href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">google font</a><br />
+<a href="https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array">陣列的洗牌(shuffle)功能</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-22-js_chrome_console">[Day20] JS: javascript 使用Chrome Console撰寫</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

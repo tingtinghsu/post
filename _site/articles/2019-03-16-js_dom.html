@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day17] JS: javascript DOM &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day17] JS: javascript DOM</h3>
+  <span class="post-date">16 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 2068 words. </small> <br>
+  <br>
+  <p>javascript DOM 文件物件模型<br />
+<code class="highlighter-rouge">DOM</code> = <code class="highlighter-rouge">Document Object Model</code><br />
+用javascript操作物件是個方便的功能，就如同夾娃娃機一樣，先抓到DOM，然後對內容進行我們想要的操作，例如改變值、或者是進行計算。
+<!-- more --></p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#在jsbin寫html" id="markdown-toc-在jsbin寫html">在jsbin寫HTML</a></li>
+  <li><a href="#用javascript取出元素" id="markdown-toc-用javascript取出元素">用javascript取出元素</a>    <ul>
+      <li><a href="#1-getelementbyid" id="markdown-toc-1-getelementbyid">1. <code class="highlighter-rouge">getElementById()</code></a></li>
+      <li><a href="#2-getelementsbyclassname" id="markdown-toc-2-getelementsbyclassname">2. <code class="highlighter-rouge">getElementsByClassName()</code></a></li>
+      <li><a href="#getelementbyid-getelementsbyclassname比較" id="markdown-toc-getelementbyid-getelementsbyclassname比較"><code class="highlighter-rouge">getElementById()</code>, <code class="highlighter-rouge">getElementsByClassName()</code>比較</a></li>
+      <li><a href="#3-queryselector" id="markdown-toc-3-queryselector">3. <code class="highlighter-rouge">querySelector()</code></a></li>
+      <li><a href="#4-queryselectorall" id="markdown-toc-4-queryselectorall">4. <code class="highlighter-rouge">querySelectorAll()</code></a></li>
+    </ul>
+  </li>
+  <li><a href="#在console印出html裡的元素" id="markdown-toc-在console印出html裡的元素">在Console印出HTML裡的元素</a></li>
+  <li><a href="#實作練習1-bmi計算機" id="markdown-toc-實作練習1-bmi計算機">實作練習1: BMI計算機</a>    <ul>
+      <li><a href="#step1-希望按下按扭online會出現效果" id="markdown-toc-step1-希望按下按扭online會出現效果">Step1. 希望按下按扭<code class="highlighter-rouge">online</code>會出現效果</a></li>
+      <li><a href="#step2-拆開計算功能傳出參數另寫一function-bmiheight-wight" id="markdown-toc-step2-拆開計算功能傳出參數另寫一function-bmiheight-wight">Step2. 拆開計算功能，傳出參數，另寫一function <code class="highlighter-rouge">bmi(height, wight)</code></a></li>
+      <li><a href="#step3-calculatebmi把結果印出來" id="markdown-toc-step3-calculatebmi把結果印出來">Step3. <code class="highlighter-rouge">calculateBMI()</code>把結果印出來</a></li>
+      <li><a href="#step4-簡單的防呆機制" id="markdown-toc-step4-簡單的防呆機制">Step4. 簡單的防呆機制</a></li>
+      <li><a href="#step5-加上肥胖提醒" id="markdown-toc-step5-加上肥胖提醒">Step5. 加上肥胖提醒</a></li>
+    </ul>
+  </li>
+  <li><a href="#實作練習2-購物車" id="markdown-toc-實作練習2-購物車">實作練習2: 購物車</a>    <ul>
+      <li><a href="#selectallskills-選擇全部的函數" id="markdown-toc-selectallskills-選擇全部的函數"><code class="highlighter-rouge">selectAllSkills()</code> 選擇全部的函數</a></li>
+      <li><a href="#addproduct-改變商品的數量及價格" id="markdown-toc-addproduct-改變商品的數量及價格"><code class="highlighter-rouge">addProduct()</code> 改變商品的數量及價格</a></li>
+    </ul>
+  </li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<p>常用語法(如同夾娃娃機的爪子):</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getElementById</span><span class="p">()</span>
+<span class="nx">getElementsByClassName</span><span class="p">()</span>
+<span class="nx">getElementsByName</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h1 id="在jsbin寫html">在jsbin寫HTML</h1>
+
+<p>HTML</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>JS Bin<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"doll"</span> <span class="na">id=</span><span class="s">"doll-1"</span><span class="nt">&gt;</span>娃娃1<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"doll"</span> <span class="na">id=</span><span class="s">"doll-2"</span><span class="nt">&gt;</span>娃娃2<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Output</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>娃娃1
+娃娃2
+</code></pre></div></div>
+
+<h1 id="用javascript取出元素">用javascript取出元素</h1>
+
+<h2 id="1-getelementbyid">1. <code class="highlighter-rouge">getElementById()</code></h2>
+
+<p>取出id為<code class="highlighter-rouge">doll-1</code>的元素，並用其他值帶換</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">d1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'doll-1'</span><span class="p">);</span>
+<span class="nx">d1</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"畫家貓"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Output</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>畫家貓
+娃娃2
+</code></pre></div></div>
+
+<h2 id="2-getelementsbyclassname">2. <code class="highlighter-rouge">getElementsByClassName()</code></h2>
+
+<p>取出所有class為<code class="highlighter-rouge">doll</code>的元素
+並用迴圈代換</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*設定allDolls變數為陣列名稱*/</span>
+<span class="kd">var</span> <span class="nx">allDolls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'doll'</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">allDolls</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+     <span class="cm">/* 每跑一次迴圈，指定每個陣列值為變數d */</span>
+    <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">allDolls</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    
+    <span class="cm">/* 指定新值，取代d在HTML裡的原始值*/</span>
+    <span class="nx">d</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"達菲兔"</span> <span class="o">+</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Output</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>達菲兔1
+達菲兔2
+</code></pre></div></div>
+
+<h2 id="getelementbyid-getelementsbyclassname比較"><code class="highlighter-rouge">getElementById()</code>, <code class="highlighter-rouge">getElementsByClassName()</code>比較</h2>
+
+<p>HTML:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"doll"</span> <span class="na">id=</span><span class="s">"doll-1"</span><span class="nt">&gt;</span>娃娃1<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"doll"</span> <span class="na">id=</span><span class="s">"doll-2"</span><span class="nt">&gt;</span>娃娃2<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Javascrip:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//取得 id = doll-1 的元素（一個）</span>
+<span class="c1">//d1為字串</span>
+<span class="kd">var</span> <span class="nx">d1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'doll-1'</span><span class="p">);</span>
+
+<span class="c1">//取得 class 是 doll 的元素們（全部）</span>
+<span class="c1">//allDolls為陣列</span>
+
+<span class="kd">var</span> <span class="nx">allDolls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'doll'</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<h2 id="3-queryselector">3. <code class="highlighter-rouge">querySelector()</code></h2>
+
+<p><code class="highlighter-rouge">querySelector()</code> 取代 <code class="highlighter-rouge">getElementById()</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">d1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#doll-1'</span><span class="p">);</span>
+<span class="nx">d1</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"伊布"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Output</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>伊布
+娃娃2
+</code></pre></div></div>
+
+<h2 id="4-queryselectorall">4. <code class="highlighter-rouge">querySelectorAll()</code></h2>
+
+<p><code class="highlighter-rouge">querySelectorAll()</code> 取代 <code class="highlighter-rouge">getElementsByClassName()</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">allDolls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.doll'</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">allDolls</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+     <span class="cm">/* 每跑一次迴圈，指定每個陣列值為變數d */</span>
+    <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">allDolls</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> 
+
+    <span class="cm">/* 指定新值，取代d在HTML裡的原始值*/</span>
+    <span class="nx">d</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"迷你Q"</span> <span class="o">+</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="在console印出html裡的元素">在Console印出HTML裡的元素</h1>
+
+<p><code class="highlighter-rouge">querySelector()</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">d1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#doll-1'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d1</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
+<span class="nx">d1</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"伊布"</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<p>Console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"娃娃1"</span>
+</code></pre></div></div>
+
+<p>Output</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>伊布
+娃娃2
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">querySelectorAll()</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*指定allDolls陣列，存放class裡所有的值*/</span>
+<span class="kd">var</span> <span class="nx">allDolls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.doll'</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">allDolls</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    
+    <span class="cm">/* 每跑一次迴圈，用console印出陣列裡的值 */</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">allDolls</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">innerHTML</span><span class="p">);</span>
+    
+     <span class="cm">/* 每跑一次迴圈，指定每個陣列值為變數d */</span>
+    <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">allDolls</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> 
+    
+    <span class="cm">/* 指定新值，取代d在HTML裡的原始值*/</span>
+    <span class="nx">d</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"迷你Q"</span> <span class="o">+</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span> 
+
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"娃娃1"</span>
+<span class="s2">"娃娃2"</span>
+</code></pre></div></div>
+
+<p>Output</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>迷你Q1
+迷你Q2
+</code></pre></div></div>
+
+<h1 id="實作練習1-bmi計算機">實作練習1: BMI計算機</h1>
+
+<h2 id="step1-希望按下按扭online會出現效果">Step1. 希望按下按扭<code class="highlighter-rouge">online</code>會出現效果</h2>
+
+<p>=&gt; 設定<code class="highlighter-rouge">function</code>名稱<code class="highlighter-rouge">calculateBMI();</code></p>
+
+<p>HTML</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"計算"</span> <span class="na">onclick=</span><span class="s">"calculateBMI();"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>Javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">calculateBMI</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#bodyHeight'</span><span class="p">);</span>
+  
+  <span class="kd">var</span> <span class="nx">weight</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#bodyWeight'</span><span class="p">);</span>
+  
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span> <span class="cm">/*先試試看console會不會印出東西*/</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>問題：console印的是輸入隔的格式，而非輸入的數值。</p>
+
+<p>Console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;input <span class="nb">id</span><span class="o">=</span><span class="s2">"bodyHeight"</span> <span class="nv">min</span><span class="o">=</span><span class="s2">"0"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"number"</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>解法：將<code class="highlighter-rouge">.querySelector('#bodyHeight')</code>後接<code class="highlighter-rouge">.value</code></p>
+
+<pre><code class="language-htmlmixed">  var height = document.querySelector('#bodyHeight').value;
+</code></pre>
+
+<p>Console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
+</code></pre></div></div>
+
+<h2 id="step2-拆開計算功能傳出參數另寫一function-bmiheight-wight">Step2. 拆開計算功能，傳出參數，另寫一function <code class="highlighter-rouge">bmi(height, wight)</code></h2>
+
+<p>=&gt; height, weight值取出後，傳入另一個function，利用<code class="highlighter-rouge">parseInt()</code>轉為數值。</p>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bmi</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 取完值後轉為數值</span>
+  <span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">weight</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">w</span> <span class="o">/</span> <span class="p">(</span> <span class="nx">h</span> <span class="o">*</span> <span class="nx">h</span> <span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">calculateBMI</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//  按下去後取值</span>
+  <span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#bodyHeight'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+  
+  <span class="kd">var</span> <span class="nx">weight</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#bodyWeight'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bmi</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>問題：如何印出小數點第2位?</p>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>24.218749999999996
+</code></pre></div></div>
+
+<p>解法：使用<code class="highlighter-rouge">.toFixed(2);</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">return</span> <span class="p">(</span><span class="nx">w</span> <span class="o">/</span> <span class="p">(</span> <span class="nx">h</span> <span class="o">*</span> <span class="nx">h</span> <span class="p">)).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>24.22
+</code></pre></div></div>
+
+<h2 id="step3-calculatebmi把結果印出來">Step3. <code class="highlighter-rouge">calculateBMI()</code>把結果印出來</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">calculateBMI</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//  按下去後取值</span>
+  <span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#bodyHeight'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">weight</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#bodyWeight'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#resultText'</span><span class="p">);</span>
+  <span class="c1">// 不用.value, 因為此表單格式非input</span>
+   
+  <span class="nx">result</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">bmi</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">);</span>
+  <span class="c1">//console.log(bmi(height, weight));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="step4-簡單的防呆機制">Step4. 簡單的防呆機制</h2>
+
+<p>空白值計算後會產生NaN，用邏輯判斷<code class="highlighter-rouge">if else</code>擋掉空白以及除數為0的情況</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="p">((</span><span class="nx">height</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span> <span class="nx">height</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">weight</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">)){</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">bmi</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'請輸入正確數值!'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+</code></pre></div></div>
+
+<h2 id="step5-加上肥胖提醒">Step5. 加上肥胖提醒</h2>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 程式碼寫在這裡！</span>
+<span class="kd">function</span> <span class="nx">bmi</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 取完值後轉為數值</span>
+  <span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">weight</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="p">(</span><span class="nx">w</span> <span class="o">/</span> <span class="p">(</span> <span class="nx">h</span> <span class="o">*</span> <span class="nx">h</span> <span class="p">)).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">r</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">printHealth</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">bmi</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">24</span><span class="p">){</span>
+    <span class="k">return</span> <span class="s2">"有點胖喔！多起來走動走動"</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">bmi</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">"有點瘦喔！多吃一點"</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">"正常"</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">calculateBMI</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//  按下去後取值</span>
+  <span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#bodyHeight'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">weight</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#bodyWeight'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#resultText'</span><span class="p">);</span> <span class="c1">// 不用.value</span>
+  <span class="kd">var</span> <span class="nx">health</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#healthText'</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">((</span><span class="nx">height</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span> <span class="nx">height</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">weight</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">)){</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">bmi</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">);</span>
+    <span class="nx">health</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">printHealth</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">weight</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'請輸入正確數值!'</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">//console.log(bmi(height, weight));</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>完成品：https://codepen.io/tingtinghsu/full/zbaRQd</p>
+
+<h1 id="實作練習2-購物車">實作練習2: 購物車</h1>
+
+<p>加上<code class="highlighter-rouge">選擇全部</code>功能和<code class="highlighter-rouge">計算價錢</code>功能</p>
+
+<h2 id="selectallskills-選擇全部的函數"><code class="highlighter-rouge">selectAllSkills()</code> 選擇全部的函數</h2>
+
+<p>html</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"selectAll"</span> <span class="na">onclick=</span><span class="s">"selectAllSkills()"</span><span class="nt">&gt;</span>我全都要 <span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>從html發現skillset的標籤，不同技能的<code class="highlighter-rouge">class</code>名稱都是<code class="highlighter-rouge">skill</code>，因此可以用<code class="highlighter-rouge">DOM</code>抓取此變數。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">section</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"skillset"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="err">想學會的技能</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"checkbox"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"skill"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"html"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"html"</span><span class="o">&gt;&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"html"</span><span class="o">&gt;</span><span class="nx">HTML</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"checkbox"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"skill"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"css"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"css"</span><span class="o">&gt;&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"css"</span><span class="o">&gt;</span><span class="nx">CSS</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"checkbox"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"skill"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"javascript"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"javascript"</span><span class="o">&gt;&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"javascript"</span><span class="o">&gt;</span><span class="nx">JavaScript</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"checkbox"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"skill"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"git"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"git"</span><span class="o">&gt;&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"git"</span><span class="o">&gt;</span><span class="nx">Git</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"checkbox"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"skill"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"ruby"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"ruby"</span><span class="o">&gt;&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"ruby"</span><span class="o">&gt;</span><span class="nx">Ruby</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"checkbox"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"skill"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"ruby-on-rails"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"ruby-on-rails"</span><span class="o">&gt;&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"ruby-on-rails"</span><span class="o">&gt;</span><span class="nx">Ruby</span> <span class="nx">on</span> <span class="nx">Rails</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"#"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"selectAll"</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">"selectAllSkills()"</span><span class="o">&gt;</span><span class="err">我全都要</span><span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/section</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">selectAllSkills</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">skills</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.skill'</span><span class="p">);</span>
+  <span class="c1">//skills為一個陣列</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">skills</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">skills</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="c1">//改變.checked屬性</span>
+    <span class="nx">s</span><span class="p">.</span><span class="nx">checked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="addproduct-改變商品的數量及價格"><code class="highlighter-rouge">addProduct()</code> 改變商品的數量及價格</h2>
+<p>不管+1或-1，若將函數帶入數值，可以做成同一個function</p>
+
+<p>html</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;&lt;</span><span class="nx">span</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"item1Quantity"</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"#"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"addProduct"</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">"addProduct(-1)"</span><span class="o">&gt;-&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"#"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"addProduct"</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">"addProduct(1)"</span><span class="o">&gt;+&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/td</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>用DOM抓取欄位和價格
+問題：輸入框<code class="highlighter-rouge">input</code>可以用.value取值，但是<code class="highlighter-rouge">span</code>是HTML標籤，要如何取值?</p>
+
+<p>解法：用<code class="highlighter-rouge">inner.HTML</code>，再加上<code class="highlighter-rouge">parseInt()</code>轉換成數值</p>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">addProduct</span><span class="p">(</span><span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">quantityField</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#item1Quantity'</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">priceField</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#item1Price'</span><span class="p">);</span>
+
+  <span class="cm">/* 量 */</span>
+  <span class="kd">var</span> <span class="nx">quantity</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">quantityField</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
+  <span class="c1">//原始值0已抓取</span>
+  <span class="nx">quantity</span> <span class="o">+=</span> <span class="nx">amount</span><span class="p">;</span> <span class="c1">//增減後的數值</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">quantity</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="nx">quantity</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1">//數量最小值為0</span>
+  
+  <span class="nx">quantityField</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">quantity</span><span class="p">;</span> 
+  <span class="c1">//將量HTML餵回去</span>
+
+ <span class="cm">/* 價 */</span>
+  <span class="kd">var</span> <span class="nx">unitpriceField</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#unitPrice'</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">unitpriceInt</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">unitpriceField</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
+
+  <span class="nx">priceField</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">unitpriceInt</span> <span class="o">*</span> <span class="nx">quantity</span><span class="p">;</span> 
+  <span class="c1">//單價*新量，餵回去HTML總價</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/60eiNz8ESteOE64QD88pLA?view">HackMD筆記</a><br />
+<a href="https://codepen.io/tingtinghsu/full/zbaRQd">CodePen練習一</a><br />
+<a href="https://codepen.io/tingtinghsu/full/drKqPy">CodePen練習二</a><br />
+<a href="../public/note/jsdemo/17-DOM-BMI.html">網頁版-BMI計算機</a><br />
+<a href="../public/note/jsdemo/17-DOM-cart.html">網頁版-網站購物車</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

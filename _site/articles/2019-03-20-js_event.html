@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day18] JS: javascript 事件 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day18] JS: javascript 事件</h3>
+  <span class="post-date">20 Mar 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/javascript">&nbsp;#javascript</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 760 words. </small> <br>
+  <br>
+  <p>javascript event 事件<br />
+透過<code class="highlighter-rouge">event</code>，我們得以實現更多互動性的功能：一偵測到使用者的某個行為（eg. 點擊連結），網頁就做出某個反應（eg. 跳出視窗）。
+<!-- more --></p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#描述事件的方式" id="markdown-toc-描述事件的方式">描述事件的方式</a>    <ul>
+      <li><a href="#1-直接把事件加在元素的標籤裡面" id="markdown-toc-1-直接把事件加在元素的標籤裡面">1. 直接把事件加在元素的標籤裡面</a></li>
+      <li><a href="#2-把事件寫在event-listener" id="markdown-toc-2-把事件寫在event-listener">2. 把事件寫在Event Listener</a>        <ul>
+          <li><a href="#step-1-元素id取名" id="markdown-toc-step-1-元素id取名">Step 1. 元素id取名</a></li>
+          <li><a href="#step-2-用dom的概念將元素抓出來" id="markdown-toc-step-2-用dom的概念將元素抓出來">Step 2. 用DOM的概念將元素抓出來</a></li>
+          <li><a href="#step-3-callback-function-回呼函式" id="markdown-toc-step-3-callback-function-回呼函式">Step 3. callback function 回呼函式</a></li>
+        </ul>
+      </li>
+      <li><a href="#3-省略event-listener的方法" id="markdown-toc-3-省略event-listener的方法">3. 省略Event Listener的方法</a></li>
+      <li><a href="#4-event-listener-傳參數" id="markdown-toc-4-event-listener-傳參數">4. Event Listener 傳參數</a></li>
+      <li><a href="#5-省略event-listener的傳參數寫法" id="markdown-toc-5-省略event-listener的傳參數寫法">5. 省略Event Listener的傳參數寫法</a></li>
+    </ul>
+  </li>
+  <li><a href="#unobtrusive-javascriptujs-非侵入式javascript" id="markdown-toc-unobtrusive-javascriptujs-非侵入式javascript">Unobtrusive JavaScript(UJS) 非侵入式Javascript</a>    <ul>
+      <li><a href="#callback-function-把function當作參數傳遞" id="markdown-toc-callback-function-把function當作參數傳遞">Callback Function: 把function當作參數傳遞</a></li>
+      <li><a href="#改寫上一章節的程式碼將事件寫為ujs" id="markdown-toc-改寫上一章節的程式碼將事件寫為ujs">改寫上一章節的程式碼，將事件寫為UJS</a></li>
+    </ul>
+  </li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<p>Q. 什麼時候會有事件發生?
+A. 
+滑鼠移動<br />
+點擊某個連結/按鈕<br />
+捲動滾輪<br />
+etc…</p>
+
+<h1 id="描述事件的方式">描述事件的方式</h1>
+
+<h2 id="1-直接把事件加在元素的標籤裡面">1. 直接把事件加在元素的標籤裡面</h2>
+
+<p>Eg. <code class="highlighter-rouge">onclick</code>方法</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">onclick=</span><span class="s">"alert('hi');"</span><span class="nt">&gt;</span>按我!<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<p>也可以寫成javascript的<code class="highlighter-rouge">function</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">onclick=</span><span class="s">"clickme();"</span><span class="nt">&gt;</span>先按我!<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/body&gt;</span> 
+<span class="nt">&lt;script&gt;</span>
+    <span class="kd">function</span> <span class="nx">clickme</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了！'</span><span class="p">);</span>
+    <span class="p">}</span> 
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Eg. onmouseover</p>
+
+<h2 id="2-把事件寫在event-listener">2. 把事件寫在Event Listener</h2>
+
+<h3 id="step-1-元素id取名">Step 1. 元素id取名</h3>
+
+<p>html</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">id=</span><span class="s">"clicker"</span><span class="nt">&gt;</span>Event Listener<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<h3 id="step-2-用dom的概念將元素抓出來">Step 2. 用DOM的概念將元素抓出來</h3>
+
+<p>javascript</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clicker</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#clicker'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="step-3-callback-function-回呼函式">Step 3. callback function 回呼函式</h3>
+
+<ol>
+  <li>
+    <p>讓元素使用<code class="highlighter-rouge">.addEventListener</code>設定DOM想要監聽的事件為<code class="highlighter-rouge">click</code></p>
+  </li>
+  <li>
+    <p>只要事件發生了，就去觸發後的函式</p>
+  </li>
+</ol>
+
+<p>javascript</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">clicker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了QQ'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>console</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>我被按了QQ
+</code></pre></div></div>
+
+<p>注意! javascript重視引入的時序，所以使用Listener時，將要引入的script片段<code class="highlighter-rouge">&lt;script&gt;&lt;/script&gt;</code>放於底部</p>
+
+<p>html</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">id=</span><span class="s">"clicker"</span><span class="nt">&gt;</span>Event Listener<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"script/script.js"</span><span class="nt">&gt;&lt;/script&gt;</span> 
+</code></pre></div></div>
+
+<h2 id="3-省略event-listener的方法">3. 省略Event Listener的方法</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clicker</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#clicker'</span><span class="p">);</span>
+
+<span class="nx">clicker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"clicker"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了QQ'</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div></div>
+
+<p>以上的javascript可改寫為省略Event Listener的方法:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clicker</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#clicker'</span><span class="p">);</span>
+
+<span class="nx">clicker</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了YY'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="4-event-listener-傳參數">4. Event Listener 傳參數</h2>
+
+<p>eg. 預設的送出表單<code class="highlighter-rouge">submit</code>，在實務上常常會先用<code class="highlighter-rouge">.preventDefault();</code>關掉原本的預設行為，
+目的是為了在送出表單前寫驗證的function，<code class="highlighter-rouge">檢查</code>表單上的欄位。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clicker</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#clicker'</span><span class="p">);</span>
+
+<span class="nx">clicker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"clicker"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+  <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了QQ'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="5-省略event-listener的傳參數寫法">5. 省略Event Listener的傳參數寫法</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clicker</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#clicker'</span><span class="p">);</span>
+
+<span class="nx">clicker</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+  <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'我被按了YY'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h1 id="unobtrusive-javascriptujs-非侵入式javascript">Unobtrusive JavaScript(UJS) 非侵入式Javascript</h1>
+
+<h2 id="callback-function-把function當作參數傳遞">Callback Function: 把function當作參數傳遞</h2>
+
+<p>eg. 以下程式把sayHello指定給<code class="highlighter-rouge">.onlick</code>或放在<code class="highlighter-rouge">.addEventListener</code>裡面</p>
+
+<ul>
+  <li>注意：這裡的sayHello後面沒有小括號，因為沒有馬上被呼叫</li>
+  <li>只有符合條件才會被呼叫</li>
+  <li>如果加了小括號，就會立刻被呼叫</li>
+</ul>
+
+<p>javascript</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">zone</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#zone'</span><span class="p">);</span>
+<span class="cm">/* 第一種寫法 */</span>
+<span class="nx">zone</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">sayHello</span><span class="p">;</span>
+
+<span class="cm">/* 第二種寫法 */</span>
+<span class="nx">zone</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="nx">sayHello</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="改寫上一章節的程式碼將事件寫為ujs">改寫上一章節的程式碼，將事件寫為UJS</h2>
+
+<p>Step 1. 把HTML裡的<code class="highlighter-rouge">onlick=</code>function都刪掉</p>
+
+<p>html</p>
+
+<p>把</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"addProduct"</span> <span class="na">onclick=</span><span class="s">"addProduct(-1)"</span><span class="nt">&gt;</span>-<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"addProduct"</span> <span class="na">onclick=</span><span class="s">"addProduct(1)"</span><span class="nt">&gt;</span>+<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"selectAll"</span> <span class="na">onclick=</span><span class="s">"selectAllSkills()"</span><span class="nt">&gt;</span>我全都要<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>改為</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"addProduct"</span> <span class="na">id=</span><span class="s">"minusItem"</span><span class="nt">&gt;</span>-<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"addProduct"</span> <span class="na">id=</span><span class="s">"addItem"</span><span class="nt">&gt;</span>+<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"selectAll"</span><span class="nt">&gt;</span>我全都要<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>如果class名稱相同，就取id名字區別功能。</p>
+
+<p>Step 2. 用DOM抓取class (或id)</p>
+
+<ul>
+  <li>方法一: 加上<code class="highlighter-rouge">.addeventlistener</code></li>
+</ul>
+
+<pre><code class="language-javascript=">document.querySelector('.selectAll').addEventListener("click", function(evt){
+  evt.preventDefault();
+  selectAllSkills();
+});
+</code></pre>
+
+<p>p.s. 若<code class="highlighter-rouge">.preventDefault()</code>省略不寫也不影響功能的情況，可改寫為：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.selectAll'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="nx">selectAllSkills</span><span class="p">);</span>
+</code></pre></div></div>
+<p>注意：<code class="highlighter-rouge">selectAllskills</code>不含小括弧。</p>
+
+<ul>
+  <li>方法二: 或者是寫成<code class="highlighter-rouge">.onlick</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#minusItem'</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+  <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">addProduct</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#addItem'</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+  <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">addProduct</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>改寫後可以讓HTML頁面的javascript語法移至script檔，讓程式碼更容易維護。</p>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/chrnQ-0aT9GzJBg7NYISjA?view">HackMD筆記</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

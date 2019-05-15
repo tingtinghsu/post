@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day25 初探 Rails: .present? 和 .exists?比較</h3>
+  <span class="post-date">23 Oct 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/rails">&nbsp;#rails</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 787 words. </small> <br>
+  <br>
+  <p>[昨天]的鐵人賽裡，我們提到了<code class="highlighter-rouge">.present?</code>方法，第一次把腳跨進<code class="highlighter-rouge">Rails</code>的領域，這是一種從<code class="highlighter-rouge">Ruby</code>幼幼班畢業的架勢！</p>
+
+<p>今天再來研究另一個<code class="highlighter-rouge">Rails</code>方法:<code class="highlighter-rouge">.exists?</code>，從英文字面上來說這兩個方法名字挺像的(<code class="highlighter-rouge">.present?</code>現在?在場?；<code class="highlighter-rouge">.exists?</code>存在?生存?)，讓我們來繼續看下
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-25" id="markdown-toc-ruby經典面試題目-25">Ruby經典面試題目 #25</a></li>
+  <li><a href="#present" id="markdown-toc-present"><code class="highlighter-rouge">.present?()</code></a></li>
+  <li><a href="#present與presence" id="markdown-toc-present與presence"><code class="highlighter-rouge">.present</code>與<code class="highlighter-rouge">.presence</code></a></li>
+  <li><a href="#exists" id="markdown-toc-exists"><code class="highlighter-rouge">.exists?</code></a></li>
+  <li><a href="#present與exists比較" id="markdown-toc-present與exists比較"><code class="highlighter-rouge">.present?</code>與<code class="highlighter-rouge">.exists?</code>比較</a></li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-25">Ruby經典面試題目 #25</h1>
+
+<ul>
+  <li><code class="highlighter-rouge">present?</code> 和<code class="highlighter-rouge">.exists?</code>比較?<br />
+What is the difference between .present? and .exists?`</li>
+</ul>
+
+<p>根據我們在這趟鐵人賽journey所養成的好習慣，當學到新的方法時，第一步就是去：翻手冊！</p>
+
+<h1 id="present"><code class="highlighter-rouge">.present?()</code></h1>
+
+<p>從<code class="highlighter-rouge">.present()</code>所在的API手冊網址：https://api.rubyonrails.org/classes/Object.html#method-i-present-3F
+我們可以發現<code class="highlighter-rouge">.present?()</code>方法是屬於<code class="highlighter-rouge">Object</code>之下的方法。如果物件Object不是<code class="highlighter-rouge">blank</code>(nil, 空值, 或空白鍵)，就是代表<code class="highlighter-rouge">現在；在場</code>，回傳true。</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">.present?()</code>: An object is present if it’s not blank.</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">@return [true, false]</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File activesupport/lib/active_support/core_ext/object/blank.rb, line 26</span>
+<span class="k">def</span> <span class="nf">present?</span>
+  <span class="o">!</span><span class="n">blank?</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h1 id="present與presence"><code class="highlighter-rouge">.present</code>與<code class="highlighter-rouge">.presence</code></h1>
+
+<p>present是動詞，presence是名詞，我們從<a href="https://api.rubyonrails.org/classes/Object.html#method-i-presence">Rails API</a>發現
+這兩者方法可以互相轉換，</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File activesupport/lib/active_support/core_ext/object/blank.rb, line 46</span>
+<span class="k">def</span> <span class="nf">presence</span>
+  <span class="nb">self</span> <span class="k">if</span> <span class="n">present?</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">present?</code>可以和<code class="highlighter-rouge">presence</code>互相改寫：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span><span class="p">[</span><span class="ss">:something</span><span class="p">]</span> <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="ss">:something</span><span class="p">].</span><span class="nf">present?</span>
+</code></pre></div></div>
+
+<p>變成</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span><span class="p">[</span><span class="ss">:something</span><span class="p">].</span><span class="nf">presence</span>
+</code></pre></div></div>
+
+<p>程式碼從兩行變成一行了呢～～</p>
+
+<p>如果某物件<code class="highlighter-rouge">不在場(present)</code>，就回傳<code class="highlighter-rouge">nil</code>(returns <code class="highlighter-rouge">nil</code> if object is ‘empty’)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span><span class="p">[</span><span class="ss">:something</span><span class="p">]</span> <span class="o">==</span> <span class="s1">''</span>
+
+<span class="p">[].</span><span class="nf">presence</span>
+<span class="c1"># =&gt; nil</span>
+</code></pre></div></div>
+
+<p>等同於</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">object</span><span class="p">.</span><span class="nf">present?</span> <span class="p">?</span> <span class="n">object</span> <span class="p">:</span> <span class="kp">nil</span>
+</code></pre></div></div>
+
+<h1 id="exists"><code class="highlighter-rouge">.exists?</code></h1>
+
+<p>接著來看看<code class="highlighter-rouge">.exists()</code>所在的API手冊網址：
+https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html#method-c-exists-3F
+可以發現<code class="highlighter-rouge">.exists()</code>方法是屬於<code class="highlighter-rouge">ActiveResource::Base</code>下的方法。</p>
+
+<p>當我們架設一個包含多種功能的動態網站，為了防止效能變差，確保系統資源能被有效利用，我們會先檢查<code class="highlighter-rouge">資源是否存在</code>。</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">exists?(id, options = {})</code>Asserts the existence of a resource, returning true if the resource is found.</p>
+</blockquote>
+
+<p><a href="https://semaphoreci.com/blog/2017/03/14/faster-rails-how-to-check-if-a-record-exists.html">這篇文章提到</a><code class="highlighter-rouge">Existence checks in Rails</code>是非常重要的觀念！就好像出門前要先檢查<code class="highlighter-rouge">鑰匙</code>、<code class="highlighter-rouge">錢包</code>、<code class="highlighter-rouge">手機</code>是否隨身攜帶；出國去機場坐飛機前記得檢查是否攜帶<code class="highlighter-rouge">護照</code>，不然就要再回家拿、浪費大把時間與資源、又搞得自己很狼狽喔！</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s1">'Day 24'</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s1">'The importance of Existence checks'</span><span class="p">)</span>
+
+<span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+<span class="no">IronmanDairy</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="mi">9527</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<p>來看看rails文件的<code class="highlighter-rouge">.exists</code>方法是怎麼被刻出來的：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File activeresource/lib/active_resource/base.rb, line 869</span>
+<span class="k">def</span> <span class="nf">exists?</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+  <span class="k">if</span> <span class="nb">id</span>
+    <span class="n">prefix_options</span><span class="p">,</span> <span class="n">query_options</span> <span class="o">=</span> <span class="n">split_options</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="ss">:params</span><span class="p">])</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">element_path</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prefix_options</span><span class="p">,</span> <span class="n">query_options</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="n">response</span><span class="p">.</span><span class="nf">code</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">==</span> <span class="mi">200</span>
+  <span class="k">end</span>
+  <span class="c1"># id &amp;&amp; !find_single(id, options).nil? id存在且不為空</span>
+<span class="k">rescue</span> <span class="no">ActiveResource</span><span class="o">::</span><span class="no">ResourceNotFound</span><span class="p">,</span> <span class="no">ActiveResource</span><span class="o">::</span><span class="no">ResourceGone</span>
+  <span class="kp">false</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>至於什麼是<code class="highlighter-rouge">ActiveResource::Base</code>呢?</p>
+
+<blockquote>
+  <p>It is the main class for mapping <code class="highlighter-rouge">RESTful</code> resources as <code class="highlighter-rouge">models</code> in a Rails application.<a href="https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html">出處</a></p>
+</blockquote>
+
+<p>這邊的<code class="highlighter-rouge">RESTful</code>和<code class="highlighter-rouge">MVC框架</code>的<code class="highlighter-rouge">model</code>兩個博大精深的概念都可以另外再寫兩本書了，因此限於篇幅，這邊就先暫不提起。（想研究的新手同好可參考:<a href="https://medium.com/alpha-camp-%E5%8F%B0%E7%81%A3/restful%E8%88%87mvc%E7%9A%84%E6%97%85%E7%A8%8B-%E4%B9%8B-%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%B8%8D%E6%87%82%E7%9A%84rails-a4bbc12539e2">RESTful 與 MVC 的旅程 之 那些年我不懂的 Rails</a>）等到小妹未來Ruby功力加深後，會續寫30篇Rails面試精選題深入研究的：）</p>
+
+<h1 id="present與exists比較"><code class="highlighter-rouge">.present?</code>與<code class="highlighter-rouge">.exists?</code>比較</h1>
+
+<p>由於<code class="highlighter-rouge">.present?</code>來自於<code class="highlighter-rouge">ActiveRecord</code>，<code class="highlighter-rouge">.exists</code>來自於<code class="highlighter-rouge">ActiveResource</code>，它們本質上的意義其實很不同：</p>
+
+<p><code class="highlighter-rouge">.present?</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Ironmen</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'Ting Ting'</span><span class="p">)</span>
+
+<span class="no">Ironmen</span> <span class="no">Load</span> <span class="p">(</span><span class="mf">8.1</span><span class="n">ms</span><span class="p">)</span> <span class="no">SELECT</span> <span class="s2">"ironmen"</span><span class="p">.</span><span class="nf">*</span> <span class="no">FROM</span> <span class="s2">"ironmen"</span> <span class="no">WHERE</span> <span class="s2">"ironmen"</span><span class="o">.</span><span class="s2">"name"</span> <span class="o">=</span> <span class="vg">$1</span> <span class="no">ORDER</span> <span class="no">BY</span> <span class="n">users</span><span class="p">.</span><span class="nf">id</span> <span class="no">ASC</span>  <span class="p">[[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s1">'Ting Ting'</span><span class="p">]]</span>
+
+<span class="no">You</span> <span class="n">have</span> <span class="n">initialized</span> <span class="n">an</span> <span class="n">object!</span>
+<span class="no">You</span> <span class="n">have</span> <span class="n">initialized</span> <span class="n">an</span> <span class="n">object!</span>
+
+</code></pre></div></div>
+
+<p>我們看到了初始化<code class="highlighter-rouge">initialized an object</code>的提示。</p>
+
+<p><code class="highlighter-rouge">.exists?</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Ironmen</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'Ting Ting'</span><span class="p">)</span>
+
+<span class="no">Ironmen</span> <span class="no">Exists</span> <span class="p">(</span><span class="mf">2.4</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="mi">1</span> <span class="no">AS</span> <span class="n">one</span> <span class="no">FROM</span> <span class="s2">"ironmen"</span> <span class="no">WHERE</span> <span class="s2">"ironmen"</span><span class="o">.</span><span class="s2">"name"</span> <span class="o">=</span> <span class="vg">$1</span> <span class="no">ORDER</span> <span class="no">BY</span> <span class="n">users</span><span class="p">.</span><span class="nf">id</span> <span class="no">ASC</span> <span class="no">LIMIT</span> <span class="mi">1</span>  <span class="p">[[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s1">'Ting Ting'</span><span class="p">]]</span>
+
+</code></pre></div></div>
+
+<p>我們發現<code class="highlighter-rouge">.present?</code>與<code class="highlighter-rouge">.exists?</code>所代表的SQL語法也有所差異：</p>
+
+<p><code class="highlighter-rouge">.present?</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Ironman</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Ting Ting"</span><span class="p">).</span><span class="nf">present?</span>
+
+<span class="c1"># =&gt; SELECT COUNT(*) FROM ironman WHERE ironman.name = "Ting Ting";</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">.exists?</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Ironman</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Ting Ting"</span><span class="p">)</span>
+
+<span class="c1"># =&gt; SELECT 1 AS one from ironman WHERE name ="Ting Ting" limit 1;</span>
+</code></pre></div></div>
+
+<p>之前鐵人賽文章曾提到的<code class="highlighter-rouge">Benchmark</code>標竿測試，我們常比較不同的method在不同數量級的資料下，哪一個效能較佳。相信你也可以像我一樣猜到<code class="highlighter-rouge">.exist?()</code>來自於確認請求網路資源是否存在的<code class="highlighter-rouge">ActiveResource::Base</code>，速度當然要飛快才行！<a href="https://www.ombulabs.com/blog/benchmark/performance/rails/present-vs-any-vs-exists.html">這篇文章的案例</a>標竿測試<code class="highlighter-rouge">.present?</code>花了900ms(毫秒)，而<code class="highlighter-rouge">.exists?</code>僅花了1ms!!!</p>
+
+<p>最後，不免俗地來個超級比一比：）</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th><code class="highlighter-rouge">.present?()</code></th>
+      <th><code class="highlighter-rouge">.exists?()</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>路徑</td>
+      <td>active_support/core_ext/object/blank.rb</td>
+      <td>activeresource/lib/active_resource/base.rb</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>如果物件Object不為<code class="highlighter-rouge">blank</code>(nil, 空值, 或空白鍵)，回傳<code class="highlighter-rouge">true</code></td>
+      <td>若資源存在，回傳<code class="highlighter-rouge">true</code></td>
+    </tr>
+    <tr>
+      <td>特點</td>
+      <td>利用ActiveRecord初始化物件，效能差</td>
+      <td>ActiveResource下的方法，效能佳</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/13186722/what-is-the-difference-between-using-exists-and-present-in-ruby">What is the difference between using .exists?, and .present? in Ruby?</a></li>
+  <li><a href="https://stackoverflow.com/questions/19637499/what-is-the-point-of-object-presence/19637602">What is the point of object.presence?</a></li>
+  <li><a href="https://api.rubyonrails.org/classes/Object.html#method-i-present-3F">Rails API:present?()</a></li>
+  <li><a href="https://api.rubyonrails.org/classes/Object.html#method-i-presence">Rails API:presence()</a></li>
+  <li><a href="https://api.rubyonrails.org/v3.1/classes/ActiveResource/Base.html#method-c-exists-3F">Rails API:exists?(id, options = {})</a></li>
+  <li><a href="https://semaphoreci.com/blog/2017/03/14/faster-rails-how-to-check-if-a-record-exists.html">Faster Rails: How to Check if a Record Exists</a></li>
+  <li><a href="https://www.ombulabs.com/blog/benchmark/performance/rails/present-vs-any-vs-exists.html">Present? vs Any? vs Exists?</a></li>
+  <li><a href="https://www.ombulabs.com/blog/benchmark/performance/rails/present-vs-any-vs-exists.html">empty?, blank?, any?, exists? methods of Ruby on Rails ActiveRecord</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

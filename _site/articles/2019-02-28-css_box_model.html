@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [Day03] CSS: Box Model &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[Day03] CSS: Box Model</h3>
+  <span class="post-date">28 Feb 2019</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/css">&nbsp;#css</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/front-end">&nbsp;#front-end</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/note">&nbsp;#note</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 1212 words. </small> <br>
+  <br>
+  <p>CSS的Box Model重點包含<code class="highlighter-rouge">margin</code>外邊界，<code class="highlighter-rouge">border</code>編框，和<code class="highlighter-rouge">padding</code>內邊界。
+<!-- more --></p>
+
+<hr />
+<p>目錄:</p>
+<ul id="markdown-toc">
+  <li><a href="#1-margin-外邊界" id="markdown-toc-1-margin-外邊界">1. margin 外邊界</a>    <ul>
+      <li><a href="#外邊界-上右下左語法" id="markdown-toc-外邊界-上右下左語法">外邊界-上.右.下.左.語法</a></li>
+      <li><a href="#外邊界語法簡寫" id="markdown-toc-外邊界語法簡寫">外邊界語法簡寫</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-border-邊框" id="markdown-toc-2-border-邊框">2. border 邊框</a></li>
+  <li><a href="#3-padding-內邊界" id="markdown-toc-3-padding-內邊界">3. padding 內邊界</a></li>
+  <li><a href="#語法練習-margin-border-padding" id="markdown-toc-語法練習-margin-border-padding">語法練習: margin, border, padding</a></li>
+  <li><a href="#html--css-顯示範例" id="markdown-toc-html--css-顯示範例">html + css 顯示範例</a></li>
+  <li><a href="#4-進階排版細節" id="markdown-toc-4-進階排版細節">4. 進階排版細節</a>    <ul>
+      <li><a href="#41-內邊界padding和box-sizing" id="markdown-toc-41-內邊界padding和box-sizing">4.1 內邊界<code class="highlighter-rouge">padding</code>和<code class="highlighter-rouge">box-sizing</code></a></li>
+      <li><a href="#42-邊框曲度-border-radius" id="markdown-toc-42-邊框曲度-border-radius">4.2 邊框曲度 <code class="highlighter-rouge">border-radius</code></a>        <ul>
+          <li><a href="#421-圓角" id="markdown-toc-421-圓角">4.2.1 圓角</a></li>
+          <li><a href="#422-圓" id="markdown-toc-422-圓">4.2.2 圓</a></li>
+        </ul>
+      </li>
+      <li><a href="#43-block區塊-與-inline" id="markdown-toc-43-block區塊-與-inline">4.3 block區塊 與 inline</a>        <ul>
+          <li><a href="#431-block-元素" id="markdown-toc-431-block-元素">4.3.1 block 元素</a></li>
+          <li><a href="#432-inline-元素" id="markdown-toc-432-inline-元素">4.3.2 inline 元素</a></li>
+          <li><a href="#inline設定寬度" id="markdown-toc-inline設定寬度">inline設定寬度</a></li>
+          <li><a href="#inline維持一排的型態" id="markdown-toc-inline維持一排的型態">inline維持一排的型態</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#5-reset與normalize" id="markdown-toc-5-reset與normalize">5. Reset與Normalize</a></li>
+  <li><a href="#相關連結" id="markdown-toc-相關連結">相關連結</a></li>
+</ul>
+
+<hr />
+
+<h1 id="1-margin-外邊界">1. margin 外邊界</h1>
+
+<h2 id="外邊界-上右下左語法">外邊界-上.右.下.左.語法</h2>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+    <span class="nl">margin-top</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">margin-right</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>    
+    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">margin-left</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="外邊界語法簡寫">外邊界語法簡寫</h2>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">10px</span><span class="p">;</span> <span class="c">/*上下左右外邊界皆10px*/</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>               <span class="c">/*數值若相同，可只寫一個*/</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">50px</span> <span class="m">30px</span> <span class="m">50px</span> <span class="m">30px</span><span class="p">;</span>  <span class="c">/*上下50px,右左30px*/</span> 
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">50px</span> <span class="m">30px</span><span class="p">;</span>            <span class="c">/*上下相同,右左相同*/</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="2-border-邊框">2. border 邊框</h1>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+    <span class="nl">border-width</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>   <span class="c">/*邊框寬度*/</span>
+    <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>   <span class="c">/*邊框顏色*/</span>
+
+    <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span>  <span class="c">/*邊框樣式: 實線*/</span>
+    <span class="nl">border-style</span><span class="p">:</span> <span class="nb">dotted</span><span class="p">;</span> <span class="c">/*邊框樣式: 點狀*/</span>
+    <span class="nl">border-style</span><span class="p">:</span> <span class="nb">dashed</span><span class="p">;</span> <span class="c">/*邊框樣式: 虛線*/</span>
+
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="no">red</span> <span class="nb">solid</span><span class="p">;</span> <span class="c">/*寬度.顏色.樣式簡寫成一行*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h1 id="3-padding-內邊界">3. padding 內邊界</h1>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="語法練習-margin-border-padding">語法練習: margin, border, padding</h1>
+
+<p>html</p>
+
+<pre><code class="language-htmlmixed=">&lt;h1&gt;Box Model&lt;/h1&gt;
+
+&lt;article&gt;
+  &lt;h2&gt;重點&lt;/h2&gt;
+  &lt;p id="title"&gt;領導者的特質&lt;/p&gt;
+  &lt;p id="zh"&gt;「我最常做的事情是，學會給予夥伴所需要的空間，並且信任我的團隊。」&lt;/p&gt;
+  &lt;p id="en"&gt;Put them first. It’s a people-first mindset that unlocks sales success. Some people think of “sharks” as ruthless predators, but that’s not how I do business. I know how to innovate, disrupt the marketplace, orchestrate a killer investment deal, and grow a business. But my people-first perspective is at the heart of everything I do. I intentionally seek win-win relationships and solutions.
+&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&amp;copy; 版權所有，翻譯不究&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>css:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="nf">#en</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">30</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">50</span><span class="p">);</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Courier New'</span><span class="p">,</span> <span class="n">Courier</span><span class="p">,</span> <span class="nb">monospace</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+
+  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">50px</span><span class="p">;</span>
+  <span class="nl">margin-left</span><span class="p">:</span> <span class="m">130px</span><span class="p">;</span>
+  <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">50px</span><span class="p">;</span>
+  
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="no">brown</span> <span class="nb">dashed</span><span class="p">;</span> <span class="c">/*寬度.顏色.樣式簡寫*/</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span> <span class="c">/*內邊界*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h1 id="html--css-顯示範例">html + css 顯示範例</h1>
+
+<article>
+  <h2>文章</h2>
+  <p id="title">領導者的特質</p>
+  <p id="zh">「我最常做的事情是，學會給予夥伴所需要的空間，並且信任我的團隊。」</p>
+  <p id="en">Put them first. It’s a people-first mindset that unlocks sales success. Some people think of “sharks” as ruthless predators, but that’s not how I do business. I know how to innovate, disrupt the marketplace, orchestrate a killer investment deal, and grow a business. But my people-first perspective is at the heart of everything I do. I intentionally seek win-win relationships and solutions.
+</p>
+</article>
+<style>
+p#en {
+  color: rgba(30,30,20,50);
+  background-color: yellow;
+  font-family: 'Courier New', Courier, monospace;
+  width: 400px;
+  margin: 40px 60px; 
+  border: 2px brown dashed; /*以上三行簡寫*/
+  padding: 20px;
+}
+</style>
+
+<footer>
+  <p>&copy; 版權所有，翻譯不究</p>
+</footer>
+
+<h1 id="4-進階排版細節">4. 進階排版細節</h1>
+
+<h2 id="41-內邊界padding和box-sizing">4.1 內邊界<code class="highlighter-rouge">padding</code>和<code class="highlighter-rouge">box-sizing</code></h2>
+
+<p>排版時，內邊界<code class="highlighter-rouge">padding</code>的排版位置會受到外邊界<code class="highlighter-rouge">border</code>和邊框寬度<code class="highlighter-rouge">border-width</code>影響。
+解決此問題，可使用在需要排成同大小的文字框內的css加上
+<code class="highlighter-rouge">box-sizing: border-box;</code>
+(讓兩個文字框的寬度相同，變成包含<code class="highlighter-rouge">邊框寬度</code>的<code class="highlighter-rouge">含稅價</code>)</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.p1</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">20px</span> <span class="no">brown</span> <span class="nb">dotted</span><span class="p">;</span> <span class="c">/*以上三行簡寫*/</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+  <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.p2</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+  <span class="c">/*width: 480px; /*寬度要改成400+80,黃色部份才會一樣寬*/</span>
+  <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span> <span class="c">/*包含box邊框的寬度*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="42-邊框曲度-border-radius">4.2 邊框曲度 <code class="highlighter-rouge">border-radius</code></h2>
+
+<h3 id="421-圓角">4.2.1 圓角</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+   <span class="nl">border-radius</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="p1">Put them first. It’s a people-first mindset that unlocks sales success. Some people think of “sharks” as ruthless predators, but that’s not how I do business. I know how to innovate, disrupt the marketplace, orchestrate a killer investment deal, and grow a business. But my people-first perspective is at the heart of everything I do. I intentionally seek win-win relationships and solutions.
+</p>
+
+<p class="p2">Put them first. It’s a people-first mindset that unlocks sales success. Some people think of “sharks” as ruthless predators, but that’s not how I do business. I know how to innovate, disrupt the marketplace, orchestrate a killer investment deal, and grow a business. But my people-first perspective is at the heart of everything I do. I intentionally seek win-win relationships and solutions.
+</p>
+
+<style>
+.p1 {
+  color: rgba(30,30,20,50);
+  background-color: yellow;
+  font-family: 'Courier New', Courier, monospace;
+  width: 400px;
+  border: 5px brown solid; /*以上三行簡寫*/
+  border-radius: 15px 5px 10px 20px; /*左上.右上.左下.右下*/
+  padding: 20px;
+}
+
+.p2 {
+  color: rgba(30,30,20,50);
+  background-color: yellow;
+  font-family: 'Courier New', Courier, monospace;
+  width: 400px;
+
+}
+</style>
+
+<h3 id="422-圓">4.2.2 圓</h3>
+
+<p>用css畫圖：
+當<code class="highlighter-rouge">border-radius</code>超過長與高的一半，圖案會變成圓。</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.p</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">pink</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">90px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="round1"></p>
+<style>
+.round1 {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  border-radius: 90px;
+}
+</style>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.p</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">lightgreen</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="round2"></p>
+<style>
+.round2 {
+  width: 200px;
+  height: 200px;
+  background-color: lightgreen;
+  border-radius: 100px;
+}
+</style>
+
+<h2 id="43-block區塊-與-inline">4.3 block區塊 與 inline</h2>
+
+<p>並不是所有元素都能調寬度和高度。來比較一下<code class="highlighter-rouge">block</code>與<code class="highlighter-rouge">inline</code>：</p>
+
+<h3 id="431-block-元素">4.3.1 block 元素</h3>
+
+<p>block會把其他元素擠到下一行。</p>
+
+<pre><code class="language-htmlmixed=">&lt;div&gt; div 會占滿整個區塊，除非設定 width 寬度 &lt;/div&gt;
+</code></pre>
+<div class="block1"></div>
+<div class="block2"></div>
+<style>
+.block1 {
+  height: 100px;
+  background-color: pink;
+}  
+.block2 {
+  height: 100px;
+  background-color: purple;
+}
+</style>
+
+<h3 id="432-inline-元素">4.3.2 inline 元素</h3>
+
+<p>inline<code class="highlighter-rouge">不會</code>把其他元素擠到下一行，而且無法設定<code class="highlighter-rouge">width</code>和<code class="highlighter-rouge">height</code>。</p>
+
+<p>html</p>
+<pre><code class="language-htmlmixed">&lt;a href="#" class="link1"&gt;首頁&lt;/a&gt;
+</code></pre>
+<p>css</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.link1</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div>
+<a href="#" class="link1">首頁</a>
+<a href="#" class="link1">簡介</a>
+<a href="#" class="link1">作品</a>
+<a href="#" class="link1">留言</a>
+<style>
+.link1 {
+    background-color: yellow;
+}
+</style>
+</div>
+
+<h3 id="inline設定寬度">inline設定寬度</h3>
+
+<p>加上<code class="highlighter-rouge">display: block;</code>，可將inline變成具有block元素的屬性去調寬度與高度。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.link2</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span> <span class="c">/*重要，加上後可設定寬度高度邊界*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div>
+<a href="#" class="link1">首頁</a>
+<a href="#" class="link2">簡介</a>
+<a href="#" class="link2">作品</a>
+<a href="#" class="link2">留言</a>
+<style>
+.link2 {
+    background-color: yellow;
+    display: block; /*重要，加上後可設定寬度高度邊界*/
+    padding: 10px;
+    margin-bottom: 10px; /*跟下一個block隔開間隔*/    
+}
+</style>
+</div>
+
+<h3 id="inline維持一排的型態">inline維持一排的型態</h3>
+
+<p>加上<code class="highlighter-rouge">display: inline-block;</code></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.link3</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span> <span class="c">/*維持一排的型態，可設定高度*/</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div>
+<a href="#" class="link1">首頁</a>
+<a href="#" class="link3">簡介</a>
+<a href="#" class="link3">作品</a>
+<a href="#" class="link3">留言</a>
+<style>
+.link3 {
+    background-color: yellow;
+    display: inline-block; /*維持一排的型態，可設定高度*/
+    height: 10px;
+    padding: 10px;
+}
+</style>
+</div>
+
+<h1 id="5-reset與normalize">5. Reset與Normalize</h1>
+
+<p>reset: 歸零</p>
+
+<p>normalize: 不歸零</p>
+
+<h1 id="相關連結">相關連結</h1>
+
+<p><a href="https://hackmd.io/szAI4CVzQsmOwouKfI5Jng?view">HackMD筆記</a><br />
+<a href="https://codepen.io/tingtinghsu/pen/WmQxvb">CodePen練習</a><br />
+<a href="../public/note/cssdemo/03-boxmodel.html">網頁作品</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-03-26-js_blackjack">[Day24] JS: javascript blackjack game</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-25-js_ajax">[Day23] JS: javascript AJAX</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-24-js_jquery">[Day22] JS: javascript jQuery</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2019-03-23-js_es6">[Day21] JS: javascript ES6</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

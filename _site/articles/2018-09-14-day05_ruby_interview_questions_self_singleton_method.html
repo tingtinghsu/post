@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day05 Ruby中的self物件與singleton method</h3>
+  <span class="post-date">14 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 540 words. </small> <br>
+  <br>
+  <p>在第四天裡，我們用鐵人賽參賽者的例子解說實例方法與類別方法。</p>
+
+<!-- more -->
+
+<p>類別中的實體物件，想要玩弄方法時，可以有三種取用方式：（<del>跟斯斯有三種一樣</del>）</p>
+
+<ol>
+  <li>
+    <p>該類別所定義的實體方法。</p>
+  </li>
+  <li>
+    <p>模組中可取得的實體方法。（關於模組，記得第三天的include與extend比較嗎？）</p>
+  </li>
+  <li>
+    <p>類別方法:類別物件的<code class="highlighter-rouge">singleton method</code></p>
+  </li>
+</ol>
+
+<blockquote>
+  <p>Class can use methods from three areas:
+1) Instances of class can call methods that are defined as instance methods in their class.
+2) Instances of Class have access to the instance methods defined in Module
+3) Or instances can call a singleton method of a class object. <a href="https://medium.com/@lauren.kroner/ruby-class-vs-instance-methods-a5182ce7de49">出處</a></p>
+</blockquote>
+
+<p>所以我們在今天要解說一下<code class="highlighter-rouge">Self</code>與<code class="highlighter-rouge">singleton method</code>囉！</p>
+
+<hr />
+
+<h1 id="ruby經典面試題目-05">Ruby經典面試題目 #05</h1>
+
+<ul>
+  <li><code class="highlighter-rouge">self</code>是什麼意思？<br />
+What does <code class="highlighter-rouge">self</code> mean?</li>
+</ul>
+
+<p><code class="highlighter-rouge">self</code> 有豐富層次的含義。 <del>就跟我們的內心一樣</del> (🎵 🎵 來點播一首陳綺貞的<a href="https://www.youtube.com/watch?v=H1-kEjeO6SI">Self</a>🎵🎵  ) 它雖然代表自己本身的<code class="highlighter-rouge">物件Object</code>，但還記得，我們在第一天說到，Ruby的世界幾乎都是物件嗎?</p>
+
+<p>因此，<code class="highlighter-rouge">self</code>有兩種意思：</p>
+
+<ul>
+  <li>
+    <p>Self在類別class裡，代表目前的類別。</p>
+  </li>
+  <li>
+    <p>Self在實體instance裡，代表目前的實體。</p>
+  </li>
+</ul>
+
+<p>簡單解釋：實體就是物體在記憶體的位置，就好像每個寶寶（實體）生下來，都是從某個媽媽的子宮（記憶體）裡出來的。我們必須經歷過實體化的過程才能成為一個活生生的人呢！</p>
+
+<p>幸好，產生一個實體不用等”懷胎十月”這麼久，只要像我們在第一天一樣使用<code class="highlighter-rouge">@</code>宣告記憶體位置就可以產生實體變數了：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">LoveSong</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+     <span class="vi">@message</span> <span class="o">=</span> <span class="s2">"I was born to love you!"</span> <span class="c1">#定義實體變數（instance variable）@message</span>
+  <span class="k">end</span>
+    <span class="k">def</span> <span class="nf">sing_a_song</span>
+    <span class="nb">puts</span> <span class="vi">@message</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Ting</span> <span class="o">=</span> <span class="no">LoveSong</span><span class="p">.</span><span class="nf">new</span>
+<span class="no">Ting</span><span class="p">.</span><span class="nf">sing_a_song</span>
+ <span class="c1">#=&gt; I was born to love you!</span>
+</code></pre></div></div>
+
+<p>用LoveSong類別另寫一段程式碼實作<code class="highlighter-rouge">self</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">LoveSong</span>
+  <span class="k">def</span>
+    <span class="nc">self</span><span class="o">.</span><span class="nf">one</span><span class="p">()</span>
+      <span class="s2">"We are the champion!"</span>
+  <span class="k">end</span>
+
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="k">def</span> <span class="nf">two</span><span class="p">()</span>
+      <span class="s2">"We will rock you!"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="nb">p</span> <span class="nb">self</span>             <span class="c1"># =&gt; LoveSong</span>
+  <span class="nb">p</span> <span class="nb">self</span><span class="p">.</span><span class="nf">class</span>       <span class="c1"># =&gt; Class  </span>
+  <span class="nb">p</span> <span class="nb">self</span><span class="p">.</span><span class="nf">singleton_methods</span> <span class="c1"># [:one, :two]</span>
+
+  <span class="nb">p</span> <span class="nb">self</span><span class="p">.</span><span class="nf">one</span><span class="p">()</span> <span class="c1">#=&gt; "We are the champion!"</span>
+  <span class="nb">p</span> <span class="nb">self</span><span class="p">.</span><span class="nf">two</span><span class="p">()</span> <span class="c1">#=&gt; "We will rock you"</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+
+<p>在這裡的<code class="highlighter-rouge">self</code>代表目前的類別名稱<code class="highlighter-rouge">LoveSong</code>， 我們查詢<code class="highlighter-rouge">self.class</code>還是類別<code class="highlighter-rouge">class</code>， 而這裡的<code class="highlighter-rouge">self.singleton_method</code>出現了<code class="highlighter-rouge">:one</code>與<code class="highlighter-rouge">:two</code>這兩個能夠分別印出兩首歌的類別方法(class method)。</p>
+
+<p>還記得我們在第一天文章曾經提到利用superclass查找父類別的方法嗎？</p>
+
+<p>類別的父類別，是物件。 <code class="highlighter-rouge">class.superclass</code>是<code class="highlighter-rouge">object</code>。</p>
+
+<p>但其實：每一個類別class上面都還有一層隱形的類別class(<del>隱形的翅膀</del>)，我們可以稱作metaclass，在Ruby叫eigenclass。<a href="https://blog.chh.tw/posts/ruby-metaclass-eigenclass/">出處</a>]。</p>
+
+<h1 id="singleton-method">Singleton Method</h1>
+
+<p>單例方法＝單例類別的實體方法。</p>
+
+<p>（指的是某物件實體「的單例類別」的實體方法，而不是某個物件的實體方法，中間多夾了一層「單例類別」）</p>
+
+<ul>
+  <li>
+    <p>singleton methods of an object are not instance methods of the class of the object;</p>
+  </li>
+  <li>
+    <p>they are instance methods of the <code class="highlighter-rouge">singleton class</code> of the object.</p>
+  </li>
+</ul>
+
+<p>當我們講到 <code class="highlighter-rouge">Singleton Method</code>，就會提到<code class="highlighter-rouge">Singleton Pattern</code>單例模式，這個在物件導向語言(如：Java)共同的觀念。</p>
+
+<ul>
+  <li>
+    <p>如果我們能保證某一個類別只產生一個物件實體，而且提供存取該物件的統一方法。這種設計模式就稱為單例模式。</p>
+  </li>
+  <li>
+    <p>我們可以直接存取，而不需要實體化此類別的物件。</p>
+  </li>
+</ul>
+
+<h2 id="使用singleton-method的時機">使用<code class="highlighter-rouge">Singleton Method</code>的時機</h2>
+
+<p>當我們想控制實體數目，節省系統資源的時候。</p>
+
+<p>再度把例子🌰搬出來：一間教室裡只有一台印表機，所有電腦都可以連線印表機，但印表機一次只能印出一台電腦上的文件。</p>
+
+<p>還記得我們在第四天舉的例子是查找鐵人參賽者名單嗎？在這個例子中，一次只能查找一名參賽資料。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IronmanList</span>
+    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="nb">p</span> <span class="s2">"finding Ironman ID: </span><span class="si">#{</span><span class="nb">id</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+<span class="no">IronmanList</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>使用規則：</p>
+
+<ol>
+  <li>
+    <p>此類別只能有一個物件實體。(IronmanList 類別中，只有一個self)</p>
+  </li>
+  <li>
+    <p>此類別必須自己建立自己的唯一實體：def self.find(id)</p>
+  </li>
+  <li>
+    <p>此類別必須給其他物件提供這個實體。</p>
+  </li>
+</ol>
+
+<p>使用場景：</p>
+
+<ol>
+  <li>
+    <p>此物件是類別中唯一的物件。如同IronmanList鐵人賽的序列號唯一。（跟身份證號碼一樣）</p>
+  </li>
+  <li>
+    <p>當創建此物件需要消耗較的資源過多時，可節省系統資源。（例如：連結資料庫、連結印表機）</p>
+  </li>
+</ol>
+
+<p>當我們為實體定義了自已的singleton method，代表了這個方法只屬於該實體，儘管是相同的class的實體也無法使用別人的singleton method。（每個實體的單例類別是不同的。）</p>
+
+<p>近一步說明類別方法、實體方法，與單例方法的關係。 中文翻譯的話，我們可以這樣記：</p>
+
+<ul>
+  <li>
+    <p>類別的eigenclass(特徵類別)方法 = 類別方法。</p>
+  </li>
+  <li>
+    <p>實體的eigenclass(特徵類別)方法 = 單例方法 = 單例類別的實體方法。</p>
+  </li>
+</ul>
+
+<h1 id="實體方法">實體方法</h1>
+
+<p>實體已在類別裡定義好了。如果你需要將實體方法，運用在某個特定的實體，記得要在類別裡定義好這個實體。</p>
+<blockquote>
+  <p>舉例:”每個人(物件實體)都能贏得鐵人賽”的方法</p>
+</blockquote>
+
+<h1 id="類別方法">類別方法</h1>
+
+<p>類別方法並不在類別裡定義，而是在類別裡的物件實體的一種單例方法。如果此方法並不會和某個特定的實體變數綁在一起，就使用類別方法！</p>
+<blockquote>
+  <p>舉例：”查找鐵人賽名單”的方法</p>
+</blockquote>
+
+<p>學程式的好處就是會查找許多原文資料（間接提升英文閱讀功力！）
+進一步發現許多原則上的定義用英文表達會更為清楚。</p>
+
+<p>所以，我們的第四天(實體方法與類別方法)與第五天的總結（單例方法的進一步說明）， 從這段英文就能看得更加清楚之間的關係了：)</p>
+
+<ul>
+  <li>
+    <p>Instance methods are methods of a class (defined in the class’s definition)</p>
+  </li>
+  <li>
+    <p>Class methods are singleton methods on the Class instance of a class (not defined in the class’s definition)</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>they are defined on the singleton class of the object.</p>
+</blockquote>
+
+<p>Ref：</p>
+
+<ul>
+  <li><a href="https://blog.bater.gq/ruby/2018/02/02/top-10-essential-ruby-interview-questions.html">Top 10 Essential Ruby Interview Questions</a></li>
+  <li><a href="https://github.com/timurcatakli/ruby-on-rails-interview-questions-answers">Ruby on Rails Technical Interview Questions</a></li>
+  <li><a href="https://www.devalot.com/articles/2008/09/ruby-singleton">Understanding Ruby Singleton Classes</a></li>
+  <li><a href="https://stackoverflow.com/questions/212407/what-exactly-is-the-singleton-class-in-ruby">What exactly is the singleton class in ruby?</a></li>
+  <li><a href="https://ruby-china.org/topics/13276">Ruby 如何理解 singleton class</a></li>
+  <li><a href="http://www.runoob.com/design-pattern/singleton-pattern.html">單例模式 Singleton</a></li>
+  <li><a href="https://medium.com/@zneuray/ruby%E7%9A%84class%E8%88%87eigenclass-f994aa2b988f">Ruby的Class與Eigenclass</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-01-day29_ruby_interview_tap_method">Ruby面試精選30題 - Day29 Ruby的tap method</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

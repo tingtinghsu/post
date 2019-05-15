@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      [RubyGems] carrierwave (3) Deploy 圖片上傳功能到 Heroku網站 &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">[RubyGems] carrierwave (3) Deploy 圖片上傳功能到 Heroku網站</h3>
+  <span class="post-date">08 Sep 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/heroku">&nbsp;#heroku</a></small>
+        </span>&nbsp;
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/rubygem">&nbsp;#rubygem</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 369 words. </small> <br>
+  <br>
+  <p>身為Ruby新手村民，創造穩定且持續的學習步調很重要，我用的方法就是一週寫三篇筆記，希望藉由寫筆記將遇到的bug記錄下來的過程，能幫助到未來想用Ruby on Rails架站的新手。：）</p>
+
+<!-- more -->
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#1-修改image_uploaderrb" id="markdown-toc-1-修改image_uploaderrb">1. 修改<code class="highlighter-rouge">image_uploader.rb</code></a></li>
+  <li><a href="#2-figaro-herokuset--e-production" id="markdown-toc-2-figaro-herokuset--e-production">2. <code class="highlighter-rouge">figaro heroku:set -e production</code></a></li>
+  <li><a href="#3-git-push-heroku-master" id="markdown-toc-3-git-push-heroku-master">3. <code class="highlighter-rouge">git push heroku master</code></a></li>
+  <li><a href="#4-heroku-run-rake-dbmigrate" id="markdown-toc-4-heroku-run-rake-dbmigrate">4. <code class="highlighter-rouge">heroku run rake db:migrate</code></a></li>
+</ul>
+
+<p>話說我在這一天<a href="https://ithelp.ithome.com.tw/articles/10199014">[Ting’s筆記Day4] 將Ruby on Rails專案部署到Heroku</a>架好了站，並在此篇<a href="https://ithelp.ithome.com.tw/articles/10199103/edit">[Ting’s筆記Day7] 活用套件carrierwave gem: (2) 利用Amazon S3架設圖片伺服器</a>完成我的餐廳資料庫網站的圖片上傳功能。接著就要把功能發佈到Heroku啦！</p>
+
+<h1 id="1-修改image_uploaderrb">1. 修改<code class="highlighter-rouge">image_uploader.rb</code></h1>
+
+<p>為了節省Amazon S3用量，（畢竟是免費功能，儲存空間一定的限制，能省則省！）
+我想在本機專案上傳圖片時，照片存在本機端就好；
+在Heroku（遠端production版本）上傳圖片的時候，再上傳至Amazon S3。</p>
+
+<p>我可以去<code class="highlighter-rouge">app/uploaders/image_uploader.rb</code>修改一下程式碼從：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">storage</span> <span class="ss">:fog</span>
+</code></pre></div></div>
+
+<p>改成</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">production?</span>
+    <span class="n">storage</span> <span class="ss">:fog</span> <span class="c1">#Heroku, Use Amazon S3</span>
+  <span class="k">else</span>
+    <span class="n">storage</span> <span class="ss">:file</span>
+ <span class="k">end</span>  
+</code></pre></div></div>
+
+<h1 id="2-figaro-herokuset--e-production">2. <code class="highlighter-rouge">figaro heroku:set -e production</code></h1>
+
+<p>在<a href="https://ithelp.ithome.com.tw/articles/10199103/edit">上篇文章</a>提到了Figaro幫我們隱藏<code class="highlighter-rouge">application.yml</code>檔，做好保護金鑰的功能，由於這個功能動到了config，<del>這件事情的嚴重性(?)</del>我們必須要讓Heroku知道！</p>
+
+<p>跟隨著<a href="https://github.com/laserlemon/figaro#deployment">Figaro的關於Deployment的說明檔</a>指示，把Figaro gem加入Heroku。在ternimal輸入<code class="highlighter-rouge">figaro heroku:set -e production</code>，程式就會把金鑰資訊傳給我在heroku的正式環境。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>figaro heroku:set <span class="nt">-e</span> production
+Setting aws_access_key_id, aws_secret_access_key, fog_directory and restarting ⬢ tingsrailsdemo... <span class="k">done</span>, v7
+aws_access_key_id:     <span class="c">#秘密</span>
+aws_secret_access_key: <span class="c">#不告訴你</span>
+fog_directory:         <span class="c">#Amazon S3 bucket</span>
+</code></pre></div></div>
+
+<h1 id="3-git-push-heroku-master">3. <code class="highlighter-rouge">git push heroku master</code></h1>
+
+<p>在<a href="https://ithelp.ithome.com.tw/articles/10198964">這篇文章</a>裡我已經對於git使用的熟練熟練了：
+    1.<code class="highlighter-rouge">git status</code>
+    2.<code class="highlighter-rouge">git add .</code>
+    3.<code class="highlighter-rouge">git commit -m "增加照片上傳功能"</code>
+    4.<code class="highlighter-rouge">git push</code>
+所以我們先把寫好的的功能加入github版控，要推上github，push上Heroku：，最後用<code class="highlighter-rouge">git push heroku master</code>完成最後一哩路！</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>git push heroku master
+Counting objects: 59, <span class="k">done</span><span class="nb">.</span>
+Delta compression using up to 4 threads.
+Compressing objects: 100% <span class="o">(</span>52/52<span class="o">)</span>, <span class="k">done</span><span class="nb">.</span>
+Writing objects: 100% <span class="o">(</span>59/59<span class="o">)</span>, 331.27 KiB | 0 bytes/s, <span class="k">done</span><span class="nb">.</span>
+Total 59 <span class="o">(</span>delta 33<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+
+remote: https://tingsrailsdemo.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... <span class="k">done</span><span class="nb">.</span>
+To https://git.heroku.com/tingsrailsdemo.git
+   cb86240..05af5ff  master -&gt; master
+</code></pre></div></div>
+
+<p>到Heroku後台查看，新功能已經部署成功~</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180908/20111177wWtUHRU8Sz.png" alt="https://ithelp.ithome.com.tw/upload/images/20180908/20111177wWtUHRU8Sz.png" /></p>
+
+<h1 id="4-heroku-run-rake-dbmigrate">4. <code class="highlighter-rouge">heroku run rake db:migrate</code></h1>
+
+<p>我們當初改完上傳功能時，已經在本地端使用<code class="highlighter-rouge">rake db:migrate</code>讓資料庫順利運行，<a href="https://ithelp.ithome.com.tw/articles/10199035">詳見[Ting’s筆記Day6] 活用套件carrierwave gem: (1)在Rails實現圖片上傳功能</a>
+但遠端的Heroku部分還沒呢！
+因此記得把新更動過的的餐廳圖片資料庫欄位加入Heroku：<code class="highlighter-rouge">heroku run rake db:migrate</code> 更新Production版本的資料庫。</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180907/20111177VdzU63RJQw.png" alt="https://ithelp.ithome.com.tw/upload/images/20180907/20111177VdzU63RJQw.png" /></p>
+
+<p>這裡Heroku出現錯誤訊息<code class="highlighter-rouge">Etimeout: connect etimeout 50.19.103.36:5000</code>
+<a href="https://github.com/heroku/heroku-repo/issues/51">參考這裡的解法</a>，才發現我的wifi所在地的防火牆鎖port 5000。</p>
+
+<p>我使用<code class="highlighter-rouge">run:detached</code>這個指令來解決此問題：<code class="highlighter-rouge">heroku run:detached rake db:migrate</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingdeMacBook-Air:yelpdemo tingtinghsu<span class="nv">$ </span>heroku run:detached rake db:migrate
+Running rake db:migrate on ⬢ tingsrailsdemo... <span class="k">done</span>, run.2219 <span class="o">(</span>Free<span class="o">)</span>
+Run heroku logs <span class="nt">--app</span> tingsrailsdemo <span class="nt">--dyno</span> run.2219 to view the output.
+</code></pre></div></div>
+
+<p>= 大功告成 =</p>
+
+<p>試試網站上的上傳功能，圖片順利存進Amazon S3 :)</p>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20180908/20111177zR1v7NGgyF.png" alt="https://ithelp.ithome.com.tw/upload/images/20180908/20111177zR1v7NGgyF.png" /></p>
+
+<p><code class="highlighter-rouge">carrierwave</code>全系列文章:</p>
+
+<p><a href="https://ithelp.ithome.com.tw/articles/10199035">活用套件carrierwave gem: (1)在Rails實現圖片上傳功能</a><br />
+<a href="https://ithelp.ithome.com.tw/articles/10199103">活用套件carrierwave gem: (2)利用Amazon S3架設圖片伺服器</a><br />
+<a href="https://ithelp.ithome.com.tw/articles/10199014">將Ruby on Rails專案部署到Heroku</a></p>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2019-01-24-rails_ruby_version_RVM">使用RVM安裝Ruby和Rails新版本</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-09-09-crrierwave_gem_resize_image_imagemagick_and_minimagick">[RubyGems] carrierwave (4) 使用Imagemagick修改圖片大小</a><br>
+        
+          
+        
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-09-05-carrierwave_gem_upload_image_amazon_s3_ruby_on_rails">[RubyGems] carrierwave (2) 利用Amazon S3 架設圖片伺服器</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-09-04-carrierwave_gem_upload_image_localhost_ruby_on_rails">[RubyGems] carrierwave (1) 在Rails實現圖片上傳功能</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

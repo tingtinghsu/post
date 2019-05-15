@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      將程式碼用command line上傳至gist &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">將程式碼用command line上傳至gist</h3>
+  <span class="post-date">20 Dec 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/git">&nbsp;#git</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 170 words. </small> <br>
+  <br>
+  <p>最近重新整理鐵人賽文章的程式碼時，我想將<a href="https://tingtinghsu.github.io/blog">Jekyll新版blog</a>的文章插入gist程式碼片段(snippet)，研究了2小時後，發現並沒有我想像中的複雜，挺簡單的！</p>
+
+<!-- more -->
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#步驟" id="markdown-toc-步驟">步驟</a>    <ul>
+      <li><a href="#step-1-在macos用homebrew安裝gist" id="markdown-toc-step-1-在macos用homebrew安裝gist">Step 1. 在MacOS用<code class="highlighter-rouge">Homebrew</code>安裝<code class="highlighter-rouge">gist</code></a></li>
+      <li><a href="#step-2-移至欲上傳程式碼的資料夾在command-line輸入-gist---login-登入-gist" id="markdown-toc-step-2-移至欲上傳程式碼的資料夾在command-line輸入-gist---login-登入-gist">Step 2. 移至欲上傳程式碼的資料夾，在command line輸入 <code class="highlighter-rouge">gist --login</code> 登入 gist</a></li>
+      <li><a href="#step-3-gist--程式碼檔名指令即自動產生網址" id="markdown-toc-step-3-gist--程式碼檔名指令即自動產生網址">Step 3. <code class="highlighter-rouge">gist + 程式碼檔名</code>，指令即自動產生網址!</a></li>
+    </ul>
+  </li>
+  <li><a href="#實作成果" id="markdown-toc-實作成果">實作成果</a>    <ul>
+      <li><a href="#編按" id="markdown-toc-編按">編按</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h1 id="步驟">步驟</h1>
+
+<h2 id="step-1-在macos用homebrew安裝gist">Step 1. 在MacOS用<code class="highlighter-rouge">Homebrew</code>安裝<code class="highlighter-rouge">gist</code></h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>gist
+</code></pre></div></div>
+
+<h2 id="step-2-移至欲上傳程式碼的資料夾在command-line輸入-gist---login-登入-gist">Step 2. 移至欲上傳程式碼的資料夾，在command line輸入 <code class="highlighter-rouge">gist --login</code> 登入 gist</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingtinghsu<span class="nv">$ </span>gist <span class="nt">--login</span>
+Obtaining OAuth2 access_token from github.
+
+GitHub username: <span class="o">[</span>使用者帳號]
+GitHub password: <span class="o">[</span>使用者密碼]
+Success!
+
+https://github.com/settings/tokens
+</code></pre></div></div>
+
+<h2 id="step-3-gist--程式碼檔名指令即自動產生網址">Step 3. <code class="highlighter-rouge">gist + 程式碼檔名</code>，指令即自動產生網址!</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tingtinghsu<span class="nv">$ </span>gist D01Eg1-class_superclass.rb
+
+https://gist.github.com/該程式碼的網址
+</code></pre></div></div>
+
+<h1 id="實作成果">實作成果</h1>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://gist.github.com/你的gist帳號/自懂產生的網址.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>結果顯示如下：</p>
+
+<script src="https://gist.github.com/tingtinghsu/f7b604327ac31896e4aff735675952ad.js">
+</script>
+
+<h2 id="編按">編按</h2>
+
+<p>在command line設定gist過程中曾參考Github官網這篇<a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">Create a personal access token for the command line</a>，在<code class="highlighter-rouge">github.com/settings/tokens/new</code>建立新Token。</p>
+
+<p>然而我後來在command line登入時，發現不需要設定token，只要登入github密碼即可。我猜想原因可能為：當初在本機設定github指令時已經是採用token方式設定。</p>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="http://blog.lyhdev.com/2011/10/gist-code-snippets.html">用 gist 指令快速建立程式碼剪貼簿（code snippets）</a></li>
+  <li><a href="https://medium.com/cubemail88/%E5%9C%A8-medium-%E4%B8%AD%E5%B5%8C%E5%85%A5-source-code-96984c5f41a6">在 Medium 中嵌入 source code</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-08-25-github_jekyll_blog">在Github用Jekyll創建屬於你自己的blog</a><br>
+        
+          
+        
+      
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>

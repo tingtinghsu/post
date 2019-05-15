@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<html lang="en-us">
+
+  <head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+  />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Ruby面試精選30題 - Day29 Ruby的tap method &middot; Ting's Square
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Social Links -->  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+
+  <body class="theme-base-0f">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>@tingtingtour 2018-2019 My Ruby on Rails Project</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/blog/">Home</a>
+    <a class="sidebar-nav-item" href="/blog/tag/interview/">。Interview: Ruby 精選面試題</a>
+    <a class="sidebar-nav-item" href="/blog/tag/rubygem/">。RubyGem: 套件研究</a>
+    <a class="sidebar-nav-item" href="/blog/tag/git/">。Git: 版本控制</a>       
+    <a class="sidebar-nav-item" href="/blog/tag/jekyll">。Blog: Jekyll 靜態網站</a>
+    <a class="sidebar-nav-item" href="/blog/tag/heroku/">。Deployment: Heroku 動態網站</a>
+ 
+
+    <span class="sidebar-nav-item">Ting's Links</span>
+  
+    <ul>
+               
+        <a href="https://github.com/tingtinghsu">
+          <i class="fa fa-github"></i> GitHub
+        </a>       
+       
+    </ul>
+    <ul>  
+                 
+        <a href="https://tingtingtour.wordpress.com/">
+          <i class="fa fa-wordpress"></i> Wordpress
+        </a>
+          
+    </ul>  
+    <ul>  
+      
+        <a href="https://twitter.com/tingtingtour">
+          <i class="fa fa-twitter"></i> Twitter
+        </a>
+            
+    </ul>
+    <ul>  
+      
+        <a href="https://instagram.com/tingtingtour">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+              
+    </ul>
+  <!-- Categories -->    
+
+
+  <!-- Pages -->
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              <a class="sidebar-nav-item" href="/blog/about.html">About Ting Ting</a>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+   
+  <!-- RSS -->
+    <a title="RSS" link rel="alternate" type="application/rss+xml" class="sidebar-nav-item" href="/blog/atom.xml" target="_blank">RSS</a>
+  </nav>
+
+
+  <div class="sidebar-item">  
+    <p>
+      &copy; Ting Ting Hsu 2019. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h4 class="masthead-title">
+            <a href="/blog/" title="Home">Ting's Square</a>
+            <small>程式寫作之路</small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container content">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139879751-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139879751-1');
+</script>
+
+<div class="post">
+  <h3 class="post-title">Ruby面試精選30題 - Day29 Ruby的tap method</h3>
+  <span class="post-date">01 Nov 2018</span>
+  <div class="tags">
+      
+      <small>Tags: </small>
+      
+        <span class="tag">
+          <small> <a href="/blog/tag/interview">&nbsp;#interview</a></small>
+        </span>&nbsp;
+      
+      <br>
+    </div>
+  <small> Total : 571 words. </small> <br>
+  <br>
+  <p>倒數第。二。篇！成功就在不遠處，可喜可賀！（翹腳捻鬍鬚～～）
+話不多說，趕緊進入正文：
+<!-- more --></p>
+
+<hr />
+
+<p>重點摘要:</p>
+<ul id="markdown-toc">
+  <li><a href="#ruby經典面試題目-29" id="markdown-toc-ruby經典面試題目-29">Ruby經典面試題目 #29</a></li>
+  <li><a href="#tap-public" id="markdown-toc-tap-public">tap() public</a></li>
+  <li><a href="#例子1--traditional-method-類別與方法" id="markdown-toc-例子1--traditional-method-類別與方法">例子1- traditional method: 類別與方法</a></li>
+  <li><a href="#例子2--tap-method" id="markdown-toc-例子2--tap-method">例子2- Tap Method</a></li>
+  <li><a href="#tap-methhod的用途-檢查method-chain便於除錯" id="markdown-toc-tap-methhod的用途-檢查method-chain便於除錯">tap methhod的用途: 檢查method chain，便於除錯</a></li>
+</ul>
+
+<hr />
+
+<h1 id="ruby經典面試題目-29">Ruby經典面試題目 #29</h1>
+
+<p>請解釋Ruby的<code class="highlighter-rouge">tap method</code>?<br />
+What is tap method in Ruby?</p>
+
+<p>Tap method可以幫助我們更容易取得<code class="highlighter-rouge">Block區塊</code>裡的<code class="highlighter-rouge">Object</code>物件，且更便於除錯。（do something with an object inside of a block, and always have that block return the object itself.）</p>
+
+<h1 id="tap-public">tap() public</h1>
+
+<p>來看看<a href="https://apidock.com/ruby/Object/tap">Ruby API文件</a>的說明：</p>
+
+<blockquote>
+  <p>Yields x to the block, and then returns x.</p>
+</blockquote>
+
+<p>Ruby source code:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span>
+<span class="n">rb_obj_tap</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">obj</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">rb_yield</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><code class="highlighter-rouge">Tap method</code>幫我們改進了在<a href="https://ithelp.ithome.com.tw/articles/10201297">第14天: Ruby 的 block, proc, lamdba方法比較</a>中我們整理的block的特點：<code class="highlighter-rouge">不是物件</code>、<code class="highlighter-rouge">不是參數</code>、<code class="highlighter-rouge">沒有回傳值</code>。</p>
+
+<p>讀完以下<a href="https://apidock.com/ruby/Object/tap">Rails API文件</a>source code，讓我更明白能表達<code class="highlighter-rouge">tap method</code>的精髓：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File activesupport/lib/active_support/core_ext/object/misc.rb, line 53</span>
+  <span class="k">def</span> <span class="nf">tap</span>
+    <span class="k">yield</span> <span class="nb">self</span>
+    <span class="nb">self</span>
+  <span class="k">end</span>
+</code></pre></div></div>
+
+<p>真是簡單又好用！</p>
+
+<h1 id="例子1--traditional-method-類別與方法">例子1- traditional method: 類別與方法</h1>
+
+<p>從2018年10月4日，鐵人賽開賽<a href="https://ithelp.ithome.com.tw/articles/10199897">Day1</a>到今天，我從Ruby新新手慢慢累積，每天累積一點點的觀念釐清，現在寫得出像這樣的架構：</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Ironman</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="c1">#class method</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_ironman</span>
+    <span class="n">ironman</span> <span class="o">=</span> <span class="no">Ironman</span><span class="p">.</span><span class="nf">new</span>
+    <span class="n">ironman</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Ting Ting"</span>
+    <span class="n">ironman</span> <span class="c1">#回傳值。若在tap method中，此行就可省略</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">ironman</span> <span class="o">=</span> <span class="no">Ironman</span><span class="p">.</span><span class="nf">create_ironman</span>
+<span class="nb">puts</span> <span class="n">ironman</span><span class="p">.</span><span class="nf">inspect</span>
+<span class="c1">#&lt;Ironman:0x00007fb9df069d70 @name="Ting Ting"&gt;</span>
+</code></pre></div></div>
+
+<h1 id="例子2--tap-method">例子2- Tap Method</h1>
+
+<p><code class="highlighter-rouge">Tap method</code>其實是透過透過<code class="highlighter-rouge">yield</code>某個<code class="highlighter-rouge">object</code>物件進入<code class="highlighter-rouge">block</code>，再傳回此<code class="highlighter-rouge">object</code>。(讓我想到投籃得分時，籃球進框再回彈到手中的感覺！)</p>
+
+<p>所以，我們可以把例子1的傳統方法改成<code class="highlighter-rouge">tap method</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Ironman</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_ironman</span>
+    <span class="no">Ironman</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">tap</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+      <span class="n">i</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Ting Ting"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">ironman</span> <span class="o">=</span> <span class="no">Ironman</span><span class="p">.</span><span class="nf">create_ironman</span>
+<span class="nb">puts</span> <span class="n">ironman</span><span class="p">.</span><span class="nf">inspect</span>
+<span class="c1">#&lt;Ironman:0x00007f8496949c20 @name="Ting Ting"&gt;</span>
+</code></pre></div></div>
+
+<h1 id="tap-methhod的用途-檢查method-chain便於除錯">tap methhod的用途: 檢查method chain，便於除錯</h1>
+
+<p>有的時候我們寫出一個比較複雜的方法，方法裡還有其他方法（稱為method chain）。Tap method可以幫我們更容易檢測method chain裡的值。(例如在<a href="https://ithelp.ithome.com.tw/articles/10202250">第14天</a>有舉過一個Hash#map結合 Array#map複雜方法的例子。)</p>
+
+<blockquote>
+  <p>The primary purpose of this method is to “tap into” a method chain, in order to perform operations on intermediate results within the chain.</p>
+</blockquote>
+
+<p>現在來看看以下案例。我們要從<code class="highlighter-rouge">1,2,3,4,5</code>數字中，像尋找犯人一樣層層找出需要的資訊：</p>
+
+<ul>
+  <li>1 列出陣列值 [1, 2, 3, 4, 5]</li>
+  <li>2 選出偶數的值 [2, 4]</li>
+  <li>3 將選出的偶數做完平方 [4, 16]</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">).</span><span class="nf">tap</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"element: </span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span> <span class="p">}.</span><span class="nf">to_a</span>
+  <span class="c1"># =&gt; element: 1..5</span>
+  <span class="p">.</span><span class="nf">tap</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"array: </span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+  <span class="c1"># =&gt; array: [1, 2, 3, 4, 5]</span>
+  <span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span>
+  <span class="p">.</span><span class="nf">tap</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"evens: </span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+   <span class="c1"># =&gt; evens: [2, 4]</span>
+  <span class="p">.</span><span class="nf">map</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span>
+  <span class="p">.</span><span class="nf">tap</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"squares: </span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+   <span class="c1"># =&gt; squares: [4, 16]</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>tap enables you to “tap into” a method chain and perform some tangential function.</p>
+</blockquote>
+
+<p>感想：經過3小時的研究之後，發現Tap method用在<code class="highlighter-rouge">集合collection</code>真的說是非常方便！未來邁向成為資深工程師的道路，寫更複雜的method時，就可以流露出（就算程式碼有錯誤，我也能夠快速找到）的自信了！</p>
+
+<p>Ref:</p>
+
+<ul>
+  <li><a href="https://apidock.com/ruby/Object/tap">API dock: Ruby/Object/tap</a></li>
+  <li><a href="https://apidock.com/rails/v2.3.8/Object/tap">API dock: Rails/Object/tap</a></li>
+  <li><a href="https://medium.com/aviabird/ruby-tap-that-method-90c8a801fd6a">Ruby: Tap that method</a></li>
+  <li><a href="http://kronosapiens.github.io/blog/2014/02/16/the-ruby-tap-method-for-objects.html">The Ruby ‘Tap’ Method for Objects</a></li>
+  <li><a href="https://www.youtube.com/watch?v=QAJMxBkYaUQ">The Ruby Tap Method</a></li>
+</ul>
+
+</div>
+
+  <div class="related">
+    <h5>Related Posts</h5>
+    <div class="related-posts"> 
+      
+      
+      
+        
+        
+        <a href="/blog/articles/2018-12-19-ruby_interview_syllabus">Ruby面試精選30題 - 題目大綱</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-11-02-day30_ruby_interview_duck_type">Ruby面試精選30題 - Day30 Ruby的duck type+完賽感言</a><br>
+        
+          
+        
+      
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-31-day28_ruby_interview_double_splat">Ruby面試精選30題 - Day28 Ruby的 ** (double splat) operator</a><br>
+        
+          
+        
+      
+        
+        
+        <a href="/blog/articles/2018-10-30-day27_ruby_interview_hash_default_value">Ruby面試精選30題 - Day27 Ruby裡的Hash預設值</a><br>
+        
+          
+        
+          
+    </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/new-tab.js"></script>
+
+
+
+      </div>
+    </div>
+
+    <div class="foot" align="center">
+        
+          <a href="https://tingtingtour.wordpress.com/">
+            <i class="fa fa-wordpress"></i>
+          </a>
+        
+      
+        
+          <a href="https://github.com/tingtinghsu">
+            <i class="fa fa-github"></i>
+          </a>       
+        
+            
+        
+          <a href="https://twitter.com/tingtingtour">
+            <i class="fa fa-twitter"></i>
+          </a>
+        
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+   <!-- a new tab for external URL  -->
+  <!-- https://note.pcwu.net/2017/02/05/jekyll-link-new-tab/  -->
+  </body>
+</html>
